@@ -25,6 +25,12 @@ else
   MEDIAPLAYER_TESTS=""
 fi
 
+if [[ $(uname -a) =~ "Ubuntu" ]]; then
+  # GitHub Actions uses Ubuntu, needs gcc>=8
+  export CC="gcc-8"
+  export CXX="g++-8"
+fi
+
 # Add git submodules (from .gitmodules)
 echo "== Fetching submodules"
 git submodule update --init --recursive
@@ -35,15 +41,11 @@ if [ ! -f "$HOME/.conan/profiles/default" ]; then
   conan profile new default --detect
 fi
 
+# GitHub Actions uses Ubuntu
 echo "== Setting up OS specific configurations"
 if [[ $(uname -a) =~ "Ubuntu" ]]; then
-  # GitHub Actions uses Ubuntu, needs gcc>=8
-  export CC="gcc-8"
-  export CXX="g++-8"
-  conan profile update settings.compiler.libcxx=libstdc++11 default
-
-  # Github Actions?
   if [[ $USER == "runner" ]]; then
+    conan profile update settings.compiler.libcxx=libstdc++11 default
     sudo add-apt-repository ppa:snaipewastaken/ppa
     sudo apt update
     sudo apt install -y gcovr criterion-dev libasound2-dev mesa-common-dev libx11-dev libxrandr-dev libxi-dev xorg-dev libgl1-mesa-dev libglu1-mesa-dev
