@@ -1,0 +1,7 @@
+[requires]
+bzip2/1.0.8@conan/stable
+qt/5.12.8@bincrafters/stable
+nlohmann_json/3.7.3
+
+[generators]
+cmake
