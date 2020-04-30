@@ -31,6 +31,9 @@ git submodule update --init --recursive
 
 echo "== Setting up conan"
 conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan &>/dev/null || true
+if [ ! -f "$HOME/.conan/profiles/default" ]; then
+  conan profile new default --detect
+fi
 
 echo "== Setting up OS specific configurations"
 if [[ $(uname -a) =~ "Ubuntu" ]]; then
