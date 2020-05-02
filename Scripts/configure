@@ -51,9 +51,8 @@ if [[ $(uname -a) =~ "Ubuntu" ]]; then
   if [[ $USER == "runner" ]]; then
     conan profile update settings.compiler.libcxx=libstdc++11 default
 
-    sudo add-apt-repository ppa:snaipewastaken/ppa
-    sudo apt update >/dev/null
-    sudo apt install -y gcovr criterion-dev >/dev/null
+    sudo apt update &>/dev/null
+    sudo apt install -y gcovr >/dev/null
   fi
 fi
 
