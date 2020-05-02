@@ -52,8 +52,8 @@ if [[ $(uname -a) =~ "Ubuntu" ]]; then
     conan profile update settings.compiler.libcxx=libstdc++11 default
 
     sudo add-apt-repository ppa:snaipewastaken/ppa
-    sudo apt update
-    sudo apt install -y gcovr criterion-dev
+    sudo apt update >/dev/null
+    sudo apt install -y gcovr criterion-dev >/dev/null
   fi
 fi
 
