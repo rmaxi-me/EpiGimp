@@ -35,6 +35,9 @@ fi
 echo "== Fetching submodules"
 git submodule update --init --recursive
 
+echo "== Installing pip dependencies"
+python -m pip install --user -r requirements.txt >/dev/null
+
 echo "== Setting up conan"
 conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan &>/dev/null || true
 if [ ! -f "$HOME/.conan/profiles/default" ]; then
@@ -46,6 +49,7 @@ echo "== Setting up OS specific configurations"
 if [[ $(uname -a) =~ "Ubuntu" ]]; then
   if [[ $USER == "runner" ]]; then
     conan profile update settings.compiler.libcxx=libstdc++11 default
+
     sudo add-apt-repository ppa:snaipewastaken/ppa
     sudo apt update
     sudo apt install -y gcovr criterion-dev
