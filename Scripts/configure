@@ -36,6 +36,7 @@ echo "== Fetching submodules"
 git submodule update --init --recursive
 
 echo "== Installing pip dependencies"
+export PATH="$PATH:$HOME/.local/bin"
 python -m pip install --user -r requirements.txt >/dev/null
 
 echo "== Setting up conan"
