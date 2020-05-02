@@ -2,7 +2,7 @@
 bzip2/1.0.8@conan/stable
 nlohmann_json/3.7.3
 gtest/1.10.0
-# qt/5.12.8@bincrafters/stable
+qt/5.12.8@bincrafters/stable
 
 [generators]
 cmake
