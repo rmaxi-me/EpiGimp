@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(MediaPlayer VERSION 1.0.0 LANGUAGES CXX)
+project(EpiGimp VERSION 1.0.0 LANGUAGES CXX)
 
 set(CMAKE_VERBOSE_MAKEFILE OFF) # Turn on to debug cmake/make
 
@@ -22,17 +22,17 @@ conan_cmake_install(
 if (UNIX)
     add_compile_options(-Wall -Wextra -Weffc++)
 
-    if (MEDIAPLAYER_ERROR)
+    if (EPIGIMP_ERROR)
         add_compile_options(-Werror)
     endif ()
 endif ()
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
-    add_compile_definitions(MEDIAPLAYER_DEBUG=1)
+    add_compile_definitions(EPIGIMP_DEBUG=1)
 elseif (CMAKE_BUILD_TYPE MATCHES Release)
-    add_compile_definitions(MEDIAPLAYER_RELEASE=1)
+    add_compile_definitions(EPIGIMP_RELEASE=1)
 endif ()
 
-add_subdirectory(MediaPlayer)
+add_subdirectory(EpiGimp)
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")

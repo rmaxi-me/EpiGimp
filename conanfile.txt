@@ -1,14 +1,10 @@
 [requires]
-# Windows
-bzip2/1.0.8@conan/stable
+imgui/1.76
+imgui-sfml/2.1@bincrafters/stable
+sfml/2.5.1@bincrafters/stable
 
-# MacOS
-libiconv/1.16
-
-# All
 nlohmann_json/3.7.3
 gtest/1.10.0
-qt/5.12.8@bincrafters/stable
 
 [generators]
 cmake
