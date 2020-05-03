@@ -7,8 +7,8 @@ nlohmann_json/3.7.3
 gtest/1.10.0
 
 [options]
-imgui-sfml:shared=True
-sfml:shared=True
+imgui-sfml:shared=False
+sfml:shared=False
 sfml:graphics=True
 sfml:window=True
 sfml:audio=False
