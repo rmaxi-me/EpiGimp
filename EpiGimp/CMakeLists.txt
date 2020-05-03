@@ -7,3 +7,7 @@ add_executable(
 
 target_include_directories(${PROJECT_NAME} PRIVATE include ../Engine/include)
 target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}Engine ${CONAN_LIBS})
+
+if (UNIX AND NOT APPLE)
+    target_link_libraries(${PROJECT_NAME} m stdc++fs)
+endif ()
