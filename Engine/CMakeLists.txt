@@ -6,4 +6,3 @@ add_library(
 )
 
 target_include_directories(${PROJECT_NAME}Engine PRIVATE include)
-target_link_libraries(${PROJECT_NAME}Engine ${CONAN_LIBS})
