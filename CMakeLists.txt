@@ -25,8 +25,7 @@ include(${CMAKE_BINARY_DIR}/conan.cmake)
 conan_cmake_install(
         CONANFILE conanfile.txt
         BUILD missing
-        # Slows CI builds somehow
-        # INSTALL_ARGS -s build_type=${CMAKE_BUILD_TYPE}
+        INSTALL_ARGS -s build_type=${CMAKE_BUILD_TYPE}
 )
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup(NO_OUTPUT_DIRS TARGETS)

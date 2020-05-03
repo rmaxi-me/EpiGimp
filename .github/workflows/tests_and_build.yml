@@ -28,9 +28,9 @@ jobs:
         uses: actions/cache@v1.1.2
         with:
           path: ~/.conan
-          key: ${{ runner.os }}-conan-${{ matrix.mode }}-cache-v1-${{ hashFiles('**/conanfile.txt') }}
+          key: ${{ runner.os }}-conan-${{ matrix.mode }}-cache-v2-${{ hashFiles('**/conanfile.txt') }}
           restore-keys: |
-            ${{ runner.os }}-conan-${{ matrix.mode }}-cache-v1
+            ${{ runner.os }}-conan-${{ matrix.mode }}-cache-v2
 
       - name: Configure
         shell: bash
