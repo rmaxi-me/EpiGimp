@@ -7,6 +7,35 @@
 
 #pragma once
 
-class Application {
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/Text.hpp>
 
-};
+#include <cstdint>
+#include <memory>
+
+namespace Engine {
+    class Application {
+    private:
+        sf::Text m_textFPS{};
+    protected:
+        std::unique_ptr<sf::RenderWindow> m_window{nullptr};
+
+        uint32_t m_fps{0};
+        double m_deltaTime{0.0};
+    public:
+        static sf::Font DefaultFont;
+
+        Application(int ac, char **av);
+        virtual ~Application() = default;
+
+        void start(const char *title);
+        void drawFps();
+
+        virtual void processEvent(const sf::Event &event);
+
+        virtual void init() = 0;
+        virtual void deinit() = 0;
+        virtual void tick(double deltaTime) = 0;
+        virtual void draw() = 0;
+    };
+}

@@ -17,14 +17,19 @@ conan_cmake_install(
         CONANFILE conanfile.txt
         BUILD missing
 
-        # Slows CI builds
+        # Slows CI builds somehow
         # INSTALL_ARGS -s build_type=${CMAKE_BUILD_TYPE}
 )
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup(NO_OUTPUT_DIRS)
 
 if (UNIX)
-    add_compile_options(-Wall -Wextra -Weffc++)
+    add_compile_options(
+            -Wall -Wextra
+
+            # FIXME: SFML has effc++ warnings
+            # -Weffc++
+    )
 
     if (EPIGIMP_ERROR)
         add_compile_options(-Werror)
