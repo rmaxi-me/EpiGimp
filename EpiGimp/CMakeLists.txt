@@ -5,5 +5,5 @@ add_executable(
         src/Main.cpp include/Main.hpp
 )
 
-target_include_directories(${PROJECT_NAME} PRIVATE include)
-target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS})
+target_include_directories(${PROJECT_NAME} PRIVATE include ../Engine/include)
+target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}Engine ${CONAN_LIBS})

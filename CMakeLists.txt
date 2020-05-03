@@ -16,8 +16,12 @@ include(${CMAKE_BINARY_DIR}/conan.cmake)
 conan_cmake_install(
         CONANFILE conanfile.txt
         BUILD missing
-        INSTALL_ARGS -s build_type=${CMAKE_BUILD_TYPE}
+
+        # Slows CI builds
+        # INSTALL_ARGS -s build_type=${CMAKE_BUILD_TYPE}
 )
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup(NO_OUTPUT_DIRS)
 
 if (UNIX)
     add_compile_options(-Wall -Wextra -Weffc++)
@@ -33,6 +37,7 @@ elseif (CMAKE_BUILD_TYPE MATCHES Release)
     add_compile_definitions(EPIGIMP_RELEASE=1)
 endif ()
 
+add_subdirectory(Engine)
 add_subdirectory(EpiGimp)
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
