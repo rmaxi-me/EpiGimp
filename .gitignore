@@ -31,9 +31,16 @@
 *.out
 *.app
 app
+unit_tests
 
 # Generated Files
+.idea/
 build
+cmake-build-*/
 
 # IDE configuration folder
 .vscode
+.vs
+
+# Other
+Dependencies/json/
