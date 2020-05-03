@@ -38,3 +38,4 @@ unit_tests
 .idea/
 build/
 cmake-build-*/
+Dependencies/json/

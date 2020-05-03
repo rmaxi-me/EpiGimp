@@ -10,6 +10,10 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
 
+// TODO: Remove this
+#include <json.hpp>
+using Json = nlohmann::json;
+
 #include <cstdint>
 #include <memory>
 
