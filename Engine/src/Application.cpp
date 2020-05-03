@@ -51,7 +51,7 @@ void Engine::Application::processEvent(const sf::Event &event)
 void Engine::Application::start(const char *title)
 {
     sf::Event event{};
-    m_window = std::make_unique<sf::RenderWindow>(sf::VideoMode{1600, 900}, title, sf::Style::Close);
+    m_window = std::make_unique<sf::RenderWindow>(sf::VideoMode{1200, 675}, title, sf::Style::Close);
 
     auto frameCount = m_fps;
     auto previous = std::chrono::high_resolution_clock::now();

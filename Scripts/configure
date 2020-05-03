@@ -53,7 +53,10 @@ if [[ $(uname -a) =~ "Ubuntu" ]]; then
 
     echo "== Installing apt dependencies"
     sudo apt update &>/dev/null
-    sudo apt install -y gcc-9 g++-9 gcovr mesa-common-dev libx11-dev libxrandr-dev libxi-dev xorg-dev libgl1-mesa-dev libglu1-mesa-dev &>/dev/null
+    sudo apt install -y gcc-9 g++-9 gcovr \
+      mesa-common-dev libx11-dev libxrandr-dev \
+      libxi-dev xorg-dev libgl1-mesa-dev libglu1-mesa-dev \
+      libudev1 libudev-dev &>/dev/null
   fi
 fi
 
