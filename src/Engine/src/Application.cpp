@@ -9,6 +9,7 @@
 #include <sstream>
 #include <iostream>
 
+#include <imgui.h>
 #include <imgui-SFML.h>
 
 #include <SFML/Window/Event.hpp>
@@ -78,6 +79,7 @@ auto usa::Engine::Application::start(const std::string_view &title) -> void
         tick(m_deltaTime.asSeconds());
 
         draw();
+        ImGui::EndFrame();
         ImGui::SFML::Render(m_window);
         drawFps();
         m_window.display();
