@@ -8,18 +8,26 @@ endif()
 
 include(${CMAKE_BINARY_DIR}/conan/conan.cmake)
 
+set(_GLIBCXX_USE_CXX11_ABI)
+
 conan_add_remote(NAME bincrafters URL https://api.bintray.com/conan/bincrafters/public-conan)
 
 conan_cmake_run(
+# options
+    BASIC_SETUP
+    NO_OUTPUT_DIRS
+    CMAKE_TARGETS
+    TARGETS
+
+# oneValueArgs
+    INSTALL_FOLDER ${CMAKE_BINARY_DIR}/conan
     CONANFILE conanfile.txt
+
+# multiValueArgs
+    BUILD missing
+    INSTALL_ARGS -s build_type=${CMAKE_BUILD_TYPE}
     REQUIRES ${CONAN_EXTRA_REQUIRES}
     OPTIONS ${CONAN_EXTRA_OPTIONS}
-    BASIC_SETUP
-    CMAKE_TARGETS # individual targets to link to
-    BUILD missing
-    NO_OUTPUT_DIRS TARGETS
-    INSTALL_ARGS -s build_type=${CMAKE_BUILD_TYPE}
-    INSTALL_FOLDER ${CMAKE_BINARY_DIR}/conan
 )
 
 endmacro()
