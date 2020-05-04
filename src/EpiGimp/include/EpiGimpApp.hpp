@@ -16,10 +16,10 @@ public:
     EpiGimpApp(int ac, char **av);
     virtual ~EpiGimpApp() = default;
 
-    auto init() -> void final;
-    auto deinit() -> void final;
-    auto tick(double deltaTime) -> void final;
-    auto draw() -> void final;
+    auto init() -> void;
+    auto deinit() -> void;
+    auto tick(double deltaTime) -> void;
+    auto draw() -> void;
 };
 
 } // namespace usa

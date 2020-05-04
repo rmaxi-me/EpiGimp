@@ -21,7 +21,7 @@ conan_cmake_run(
 
 # oneValueArgs
     INSTALL_FOLDER ${CMAKE_BINARY_DIR}/conan
-    CONANFILE conanfile.txt
+    CONANFILE .conanfile.txt
 
 # multiValueArgs
     BUILD missing

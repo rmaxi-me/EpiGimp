@@ -40,7 +40,7 @@ cmake-build-*/
 CMakeCache.txt
 CMakeFiles
 conan*
-!conanfile.txt
+!.conanfile.txt
 graph_info.json
 
 src/Detail/Config/Definitions.hpp
