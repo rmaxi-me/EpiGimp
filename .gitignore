@@ -30,12 +30,24 @@
 *.exe
 *.out
 *.app
-
-# Custom
+app
 unit_tests
-.vs/
-.vscode/
-.idea/
-build/
+
+# Generated Files
+build
+*.out
 cmake-build-*/
-Dependencies/json/
+CMakeCache.txt
+CMakeFiles
+conan*
+!conanfile.txt
+graph_info.json
+
+src/Detail/Config/Definitions.hpp
+
+# IDE configuration folder
+.vscode
+.vs
+
+# Other
+.idea/

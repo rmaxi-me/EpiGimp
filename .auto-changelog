@@ -1,0 +1,7 @@
+{
+  "output": "HISTORY.md",
+  "template": ".changelog-template.hbs",
+  "unreleased": true,
+  "commitLimit": false,
+  "breaking-pattern": "BREAKING CHANGE:"
+}

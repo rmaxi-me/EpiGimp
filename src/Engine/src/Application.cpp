@@ -5,30 +5,34 @@
 ** under certain conditions; see LICENSE for details.
 */
 
-#include <SFML/Window/Event.hpp>
-
 #include <chrono>
 #include <sstream>
+#include <iostream>
+
+#include <SFML/Window/Event.hpp>
+
+#include <Config/Definitions.hpp>
 
 #include "Engine/Application.hpp"
 
 using namespace std::chrono_literals;
 
-static inline sf::Font loadDefaultFont()
+template<typename T>
+static inline
+auto load(const std::string_view path) -> T
 {
-    sf::Font font;
-
-    font.loadFromFile("Resources/JetBrainsMono-Regular.ttf");
-    return font;
+    T resource; resource.loadFromFile(path.data()); return resource;
 }
 
-sf::Font Engine::Application::DefaultFont{loadDefaultFont()};
+sf::Font usa::Engine::Application::DefaultFont{
+    load<sf::Font>("Resources/Font/JetBrainsMono-Regular.ttf")
+};
 
-Engine::Application::Application(int ac, char **av)
+// TODO: Argument parsing lib
+usa::Engine::Application::Application(int, char **)
 {
-    // TODO: Argument parsing lib
-    (void) ac;
-    (void) av;
+    std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' <<
+        PROJECT_BUILD_TYPE_AS_STRING << '\n';
 
     m_textFPS.setFont(DefaultFont);
     m_textFPS.setCharacterSize(20);
@@ -37,38 +41,38 @@ Engine::Application::Application(int ac, char **av)
     m_textFPS.setPosition(5, 5);
 }
 
-void Engine::Application::processEvent(const sf::Event &event)
+auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
 {
     switch (event.type) {
     case sf::Event::EventType::Closed:
-        m_window->close();
+        m_window.close();
         break;
     default:
         break;
     }
 }
 
-void Engine::Application::start(const char *title)
+auto usa::Engine::Application::start(const std::string_view title) -> void
 {
     sf::Event event{};
-    m_window = std::make_unique<sf::RenderWindow>(sf::VideoMode{1200, 675}, title, sf::Style::Close);
+    m_window.create(sf::VideoMode{1200, 675}, title.data(), sf::Style::Close);
 
     auto frameCount = m_fps;
     auto previous = std::chrono::high_resolution_clock::now();
     decltype(previous) now;
 
     init();
-    while (m_window->isOpen()) {
-        m_window->clear();
+    while (m_window.isOpen()) {
+        m_window.clear();
 
-        while (m_window->pollEvent(event))
+        while (m_window.pollEvent(event))
             processEvent(event);
 
         tick(m_deltaTime);
 
         draw();
         drawFps();
-        m_window->display();
+        m_window.display();
 
         ++frameCount;
         now = std::chrono::high_resolution_clock::now();
@@ -81,12 +85,12 @@ void Engine::Application::start(const char *title)
     deinit();
 }
 
-void Engine::Application::drawFps()
+auto usa::Engine::Application::drawFps() -> void
 {
     std::ostringstream oss{};
 
     oss << m_fps << " FPS";
     m_textFPS.setString(oss.str());
 
-    m_window->draw(m_textFPS);
+    m_window.draw(m_textFPS);
 }
