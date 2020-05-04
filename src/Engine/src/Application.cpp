@@ -9,6 +9,8 @@
 #include <sstream>
 #include <iostream>
 
+#include <imgui-SFML.h>
+
 #include <SFML/Window/Event.hpp>
 
 #include <Config/Definitions.hpp>
@@ -43,6 +45,8 @@ usa::Engine::Application::Application(int, char **)
 
 auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
 {
+    ImGui::SFML::ProcessEvent(event);
+
     switch (event.type) {
     case sf::Event::EventType::Closed:
         m_window.close();
@@ -52,7 +56,7 @@ auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
     }
 }
 
-auto usa::Engine::Application::start(const std::string_view title) -> void
+auto usa::Engine::Application::start(const std::string_view &title) -> void
 {
     sf::Event event{};
     m_window.create(sf::VideoMode{1200, 675}, title.data(), sf::Style::Close);
@@ -60,7 +64,9 @@ auto usa::Engine::Application::start(const std::string_view title) -> void
     auto frameCount = m_fps;
     auto previous = std::chrono::high_resolution_clock::now();
     decltype(previous) now;
+    sf::Clock clock{};
 
+    ImGui::SFML::Init(m_window);
     init();
     while (m_window.isOpen()) {
         m_window.clear();
@@ -68,9 +74,11 @@ auto usa::Engine::Application::start(const std::string_view title) -> void
         while (m_window.pollEvent(event))
             processEvent(event);
 
-        tick(m_deltaTime);
+        ImGui::SFML::Update(m_window, m_deltaTime);
+        tick(m_deltaTime.asSeconds());
 
         draw();
+        ImGui::SFML::Render(m_window);
         drawFps();
         m_window.display();
 
@@ -81,8 +89,11 @@ auto usa::Engine::Application::start(const std::string_view title) -> void
             frameCount = 0;
             previous = now;
         }
+
+        m_deltaTime = clock.restart();
     }
     deinit();
+    ImGui::SFML::Shutdown();
 }
 
 auto usa::Engine::Application::drawFps() -> void

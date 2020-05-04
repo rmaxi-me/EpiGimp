@@ -5,6 +5,8 @@
 ** under certain conditions; see LICENSE for details.
 */
 
+#include <imgui.h>
+
 #include "EpiGimpApp.hpp"
 
 usa::EpiGimpApp::EpiGimpApp(int ac, char **av) :
@@ -20,10 +22,16 @@ auto usa::EpiGimpApp::deinit() -> void
 {
 }
 
-auto usa::EpiGimpApp::tick(double) -> void
+auto usa::EpiGimpApp::tick(float) -> void
 {
 }
 
 auto usa::EpiGimpApp::draw() -> void
 {
+    ImGui::Begin("Test window");
+    {
+        ImGui::Text("Hello world!");
+        ImGui::Button("> Useless button <");
+    }
+    ImGui::End();
 }

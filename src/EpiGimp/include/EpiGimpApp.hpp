@@ -18,7 +18,7 @@ public:
 
     auto init() -> void override;
     auto deinit() -> void override;
-    auto tick(double deltaTime) -> void override;
+    auto tick(float deltaTime) -> void override;
     auto draw() -> void override;
 };
 

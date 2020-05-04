@@ -10,15 +10,6 @@ if [ $# != 1 ]; then
   exit 1
 fi
 
-# MINGW64_NT-???, Darwin, Linux
-OS=$(uname)
-
-# GitHub Actions uses Ubuntu, needs gcc>=8
-if [[ $(uname -a) =~ "Ubuntu" ]]; then
-  export CC="gcc-8"
-  export CXX="g++-8"
-fi
-
 case "$OS" in
 "Linux" | "Darwin")
   cmake --build build --config "$1" -- --no-print-directory
