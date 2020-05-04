@@ -20,24 +20,15 @@
 
 using namespace std::chrono_literals;
 
-template<typename T>
-static inline
-auto load(const std::string_view path) -> T
-{
-    T resource; resource.loadFromFile(path.data()); return resource;
-}
-
-sf::Font usa::Engine::Application::DefaultFont{
-    load<sf::Font>("Resources/Font/JetBrainsMono-Regular.ttf")
-};
-
 // TODO: Argument parsing lib
 usa::Engine::Application::Application(int, char **)
 {
     std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' <<
         PROJECT_BUILD_TYPE_AS_STRING << '\n';
 
-    m_textFPS.setFont(DefaultFont);
+    m_defaultFont.loadFromFile("Resources/Font/JetBrainsMono-Regular.ttf");
+
+    m_textFPS.setFont(m_defaultFont);
     m_textFPS.setCharacterSize(20);
     m_textFPS.setString("...");
     m_textFPS.setFillColor(sf::Color::Yellow);
