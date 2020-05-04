@@ -1,0 +1,20 @@
+#!/bin/bash -e
+
+if [[ $UID == 0 ]]; then
+  echo "Script must not be run as root"
+  exit 1
+fi
+
+if [ $# != 1 ]; then
+  echo "usage: $0 [Debug/Release/...]"
+  exit 1
+fi
+
+case "$OS" in
+"Linux" | "Darwin")
+  cmake --build build --config "$1" -- --no-print-directory
+  ;;
+*)
+  cmake --build build --config "$1"
+  ;;
+esac

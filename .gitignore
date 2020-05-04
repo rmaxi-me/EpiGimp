@@ -1,0 +1,53 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+app
+unit_tests
+
+# Generated Files
+build
+*.out
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles
+conan*
+!conanfile.txt
+graph_info.json
+
+src/Detail/Config/Definitions.hpp
+
+# IDE configuration folder
+.vscode
+.vs
+
+# Other
+.idea/

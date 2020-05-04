@@ -1,0 +1,9 @@
+Repository Features:
+    upload doxygen doc on github on release
+    add clang formating ?
+    app versionning
+    add tests / coverage
+
+Application Features:
+    change std::cout to log libary
+    ...
