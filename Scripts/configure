@@ -39,9 +39,8 @@ echo "== Installing pip dependencies"
 export PATH="$PATH:$HOME/.local/bin"
 python -m pip install --user -r .requirements.txt >/dev/null
 
-echo "== Setting up conan"
-conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan &>/dev/null || true
 if [ ! -f "$HOME/.conan/profiles/default" ]; then
+  echo "== Setting up conan"
   conan profile new default --detect
 fi
 
@@ -49,8 +48,6 @@ fi
 echo "== Setting up OS specific configurations"
 if [[ $(uname -a) =~ "Ubuntu" ]]; then
   if [[ $USER == "runner" ]]; then
-    conan profile update settings.compiler.libcxx=libstdc++11 default
-
     echo "== Installing apt dependencies"
     sudo apt update &>/dev/null
     sudo apt install -y gcc-9 g++-9 gcovr \
