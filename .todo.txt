@@ -3,7 +3,7 @@ Repository Features:
     add clang formating ?
     app versionning
     add tests / coverage
-    patch CI/CD
 
 Application Features:
     change std::cout to log libary
+    ...

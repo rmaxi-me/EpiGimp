@@ -1,4 +1,4 @@
-set(CMAKE_VERBOSE_MAKEFILE ON) # Turn on to debug cmake/make
+option(CMAKE_VERBOSE_MAKEFILE OFF) # Turn on to debug cmake/make
 
 # Set a default build type if none was specified
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)

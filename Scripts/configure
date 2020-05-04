@@ -37,7 +37,7 @@ git submodule update --init --recursive
 
 echo "== Installing pip dependencies"
 export PATH="$PATH:$HOME/.local/bin"
-python -m pip install --user -r .requirements.txt >/dev/null
+python -m pip install --user -r requirements.txt >/dev/null
 
 if [ ! -f "$HOME/.conan/profiles/default" ]; then
   echo "== Setting up conan"
