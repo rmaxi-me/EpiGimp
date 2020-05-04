@@ -1,0 +1,9 @@
+upload doxygen doc on github on release
+
+add clang formating ?
+
+add auto changelog / app versionning
+
+add tests / coverage
+
+change std::cout to log libary

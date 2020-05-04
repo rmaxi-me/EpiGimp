@@ -7,14 +7,19 @@
 
 #pragma once
 
-#include "Engine/Application.hpp"
+#include <Engine/Application.hpp>
+
+namespace usa {
 
 class EpiGimpApp final : public Engine::Application {
 public:
     EpiGimpApp(int ac, char **av);
+    virtual ~EpiGimpApp() = default;
 
-    void init() override;
-    void deinit() override;
-    void tick(double deltaTime) override;
-    void draw() override;
+    auto init() -> void final;
+    auto deinit() -> void final;
+    auto tick(double deltaTime) -> void final;
+    auto draw() -> void final;
 };
+
+} // namespace usa

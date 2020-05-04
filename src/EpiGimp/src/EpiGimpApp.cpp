@@ -7,28 +7,23 @@
 
 #include "EpiGimpApp.hpp"
 
-EpiGimpApp::EpiGimpApp(int ac, char **av)
-        : Application{ac, av}
+usa::EpiGimpApp::EpiGimpApp(int ac, char **av) :
+    Application{ ac, av }
 {
-
 }
 
-void EpiGimpApp::init()
+auto usa::EpiGimpApp::init() -> void
 {
-
 }
 
-void EpiGimpApp::deinit()
+auto usa::EpiGimpApp::deinit() -> void
 {
-
 }
 
-void EpiGimpApp::tick(double)
+auto usa::EpiGimpApp::tick(double) -> void
 {
-
 }
 
-void EpiGimpApp::draw()
+auto usa::EpiGimpApp::draw() -> void
 {
-
 }

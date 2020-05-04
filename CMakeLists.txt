@@ -1,56 +1,72 @@
-cmake_minimum_required(VERSION 3.14)
-project(EpiGimp VERSION 1.0.0 LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.17)
 
-set(CMAKE_VERBOSE_MAKEFILE OFF) # Turn on to debug cmake/make
+include(cmake/StandardProjectSettings.cmake)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON 17)
-
-set(JSON_URL https://github.com/nlohmann/json/releases/download/v3.7.3/json.hpp)
-set(JSON_TARGET ${CMAKE_CURRENT_SOURCE_DIR}/Dependencies/json/json.hpp)
-if (NOT EXISTS ${JSON_TARGET})
-    message(STATUS "Downloading JSON dependency")
-    file(DOWNLOAD ${JSON_URL} ${JSON_TARGET})
-    message(STATUS "Downloading JSON dependency - done")
-endif ()
-include_directories(Dependencies/json)
-
-message(STATUS "Setting up conan")
-if (NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
-    message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
-    file(DOWNLOAD "https://github.com/conan-io/cmake-conan/raw/v0.15/conan.cmake"
-            "${CMAKE_BINARY_DIR}/conan.cmake")
-endif ()
-include(${CMAKE_BINARY_DIR}/conan.cmake)
-conan_cmake_install(
-        CONANFILE conanfile.txt
-        BUILD missing
-        INSTALL_ARGS -s build_type=${CMAKE_BUILD_TYPE}
+project(EpiGimp
+    LANGUAGES CXX
+    VERSION ${PROJECT_VERSION}
+    DESCRIPTION "An Image Processing Software"
+    HOMEPAGE_URL "https://github.com/MaximeHouis/YEP_project2_2019"
 )
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup(NO_OUTPUT_DIRS TARGETS)
-message(STATUS "Setting up conan - done")
 
-if (UNIX)
-    add_compile_options(
-            -Wall -Wextra
 
-            # FIXME: SFML has effc++ warnings
-            # -Weffc++
-    )
+# Link this 'library' to set the c++ standard / compile-time options requested
+add_library(project_options INTERFACE)
+target_compile_features(project_options INTERFACE cxx_std_20)
 
-    if (EPIGIMP_ERROR)
-        add_compile_options(-Werror)
-    endif ()
-endif ()
+if(CMAKE_CXX_COMPILER_ID MATCHES ".*Clang")
+    option(ENABLE_BUILD_WITH_TIME_TRACE "Enable -ftime-trace to generate time tracing .json files on clang" OFF)
+    if (ENABLE_BUILD_WITH_TIME_TRACE)
+        add_compile_definitions(project_options INTERFACE -ftime-trace)
+    endif()
+endif()
 
-if (CMAKE_BUILD_TYPE MATCHES Debug)
-    add_compile_definitions(EPIGIMP_DEBUG=1)
-elseif (CMAKE_BUILD_TYPE MATCHES Release)
-    add_compile_definitions(EPIGIMP_RELEASE=1)
-endif ()
 
-add_subdirectory(Engine)
-add_subdirectory(EpiGimp)
+# Link this 'library' to use the warnings specified in CompilerWarnings.cmake
+add_library(project_warnings INTERFACE)
+# standard compiler warnings
+include(cmake/CompilerWarnings.cmake)
+set_project_warnings(project_warnings)
 
-message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+
+# sanitizer options if supported by compiler
+include(cmake/Sanitizers.cmake)
+enable_sanitizers(project_options)
+
+
+include(cmake/Doxygen.cmake)
+enable_doxygen()
+
+
+# allow for static analysis options
+include(cmake/StaticAnalyzers.cmake)
+
+
+option(BUILD_SHARED_LIBS "Enable compilation of shared libraries" OFF)
+option(ENABLE_TESTING "Enable Test Builds" OFF)
+
+# Very basic PCH example
+option(ENABLE_PCH "Enable Precompiled Headers" OFF)
+if (ENABLE_PCH)
+    # This sets a global PCH parameter, each project will build its own PCH, which
+    # is a good idea if any #define's change
+    target_precompile_headers(project_options INTERFACE
+        <vector> <string> <map> <utility>)
+endif()
+
+
+# Set up some extra Conan dependencies based on our needs
+# before loading Conan
+set(CONAN_EXTRA_REQUIRES "")
+set(CONAN_EXTRA_OPTIONS "")
+
+include(cmake/Conan.cmake)
+run_conan()
+message(STATUS "DONE: Setting up conan")
+
+
+include(cmake/Dependencies.cmake)
+message(STATUS "DONE: Adding external dependencies")
+
+
+add_subdirectory(src)

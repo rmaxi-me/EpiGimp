@@ -34,13 +34,20 @@ app
 unit_tests
 
 # Generated Files
-.idea/
 build
+*.out
 cmake-build-*/
+CMakeCache.txt
+CMakeFiles
+conan*
+!conanfile.txt
+graph_info.json
+
+src/Detail/Config/Definitions.hpp
 
 # IDE configuration folder
 .vscode
 .vs
 
 # Other
-Dependencies/json/
+.idea/

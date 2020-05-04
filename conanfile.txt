@@ -1,10 +1,15 @@
 [requires]
-imgui/1.76
 imgui-sfml/2.1@bincrafters/stable
-sfml/2.5.1@bincrafters/stable
 
 nlohmann_json/3.7.3
 gtest/1.10.0
+
+doxygen_installer/1.8.15@bincrafters/stable
+
+# catch2/2.11.0 # unit test
+# docopt.cpp/0.6.2 # argument parsing
+# fmt/6.1.2 # std::format
+# spdlog/1.5.0 # speed logger
 
 [options]
 imgui-sfml:shared=False
