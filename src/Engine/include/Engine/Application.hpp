@@ -13,6 +13,8 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
 
+#include "Engine/Settings/Settings.hpp"
+
 namespace usa {
 
 namespace Engine {
@@ -20,7 +22,7 @@ namespace Engine {
 class Application {
 public:
     Application(int ac, char **av);
-    virtual ~Application() = default;
+    virtual ~Application();
 
     auto start(const std::string_view &title) -> void;
     auto drawFps() -> void;
@@ -40,6 +42,7 @@ protected:
     std::uint32_t m_fps{0};
     sf::Time m_deltaTime{};
 
+    Settings m_settings;
 private:
     sf::Text m_textFPS{};
 
