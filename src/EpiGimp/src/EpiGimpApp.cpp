@@ -34,4 +34,12 @@ auto usa::EpiGimpApp::draw() -> void
         ImGui::Button("> Useless button <");
     }
     ImGui::End();
+
+    ImGui::Begin("Second Window");
+    {
+        static float color[4];
+        ImGui::ColorPicker4("Color picker", color);
+        ImGui::Button("> Useless button <");
+    }
+    ImGui::End();
 }

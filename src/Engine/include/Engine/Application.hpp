@@ -32,8 +32,6 @@ public:
     virtual auto tick(float deltaTime) -> void = 0;
     virtual auto draw() -> void = 0;
 
-    static sf::Font DefaultFont;
-
 protected:
     sf::RenderWindow m_window;
 
@@ -41,6 +39,7 @@ protected:
     sf::Time m_deltaTime{};
 
 private:
+    sf::Font m_defaultFont{};
     sf::Text m_textFPS{};
 
 };
