@@ -22,7 +22,7 @@ using namespace std::chrono_literals;
 
 // TODO: Argument parsing lib
 usa::Engine::Application::Application(int, char **)
-        : m_settings{ Settings::fromFile() }
+        : m_settings{Settings::fromFile()}
 {
     std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' <<
               PROJECT_BUILD_TYPE_AS_STRING << '\n';
@@ -52,7 +52,7 @@ auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
         m_window.close();
         break;
     case sf::Event::Resized: {
-	m_settings.width = event.size.width;
+        m_settings.width = event.size.width;
         m_settings.height = event.size.height;
         sf::View view = m_window.getView();
         view.setSize(static_cast<float>(event.size.width), static_cast<float>(event.size.height));
