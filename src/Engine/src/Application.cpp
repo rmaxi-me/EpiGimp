@@ -24,13 +24,15 @@ using namespace std::chrono_literals;
 usa::Engine::Application::Application(int, char **)
 {
     std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' <<
-        PROJECT_BUILD_TYPE_AS_STRING << '\n';
+              PROJECT_BUILD_TYPE_AS_STRING << '\n';
 
     m_defaultFont.loadFromFile("Resources/Font/JetBrainsMono-Regular.ttf");
 
     m_textFPS.setFont(m_defaultFont);
     m_textFPS.setCharacterSize(20);
     m_textFPS.setString("...");
+    m_textFPS.setOutlineColor(sf::Color::Black);
+    m_textFPS.setOutlineThickness(1.f);
     m_textFPS.setFillColor(sf::Color::Yellow);
     m_textFPS.setPosition(5, 5);
 }
@@ -43,6 +45,13 @@ auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
     case sf::Event::EventType::Closed:
         m_window.close();
         break;
+    case sf::Event::Resized: {
+        sf::View view = m_window.getView();
+        view.setSize(static_cast<float>(event.size.width), static_cast<float>(event.size.height));
+        view.zoom(m_zoom);
+        m_window.setView(view);
+        break;
+    }
     default:
         break;
     }
@@ -51,7 +60,7 @@ auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
 auto usa::Engine::Application::start(const std::string_view &title) -> void
 {
     sf::Event event{};
-    m_window.create(sf::VideoMode{1200, 675}, title.data(), sf::Style::Close);
+    m_window.create(sf::VideoMode{1200, 675}, title.data(), sf::Style::Close | sf::Style::Resize);
 
     auto frameCount = m_fps;
     auto previous = std::chrono::high_resolution_clock::now();
@@ -68,6 +77,11 @@ auto usa::Engine::Application::start(const std::string_view &title) -> void
 
         ImGui::SFML::Update(m_window, m_deltaTime);
         tick(m_deltaTime.asSeconds());
+
+        if (m_scene) {
+            m_scene->onTick(m_window, m_deltaTime.asSeconds());
+            m_scene->onDraw(m_window);
+        }
 
         draw();
         ImGui::EndFrame();
