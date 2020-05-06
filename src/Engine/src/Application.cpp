@@ -22,6 +22,7 @@ using namespace std::chrono_literals;
 
 // TODO: Argument parsing lib
 usa::Engine::Application::Application(int, char **)
+        : m_settings{ Settings::fromFile() }
 {
     std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' <<
         PROJECT_BUILD_TYPE_AS_STRING << '\n';
@@ -35,6 +36,11 @@ usa::Engine::Application::Application(int, char **)
     m_textFPS.setPosition(5, 5);
 }
 
+usa::Engine::Application::~Application()
+{
+    m_settings.save();
+}
+
 auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
 {
     ImGui::SFML::ProcessEvent(event);
@@ -42,6 +48,10 @@ auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
     switch (event.type) {
     case sf::Event::EventType::Closed:
         m_window.close();
+        break;
+    case sf::Event::EventType::Resized:
+        m_settings.width = event.size.width;
+        m_settings.height = event.size.height;
         break;
     default:
         break;
@@ -51,7 +61,15 @@ auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
 auto usa::Engine::Application::start(const std::string_view &title) -> void
 {
     sf::Event event{};
-    m_window.create(sf::VideoMode{1200, 675}, title.data(), sf::Style::Close);
+    sf::Uint32 style = sf::Style::Close;
+
+    if (m_settings.fullscreen)
+        style |= sf::Style::Fullscreen;
+    else
+        style |= sf::Style::Resize;
+
+    m_window.create(sf::VideoMode{m_settings.width, m_settings.height}, title.data(), style);
+    m_window.setFramerateLimit(m_settings.fps_limit);
 
     auto frameCount = m_fps;
     auto previous = std::chrono::high_resolution_clock::now();
