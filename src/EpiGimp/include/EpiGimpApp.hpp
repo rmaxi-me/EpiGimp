@@ -12,7 +12,9 @@
 namespace usa {
 
 class EpiGimpApp final : public Engine::Application {
+
 public:
+    sf::Texture plop;
     EpiGimpApp(int ac, char **av);
     ~EpiGimpApp() override = default;
 
