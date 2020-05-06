@@ -33,11 +33,14 @@ void SceneCanvas::onEvent(const sf::Event &event)
 
 void SceneCanvas::onTick(const sf::RenderWindow &, float)
 {
+    // Temporary
     if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-        const auto pos = sf::Mouse::getPosition();
-        if (m_rect.getGlobalBounds().contains(static_cast<float>(pos.x), static_cast<float>(pos.y)))
+        auto pos = sf::Mouse::getPosition();
+        if (m_rect.getGlobalBounds().contains(static_cast<float>(pos.x), static_cast<float>(pos.y))) {
             m_canvasImage.setPixel(static_cast<unsigned int>(pos.x), static_cast<unsigned int>(pos.y), sf::Color::Black);
+        }
     }
+
     m_canvasTexture.update(m_canvasImage);
 }
 
