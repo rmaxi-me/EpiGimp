@@ -14,6 +14,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
 
+#include "Engine/Settings/Settings.hpp"
 #include "Scene.hpp"
 
 namespace usa {
@@ -23,7 +24,7 @@ namespace Engine {
 class Application {
 public:
     Application(int ac, char **av);
-    virtual ~Application() = default;
+    virtual ~Application();
 
     auto start(const std::string_view &title) -> void;
     auto drawFps() -> void;
@@ -60,6 +61,7 @@ private:
     sf::Font m_defaultFont{};
     sf::Text m_textFPS{};
 
+    Settings m_settings;
 };
 
 } // namespace Engine
