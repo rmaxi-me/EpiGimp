@@ -46,6 +46,7 @@ auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
     case sf::Event::Resized:
         m_settings.width = event.size.width;
         m_settings.height = event.size.height;
+        reloadView();
         break;
     default:
         break;
