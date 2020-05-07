@@ -16,6 +16,7 @@ public:
     EpiGimpApp(int ac, char **av);
     ~EpiGimpApp() override = default;
 
+    auto processEvent(const sf::Event &event) -> void override;
     auto init() -> void override;
     auto deinit() -> void override;
     auto tick(float deltaTime) -> void override;

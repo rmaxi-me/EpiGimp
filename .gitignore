@@ -51,3 +51,5 @@ src/Detail/Config/Definitions.hpp
 
 # Other
 .idea/
+Resources/config.json
+imgui.ini
