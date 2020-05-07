@@ -61,4 +61,15 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
+if(ENABLE_TESTING)
+  enable_testing()
+  message("Building Tests. Be sure to check out test/constexpr_tests for constexpr testing")
+  add_subdirectory(tests)
+endif()
+
+if(ENABLE_FUZZING)
+  message("Building Fuzz Tests, using fuzzing sanitizer https://www.llvm.org/docs/LibFuzzer.html")
+  add_subdirectory(fuzz_test)
+endif()
+
 add_subdirectory(src)

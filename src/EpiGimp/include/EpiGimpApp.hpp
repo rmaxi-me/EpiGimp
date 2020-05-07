@@ -14,7 +14,7 @@ namespace usa {
 class EpiGimpApp final : public Engine::Application {
 public:
     EpiGimpApp(int ac, char **av);
-    virtual ~EpiGimpApp() = default;
+    ~EpiGimpApp() override = default;
 
     auto init() -> void override;
     auto deinit() -> void override;
