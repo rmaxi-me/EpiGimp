@@ -9,15 +9,10 @@ if(ENABLE_COVERAGE)
   add_test(NAME relaxed_constexpr_tests COMMAND relaxed_constexpr_tests)
 
   setup_target_for_coverage_gcovr_html(
-    NAME
-    coverage
-    EXECUTABLE
-    ctest
-    -j4
-    BASE_DIRECTORY
-    src
+    NAME coverage
+    EXECUTABLE ctest -j4
+    BASE_DIRECTORY unit-test ## : FIXME, it seems that this is not the right path
     # EXCLUDE tests
-    DEPENDENCIES
-    tests)
+    DEPENDENCIES tests constexpr_tests relaxed_constexpr_tests)
 
 endif()

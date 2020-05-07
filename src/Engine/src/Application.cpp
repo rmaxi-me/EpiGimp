@@ -14,6 +14,9 @@
 
 #include <SFML/Window/Event.hpp>
 
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
+
 #include <Config/Definitions.hpp>
 
 #include "Engine/Application.hpp"

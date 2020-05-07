@@ -35,3 +35,5 @@ macro(run_conan)
     ${CONAN_EXTRA_OPTIONS})
 
 endmacro()
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_BINARY_DIR}/conan")
