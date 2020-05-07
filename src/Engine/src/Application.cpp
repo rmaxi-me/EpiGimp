@@ -20,21 +20,19 @@
 using namespace std::chrono_literals;
 
 template<typename T>
-static inline
-auto load(const std::string_view path) -> T
+static inline auto load(const std::string_view path) -> T
 {
-    T resource; resource.loadFromFile(path.data()); return resource;
+    T resource;
+    resource.loadFromFile(path.data());
+    return resource;
 }
 
-sf::Font usa::Engine::Application::DefaultFont{
-    load<sf::Font>("Resources/Font/JetBrainsMono-Regular.ttf")
-};
+sf::Font usa::Engine::Application::DefaultFont{load<sf::Font>("Resources/Font/JetBrainsMono-Regular.ttf")};
 
 // TODO: Argument parsing lib
 usa::Engine::Application::Application(int, char **)
 {
-    std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' <<
-        PROJECT_BUILD_TYPE_AS_STRING << '\n';
+    std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' << PROJECT_BUILD_TYPE_AS_STRING << '\n';
 
     m_textFPS.setFont(DefaultFont);
     m_textFPS.setCharacterSize(20);
@@ -48,11 +46,8 @@ auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
     ImGui::SFML::ProcessEvent(event);
 
     switch (event.type) {
-    case sf::Event::EventType::Closed:
-        m_window.close();
-        break;
-    default:
-        break;
+    case sf::Event::EventType::Closed: m_window.close(); break;
+    default: break;
     }
 }
 
@@ -71,8 +66,7 @@ auto usa::Engine::Application::start(const std::string_view &title) -> void
     while (m_window.isOpen()) {
         m_window.clear();
 
-        while (m_window.pollEvent(event))
-            processEvent(event);
+        while (m_window.pollEvent(event)) processEvent(event);
 
         ImGui::SFML::Update(m_window, m_deltaTime);
         tick(m_deltaTime.asSeconds());

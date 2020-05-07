@@ -6,15 +6,15 @@
 
 #pragma once
 
-# include "Config/Macro.hpp"
+#include "Config/Macro.hpp"
 
-# define PROJECT_NAME "@PROJECT_NAME@" /*!< @brief Name of the project */
-# define PROJECT_VERSION "@PROJECT_VERSION@" /*!< @brief Full Version as string */
+#define PROJECT_NAME    "@PROJECT_NAME@"    /*!< @brief Name of the project */
+#define PROJECT_VERSION "@PROJECT_VERSION@" /*!< @brief Full Version as string */
 
-# define PROJECT_VERSION_MAJOR @PROJECT_VERSION_MAJOR@ /*!< @brief Version Major */
-# define PROJECT_VERSION_MINOR @PROJECT_VERSION_MINOR@ /*!< @brief Version Minor */
-# define PROJECT_VERSION_PATCH @PROJECT_VERSION_PATCH@ /*!< @brief Version Patch */
-# define PROJECT_VERSION_TWEAK @PROJECT_VERSION_TWEAK@ /*!< @brief Version Tweak */
+#define PROJECT_VERSION_MAJOR @PROJECT_VERSION_MAJOR @ /*!< @brief Version Major */
+#define PROJECT_VERSION_MINOR @PROJECT_VERSION_MINOR @ /*!< @brief Version Minor */
+#define PROJECT_VERSION_PATCH @PROJECT_VERSION_PATCH @ /*!< @brief Version Patch */
+#define PROJECT_VERSION_TWEAK @PROJECT_VERSION_TWEAK @ /*!< @brief Version Tweak */
 
-# define PROJECT_BUILD_TYPE @CMAKE_BUILD_TYPE@ /*!< @brief Build Type used */
-# define PROJECT_BUILD_TYPE_AS_STRING AS_STRING(PROJECT_BUILD_TYPE) /*!< @brief Build Type as string */
+#define PROJECT_BUILD_TYPE           @CMAKE_BUILD_TYPE @           /*!< @brief Build Type used */
+#define PROJECT_BUILD_TYPE_AS_STRING AS_STRING(PROJECT_BUILD_TYPE) /*!< @brief Build Type as string */

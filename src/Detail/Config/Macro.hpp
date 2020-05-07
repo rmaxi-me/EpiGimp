@@ -6,8 +6,8 @@
 
 #pragma once
 
-# define STR(str) #str
-# define AS_STRING(exp) STR(exp)
+#define STR(str)       #str
+#define AS_STRING(exp) STR(exp)
 
-# define SUCCESS_CODE 0
-# define ERROR_CODE 1
+#define SUCCESS_CODE 0
+#define ERROR_CODE   1

@@ -1,8 +1,5 @@
-configure_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/Detail/Config/Definitions.hpp.in
-    ${CMAKE_CURRENT_SOURCE_DIR}/Detail/Config/Definitions.hpp
-    @ONLY
-)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Detail/Config/Definitions.hpp.in
+               ${CMAKE_CURRENT_SOURCE_DIR}/Detail/Config/Definitions.hpp @ONLY)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Detail)
 

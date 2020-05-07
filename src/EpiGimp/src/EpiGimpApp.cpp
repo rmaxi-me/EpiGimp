@@ -9,22 +9,13 @@
 
 #include "EpiGimpApp.hpp"
 
-usa::EpiGimpApp::EpiGimpApp(int ac, char **av) :
-    Application{ ac, av }
-{
-}
+usa::EpiGimpApp::EpiGimpApp(int ac, char **av) : Application{ac, av} { }
 
-auto usa::EpiGimpApp::init() -> void
-{
-}
+auto usa::EpiGimpApp::init() -> void { }
 
-auto usa::EpiGimpApp::deinit() -> void
-{
-}
+auto usa::EpiGimpApp::deinit() -> void { }
 
-auto usa::EpiGimpApp::tick(float) -> void
-{
-}
+auto usa::EpiGimpApp::tick(float) -> void { }
 
 auto usa::EpiGimpApp::draw() -> void
 {

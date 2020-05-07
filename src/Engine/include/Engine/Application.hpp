@@ -17,33 +17,32 @@ namespace usa {
 
 namespace Engine {
 
-class Application {
-public:
-    Application(int ac, char **av);
-    virtual ~Application() = default;
+    class Application {
+    public:
+        Application(int ac, char **av);
+        virtual ~Application() = default;
 
-    auto start(const std::string_view &title) -> void;
-    auto drawFps() -> void;
+        auto start(const std::string_view &title) -> void;
+        auto drawFps() -> void;
 
-    virtual auto processEvent(const sf::Event &event) -> void;
+        virtual auto processEvent(const sf::Event &event) -> void;
 
-    virtual auto init() -> void = 0;
-    virtual auto deinit() -> void = 0;
-    virtual auto tick(float deltaTime) -> void = 0;
-    virtual auto draw() -> void = 0;
+        virtual auto init() -> void = 0;
+        virtual auto deinit() -> void = 0;
+        virtual auto tick(float deltaTime) -> void = 0;
+        virtual auto draw() -> void = 0;
 
-    static sf::Font DefaultFont;
+        static sf::Font DefaultFont;
 
-protected:
-    sf::RenderWindow m_window;
+    protected:
+        sf::RenderWindow m_window;
 
-    std::uint32_t m_fps{0};
-    sf::Time m_deltaTime{};
+        std::uint32_t m_fps{0};
+        sf::Time m_deltaTime{};
 
-private:
-    sf::Text m_textFPS{};
-
-};
+    private:
+        sf::Text m_textFPS{};
+    };
 
 } // namespace Engine
 
