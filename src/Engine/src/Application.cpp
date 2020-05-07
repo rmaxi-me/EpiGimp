@@ -20,12 +20,17 @@
 
 using namespace std::chrono_literals;
 
-// TODO: Argument parsing lib
-usa::Engine::Application::Application(int, char **)
-        : m_settings{ Settings::fromFile() }
+usa::Engine::Application::Application(int ac, char **av)
+        : m_binName(av[0]),
+          m_arguments(static_cast<unsigned long>(ac - 1)),
+          m_settings{Settings::fromFile()}
 {
     std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' <<
-        PROJECT_BUILD_TYPE_AS_STRING << '\n';
+              PROJECT_BUILD_TYPE_AS_STRING << '\n';
+
+    for (auto i = 1; i < ac; ++i) {
+        m_arguments.emplace_back(av[i]);
+    }
 
     m_defaultFont.loadFromFile("Resources/Font/JetBrainsMono-Regular.ttf");
 

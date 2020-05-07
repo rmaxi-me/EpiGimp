@@ -36,6 +36,8 @@ public:
 
 protected:
     sf::RenderWindow m_window;
+    std::string_view m_binName;
+    std::vector<std::string_view> m_arguments;
 
     std::uint32_t m_fps{0};
     sf::Time m_deltaTime{};
