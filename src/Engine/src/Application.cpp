@@ -110,7 +110,7 @@ auto usa::Engine::Application::start(const std::string_view &title) -> void
 auto usa::Engine::Application::drawFps() const -> void
 {
     ImGui::SetNextWindowPos(ImVec2{5, 5});
-    ImGui::SetNextWindowSize(ImVec2{150, 75});
+    ImGui::SetNextWindowSize(ImVec2{0, 0});
     ImGui::Begin("Stats");
     {
         ImGui::BulletText("%u FPS", m_fps);
