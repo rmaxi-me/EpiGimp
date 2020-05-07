@@ -24,11 +24,8 @@ bool SceneCanvas::onCreate()
     return true;
 }
 
-void SceneCanvas::onEvent(const sf::Event &event)
+void SceneCanvas::onEvent(const sf::Event &)
 {
-    if (event.type == sf::Event::MouseWheelScrolled) {
-        // TODO: modify m_zoom from the Application class
-    }
 }
 
 void SceneCanvas::onTick(const sf::RenderWindow &, float)
