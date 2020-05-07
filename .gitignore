@@ -52,3 +52,5 @@ imgui.ini
 
 # Other
 .idea/
+Resources/config.json
+imgui.ini

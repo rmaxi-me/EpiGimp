@@ -20,6 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">EpiGimp
    &#160;<span id="projectnumber">0.0.2.0</span>
@@ -89,6 +90,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a11c4137b469775b7210ba5b504e56fb8"><td class="memItemLeft" align="right" valign="top"><a id="a11c4137b469775b7210ba5b504e56fb8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>EpiGimpApp</b> (int ac, char **av)</td></tr>
 <tr class="separator:a11c4137b469775b7210ba5b504e56fb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6de6cb89e7894fd735a75cb6b41d6e31"><td class="memItemLeft" align="right" valign="top"><a id="a6de6cb89e7894fd735a75cb6b41d6e31"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>processEvent</b> (const sf::Event &amp;event) -&gt; void override</td></tr>
+<tr class="separator:a6de6cb89e7894fd735a75cb6b41d6e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d1e02d22a2860620ce53630be628501"><td class="memItemLeft" align="right" valign="top"><a id="a8d1e02d22a2860620ce53630be628501"></a>
 auto&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> () -&gt; void override</td></tr>
 <tr class="separator:a8d1e02d22a2860620ce53630be628501"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,25 +112,36 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> () -&gt; voi
 <tr class="memitem:a01e7e080e5d79ad524d8501c01fa18f7 inherit pub_methods_classusa_1_1Engine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="a01e7e080e5d79ad524d8501c01fa18f7"></a>
 auto&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (const std::string_view &amp;title) -&gt; void</td></tr>
 <tr class="separator:a01e7e080e5d79ad524d8501c01fa18f7 inherit pub_methods_classusa_1_1Engine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af53c49b5f3b8c5147400ca6cf5880c3c inherit pub_methods_classusa_1_1Engine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="af53c49b5f3b8c5147400ca6cf5880c3c"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>drawFps</b> () -&gt; void</td></tr>
-<tr class="separator:af53c49b5f3b8c5147400ca6cf5880c3c inherit pub_methods_classusa_1_1Engine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af58aa3c8a431a2b8471f735e4469ce9e inherit pub_methods_classusa_1_1Engine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="af58aa3c8a431a2b8471f735e4469ce9e"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>processEvent</b> (const sf::Event &amp;event) -&gt; void</td></tr>
-<tr class="separator:af58aa3c8a431a2b8471f735e4469ce9e inherit pub_methods_classusa_1_1Engine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_classusa_1_1Engine_1_1Application"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classusa_1_1Engine_1_1Application')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classusa_1_1Engine_1_1Application.html">usa::Engine::Application</a></td></tr>
+<tr class="memitem:a9993b45a1e43c0816703a8c083e60884 inherit pro_methods_classusa_1_1Engine_1_1Application"><td class="memTemplParams" colspan="2"><a id="a9993b45a1e43c0816703a8c083e60884"></a>
+template&lt;typename S , typename... Args&gt; </td></tr>
+<tr class="memitem:a9993b45a1e43c0816703a8c083e60884 inherit pro_methods_classusa_1_1Engine_1_1Application"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>createScene</b> (Args &amp;&amp;... args) -&gt; bool</td></tr>
+<tr class="separator:a9993b45a1e43c0816703a8c083e60884 inherit pro_methods_classusa_1_1Engine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76b145288d5db2daf40a2187eabc1684 inherit pro_methods_classusa_1_1Engine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="a76b145288d5db2daf40a2187eabc1684"></a>
+virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>reloadView</b> () -&gt; void final</td></tr>
+<tr class="separator:a76b145288d5db2daf40a2187eabc1684 inherit pro_methods_classusa_1_1Engine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classusa_1_1Engine_1_1Application"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classusa_1_1Engine_1_1Application')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classusa_1_1Engine_1_1Application.html">usa::Engine::Application</a></td></tr>
 <tr class="memitem:a135799d9a67aea0c4e5d1d1fdb3a3786 inherit pro_attribs_classusa_1_1Engine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="a135799d9a67aea0c4e5d1d1fdb3a3786"></a>
 sf::RenderWindow&#160;</td><td class="memItemRight" valign="bottom"><b>m_window</b></td></tr>
 <tr class="separator:a135799d9a67aea0c4e5d1d1fdb3a3786 inherit pro_attribs_classusa_1_1Engine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace5478fb34d8e98a8294324c265ac21f inherit pro_attribs_classusa_1_1Engine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="ace5478fb34d8e98a8294324c265ac21f"></a>
+std::unique_ptr&lt; <a class="el" href="classusa_1_1Engine_1_1Scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_scene</b> {nullptr}</td></tr>
+<tr class="separator:ace5478fb34d8e98a8294324c265ac21f inherit pro_attribs_classusa_1_1Engine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab99cf930bad417181bfb8b59eba0e78e inherit pro_attribs_classusa_1_1Engine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="ab99cf930bad417181bfb8b59eba0e78e"></a>
 std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_fps</b> {0}</td></tr>
 <tr class="separator:ab99cf930bad417181bfb8b59eba0e78e inherit pro_attribs_classusa_1_1Engine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57101db194ea2caf166fab5d222a2e15 inherit pro_attribs_classusa_1_1Engine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="a57101db194ea2caf166fab5d222a2e15"></a>
 sf::Time&#160;</td><td class="memItemRight" valign="bottom"><b>m_deltaTime</b> {}</td></tr>
 <tr class="separator:a57101db194ea2caf166fab5d222a2e15 inherit pro_attribs_classusa_1_1Engine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebaa9427240c756b77819aa5b80a5285 inherit pro_attribs_classusa_1_1Engine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="aebaa9427240c756b77819aa5b80a5285"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>m_deltaTimeSeconds</b> {0.f}</td></tr>
+<tr class="separator:aebaa9427240c756b77819aa5b80a5285 inherit pro_attribs_classusa_1_1Engine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f7a4aa200e543d8b37b31685d15a4c2 inherit pro_attribs_classusa_1_1Engine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="a7f7a4aa200e543d8b37b31685d15a4c2"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>m_zoom</b> {1.f}</td></tr>
+<tr class="separator:a7f7a4aa200e543d8b37b31685d15a4c2 inherit pro_attribs_classusa_1_1Engine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/EpiGimp/include/<a class="el" href="EpiGimpApp_8hpp_source.html">EpiGimpApp.hpp</a></li>

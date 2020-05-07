@@ -15,12 +15,6 @@ Inheritance diagram for usa\+::Engine\+::Application\+:\begin{figure}[H]
 \mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a01e7e080e5d79ad524d8501c01fa18f7}\label{classusa_1_1Engine_1_1Application_a01e7e080e5d79ad524d8501c01fa18f7}} 
 auto {\bfseries start} (const std\+::string\+\_\+view \&title) -\/$>$ void
 \item 
-\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_af53c49b5f3b8c5147400ca6cf5880c3c}\label{classusa_1_1Engine_1_1Application_af53c49b5f3b8c5147400ca6cf5880c3c}} 
-auto {\bfseries draw\+Fps} () -\/$>$ void
-\item 
-\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_af58aa3c8a431a2b8471f735e4469ce9e}\label{classusa_1_1Engine_1_1Application_af58aa3c8a431a2b8471f735e4469ce9e}} 
-virtual auto {\bfseries process\+Event} (const sf\+::\+Event \&event) -\/$>$ void
-\item 
 \mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a1687ba81c73abdb0a56c7e07a8c3595e}\label{classusa_1_1Engine_1_1Application_a1687ba81c73abdb0a56c7e07a8c3595e}} 
 virtual auto {\bfseries init} () -\/$>$ void=0
 \item 
@@ -33,17 +27,38 @@ virtual auto {\bfseries tick} (float delta\+Time) -\/$>$ void=0
 \mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a168b0fff54292f12cf8a7fef6da896f1}\label{classusa_1_1Engine_1_1Application_a168b0fff54292f12cf8a7fef6da896f1}} 
 virtual auto {\bfseries draw} () -\/$>$ void=0
 \end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a9993b45a1e43c0816703a8c083e60884}\label{classusa_1_1Engine_1_1Application_a9993b45a1e43c0816703a8c083e60884}} 
+{\footnotesize template$<$typename S , typename... Args$>$ }\\auto {\bfseries create\+Scene} (Args \&\&... args) -\/$>$ bool
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a76b145288d5db2daf40a2187eabc1684}\label{classusa_1_1Engine_1_1Application_a76b145288d5db2daf40a2187eabc1684}} 
+virtual auto {\bfseries reload\+View} () -\/$>$ void final
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_af58aa3c8a431a2b8471f735e4469ce9e}\label{classusa_1_1Engine_1_1Application_af58aa3c8a431a2b8471f735e4469ce9e}} 
+virtual auto {\bfseries process\+Event} (const sf\+::\+Event \&event) -\/$>$ void
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a135799d9a67aea0c4e5d1d1fdb3a3786}\label{classusa_1_1Engine_1_1Application_a135799d9a67aea0c4e5d1d1fdb3a3786}} 
 sf\+::\+Render\+Window {\bfseries m\+\_\+window}
 \item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_ace5478fb34d8e98a8294324c265ac21f}\label{classusa_1_1Engine_1_1Application_ace5478fb34d8e98a8294324c265ac21f}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classusa_1_1Engine_1_1Scene}{Scene}} $>$ {\bfseries m\+\_\+scene} \{nullptr\}
+\item 
 \mbox{\Hypertarget{classusa_1_1Engine_1_1Application_ab99cf930bad417181bfb8b59eba0e78e}\label{classusa_1_1Engine_1_1Application_ab99cf930bad417181bfb8b59eba0e78e}} 
 std\+::uint32\+\_\+t {\bfseries m\+\_\+fps} \{0\}
 \item 
 \mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a57101db194ea2caf166fab5d222a2e15}\label{classusa_1_1Engine_1_1Application_a57101db194ea2caf166fab5d222a2e15}} 
 sf\+::\+Time {\bfseries m\+\_\+delta\+Time} \{\}
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_aebaa9427240c756b77819aa5b80a5285}\label{classusa_1_1Engine_1_1Application_aebaa9427240c756b77819aa5b80a5285}} 
+float {\bfseries m\+\_\+delta\+Time\+Seconds} \{0.f\}
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a7f7a4aa200e543d8b37b31685d15a4c2}\label{classusa_1_1Engine_1_1Application_a7f7a4aa200e543d8b37b31685d15a4c2}} 
+float {\bfseries m\+\_\+zoom} \{1.f\}
 \end{DoxyCompactItemize}
 
 

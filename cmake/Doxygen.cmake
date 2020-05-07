@@ -12,8 +12,10 @@ function(enable_doxygen)
 
     configure_file(${CMAKE_SOURCE_DIR}/src/docs/Doxyfile.in ${CMAKE_BINARY_DIR}/src/Doxyfile @ONLY)
 
-    configure_file(${CMAKE_SOURCE_DIR}/src/docs/extra/Packages.hpp.in ${CMAKE_BINARY_DIR}/src/docs/extra/Packges.hpp @ONLY)
-    configure_file(${CMAKE_SOURCE_DIR}/src/docs/extra/Coverage.hpp.in ${CMAKE_BINARY_DIR}/src/docs/extra/Coverage.hpp @ONLY)
+    configure_file(${CMAKE_SOURCE_DIR}/src/docs/extra/Packages.hpp.in ${CMAKE_BINARY_DIR}/src/docs/extra/Packges.hpp
+                   @ONLY)
+    configure_file(${CMAKE_SOURCE_DIR}/src/docs/extra/Coverage.hpp.in ${CMAKE_BINARY_DIR}/src/docs/extra/Coverage.hpp
+                   @ONLY)
 
     find_program(CONAN_CMD conan)
 

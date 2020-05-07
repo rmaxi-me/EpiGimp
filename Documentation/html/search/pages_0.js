@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['coverage_10',['Coverage',['../Coverage.html',1,'']]]
+  ['coverage_16',['Coverage',['../Coverage.html',1,'']]]
 ];
