@@ -15,7 +15,7 @@ class SceneCanvas final : public usa::Engine::Scene {
 public:
     SceneCanvas(unsigned int width, unsigned int height);
 
-    auto onCreate() -> bool override;
+    auto onCreate(usa::Engine::Application &app) -> bool override;
     auto onEvent(const sf::Event &event) -> void override;
     auto onTick(const sf::RenderWindow &window, float) -> void override;
     auto onDraw(sf::RenderWindow &window) const -> void override;

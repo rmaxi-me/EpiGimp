@@ -47,7 +47,7 @@ protected:
     {
         m_scene = std::make_unique<S>(std::forward<Args>(args)...);
 
-        if (!m_scene->onCreate()) {
+        if (!m_scene->onCreate(*this)) {
             std::cerr << "Failed to create scene\n";
             m_scene.reset(nullptr);
             return false;

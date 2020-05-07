@@ -12,7 +12,7 @@ SceneCanvas::SceneCanvas(unsigned int width, unsigned int height)
 {
 }
 
-bool SceneCanvas::onCreate()
+bool SceneCanvas::onCreate(usa::Engine::Application &)
 {
     m_canvasImage.create(m_width, m_height, sf::Color::White);
     m_canvasTexture.create(m_width, m_height);
