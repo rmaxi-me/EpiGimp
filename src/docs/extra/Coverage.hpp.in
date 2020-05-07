@@ -1,7 +1,6 @@
 /**
- * @file ExtraPages.hpp
+ * @file src/docs/extra/Coverage.hpp
  * @brief Just a file to add extra page to Doxygen documentation
- * @page DI Packages And Dependencies
- * @htmlinclude @CMAKE_BINARY_DIR@/Documentation/package.html
+ * @page Coverage Coverage
  * @htmlinclude @CMAKE_BINARY_DIR@/coverage/index.html
  */

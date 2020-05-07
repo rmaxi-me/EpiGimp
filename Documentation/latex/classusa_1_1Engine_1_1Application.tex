@@ -1,0 +1,53 @@
+\hypertarget{classusa_1_1Engine_1_1Application}{}\doxysection{usa\+::Engine\+::Application Class Reference}
+\label{classusa_1_1Engine_1_1Application}\index{usa::Engine::Application@{usa::Engine::Application}}
+Inheritance diagram for usa\+::Engine\+::Application\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classusa_1_1Engine_1_1Application}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_aa5ece57f7217f343247a655778a6268b}\label{classusa_1_1Engine_1_1Application_aa5ece57f7217f343247a655778a6268b}} 
+{\bfseries Application} (int ac, char $\ast$$\ast$av)
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a01e7e080e5d79ad524d8501c01fa18f7}\label{classusa_1_1Engine_1_1Application_a01e7e080e5d79ad524d8501c01fa18f7}} 
+auto {\bfseries start} (const std\+::string\+\_\+view \&title) -\/$>$ void
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_af53c49b5f3b8c5147400ca6cf5880c3c}\label{classusa_1_1Engine_1_1Application_af53c49b5f3b8c5147400ca6cf5880c3c}} 
+auto {\bfseries draw\+Fps} () -\/$>$ void
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_af58aa3c8a431a2b8471f735e4469ce9e}\label{classusa_1_1Engine_1_1Application_af58aa3c8a431a2b8471f735e4469ce9e}} 
+virtual auto {\bfseries process\+Event} (const sf\+::\+Event \&event) -\/$>$ void
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a1687ba81c73abdb0a56c7e07a8c3595e}\label{classusa_1_1Engine_1_1Application_a1687ba81c73abdb0a56c7e07a8c3595e}} 
+virtual auto {\bfseries init} () -\/$>$ void=0
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_ac91325b6fe7c6df90888896c926c47f8}\label{classusa_1_1Engine_1_1Application_ac91325b6fe7c6df90888896c926c47f8}} 
+virtual auto {\bfseries deinit} () -\/$>$ void=0
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a99e422d78fd2ea012e063dd97425b7dd}\label{classusa_1_1Engine_1_1Application_a99e422d78fd2ea012e063dd97425b7dd}} 
+virtual auto {\bfseries tick} (float delta\+Time) -\/$>$ void=0
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a168b0fff54292f12cf8a7fef6da896f1}\label{classusa_1_1Engine_1_1Application_a168b0fff54292f12cf8a7fef6da896f1}} 
+virtual auto {\bfseries draw} () -\/$>$ void=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a135799d9a67aea0c4e5d1d1fdb3a3786}\label{classusa_1_1Engine_1_1Application_a135799d9a67aea0c4e5d1d1fdb3a3786}} 
+sf\+::\+Render\+Window {\bfseries m\+\_\+window}
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_ab99cf930bad417181bfb8b59eba0e78e}\label{classusa_1_1Engine_1_1Application_ab99cf930bad417181bfb8b59eba0e78e}} 
+std\+::uint32\+\_\+t {\bfseries m\+\_\+fps} \{0\}
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Application_a57101db194ea2caf166fab5d222a2e15}\label{classusa_1_1Engine_1_1Application_a57101db194ea2caf166fab5d222a2e15}} 
+sf\+::\+Time {\bfseries m\+\_\+delta\+Time} \{\}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Engine/include/\+Engine/Application.\+hpp\item 
+src/\+Engine/src/Application.\+cpp\end{DoxyCompactItemize}

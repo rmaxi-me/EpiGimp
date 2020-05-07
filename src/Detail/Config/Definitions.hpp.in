@@ -1,5 +1,5 @@
 /**
- * @file src/Engine/include/config/Definitions.hpp
+ * @file src/Detail/Definitions.hpp
  * @brief Data receive from cmake settings
  * @note Do not use clang-format here (@ broke it)
  *
