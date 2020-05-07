@@ -3,7 +3,8 @@ add_executable(${PROJECT_NAME}
     ${CMAKE_CURRENT_SOURCE_DIR}/src/EpiGimpApp.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/EpiGimpApp.hpp
 ##    ${CMAKE_CURRENT_SOURCE_DIR}/src/experimental.cpp
-)
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/SceneCanvas.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/SceneCanvas.hpp)
 
 ## if (UNIX AND NOT APPLE)
 ##     target_link_libraries(${PROJECT_NAME} stdc++fs)
