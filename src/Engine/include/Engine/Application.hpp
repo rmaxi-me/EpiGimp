@@ -36,6 +36,9 @@ namespace Engine {
         sf::RenderWindow m_window;
         std::unique_ptr<Scene> m_scene{nullptr};
 
+        std::string_view m_binName;
+        std::vector<std::string_view> m_arguments;
+
         std::uint32_t m_fps{0};
         sf::Time m_deltaTime{};
 
