@@ -9,41 +9,64 @@
 
 #include <cstdint>
 #include <memory>
+#include <iostream>
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
 
-namespace usa {
+#include "Engine/Settings/Settings.hpp"
+#include "Scene.hpp"
 
+namespace usa {
 namespace Engine {
 
-class Application {
-public:
-    Application(int ac, char **av);
-    virtual ~Application() = default;
+    class Application {
+    public:
+        Application(int ac, char **av);
+        virtual ~Application();
 
-    auto start(const std::string_view &title) -> void;
-    auto drawFps() -> void;
+        auto start(const std::string_view &title) -> void;
 
-    virtual auto processEvent(const sf::Event &event) -> void;
+        virtual auto init() -> void = 0;
+        virtual auto deinit() -> void = 0;
+        virtual auto tick(float deltaTime) -> void = 0;
+        virtual auto draw() -> void = 0;
 
-    virtual auto init() -> void = 0;
-    virtual auto deinit() -> void = 0;
-    virtual auto tick(float deltaTime) -> void = 0;
-    virtual auto draw() -> void = 0;
+    protected:
+        sf::RenderWindow m_window;
+        std::unique_ptr<Scene> m_scene{nullptr};
 
-protected:
-    sf::RenderWindow m_window;
+        std::string_view m_binName;
+        std::vector<std::string_view> m_arguments;
 
-    std::uint32_t m_fps{0};
-    sf::Time m_deltaTime{};
+        std::uint32_t m_fps{0};
+        sf::Time m_deltaTime{};
 
-private:
-    sf::Font m_defaultFont{};
-    sf::Text m_textFPS{};
+        float m_deltaTimeSeconds{0.f};
+        float m_zoom{1.f};
 
-};
+        template<typename S, typename... Args>
+        auto createScene(Args &&... args) -> bool
+        {
+            m_scene = std::make_unique<S>(std::forward<Args>(args)...);
+
+            if (!m_scene->onCreate(*this)) {
+                std::cerr << "Failed to create scene\n";
+                m_scene.reset(nullptr);
+                return false;
+            }
+            return true;
+        }
+
+        virtual auto reloadView() -> void final;
+        virtual auto processEvent(const sf::Event &event) -> void;
+
+    private:
+        sf::Font m_defaultFont{};
+        Settings m_settings;
+
+        auto drawFps() const -> void;
+    };
 
 } // namespace Engine
-
 } // namespace usa

@@ -1,0 +1,6 @@
+/**
+ * @file src/docs/extra/Packages.hpp
+ * @brief Just a file to add extra page to Doxygen documentation
+ * @page Packges Packages And Dependencies
+ * @htmlinclude @CMAKE_BINARY_DIR@/conan/package.html
+ */

@@ -8,6 +8,7 @@
 #include <imgui.h>
 #include "imgui-SFML.h"
 #include "EpiGimpApp.hpp"
+
 #include "Engine/UI/UiWindow.hpp"
 #include "Engine/UI/Window/Menu.hpp"
 #include "Engine/UI/AWidget.hpp"
@@ -17,87 +18,25 @@
 #include "Engine/UI/Window/Menu.hpp"
 #include <iostream>
 #include <functional>
+#include "SceneCanvas.hpp"
 
-usa::EpiGimpApp::EpiGimpApp(int ac, char **av) :
-    Application{ ac, av }
+usa::EpiGimpApp::EpiGimpApp(int ac, char **av) : Application{ac, av} { }
+
+auto usa::EpiGimpApp::processEvent(const sf::Event &event) -> void
 {
+    Application::processEvent(event);
+
+    if (event.type == sf::Event::MouseWheelScrolled) {
+        m_zoom += 0.1f * event.mouseWheelScroll.delta;
+        reloadView();
+    }
 }
 
-auto usa::EpiGimpApp::init() -> void
-{
-    plop.loadFromFile("./red.jpg");
-}
+auto usa::EpiGimpApp::init() -> void { createScene<SceneCanvas>(800, 800); }
 
-auto usa::EpiGimpApp::deinit() -> void
-{
-}
+auto usa::EpiGimpApp::deinit() -> void { }
 
-auto usa::EpiGimpApp::tick(float) -> void
-{
-}
-
-    //     if (ImGui::BeginMainMenuBar())
-    //     {
-    //         if (ImGui::BeginMenu("File"))
-    //         {
-    //             ImGui::EndMenu();
-    //         }    override
-
-    //             if (ImGui::MenuItem("Undo", "CTRL+Z"))
-    //             {
-    //             }
-    //             if (ImGui::MenuItem("Redo", "CTRL+Y", false, false))
-    //             {
-    //             } // Disabled item
-    //             ImGui::Separator();
-    //             if (ImGui::MenuItem("Cut", "CTRL+X"))
-    //             {
-    //             }
-    //             if (ImGui::MenuItem("Copy", "CTRL+C"))
-    //             {
-    //             }
-    //             if (ImGui::MenuItem("Paste", "CTRL+V"))
-    //             {
-    //             }
-    //             ImGui::EndMenu();
-    //         }
-    //         ImGui::EndMainMenuBar();
-    //     }
-    // }
-void pute()
-{
-    std::cout << "pute" << std::endl;
-    // if (ImGui::BeginMenu("Menu"))
-    // {
-            ImGui::MenuItem("File", "CTRL+N");
-            ImGui::MenuItem("Create");
-            ImGui::MenuItem("Open", "CTRL+O");
-            ImGui::MenuItem("Open as Layers", "CTRL+ALT+O");
-            ImGui::MenuItem("Open Location");
-            ImGui::MenuItem("Open Recent");
-            ImGui::Separator();
-            ImGui::MenuItem("Save", "CTRL+S");
-            ImGui::MenuItem("Save As...", "Shift+CTRL+S");
-            ImGui::MenuItem("Save a Copy");
-            ImGui::MenuItem("Revert");
-            ImGui::Separator();
-            ImGui::MenuItem("Export");
-            ImGui::MenuItem("Export As");
-            ImGui::MenuItem("Properties");
-            ImGui::Separator();
-            ImGui::MenuItem("Close View", "CTRL+W");
-            ImGui::MenuItem("Close all", "Shift+CTRL+W");
-            ImGui::MenuItem("Quit", "CTRL+Q");
-            // ImGui::Selectable("Demo", &plopi);
-            ImGui::EndMenu();
-    // }
-}
-
-void f1(int, int)
-{
-    std::cout << "plopiplopi" << std::endl;
-}
-
+auto usa::EpiGimpApp::tick(float) -> void { }
 auto usa::EpiGimpApp::draw() -> void
 {
     static bool cpt = false;

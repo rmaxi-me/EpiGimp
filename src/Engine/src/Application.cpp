@@ -20,38 +20,43 @@
 
 using namespace std::chrono_literals;
 
-// TODO: Argument parsing lib
-usa::Engine::Application::Application(int, char **)
+usa::Engine::Application::Application(int ac, char **av) :
+    m_binName(av[0]), m_arguments(static_cast<unsigned long>(ac - 1)), m_settings{Settings::fromFile()}
+
 {
-    std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' <<
-        PROJECT_BUILD_TYPE_AS_STRING << '\n';
+    std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' << PROJECT_BUILD_TYPE_AS_STRING << '\n';
+
+    for (auto i = 1; i < ac; ++i) { m_arguments.emplace_back(av[i]); }
 
     m_defaultFont.loadFromFile("Resources/Font/JetBrainsMono-Regular.ttf");
-
-    m_textFPS.setFont(m_defaultFont);
-    m_textFPS.setCharacterSize(20);
-    m_textFPS.setString("...");
-    m_textFPS.setFillColor(sf::Color::Yellow);
-    m_textFPS.setPosition(5, 5);
 }
+
+usa::Engine::Application::~Application() { m_settings.save(); }
 
 auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
 {
     ImGui::SFML::ProcessEvent(event);
 
     switch (event.type) {
-    case sf::Event::EventType::Closed:
-        m_window.close();
+    case sf::Event::EventType::Closed: m_window.close(); break;
+    case sf::Event::Resized:
+        m_settings.width = event.size.width;
+        m_settings.height = event.size.height;
+        reloadView();
         break;
-    default:
-        break;
+    default: break;
     }
 }
 
 auto usa::Engine::Application::start(const std::string_view &title) -> void
 {
     sf::Event event{};
-    m_window.create(sf::VideoMode{1200, 675}, title.data(), sf::Style::Close);
+    sf::Uint32 style = sf::Style::Close;
+
+    style |= m_settings.fullscreen ? sf::Style::Fullscreen : sf::Style::Resize;
+
+    m_window.create(sf::VideoMode{m_settings.width, m_settings.height}, title.data(), style);
+    m_window.setFramerateLimit(m_settings.fps_limit);
 
     auto frameCount = m_fps;
     auto previous = std::chrono::high_resolution_clock::now();
@@ -63,16 +68,20 @@ auto usa::Engine::Application::start(const std::string_view &title) -> void
     while (m_window.isOpen()) {
         m_window.clear();
 
-        while (m_window.pollEvent(event))
-            processEvent(event);
+        while (m_window.pollEvent(event)) processEvent(event);
 
         ImGui::SFML::Update(m_window, m_deltaTime);
-        tick(m_deltaTime.asSeconds());
+        tick(m_deltaTimeSeconds);
+
+        if (m_scene) {
+            m_scene->onTick(m_window, m_deltaTimeSeconds);
+            m_scene->onDraw(m_window);
+        }
 
         draw();
-        ImGui::EndFrame();
-        ImGui::SFML::Render(m_window);
         drawFps();
+        ImGui::SFML::Render(m_window);
+        ImGui::EndFrame();
         m_window.display();
 
         ++frameCount;
@@ -84,17 +93,28 @@ auto usa::Engine::Application::start(const std::string_view &title) -> void
         }
 
         m_deltaTime = clock.restart();
+        m_deltaTimeSeconds = m_deltaTime.asSeconds();
     }
     deinit();
     ImGui::SFML::Shutdown();
 }
 
-auto usa::Engine::Application::drawFps() -> void
+auto usa::Engine::Application::drawFps() const -> void
 {
-    std::ostringstream oss{};
+    ImGui::SetNextWindowPos(ImVec2{5, 5});
+    ImGui::SetNextWindowSize(ImVec2{0, 0});
+    ImGui::Begin("Stats");
+    {
+        ImGui::BulletText("%u FPS", m_fps);
+        ImGui::BulletText("%.6f delta", static_cast<double>(m_deltaTimeSeconds));
+    }
+    ImGui::End();
+}
 
-    oss << m_fps << " FPS";
-    m_textFPS.setString(oss.str());
-
-    m_window.draw(m_textFPS);
+void usa::Engine::Application::reloadView()
+{
+    sf::View view = m_window.getView();
+    view.reset(sf::FloatRect(0.f, 0.f, static_cast<float>(m_settings.width), static_cast<float>(m_settings.height)));
+    view.zoom(m_zoom);
+    m_window.setView(view);
 }

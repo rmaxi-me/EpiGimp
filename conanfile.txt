@@ -2,14 +2,15 @@
 imgui-sfml/2.1@bincrafters/stable
 
 nlohmann_json/3.7.3
-gtest/1.10.0
+fmt/6.1.2 # std::format
+# spdlog/1.5.0 # speed logger
 
 doxygen_installer/1.8.15@bincrafters/stable
 
-# catch2/2.11.0 # unit test
+catch2/2.11.0
+# gtest/1.10.0
+
 # docopt.cpp/0.6.2 # argument parsing
-# fmt/6.1.2 # std::format
-# spdlog/1.5.0 # speed logger
 
 [options]
 imgui-sfml:shared=False
@@ -23,3 +24,5 @@ sfml:network=False
 
 [generators]
 cmake
+cmake_find_package
+cmake_paths
