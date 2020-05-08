@@ -15,7 +15,8 @@ namespace usa
         {
             if (ImGui::MenuItem(m_name.c_str(), m_shortcut.c_str()))
             {
-                f();
+                if (f != nullptr)
+                    f();
             }
         }
     } // namespace Engine

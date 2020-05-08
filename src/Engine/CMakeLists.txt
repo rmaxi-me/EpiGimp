@@ -10,6 +10,9 @@ add_library(${PROJECT_NAME}Engine
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/UI/Window/MainMenuBar.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/UI/Widget/WMenuItem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/UI/Widget/WMenuItem.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/UI/Widget/WSeparator.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/UI/Window/Menu.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/UI/Window/Menu.cpp
 )
 
 target_include_directories(${PROJECT_NAME}Engine

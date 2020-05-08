@@ -14,17 +14,18 @@ namespace Engine {
     class UiWindow
     {
     private:
-        std::string m_name{};
         ImGuiWindowFlags m_window_flags{0};
         bool m_isOpen = true;
 
         ImVec2 m_size{};
         ImVec2 m_position{};
     protected:
-        std::vector<std::shared_ptr<AWidget>> m_WidgetList;
+        std::string m_name{};
+        std::vector<std::shared_ptr<AWidget>> m_WidgetList{};
+        std::vector<std::shared_ptr<UiWindow>> m_WindowList{};
     public:
         UiWindow() = default;
-        UiWindow(const std::string &name,ImGuiWindowFlags flags = 0) : m_name(name), m_window_flags(flags) {}
+        UiWindow(const std::string &name, ImGuiWindowFlags flags = 0) : m_window_flags(flags), m_name(name) {}
         virtual ~UiWindow() = default;
 
         auto open()     -> void { m_isOpen = true; }
@@ -43,7 +44,11 @@ namespace Engine {
 
         auto addWidget(std::shared_ptr<AWidget> wid) -> void { m_WidgetList.emplace_back(wid); }
         auto deleteWidget(const std::string &name)  -> bool;
-        auto getWidget(const std::string &name)     -> std::optional<std::shared_ptr<AWidget>>; 
+        auto getWidget(const std::string &name)     -> std::optional<std::shared_ptr<AWidget>>;
+
+        auto addWindow(std::shared_ptr<UiWindow> wid) -> void { m_WindowList.emplace_back(wid); }
+        auto deleteWindow(const std::string &name) -> bool;
+        auto getWindow(const std::string &name) -> std::optional<std::shared_ptr<UiWindow>>;
     };
 }
 
