@@ -11,6 +11,7 @@ namespace Engine {
             for (auto &i : m_WidgetList)
                 i->render();
         }
+        ImGui::EndMainMenuBar();
     }
 
 } // namespace Engine
