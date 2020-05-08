@@ -19,6 +19,7 @@ public:
     auto onEvent(const sf::Event &event) -> void override;
     auto onTick(const sf::RenderWindow &window, float) -> void override;
     auto onDraw(sf::RenderWindow &window) const -> void override;
+
 private:
     unsigned int m_width;
     unsigned int m_height;

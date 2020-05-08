@@ -7,10 +7,7 @@
 
 #include "SceneCanvas.hpp"
 
-SceneCanvas::SceneCanvas(unsigned int width, unsigned int height)
-        : m_width{width}, m_height{height}
-{
-}
+SceneCanvas::SceneCanvas(unsigned int width, unsigned int height) : m_width{width}, m_height{height} { }
 
 bool SceneCanvas::onCreate(usa::Engine::Application &)
 {
@@ -24,9 +21,7 @@ bool SceneCanvas::onCreate(usa::Engine::Application &)
     return true;
 }
 
-void SceneCanvas::onEvent(const sf::Event &)
-{
-}
+void SceneCanvas::onEvent(const sf::Event &) { }
 
 void SceneCanvas::onTick(const sf::RenderWindow &, float)
 {
@@ -41,7 +36,4 @@ void SceneCanvas::onTick(const sf::RenderWindow &, float)
     m_canvasTexture.update(m_canvasImage);
 }
 
-void SceneCanvas::onDraw(sf::RenderWindow &window) const
-{
-    window.draw(m_rect);
-}
+void SceneCanvas::onDraw(sf::RenderWindow &window) const { window.draw(m_rect); }

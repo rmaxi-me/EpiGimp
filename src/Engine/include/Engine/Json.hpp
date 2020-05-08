@@ -11,7 +11,6 @@
 
 DISABLE_WARNING_PUSH
 DISABLE_WARN_USELESS_CAST
-#include <json.hpp>
-DISABLE_WARNING_POP
-
+#include <nlohmann/json.hpp>
 using Json = nlohmann::json;
+DISABLE_WARNING_POP

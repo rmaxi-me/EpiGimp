@@ -12,24 +12,23 @@
 namespace usa {
 namespace Engine {
 
-class Application;
+    class Application;
 
-class Scene {
-public:
-    Scene() = default;
-    virtual ~Scene() = default;
+    class Scene {
+    public:
+        Scene() = default;
+        virtual ~Scene() = default;
 
-    Scene(const Scene &) = default;
-    Scene(Scene &&) = default;
-    Scene &operator=(const Scene &) = default;
-    Scene &operator=(Scene &&) = default;
+        Scene(const Scene &) = default;
+        Scene(Scene &&) = default;
+        Scene &operator=(const Scene &) = default;
+        Scene &operator=(Scene &&) = default;
 
-    virtual auto onCreate(Application &app) -> bool = 0;
-    virtual auto onEvent(const sf::Event &event) -> void = 0;
-    virtual auto onTick(const sf::RenderWindow &window, float deltaTime) -> void = 0;
-    virtual auto onDraw(sf::RenderWindow &window) const -> void = 0;
-};
+        virtual auto onCreate(Application &app) -> bool = 0;
+        virtual auto onEvent(const sf::Event &event) -> void = 0;
+        virtual auto onTick(const sf::RenderWindow &window, float deltaTime) -> void = 0;
+        virtual auto onDraw(sf::RenderWindow &window) const -> void = 0;
+    };
 
-}
-}
-
+} // namespace Engine
+} // namespace usa
