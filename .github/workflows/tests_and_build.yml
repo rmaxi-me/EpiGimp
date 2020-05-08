@@ -39,3 +39,43 @@ jobs:
       - name: Build
         shell: bash
         run: ./Scripts/build ${{ matrix.mode }}
+
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-18.04, macos-10.15, windows-2019]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+
+      - name: Conan cache
+        uses: actions/cache@v1.1.2
+        with:
+          path: ~/.conan
+          key: ${{ runner.os }}-conan-Debug-cache-v2-${{ hashFiles('**/conanfile.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-conan-Debug-cache-v2
+
+      - name: Configure
+        shell: bash
+        run: ./Scripts/configure Tests
+
+      - name: Build
+        shell: bash
+        run: ./Scripts/build Debug
+
+      - name: Run
+        shell: bash
+        run: cmake --build build --target test
