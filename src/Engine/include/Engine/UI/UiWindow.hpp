@@ -20,15 +20,16 @@ namespace Engine {
 
         ImVec2 m_size{};
         ImVec2 m_position{};
+    protected:
         std::vector<std::shared_ptr<AWidget>> m_WidgetList;
-
     public:
+        UiWindow() = default;
         UiWindow(const std::string &name,ImGuiWindowFlags flags = 0) : m_name(name), m_window_flags(flags) {}
-        ~UiWindow() = default;
+        virtual ~UiWindow() = default;
 
         auto open()     -> void { m_isOpen = true; }
         auto close()    -> void { m_isOpen = false; }
-        auto render()   -> void;
+        virtual auto render()   -> void;
         
         auto setWindowFlags(ImGuiWindowFlags flags) noexcept -> void { m_window_flags = flags; }
         auto setPosition(const ImVec2 &pos) noexcept    -> void { m_position = pos; }
