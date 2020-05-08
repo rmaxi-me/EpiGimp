@@ -1,0 +1,6 @@
+#!/bin/bash -xe
+
+./Scripts/configure Tests
+./Scripts/build Debug
+
+cmake --build build --target test

@@ -66,10 +66,10 @@ cd build
 echo "== Running CMake"
 case "$OS" in
 "Linux" | "Darwin")
-  cmake -DCMAKE_BUILD_TYPE="$1" $EPIGIMP_TESTS $EPIGIMP_ERROR ..
+  cmake -DCMAKE_BUILD_TYPE="$1" ..
   ;;
 *)
-  cmake -DCMAKE_BUILD_TYPE="$1" $EPIGIMP_TESTS $EPIGIMP_ERROR -A x64 ..
+  cmake -DCMAKE_BUILD_TYPE="$1" -A x64 ..
   ;;
 esac
 
