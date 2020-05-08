@@ -16,7 +16,7 @@ protected:
     ImVec2 m_size{};
     // void (*m_action)(void);
 public:
-    AWidget(std::string &name, ImVec2 size = {}) : m_name(name), m_size(size) {}
+    AWidget(const std::string &name, ImVec2 size = {}) : m_name(name), m_size(size) {}
     virtual ~AWidget() = default;
 
     auto setSize(const ImVec2 &size)        noexcept -> void { m_size = size; }

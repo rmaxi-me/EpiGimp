@@ -8,6 +8,8 @@ add_library(${PROJECT_NAME}Engine
     ${CMAKE_CURRENT_SOURCE_DIR}/src/UI/Widget/WButton.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/UI/Window/MainMenuBar.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/UI/Window/MainMenuBar.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/UI/Widget/WMenuItem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/UI/Widget/WMenuItem.hpp
 )
 
 target_include_directories(${PROJECT_NAME}Engine

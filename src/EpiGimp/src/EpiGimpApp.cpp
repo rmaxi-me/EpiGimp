@@ -11,6 +11,8 @@
 #include "Engine/UI/UiWindow.hpp"
 #include "Engine/UI/AWidget.hpp"
 #include "Engine/UI/Widget/WButton.hpp"
+#include "Engine/UI/Widget/WMenuItem.hpp"
+#include "Engine/UI/Window/MainMenuBar.hpp"
 #include <iostream>
 #include <functional>
 
@@ -32,38 +34,36 @@ auto usa::EpiGimpApp::tick(float) -> void
 {
 }
 
-void ShowExampleAppMainMenuBar()
-    {
-        if (ImGui::BeginMainMenuBar())
-        {
-            if (ImGui::BeginMenu("File"))
-            {
-                ImGui::EndMenu();
-            }
-            if (ImGui::BeginMenu("Edit"))
-            {
-                if (ImGui::MenuItem("Undo", "CTRL+Z"))
-                {
-                }
-                if (ImGui::MenuItem("Redo", "CTRL+Y", false, false))
-                {
-                } // Disabled item
-                ImGui::Separator();
-                if (ImGui::MenuItem("Cut", "CTRL+X"))
-                {
-                }
-                if (ImGui::MenuItem("Copy", "CTRL+C"))
-                {
-                }
-                if (ImGui::MenuItem("Paste", "CTRL+V"))
-                {
-                }
-                ImGui::EndMenu();
-            }
-            ImGui::EndMainMenuBar();
-        }
-    }
 
+    //     if (ImGui::BeginMainMenuBar())
+    //     {
+    //         if (ImGui::BeginMenu("File"))
+    //         {
+    //             ImGui::EndMenu();
+    //         }
+    //         if (ImGui::BeginMenu("Edit"))
+    //         {
+    //             if (ImGui::MenuItem("Undo", "CTRL+Z"))
+    //             {
+    //             }
+    //             if (ImGui::MenuItem("Redo", "CTRL+Y", false, false))
+    //             {
+    //             } // Disabled item
+    //             ImGui::Separator();
+    //             if (ImGui::MenuItem("Cut", "CTRL+X"))
+    //             {
+    //             }
+    //             if (ImGui::MenuItem("Copy", "CTRL+C"))
+    //             {
+    //             }
+    //             if (ImGui::MenuItem("Paste", "CTRL+V"))
+    //             {
+    //             }
+    //             ImGui::EndMenu();
+    //         }
+    //         ImGui::EndMainMenuBar();
+    //     }
+    // }
 void pute()
 {
     std::cout << "pute" << std::endl;
@@ -81,19 +81,24 @@ auto usa::EpiGimpApp::draw() -> void
     // ImGui::SetNextWindowCollapsed(false);
     ImGuiWindowFlags window_flags = 0;
     static bool cpt = false;
-    static Engine::UiWindow win("TestWindow", window_flags);
+    static Engine::UiWindow *win = new Engine::MainMenuBar();
 
     // std::function f = std::bind(f1<int>, 12);
+    if (cpt == false)
+    {
+        Engine::WMenuItem item("Item A");
+        item.bindAction(std::bind(pute));
+        std::shared_ptr<Engine::AWidget> it = std::make_shared<Engine::WMenuItem>(item);
+        win->addWidget(it);
 
-    if (cpt == false) {
         Engine::WButton button("Button A");
         button.bindAction(std::bind(f1, 5, 2));
         std::shared_ptr<Engine::AWidget> wid = std::make_shared<Engine::WButton>(button);
-        win.addWidget(wid);
+        win->addWidget(wid);
         cpt = !cpt;
     }
 
-    win.render();
+    win->render();
     // static bool plopi = false;
     // ImGui::ShowDemoWindow(&plopi);
     // // ShowExampleAppMainMenuBar();
@@ -144,7 +149,7 @@ auto usa::EpiGimpApp::draw() -> void
     //         ImGui::MenuItem("All");
     //         ImGui::MenuItem("None");
     //         ImGui::MenuItem("Invert");
-    //         ImGui::MenuItem("Float");
+    //         ImGui::MenuIine::WButton>(buttotem("Float");
     //         ImGui::MenuItem("By Color");
     //         ImGui::MenuItem("From Path");
     //         ImGui::EndMenu();
@@ -155,7 +160,7 @@ auto usa::EpiGimpApp::draw() -> void
     //         ImGui::MenuItem("Fullscreen");
     //         ImGui::EndMenu();
     //     }
-    //     if (ImGui::BeginMenu("Image"))
+    //     if (ImGui::ine::WButton>(butto::WButton>(buttoMenu("Image"))
     //     {
     //         ImGui::MenuItem("Duplicate");
     //         ImGui::MenuItem("Mode");
