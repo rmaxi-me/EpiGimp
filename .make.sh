@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cmake . -B ./build && cmake --build ./build -j $(nproc --all)
+cmake . -B ./build $1 && cmake --build ./build -j $(nproc --all)

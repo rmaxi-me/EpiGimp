@@ -18,52 +18,52 @@
 #include "Scene.hpp"
 
 namespace usa {
-
 namespace Engine {
 
-class Application {
-public:
-    Application(int ac, char **av);
-    virtual ~Application();
+    class Application {
+    public:
+        Application(int ac, char **av);
+        virtual ~Application();
 
-    auto start(const std::string_view &title) -> void;
+        auto start(const std::string_view &title) -> void;
 
-    virtual auto init() -> void = 0;
-    virtual auto deinit() -> void = 0;
-    virtual auto tick(float deltaTime) -> void = 0;
-    virtual auto draw() -> void = 0;
+        virtual auto init() -> void = 0;
+        virtual auto deinit() -> void = 0;
+        virtual auto tick(float deltaTime) -> void = 0;
+        virtual auto draw() -> void = 0;
 
-protected:
-    sf::RenderWindow m_window{};
-    std::unique_ptr<Scene> m_scene{nullptr};
+    protected:
+        sf::RenderWindow m_window;
+        std::unique_ptr<Scene> m_scene{nullptr};
 
-    std::uint32_t m_fps{0};
-    sf::Time m_deltaTime{};
-    float m_deltaTimeSeconds{0.f};
-    float m_zoom{1.f};
+        std::uint32_t m_fps{0};
+        sf::Time m_deltaTime{};
 
-    template<typename S, typename... Args>
-    auto createScene(Args &&... args) -> bool
-    {
-        m_scene = std::make_unique<S>(std::forward<Args>(args)...);
+        float m_deltaTimeSeconds{0.f};
+        float m_zoom{1.f};
 
-        if (!m_scene->onCreate(*this)) {
-            std::cerr << "Failed to create scene\n";
-            m_scene.reset(nullptr);
-            return false;
+        template<typename S, typename... Args>
+        auto createScene(Args &&... args) -> bool
+        {
+            m_scene = std::make_unique<S>(std::forward<Args>(args)...);
+
+            if (!m_scene->onCreate(*this)) {
+                std::cerr << "Failed to create scene\n";
+                m_scene.reset(nullptr);
+                return false;
+            }
+            return true;
         }
-        return true;
-    }
 
-    virtual void reloadView() final;
-    virtual auto processEvent(const sf::Event &event) -> void;
-private:
-    sf::Font m_defaultFont{};
-    Settings m_settings;
+        virtual auto reloadView() -> void final;
+        virtual auto processEvent(const sf::Event &event) -> void;
 
-    auto drawFps() const -> void;
-};
+    private:
+        sf::Font m_defaultFont{};
+        Settings m_settings;
+
+        auto drawFps() const -> void;
+    };
 
 } // namespace Engine
-
 } // namespace usa

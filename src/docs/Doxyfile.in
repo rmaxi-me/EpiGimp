@@ -4,18 +4,18 @@
 PROJECT_NAME        = "@PROJECT_NAME@"
 PROJECT_NUMBER      = @PROJECT_VERSION@
 PROJECT_BRIEF       = "@PROJECT_DESCRIPTION@"
-PROJECT_LOGO        =
+PROJECT_LOGO        = @CMAKE_SOURCE_DIR@/Resources/Image/Logo.png
 
-OUTPUT_DIRECTORY    = @CMAKE_BINARY_DIR@/Documentation/
+OUTPUT_DIRECTORY    = @CMAKE_SOURCE_DIR@/Documentation
 
 USE_MDFILE_AS_MAINPAGE = README.md
 
-INPUT               = \
+INPUT = \
     README.md \
     LICENSE.md \
     src \
-    tests \
-    @CMAKE_BINARY_DIR@/Documentation/ExtraPages.hpp
+    tests   \
+    @CMAKE_BINARY_DIR@/src/docs/extra/
 
 RECURSIVE            = YES
 ENABLE_PREPROCESSING = YES

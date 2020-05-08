@@ -21,35 +21,27 @@
 using namespace std::chrono_literals;
 
 // TODO: Argument parsing lib
-usa::Engine::Application::Application(int, char **)
-        : m_settings{Settings::fromFile()}
+usa::Engine::Application::Application(int, char **) : m_settings{Settings::fromFile()}
 {
-    std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' <<
-              PROJECT_BUILD_TYPE_AS_STRING << '\n';
+    std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' << PROJECT_BUILD_TYPE_AS_STRING << '\n';
 
     m_defaultFont.loadFromFile("Resources/Font/JetBrainsMono-Regular.ttf");
 }
 
-usa::Engine::Application::~Application()
-{
-    m_settings.save();
-}
+usa::Engine::Application::~Application() { m_settings.save(); }
 
 auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
 {
     ImGui::SFML::ProcessEvent(event);
 
     switch (event.type) {
-    case sf::Event::EventType::Closed:
-        m_window.close();
-        break;
+    case sf::Event::EventType::Closed: m_window.close(); break;
     case sf::Event::Resized:
         m_settings.width = event.size.width;
         m_settings.height = event.size.height;
         reloadView();
         break;
-    default:
-        break;
+    default: break;
     }
 }
 
@@ -58,10 +50,7 @@ auto usa::Engine::Application::start(const std::string_view &title) -> void
     sf::Event event{};
     sf::Uint32 style = sf::Style::Close;
 
-    if (m_settings.fullscreen)
-        style |= sf::Style::Fullscreen;
-    else
-        style |= sf::Style::Resize;
+    style |= m_settings.fullscreen ? sf::Style::Fullscreen : sf::Style::Resize;
 
     m_window.create(sf::VideoMode{m_settings.width, m_settings.height}, title.data(), style);
     m_window.setFramerateLimit(m_settings.fps_limit);
@@ -76,8 +65,7 @@ auto usa::Engine::Application::start(const std::string_view &title) -> void
     while (m_window.isOpen()) {
         m_window.clear();
 
-        while (m_window.pollEvent(event))
-            processEvent(event);
+        while (m_window.pollEvent(event)) processEvent(event);
 
         ImGui::SFML::Update(m_window, m_deltaTime);
         tick(m_deltaTimeSeconds);
