@@ -13,7 +13,7 @@ namespace usa
 
         auto WMenuItem::render() -> void
         {
-            if (ImGui::MenuItem(m_name.c_str(), m_shortcut.c_str()))
+            if (ImGui::MenuItem(m_name.data(), m_shortcut.data()))
             {
                 if (f != nullptr)
                     f();

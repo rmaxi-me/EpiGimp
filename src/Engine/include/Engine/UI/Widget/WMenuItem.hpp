@@ -16,7 +16,7 @@ namespace usa
             std::string_view m_shortcut{};
             std::function<void()> f;
         public:
-            WMenuItem(const std::string &name, const std::string &shortcut = "") : AWidget(name, ImVec2()), m_shortcut(shortcut) {}
+            WMenuItem(const std::string_view &name, const std::string_view &shortcut = "") : AWidget(name, ImVec2()), m_shortcut(shortcut) {}
             virtual ~WMenuItem() = default;
 
             auto bindAction(std::function<void()> func) -> void override;

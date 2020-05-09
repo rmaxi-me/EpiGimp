@@ -8,7 +8,7 @@ namespace usa
 
         auto Menu::render() -> void
         {
-            if (ImGui::BeginMenu(m_name.c_str()))
+            if (ImGui::BeginMenu(m_name.data()))
             {
                 for (auto &i : m_WindowList)
                     i->render();

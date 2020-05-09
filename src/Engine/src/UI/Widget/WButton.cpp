@@ -11,7 +11,7 @@ namespace Engine {
 
     auto WButton::render() -> void
     {
-        if (ImGui::Button(m_name.c_str(), m_size))
+        if (ImGui::Button(m_name.data(), m_size))
         {
             f();
         }

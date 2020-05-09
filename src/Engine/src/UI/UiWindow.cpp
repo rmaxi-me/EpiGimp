@@ -6,7 +6,7 @@ namespace Engine {
 
     auto UiWindow::render() -> void
     {
-        if (ImGui::Begin(m_name.c_str(), &m_isOpen, m_window_flags))
+        if (ImGui::Begin(m_name.data(), &m_isOpen, m_window_flags))
         {
             for (auto &i : m_WindowList)
                 i->render();
@@ -16,7 +16,7 @@ namespace Engine {
         }
     }
 
-    auto UiWindow::deleteWidget(const std::string &name) -> bool
+    auto UiWindow::deleteWidget(const std::string_view &name) -> bool
     {
         for (auto i = m_WidgetList.begin(); i != m_WidgetList.end(); ++i)
         {
@@ -28,7 +28,7 @@ namespace Engine {
         return false;
     }
 
-    auto UiWindow::getWidget(const std::string &name) -> std::optional<std::shared_ptr<AWidget>>
+    auto UiWindow::getWidget(const std::string_view &name) -> std::optional<std::shared_ptr<AWidget>>
     {
         for (auto i = m_WidgetList.begin(); i != m_WidgetList.end(); ++i)
         {
@@ -38,7 +38,7 @@ namespace Engine {
         return {};
     }
 
-    auto UiWindow::deleteWindow(const std::string &name) -> bool
+    auto UiWindow::deleteWindow(const std::string_view &name) -> bool
     {
         for (auto i = m_WindowList.begin(); i != m_WindowList.end(); ++i)
         {
@@ -51,7 +51,7 @@ namespace Engine {
         return false;
     }
 
-    auto UiWindow::getWindow(const std::string &name) -> std::optional<std::shared_ptr<UiWindow>>
+    auto UiWindow::getWindow(const std::string_view &name) -> std::optional<std::shared_ptr<UiWindow>>
     {
         for (auto i = m_WindowList.begin(); i != m_WindowList.end(); ++i)
         {

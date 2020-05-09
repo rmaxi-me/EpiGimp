@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string_view>
 #include "Engine/UI/UiWindow.hpp"
 
 namespace usa
@@ -11,7 +12,7 @@ namespace usa
         class Menu : public UiWindow
         {
         public:
-            Menu(const std::string &name) : UiWindow(name) {}
+            Menu(const std::string_view &name) : UiWindow(name) {}
             virtual ~Menu() = default;
             auto render() -> void override;
         };
