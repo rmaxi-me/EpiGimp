@@ -1,5 +1,10 @@
 option(CMAKE_VERBOSE_MAKEFILE OFF) # Turn on to debug cmake/make
 
+if(CMAKE_BUILD_TYPE MATCHES Tests)
+  set(CMAKE_BUILD_TYPE Debug)
+  set(ENABLE_TESTING ON)
+endif()
+
 # Set a default build type if none was specified
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   message(STATUS "Setting build type to 'RelWithDebInfo' as none was specified.")

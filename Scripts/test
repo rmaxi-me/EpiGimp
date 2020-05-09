@@ -1,0 +1,14 @@
+#!/bin/bash -xe
+
+./Scripts/configure Tests
+./Scripts/build Debug
+
+OS=$(uname)
+case "$OS" in
+"Linux" | "Darwin")
+  cmake --build build --target test
+  ;;
+*)
+  cmake --build build --target RUN_TESTS
+  ;;
+esac
