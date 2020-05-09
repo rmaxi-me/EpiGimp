@@ -12,7 +12,7 @@ namespace usa
         class WMenuItem : public AWidget
         {
         private:
-            std::string m_shortcut{};
+            std::string_view m_shortcut{};
             std::function<void()> f;
         public:
             WMenuItem(const std::string &name, const std::string &shortcut = "") : AWidget(name, ImVec2()), m_shortcut(shortcut) {}
