@@ -41,7 +41,7 @@ namespace Engine {
         auto getFlags()     -> ImGuiWindowFlags &{ return m_window_flags; }
         auto getPosition()  -> const ImVec2 & { return m_position; }
         auto getSize()      -> const ImVec2 & { return m_size; }
-        auto getName()      -> const std::string & { return m_name; }
+        auto getName()      -> const std::string_view & { return m_name; }
 
         auto addWidget(std::shared_ptr<AWidget> wid) -> void { m_WidgetList.emplace_back(wid); }
         auto deleteWidget(const std::string &name)  -> bool;

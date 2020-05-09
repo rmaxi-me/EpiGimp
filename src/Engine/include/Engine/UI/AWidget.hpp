@@ -22,7 +22,7 @@ public:
     auto setName(const std::string &name)   noexcept -> void { m_name = name; }
 
     auto getSize() -> const ImVec2 &        { return m_size; }
-    auto getName() -> const std::string &   { return m_name; }
+    auto getName() -> const std::string_view &   { return m_name; }
 
     virtual auto render() -> void = 0;
     virtual auto bindAction(std::function<void()>) -> void = 0;
