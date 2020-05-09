@@ -39,29 +39,4 @@ auto usa::EpiGimpApp::deinit() -> void { }
 auto usa::EpiGimpApp::tick(float) -> void { }
 auto usa::EpiGimpApp::draw() -> void
 {
-    static bool cpt = false;
-    static Engine::UiWindow *win = new Engine::MainMenuBar();
-
-    if (cpt == false)
-    {
-        Engine::Menu menu("Fichiers");
-        std::shared_ptr<Engine::UiWindow> Mmenu = std::make_shared<Engine::Menu>(menu);
-
-        auto i1 = std::make_shared<Engine::WMenuItem>("File", "CTRL+N");
-        auto i2 = std::make_shared<Engine::WMenuItem>("Create");
-        auto i3 = std::make_shared<Engine::WMenuItem>("Open", "CTRL+O");
-        auto i4 = std::make_shared<Engine::WMenuItem>("Open as Layers", "CTRL+ALT+O");
-        auto i5 = std::make_shared<Engine::WMenuItem>("Open Location");
-
-        Mmenu->addWidget(i1);
-        Mmenu->addWidget(i2);
-        Mmenu->addWidget(i3);
-        Mmenu->addWidget(i4);
-        Mmenu->addWidget(i5);
-
-        win->addWindow(Mmenu);
-
-        cpt = !cpt;
-    }
-    win->render();
 }

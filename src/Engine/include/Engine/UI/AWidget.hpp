@@ -1,7 +1,7 @@
 #pragma once
 
 #include <imgui.h>
-#include <string>
+#include <string_view>
 
 #include <functional>
 
@@ -14,7 +14,6 @@ class AWidget
 protected:
     std::string_view m_name{};
     ImVec2 m_size{};
-    // void (*m_action)(void);
 public:
     AWidget(const std::string &name, ImVec2 size = {}) : m_name(name), m_size(size) {}
     virtual ~AWidget() = default;

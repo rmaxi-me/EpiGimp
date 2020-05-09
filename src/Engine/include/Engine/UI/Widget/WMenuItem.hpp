@@ -2,6 +2,7 @@
 
 #include "Engine/UI/AWidget.hpp"
 #include <functional>
+#include <string_view>
 
 namespace usa
 {
