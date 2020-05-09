@@ -1,5 +1,5 @@
 /**
- * @file src/Detail/macro.hpp
+ * @file src/Detail/Config/Macro.hpp
  * @brief Few useful macros
  *
  */

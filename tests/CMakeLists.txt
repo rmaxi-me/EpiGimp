@@ -15,4 +15,9 @@ if(ENABLE_COVERAGE)
     # EXCLUDE tests
     DEPENDENCIES tests constexpr_tests relaxed_constexpr_tests)
 
+    add_custom_command(TARGET coverage
+        POST_BUILD
+        COMMAND cmake -E copy_directory ${CMAKE_BINARY_DIR}/coverage ${CMAKE_SOURCE_DIR}/Documentation/coverage
+    )
+
 endif()

@@ -1,5 +1,5 @@
 /**
- * @file src/Detail/Definitions.hpp
+ * @file src/Detail/Config/Definitions.hpp
  * @brief Data receive from cmake settings
  * @note Do not use clang-format here (@ broke it)
  *
@@ -17,5 +17,5 @@
 #define PROJECT_VERSION_PATCH @PROJECT_VERSION_PATCH@ /*!< @brief Version Patch */
 #define PROJECT_VERSION_TWEAK @PROJECT_VERSION_TWEAK@ /*!< @brief Version Tweak */
 
-#define PROJECT_BUILD_TYPE           @CMAKE_BUILD_TYPE@           /*!< @brief Build Type used */
+#define PROJECT_BUILD_TYPE           @CMAKE_BUILD_TYPE@            /*!< @brief Build Type used */
 #define PROJECT_BUILD_TYPE_AS_STRING AS_STRING(PROJECT_BUILD_TYPE) /*!< @brief Build Type as string */
