@@ -3,4 +3,12 @@
 ./Scripts/configure Tests
 ./Scripts/build Debug
 
-cmake --build build --target test
+OS=$(uname)
+case "$OS" in
+"Linux" | "Darwin")
+  cmake --build build --target test
+  ;;
+*)
+  cmake --build build --target RUN_TESTS
+  ;;
+esac

@@ -68,14 +68,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-conan-Debug-cache-v2
 
-      - name: Configure
+      - name: Configure, build and run
         shell: bash
-        run: ./Scripts/configure Tests
-
-      - name: Build
-        shell: bash
-        run: ./Scripts/build Debug
-
-      - name: Run
-        shell: bash
-        run: cmake --build build --target test
+        run: ./Scripts/test
