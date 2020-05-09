@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">EpiGimp
-   &#160;<span id="projectnumber">0.0.2.0</span>
+   &#160;<span id="projectnumber">0.0.3</span>
    </div>
    <div id="projectbrief">An Image Processing Software</div>
   </td>
@@ -110,37 +110,40 @@ $(function() {
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        sf::RenderWindow m_window;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        std::unique_ptr&lt;Scene&gt; m_scene{<span class="keyword">nullptr</span>};</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        std::uint32_t m_fps{0};</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        sf::Time m_deltaTime{};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        std::string_view m_binName;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        std::vector&lt;std::string_view&gt; m_arguments;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">float</span> m_deltaTimeSeconds{0.f};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">float</span> m_zoom{1.f};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        std::uint32_t m_fps{0};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        sf::Time m_deltaTime{};</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> S, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">auto</span> createScene(Args &amp;&amp;... args) -&gt; <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            m_scene = std::make_unique&lt;S&gt;(std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">if</span> (!m_scene-&gt;onCreate(*<span class="keyword">this</span>)) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create scene\n&quot;</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                m_scene.reset(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">auto</span> reloadView() -&gt; <span class="keywordtype">void</span> <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">auto</span> processEvent(<span class="keyword">const</span> sf::Event &amp;event) -&gt; void;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">float</span> m_deltaTimeSeconds{0.f};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">float</span> m_zoom{1.f};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> S, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">auto</span> createScene(Args &amp;&amp;... args) -&gt; <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            m_scene = std::make_unique&lt;S&gt;(std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">if</span> (!m_scene-&gt;onCreate(*<span class="keyword">this</span>)) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create scene\n&quot;</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                m_scene.reset(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        sf::Font m_defaultFont{};</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="structusa_1_1Engine_1_1Settings.html">Settings</a> m_settings;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">auto</span> drawFps() <span class="keyword">const</span> -&gt; void;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    };</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">auto</span> reloadView() -&gt; <span class="keywordtype">void</span> <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">auto</span> processEvent(<span class="keyword">const</span> sf::Event &amp;event) -&gt; void;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        sf::Font m_defaultFont{};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="structusa_1_1Engine_1_1Settings.html">Settings</a> m_settings;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} <span class="comment">// namespace Engine</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// namespace usa</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">auto</span> drawFps() <span class="keyword">const</span> -&gt; void;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    };</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;} <span class="comment">// namespace Engine</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;} <span class="comment">// namespace usa</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructusa_1_1Engine_1_1Settings_html"><div class="ttname"><a href="structusa_1_1Engine_1_1Settings.html">usa::Engine::Settings</a></div><div class="ttdef"><b>Definition:</b> Settings.hpp:17</div></div>
 <div class="ttc" id="aclassusa_1_1Engine_1_1Application_html"><div class="ttname"><a href="classusa_1_1Engine_1_1Application.html">usa::Engine::Application</a></div><div class="ttdef"><b>Definition:</b> Application.hpp:23</div></div>
