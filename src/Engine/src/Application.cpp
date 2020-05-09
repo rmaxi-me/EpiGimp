@@ -52,8 +52,10 @@ auto usa::Engine::Application::start(const std::string_view &title) -> void
 {
     sf::Event event{};
     sf::Uint32 style = sf::Style::Close;
+    sf::Uint32 fullscreen = sf::Style::Fullscreen;
+    sf::Uint32 resize = sf::Style::Resize;
 
-    style |= m_settings.fullscreen ? sf::Style::Fullscreen : sf::Style::Resize;
+    style |= m_settings.fullscreen ? fullscreen : resize;
 
     m_window.create(sf::VideoMode{m_settings.width, m_settings.height}, title.data(), style);
     m_window.setFramerateLimit(m_settings.fps_limit);
