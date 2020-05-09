@@ -7,11 +7,23 @@
 
 #include "SceneCanvas.hpp"
 
-SceneCanvas::SceneCanvas(unsigned int width, unsigned int height) : m_width{width}, m_height{height} { }
+SceneCanvas::SceneCanvas(unsigned int width, unsigned int height) : m_width{width}, m_height{height}
+{
+    m_canvasImage.create(m_width, m_height, sf::Color::White);
+}
+
+SceneCanvas::SceneCanvas(const std::string_view &file) : m_width{0}, m_height{0}
+{
+    const std::string strFile{file};
+
+    if (!m_canvasImage.loadFromFile(strFile)) { throw std::runtime_error("Could not load image " + strFile); }
+
+    m_width = m_canvasImage.getSize().x;
+    m_height = m_canvasImage.getSize().y;
+}
 
 bool SceneCanvas::onCreate(usa::Engine::Application &)
 {
-    m_canvasImage.create(m_width, m_height, sf::Color::White);
     m_canvasTexture.create(m_width, m_height);
     m_canvasTexture.setSmooth(false);
 

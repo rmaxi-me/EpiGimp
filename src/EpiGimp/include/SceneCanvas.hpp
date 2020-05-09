@@ -14,6 +14,7 @@
 class SceneCanvas final : public usa::Engine::Scene {
 public:
     SceneCanvas(unsigned int width, unsigned int height);
+    explicit SceneCanvas(const std::string_view &file);
 
     auto onCreate(usa::Engine::Application &app) -> bool override;
     auto onEvent(const sf::Event &event) -> void override;
