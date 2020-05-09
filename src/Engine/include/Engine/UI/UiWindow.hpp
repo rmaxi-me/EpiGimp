@@ -20,7 +20,7 @@ namespace Engine {
         ImVec2 m_size{};
         ImVec2 m_position{};
     protected:
-        std::string m_name{};
+        std::string_view m_name{};
         std::vector<std::shared_ptr<AWidget>> m_WidgetList{};
         std::vector<std::shared_ptr<UiWindow>> m_WindowList{};
     public:
