@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['packages_20and_20dependencies_5',['Packages And Dependencies',['../Packges.html',1,'']]]
+  ['license_5',['LICENSE',['../md_LICENSE.html',1,'']]]
 ];

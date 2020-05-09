@@ -41,6 +41,7 @@ CMakeCache.txt
 CMakeFiles
 conan*
 !conanfile.txt
+!Documentation/conan
 graph_info.json
 
 src/Detail/Config/Definitions.hpp

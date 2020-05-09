@@ -1,31 +1,25 @@
 function(enable_doxygen)
   option(ENABLE_DOXYGEN "Enable doxygen doc builds of source" OFF)
   if(ENABLE_DOXYGEN)
-    set(DOXYGEN_CALLER_GRAPH ON)
-    set(DOXYGEN_CALL_GRAPH ON)
-    set(DOXYGEN_EXTRACT_ALL ON)
     find_package(Doxygen REQUIRED dot)
-
     if(NOT DOXYGEN_FOUND)
       message(FATAL_ERROR "Doxygen need to be installed to generate the doxygen documentation")
     endif()
 
+    set(DOXYGEN_CALLER_GRAPH ON)
+    set(DOXYGEN_CALL_GRAPH ON)
+    set(DOXYGEN_EXTRACT_ALL ON)
+
     configure_file(${CMAKE_SOURCE_DIR}/src/docs/Doxyfile.in ${CMAKE_BINARY_DIR}/src/Doxyfile @ONLY)
 
-    configure_file(${CMAKE_SOURCE_DIR}/src/docs/extra/Packages.hpp.in ${CMAKE_BINARY_DIR}/src/docs/extra/Packges.hpp
-                   @ONLY)
-    configure_file(${CMAKE_SOURCE_DIR}/src/docs/extra/Coverage.hpp.in ${CMAKE_BINARY_DIR}/src/docs/extra/Coverage.hpp
-                   @ONLY)
-
     find_program(CONAN_CMD conan)
-
     if(NOT CONAN_CMD)
       message(FATAL_ERROR "Conan executable not found!")
     endif()
 
     add_custom_target(
       conan_doc ALL
-      COMMAND ${CONAN_CMD} info ${CMAKE_SOURCE_DIR} --graph=${CMAKE_BINARY_DIR}/conan/package.html
+      COMMAND ${CONAN_CMD} info ${CMAKE_SOURCE_DIR} --graph=${CMAKE_SOURCE_DIR}/Documentation/conan/package.html
       COMMENT "Generating Package documentation with Conan"
       VERBATIM)
 
