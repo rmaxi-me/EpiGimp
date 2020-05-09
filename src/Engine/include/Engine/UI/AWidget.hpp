@@ -12,7 +12,7 @@ namespace Engine {
 class AWidget
 {
 protected:
-    std::string m_name{};
+    std::string_view m_name{};
     ImVec2 m_size{};
     // void (*m_action)(void);
 public:
