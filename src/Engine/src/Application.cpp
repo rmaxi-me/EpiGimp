@@ -116,6 +116,7 @@ auto usa::Engine::Application::drawFps() const -> void
     ImGui::End();
 }
 
+// TODO: Preserve zoom and camera position on window resize
 void usa::Engine::Application::reloadView()
 {
     sf::View view = m_window.getView();
