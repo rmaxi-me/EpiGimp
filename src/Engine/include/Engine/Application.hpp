@@ -54,6 +54,7 @@ namespace Engine {
                 m_scene.reset(nullptr);
                 return false;
             }
+            m_scene->registerWindow(m_window);
             return true;
         }
 

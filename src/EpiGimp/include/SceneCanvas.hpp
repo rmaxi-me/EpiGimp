@@ -17,9 +17,9 @@ public:
     explicit SceneCanvas(const std::string_view &file);
 
     auto onCreate(usa::Engine::Application &app) -> bool override;
-    auto onEvent(sf::RenderWindow &window, const sf::Event &event) -> void override;
-    auto onTick(sf::RenderWindow &window, float) -> void override;
-    auto onDraw(sf::RenderWindow &window) const -> void override;
+    auto onEvent(const sf::Event &event) -> void override;
+    auto onTick(float deltaTime) -> void override;
+    auto onDraw() const -> void override;
 
 private:
     constexpr static auto MOVE_SPEED = 500.f;
@@ -37,5 +37,5 @@ private:
     sf::Texture m_canvasTexture{};
     sf::Image m_canvasImage{};
 
-    auto updateView(sf::RenderWindow &window, sf::Vector2f delta, float zoomDelta = 0.f) const -> void;
+    auto updateView(sf::Vector2f delta, float zoomDelta = 0.f) const -> void;
 };

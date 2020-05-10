@@ -72,15 +72,15 @@ auto usa::Engine::Application::start(const std::string_view &title) -> void
 
         while (m_window.pollEvent(event)) {
             processEvent(event);
-            if (m_scene) m_scene->onEvent(m_window, event);
+            if (m_scene) m_scene->onEvent(event);
         }
 
         ImGui::SFML::Update(m_window, m_deltaTime);
         tick(m_deltaTimeSeconds);
 
         if (m_scene) {
-            m_scene->onTick(m_window, m_deltaTimeSeconds);
-            m_scene->onDraw(m_window);
+            m_scene->onTick(m_deltaTimeSeconds);
+            m_scene->onDraw();
         }
 
         draw();

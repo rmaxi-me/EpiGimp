@@ -5,7 +5,6 @@
 ** under certain conditions; see LICENSE for details.
 */
 
-#include <iostream> // TODO: Remove
 #include "SceneCanvas.hpp"
 
 SceneCanvas::SceneCanvas(unsigned int width, unsigned int height) : m_width{width}, m_height{height}
@@ -34,49 +33,49 @@ bool SceneCanvas::onCreate(usa::Engine::Application &)
     return true;
 }
 
-void SceneCanvas::onEvent(sf::RenderWindow &window, const sf::Event &event)
+void SceneCanvas::onEvent(const sf::Event &event)
 {
     switch (event.type) {
     case sf::Event::EventType::MouseButtonPressed:
         if (event.mouseButton.button == sf::Mouse::Right) {
             m_mouseGrabbed = true;
-            m_grabPoint = window.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
-            window.setMouseCursorGrabbed(true);
+            m_grabPoint = m_window->mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
 
             m_cursor.loadFromSystem(sf::Cursor::Hand);
-            window.setMouseCursor(m_cursor);
+            m_window->setMouseCursor(m_cursor);
+            m_window->setMouseCursorGrabbed(true);
         }
         break;
     case sf::Event::EventType::MouseButtonReleased:
         if (event.mouseButton.button == sf::Mouse::Right) {
             m_mouseGrabbed = false;
-            window.setMouseCursorGrabbed(false);
 
             m_cursor.loadFromSystem(sf::Cursor::Arrow);
-            window.setMouseCursor(m_cursor);
+            m_window->setMouseCursor(m_cursor);
+            m_window->setMouseCursorGrabbed(false);
         }
         break;
     case sf::Event::EventType::MouseMoved:
         if (m_mouseGrabbed) {
-            sf::View view = window.getView();
-            const auto dropDelta = m_grabPoint - window.mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
+            sf::View view = m_window->getView();
+            const auto dropDelta = m_grabPoint - m_window->mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
             view.move(dropDelta);
-            window.setView(view);
+            m_window->setView(view);
         }
         break;
-    case sf::Event::EventType::MouseWheelScrolled: updateView(window, {}, -event.mouseWheelScroll.delta); break;
+    case sf::Event::EventType::MouseWheelScrolled: updateView({}, -event.mouseWheelScroll.delta); break;
     default: break;
     }
 }
 
-void SceneCanvas::onTick(sf::RenderWindow &window, float deltaTime)
+void SceneCanvas::onTick(float deltaTime)
 {
     m_deltaTime = deltaTime;
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) updateView(window, {0.f, -1.f});
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) updateView(window, {-1.f, 0.f});
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) updateView(window, {0.f, 1.f});
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) updateView(window, {1.f, 0.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) updateView({0.f, -1.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) updateView({-1.f, 0.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) updateView({0.f, 1.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) updateView({1.f, 0.f});
 
     /*
      * Insert image manipulations here
@@ -85,11 +84,11 @@ void SceneCanvas::onTick(sf::RenderWindow &window, float deltaTime)
     m_canvasTexture.update(m_canvasImage);
 }
 
-void SceneCanvas::onDraw(sf::RenderWindow &window) const { window.draw(m_canvas); }
+void SceneCanvas::onDraw() const { m_window->draw(m_canvas); }
 
-auto SceneCanvas::updateView(sf::RenderWindow &window, sf::Vector2f delta, const float zoomDelta) const -> void
+auto SceneCanvas::updateView(sf::Vector2f delta, const float zoomDelta) const -> void
 {
-    auto view = window.getView();
+    auto view = m_window->getView();
 
     delta.x *= MOVE_SPEED * m_deltaTime;
     delta.y *= MOVE_SPEED * m_deltaTime;
@@ -100,5 +99,5 @@ auto SceneCanvas::updateView(sf::RenderWindow &window, sf::Vector2f delta, const
     else if (zoomDelta < 0)
         view.zoom(0.9f);
 
-    window.setView(view);
+    m_window->setView(view);
 }
