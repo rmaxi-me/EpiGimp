@@ -28,9 +28,9 @@ bool SceneCanvas::onCreate(usa::Engine::Application &)
     m_canvasTexture.create(m_width, m_height);
     m_canvasTexture.setSmooth(false);
 
-    m_rect.setPosition(0, 0);
-    m_rect.setSize({static_cast<float>(m_width), static_cast<float>(m_height)});
-    m_rect.setTexture(&m_canvasTexture);
+    m_canvas.setPosition(0, 0);
+    m_canvas.setSize({static_cast<float>(m_width), static_cast<float>(m_height)});
+    m_canvas.setTexture(&m_canvasTexture);
     return true;
 }
 
@@ -42,12 +42,18 @@ void SceneCanvas::onEvent(sf::RenderWindow &window, const sf::Event &event)
             m_mouseGrabbed = true;
             m_grabPoint = window.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
             window.setMouseCursorGrabbed(true);
+
+            m_cursor.loadFromSystem(sf::Cursor::Hand);
+            window.setMouseCursor(m_cursor);
         }
         break;
     case sf::Event::EventType::MouseButtonReleased:
         if (event.mouseButton.button == sf::Mouse::Right) {
             m_mouseGrabbed = false;
             window.setMouseCursorGrabbed(false);
+
+            m_cursor.loadFromSystem(sf::Cursor::Arrow);
+            window.setMouseCursor(m_cursor);
         }
         break;
     case sf::Event::EventType::MouseMoved:
@@ -79,7 +85,7 @@ void SceneCanvas::onTick(sf::RenderWindow &window, float deltaTime)
     m_canvasTexture.update(m_canvasImage);
 }
 
-void SceneCanvas::onDraw(sf::RenderWindow &window) const { window.draw(m_rect); }
+void SceneCanvas::onDraw(sf::RenderWindow &window) const { window.draw(m_canvas); }
 
 auto SceneCanvas::updateView(sf::RenderWindow &window, sf::Vector2f delta, const float zoomDelta) const -> void
 {

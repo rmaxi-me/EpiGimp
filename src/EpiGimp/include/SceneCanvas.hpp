@@ -32,7 +32,8 @@ private:
 
     float m_deltaTime{};
 
-    sf::RectangleShape m_rect{};
+    sf::Cursor m_cursor{};
+    sf::RectangleShape m_canvas{};
     sf::Texture m_canvasTexture{};
     sf::Image m_canvasImage{};
 
