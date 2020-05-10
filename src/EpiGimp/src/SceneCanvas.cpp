@@ -58,7 +58,7 @@ void SceneCanvas::onEvent(sf::RenderWindow &window, const sf::Event &event)
             window.setView(view);
         }
         break;
-    case sf::Event::EventType::MouseWheelScrolled: updateView(window, {}, 0.1f * event.mouseWheelScroll.delta); break;
+    case sf::Event::EventType::MouseWheelScrolled: updateView(window, {}, -event.mouseWheelScroll.delta); break;
     default: break;
     }
 }
@@ -72,15 +72,9 @@ void SceneCanvas::onTick(sf::RenderWindow &window, float deltaTime)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) updateView(window, {0.f, 1.f});
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) updateView(window, {1.f, 0.f});
 
-    // Temporary
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-        auto rawPos = sf::Mouse::getPosition();
-        auto mappedPos = window.mapPixelToCoords(rawPos);
-        auto pos = sf::Vector2u{static_cast<unsigned int>(mappedPos.x), static_cast<unsigned int>(mappedPos.y)};
-        if (m_rect.getGlobalBounds().contains(static_cast<float>(pos.x), static_cast<float>(pos.y))) {
-            m_canvasImage.setPixel(pos.x, pos.y, sf::Color::Black);
-        }
-    }
+    /*
+     * Insert image manipulations here
+     */
 
     m_canvasTexture.update(m_canvasImage);
 }
