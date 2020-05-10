@@ -25,8 +25,8 @@ namespace Engine {
         Scene &operator=(Scene &&) = default;
 
         virtual auto onCreate(Application &app) -> bool = 0;
-        virtual auto onEvent(const sf::Event &event) -> void = 0;
-        virtual auto onTick(const sf::RenderWindow &window, float deltaTime) -> void = 0;
+        virtual auto onEvent(sf::RenderWindow &window, const sf::Event &event)-> void = 0;
+        virtual auto onTick(sf::RenderWindow &window, float deltaTime) -> void = 0;
         virtual auto onDraw(sf::RenderWindow &window) const -> void = 0;
     };
 

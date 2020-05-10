@@ -5,6 +5,7 @@
 ** under certain conditions; see LICENSE for details.
 */
 
+#include <iostream> // TODO: Remove
 #include "SceneCanvas.hpp"
 
 SceneCanvas::SceneCanvas(unsigned int width, unsigned int height) : m_width{width}, m_height{height}
@@ -33,15 +34,51 @@ bool SceneCanvas::onCreate(usa::Engine::Application &)
     return true;
 }
 
-void SceneCanvas::onEvent(const sf::Event &) { }
-
-void SceneCanvas::onTick(const sf::RenderWindow &, float)
+void SceneCanvas::onEvent(sf::RenderWindow &window, const sf::Event &event)
 {
+    switch (event.type) {
+    case sf::Event::EventType::MouseButtonPressed:
+        if (event.mouseButton.button == sf::Mouse::Right) {
+            m_mouseGrabbed = true;
+            m_grabPoint = window.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
+            window.setMouseCursorGrabbed(true);
+        }
+        break;
+    case sf::Event::EventType::MouseButtonReleased:
+        if (event.mouseButton.button == sf::Mouse::Right) {
+            m_mouseGrabbed = false;
+            window.setMouseCursorGrabbed(false);
+        }
+        break;
+    case sf::Event::EventType::MouseMoved:
+        if (m_mouseGrabbed) {
+            sf::View view = window.getView();
+            const auto dropDelta = m_grabPoint - window.mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
+            view.move(dropDelta);
+            window.setView(view);
+        }
+        break;
+    case sf::Event::EventType::MouseWheelScrolled: updateView(window, {}, 0.1f * event.mouseWheelScroll.delta); break;
+    default: break;
+    }
+}
+
+void SceneCanvas::onTick(sf::RenderWindow &window, float deltaTime)
+{
+    m_deltaTime = deltaTime;
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) updateView(window, {0.f, -1.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) updateView(window, {-1.f, 0.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) updateView(window, {0.f, 1.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) updateView(window, {1.f, 0.f});
+
     // Temporary
     if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-        auto pos = sf::Mouse::getPosition();
+        auto rawPos = sf::Mouse::getPosition();
+        auto mappedPos = window.mapPixelToCoords(rawPos);
+        auto pos = sf::Vector2u{static_cast<unsigned int>(mappedPos.x), static_cast<unsigned int>(mappedPos.y)};
         if (m_rect.getGlobalBounds().contains(static_cast<float>(pos.x), static_cast<float>(pos.y))) {
-            m_canvasImage.setPixel(static_cast<unsigned int>(pos.x), static_cast<unsigned int>(pos.y), sf::Color::Black);
+            m_canvasImage.setPixel(pos.x, pos.y, sf::Color::Black);
         }
     }
 
@@ -49,3 +86,19 @@ void SceneCanvas::onTick(const sf::RenderWindow &, float)
 }
 
 void SceneCanvas::onDraw(sf::RenderWindow &window) const { window.draw(m_rect); }
+
+auto SceneCanvas::updateView(sf::RenderWindow &window, sf::Vector2f delta, const float zoomDelta) const -> void
+{
+    auto view = window.getView();
+
+    delta.x *= MOVE_SPEED * m_deltaTime;
+    delta.y *= MOVE_SPEED * m_deltaTime;
+    view.move(delta);
+
+    if (zoomDelta > 0)
+        view.zoom(1.1f);
+    else if (zoomDelta < 0)
+        view.zoom(0.9f);
+
+    window.setView(view);
+}

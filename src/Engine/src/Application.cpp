@@ -70,7 +70,10 @@ auto usa::Engine::Application::start(const std::string_view &title) -> void
     while (m_window.isOpen()) {
         m_window.clear();
 
-        while (m_window.pollEvent(event)) processEvent(event);
+        while (m_window.pollEvent(event)) {
+            processEvent(event);
+            if (m_scene) m_scene->onEvent(m_window, event);
+        }
 
         ImGui::SFML::Update(m_window, m_deltaTime);
         tick(m_deltaTimeSeconds);
@@ -117,6 +120,5 @@ void usa::Engine::Application::reloadView()
 {
     sf::View view = m_window.getView();
     view.reset(sf::FloatRect(0.f, 0.f, static_cast<float>(m_settings.width), static_cast<float>(m_settings.height)));
-    view.zoom(m_zoom);
     m_window.setView(view);
 }

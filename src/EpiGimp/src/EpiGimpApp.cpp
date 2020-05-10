@@ -25,11 +25,6 @@ usa::EpiGimpApp::EpiGimpApp(int ac, char **av) : Application{ac, av} { }
 auto usa::EpiGimpApp::processEvent(const sf::Event &event) -> void
 {
     Application::processEvent(event);
-
-    if (event.type == sf::Event::MouseWheelScrolled) {
-        m_zoom += 0.1f * event.mouseWheelScroll.delta;
-        reloadView();
-    }
 }
 
 auto usa::EpiGimpApp::init() -> void

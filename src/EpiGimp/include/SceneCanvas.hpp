@@ -17,15 +17,24 @@ public:
     explicit SceneCanvas(const std::string_view &file);
 
     auto onCreate(usa::Engine::Application &app) -> bool override;
-    auto onEvent(const sf::Event &event) -> void override;
-    auto onTick(const sf::RenderWindow &window, float) -> void override;
+    auto onEvent(sf::RenderWindow &window, const sf::Event &event) -> void override;
+    auto onTick(sf::RenderWindow &window, float) -> void override;
     auto onDraw(sf::RenderWindow &window) const -> void override;
 
 private:
+    constexpr static auto MOVE_SPEED = 500.f;
+
     unsigned int m_width;
     unsigned int m_height;
+
+    bool m_mouseGrabbed{false};
+    sf::Vector2f m_grabPoint{};
+
+    float m_deltaTime{};
 
     sf::RectangleShape m_rect{};
     sf::Texture m_canvasTexture{};
     sf::Image m_canvasImage{};
+
+    auto updateView(sf::RenderWindow &window, sf::Vector2f delta, float zoomDelta = 0.f) const -> void;
 };

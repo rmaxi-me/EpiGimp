@@ -43,7 +43,6 @@ namespace Engine {
         sf::Time m_deltaTime{};
 
         float m_deltaTimeSeconds{0.f};
-        float m_zoom{1.f};
 
         template<typename S, typename... Args>
         auto createScene(Args &&... args) -> bool
