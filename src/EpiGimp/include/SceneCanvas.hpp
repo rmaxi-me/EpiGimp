@@ -14,7 +14,7 @@
 class SceneCanvas final : public usa::Engine::Scene {
 public:
     SceneCanvas(unsigned int width, unsigned int height);
-    explicit SceneCanvas(const std::string_view &file);
+    explicit SceneCanvas(const std::vector<std::string_view> &files);
 
     auto onCreate(usa::Engine::Application &app) -> bool override;
     auto onEvent(const sf::Event &event) -> void override;
@@ -24,18 +24,26 @@ public:
 private:
     constexpr static auto MOVE_SPEED = 500.f;
 
-    unsigned int m_width;
-    unsigned int m_height;
+    struct Layer {
+        sf::Texture texture;
+        sf::Image image;
+        sf::Sprite sprite;
+        float ratio{};
 
-    bool m_mouseGrabbed{false};
-    sf::Vector2f m_grabPoint{};
+        mutable bool hidden{false};
+
+        Layer(unsigned int width, unsigned int height, sf::Color color = sf::Color::White);
+        explicit Layer(const std::string_view &file);
+
+        auto init() -> void;
+    };
+
+    std::vector<Layer> m_layers{};
 
     float m_deltaTime{};
-
+    bool m_mouseGrabbed{false};
+    sf::Vector2f m_grabPoint{};
     sf::Cursor m_cursor{};
-    sf::RectangleShape m_canvas{};
-    sf::Texture m_canvasTexture{};
-    sf::Image m_canvasImage{};
 
     auto updateView(sf::Vector2f delta, float zoomDelta = 0.f) const -> void;
 };
