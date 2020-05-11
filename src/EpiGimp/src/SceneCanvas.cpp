@@ -5,10 +5,11 @@
 ** under certain conditions; see LICENSE for details.
 */
 
-#include <iostream> // TODO: Remove
-
 #include <imgui.h>
 #include <imgui-SFML.h>
+
+#include <iostream> // TODO: Remove
+#include <algorithm>
 
 #include "SceneCanvas.hpp"
 
@@ -95,7 +96,7 @@ auto SceneCanvas::updateView(sf::Vector2f delta, const float zoomDelta) const ->
     m_window->setView(view);
 }
 
-void SceneCanvas::onDraw() const
+void SceneCanvas::onDraw()
 {
     for (const auto &layer : m_layers) {
         if (!layer.hidden) m_window->draw(layer.sprite);
@@ -110,8 +111,8 @@ void SceneCanvas::onDraw() const
             ImGui::Text("Layer %ld", index);
             ImGui::BeginGroup();
             {
-                if (ImGui::Button("Up", {50, 0})) std::cout << "Up pressed" << std::endl;
-                if (ImGui::Button("Down", {50, 0})) std::cout << "Down pressed" << std::endl;
+                if (ImGui::Button("Up", {50, 0})) swapLayers(layer, -1);
+                if (ImGui::Button("Down", {50, 0})) swapLayers(layer, 1);
                 if (ImGui::Button(layer->hidden ? "Show" : "Hide", {50, 0})) layer->hidden = !layer->hidden;
             }
             ImGui::EndGroup();
@@ -127,6 +128,20 @@ void SceneCanvas::onDraw() const
         }
     }
     ImGui::End();
+}
+
+auto SceneCanvas::swapLayers(decltype(m_layers)::reverse_iterator &current, int offset) -> void
+{
+    if (offset == -1) {
+        // Move UP
+        if (current == m_layers.rbegin())
+            return;
+    } else if (offset == 1) {
+        // Move DOWN
+        if (current + 1 == m_layers.rend())
+            return;
+    }
+    std::iter_swap(current, current + offset);
 }
 
 SceneCanvas::Layer::Layer(unsigned int width, unsigned int height, sf::Color color)

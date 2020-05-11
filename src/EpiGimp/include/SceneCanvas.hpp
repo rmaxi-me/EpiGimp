@@ -19,7 +19,7 @@ public:
     auto onCreate(usa::Engine::Application &app) -> bool override;
     auto onEvent(const sf::Event &event) -> void override;
     auto onTick(float deltaTime) -> void override;
-    auto onDraw() const -> void override;
+    auto onDraw() -> void override;
 
 private:
     constexpr static auto MOVE_SPEED = 500.f;
@@ -30,7 +30,7 @@ private:
         sf::Sprite sprite;
         float ratio{};
 
-        mutable bool hidden{false};
+        bool hidden{false};
 
         Layer(unsigned int width, unsigned int height, sf::Color color = sf::Color::White);
         explicit Layer(const std::string_view &file);
@@ -46,4 +46,5 @@ private:
     sf::Cursor m_cursor{};
 
     auto updateView(sf::Vector2f delta, float zoomDelta = 0.f) const -> void;
+    auto swapLayers(decltype(m_layers)::reverse_iterator &current, int offset) -> void;
 };
