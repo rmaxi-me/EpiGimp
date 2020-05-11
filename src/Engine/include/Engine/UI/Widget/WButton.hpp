@@ -41,7 +41,7 @@ namespace Engine {
         auto bindAction(std::function<void()> func) -> void override;
         
         /**
-         * @brief Render the button and check if the it's triggered. If it is call the binded function
+         * @brief Render the button and check if it's triggered. If it is, call the bound function
          * 
          */
         auto render() -> void override;
