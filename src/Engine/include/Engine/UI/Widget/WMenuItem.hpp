@@ -37,7 +37,7 @@ namespace usa
             virtual ~WMenuItem() = default;
 
             /**
-             * @brief Bind an action when to menu item is trigger
+             * @brief Bind an action to the menu item
              * 
              * @param func The function action to bind
              */
