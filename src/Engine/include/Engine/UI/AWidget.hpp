@@ -53,7 +53,7 @@ public:
      */
     auto setSize(const ImVec2 &size)        noexcept -> void { m_size = size; }
     /**
-     * @brief Set the Name object
+     * @brief Set the name of the object
      * 
      * @param name 
      */
