@@ -82,7 +82,7 @@ public:
     /**
      * @brief bind an action to the widget
      * 
-     * @param std::function<void()> take an std::function to bind 
+     * @param std::function<void()> std::function to bind 
      */
     virtual auto bindAction(std::function<void()>) -> void = 0;
 };
