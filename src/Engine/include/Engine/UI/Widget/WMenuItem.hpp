@@ -37,14 +37,14 @@ namespace usa
             virtual ~WMenuItem() = default;
 
             /**
-             * @brief Bind an action when to menu item is trigger
+             * @brief Bind an action to the menu item
              * 
              * @param func The function action to bind
              */
             auto bindAction(std::function<void()> func) -> void override;
             
             /**
-             * @brief Render the menu item and check if the it's triggered. If it is call the binded function
+             * @brief Render the menu item and check if it's triggered. If it is, call the bound function
              * 
              */
             auto render() -> void override;

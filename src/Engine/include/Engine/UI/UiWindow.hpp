@@ -40,7 +40,7 @@ namespace Engine {
         /**
          * @brief Construct a new Ui Window object
          * 
-         * @param name The name of the window, the name may be render
+         * @param name The name of the window, the name may be rendered
          * @param flags The flags parameters of the window
          */
         UiWindow(const std::string_view &name, ImGuiWindowFlags flags = 0) : m_window_flags(flags), m_name(name) {}
@@ -70,28 +70,28 @@ namespace Engine {
         virtual auto render()   -> void;
 
         /**
-         * @brief Set the Window Flags object
+         * @brief Set the Window Flags
          * 
          * @param flags The value of the flags, different value will trigger different options
          */
         auto setWindowFlags(ImGuiWindowFlags flags) noexcept -> void { m_window_flags = flags; }
 
         /**
-         * @brief Set the Position object
+         * @brief Set the position of the object
          * 
          * @param pos The new postion of the object
          */
         auto setPosition(const ImVec2 &pos) noexcept    -> void { m_position = pos; }
 
         /**
-         * @brief Set the Size object
+         * @brief Set the size of the object
          * 
          * @param size The new size of the object
          */
         auto setSize(const ImVec2 &size)    noexcept    -> void { m_size = size; }
 
         /**
-         * @brief Set the Name object
+         * @brief Set the name of the object
          * 
          * @param name The new name of the object
          */
@@ -105,19 +105,19 @@ namespace Engine {
         auto getFlags()     -> ImGuiWindowFlags &{ return m_window_flags; }
 
         /**
-         * @brief Get the Position object
+         * @brief Get the position of the object
          * 
          * @return const ImVec2& 
          */
         auto getPosition()  -> const ImVec2 & { return m_position; }
         /**
-         * @brief Get the Size object
+         * @brief Get the size of the object
          * 
          * @return const ImVec2& 
          */
         auto getSize()      -> const ImVec2 & { return m_size; }
         /**
-         * @brief Get the Name object
+         * @brief Get the name of the object
          * 
          * @return const std::string_view& 
          */
@@ -131,7 +131,7 @@ namespace Engine {
         auto addWidget(std::shared_ptr<AWidget> widget) -> void { m_WidgetList.emplace_back(widget); }
         
         /**
-         * @brief Delete a widget store in the window
+         * @brief Delete a widget stored in the window
          * 
          * @param name The name of the widget to delete
          * @return true Return true if a widget was delete
@@ -156,7 +156,7 @@ namespace Engine {
         auto addWindow(std::shared_ptr<UiWindow> win) -> void { m_WindowList.emplace_back(win); }
         
         /**
-         * @brief Delete a sub-window store in the window
+         * @brief Delete a sub-window stored in the window
          * 
          * @param name the name of the sub-window to delete
          * @return true return true if a window was deleted
