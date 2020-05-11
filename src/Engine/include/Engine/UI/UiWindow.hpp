@@ -128,7 +128,7 @@ namespace Engine {
          * 
          * @param widget The new widget to add 
          */
-        auto addWidget(std::shared_ptr<AWidget> widget) -> void { m_WidgetList.emplace_back(wid); }
+        auto addWidget(std::shared_ptr<AWidget> widget) -> void { m_WidgetList.emplace_back(widget); }
         
         /**
          * @brief Delete a widget store in the window
@@ -153,7 +153,7 @@ namespace Engine {
          * 
          * @param win The new window to add 
          */
-        auto addWindow(std::shared_ptr<UiWindow> win) -> void { m_WindowList.emplace_back(wid); }
+        auto addWindow(std::shared_ptr<UiWindow> win) -> void { m_WindowList.emplace_back(win); }
         
         /**
          * @brief Delete a sub-window store in the window
