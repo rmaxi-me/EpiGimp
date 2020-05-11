@@ -28,14 +28,14 @@ namespace Engine {
         return false;
     }
 
-    auto UiWindow::getWidget(const std::string_view &name) -> std::optional<std::shared_ptr<AWidget>>
+    auto UiWindow::getWidget(const std::string_view &name) -> std::shared_ptr<AWidget>
     {
         for (auto i = m_WidgetList.begin(); i != m_WidgetList.end(); ++i)
         {
             if ((*i)->getName() == name)
                 return (*i);
         }
-        return {};
+        return nullptr;
     }
 
     auto UiWindow::deleteWindow(const std::string_view &name) -> bool
@@ -51,14 +51,14 @@ namespace Engine {
         return false;
     }
 
-    auto UiWindow::getWindow(const std::string_view &name) -> std::optional<std::shared_ptr<UiWindow>>
+    auto UiWindow::getWindow(const std::string_view &name) -> std::shared_ptr<UiWindow>
     {
         for (auto i = m_WindowList.begin(); i != m_WindowList.end(); ++i)
         {
             if ((*i)->getName() == name)
                 return (*i);
         }
-        return {};
+        return nullptr;
     }
 }
 

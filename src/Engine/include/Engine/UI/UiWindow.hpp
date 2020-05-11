@@ -143,10 +143,10 @@ namespace Engine {
          * @brief Get the Widget object
          * 
          * @param name The name of the widget to get
-         * @return std::optional<std::shared_ptr<AWidget>> Return a widget smart pointer if found
-         * @return nullopt Return nullopt if the widget was not found
+         * @return std::shared_ptr<AWidget> Return a widget smart pointer if found
+         * @return nullptr Return nullptr if the widget was not found
          */
-        auto getWidget(const std::string_view &name)     -> std::optional<std::shared_ptr<AWidget>>;
+        auto getWidget(const std::string_view &name)     -> std::shared_ptr<AWidget>;
 
         /**
          * @brief Add a new sub Window in the current window
@@ -168,10 +168,10 @@ namespace Engine {
          * @brief Get the Window object
          * 
          * @param name The name of the window object to get
-         * @return std::optional<std::shared_ptr<UiWindow>> return a UiWindow smart pointer
-         * @return nullopt return nullopt otherwise
+         * @return std::shared_ptr<UiWindow> return a UiWindow smart pointer
+         * @return nullptr return nullptr otherwise
          */
-        auto getWindow(const std::string_view &name) -> std::optional<std::shared_ptr<UiWindow>>;
+        auto getWindow(const std::string_view &name) -> std::shared_ptr<UiWindow>;
     };
 }
 
