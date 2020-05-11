@@ -60,7 +60,7 @@ public:
     auto setName(const std::string_view &name)   noexcept -> void { m_name = name; }
 
     /**
-     * @brief Get the Size object
+     * @brief Get the size of the object
      * 
      * @return const ImVec2& 
      */
