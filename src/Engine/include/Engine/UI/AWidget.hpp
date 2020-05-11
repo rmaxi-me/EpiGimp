@@ -80,7 +80,7 @@ public:
     virtual auto render() -> void = 0;
  
     /**
-     * @brief bind an action the widget will do when triggered
+     * @brief bind an action to the widget
      * 
      * @param std::function<void()> take an std::function to bind 
      */
