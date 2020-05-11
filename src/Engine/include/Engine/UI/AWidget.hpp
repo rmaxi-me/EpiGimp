@@ -67,7 +67,7 @@ public:
     auto getSize() -> const ImVec2 &        { return m_size; }
 
     /**
-     * @brief Get the Name object
+     * @brief Get the name of the object
      * 
      * @return const std::string_view& 
      */
