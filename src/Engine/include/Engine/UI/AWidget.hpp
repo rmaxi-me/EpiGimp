@@ -47,7 +47,7 @@ public:
     virtual ~AWidget() = default;
 
     /**
-     * @brief Set the Size object
+     * @brief Set the size of the object
      * 
      * @param size set the size of the widget
      */
