@@ -6,3 +6,5 @@
 */
 
 #include "Engine/Scene.hpp"
+
+auto usa::Engine::Scene::registerWindow(sf::RenderWindow &window) -> void { m_window = &window; }

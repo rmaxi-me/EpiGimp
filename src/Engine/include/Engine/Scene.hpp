@@ -24,10 +24,14 @@ namespace Engine {
         Scene &operator=(const Scene &) = default;
         Scene &operator=(Scene &&) = default;
 
+        virtual auto registerWindow(sf::RenderWindow &window) -> void;
+
         virtual auto onCreate(Application &app) -> bool = 0;
         virtual auto onEvent(const sf::Event &event) -> void = 0;
-        virtual auto onTick(const sf::RenderWindow &window, float deltaTime) -> void = 0;
-        virtual auto onDraw(sf::RenderWindow &window) const -> void = 0;
+        virtual auto onTick(float deltaTime) -> void = 0;
+        virtual auto onDraw() const -> void = 0;
+    protected:
+        sf::RenderWindow *m_window{nullptr};
     };
 
 } // namespace Engine

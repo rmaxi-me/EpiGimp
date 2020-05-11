@@ -27,25 +27,77 @@ bool SceneCanvas::onCreate(usa::Engine::Application &)
     m_canvasTexture.create(m_width, m_height);
     m_canvasTexture.setSmooth(false);
 
-    m_rect.setPosition(0, 0);
-    m_rect.setSize({static_cast<float>(m_width), static_cast<float>(m_height)});
-    m_rect.setTexture(&m_canvasTexture);
+    m_canvas.setPosition(0, 0);
+    m_canvas.setSize({static_cast<float>(m_width), static_cast<float>(m_height)});
+    m_canvas.setTexture(&m_canvasTexture);
     return true;
 }
 
-void SceneCanvas::onEvent(const sf::Event &) { }
-
-void SceneCanvas::onTick(const sf::RenderWindow &, float)
+void SceneCanvas::onEvent(const sf::Event &event)
 {
-    // Temporary
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-        auto pos = sf::Mouse::getPosition();
-        if (m_rect.getGlobalBounds().contains(static_cast<float>(pos.x), static_cast<float>(pos.y))) {
-            m_canvasImage.setPixel(static_cast<unsigned int>(pos.x), static_cast<unsigned int>(pos.y), sf::Color::Black);
+    switch (event.type) {
+    case sf::Event::EventType::MouseButtonPressed:
+        if (event.mouseButton.button == sf::Mouse::Right) {
+            m_mouseGrabbed = true;
+            m_grabPoint = m_window->mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
+
+            m_cursor.loadFromSystem(sf::Cursor::Hand);
+            m_window->setMouseCursor(m_cursor);
+            m_window->setMouseCursorGrabbed(true);
         }
+        break;
+    case sf::Event::EventType::MouseButtonReleased:
+        if (event.mouseButton.button == sf::Mouse::Right) {
+            m_mouseGrabbed = false;
+
+            m_cursor.loadFromSystem(sf::Cursor::Arrow);
+            m_window->setMouseCursor(m_cursor);
+            m_window->setMouseCursorGrabbed(false);
+        }
+        break;
+    case sf::Event::EventType::MouseMoved:
+        if (m_mouseGrabbed) {
+            sf::View view = m_window->getView();
+            const auto dropDelta = m_grabPoint - m_window->mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
+            view.move(dropDelta);
+            m_window->setView(view);
+        }
+        break;
+    case sf::Event::EventType::MouseWheelScrolled: updateView({}, -event.mouseWheelScroll.delta); break;
+    default: break;
     }
+}
+
+void SceneCanvas::onTick(float deltaTime)
+{
+    m_deltaTime = deltaTime;
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) updateView({0.f, -1.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) updateView({-1.f, 0.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) updateView({0.f, 1.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) updateView({1.f, 0.f});
+
+    /*
+     * Insert image manipulations here
+     */
 
     m_canvasTexture.update(m_canvasImage);
 }
 
-void SceneCanvas::onDraw(sf::RenderWindow &window) const { window.draw(m_rect); }
+void SceneCanvas::onDraw() const { m_window->draw(m_canvas); }
+
+auto SceneCanvas::updateView(sf::Vector2f delta, const float zoomDelta) const -> void
+{
+    auto view = m_window->getView();
+
+    delta.x *= MOVE_SPEED * m_deltaTime;
+    delta.y *= MOVE_SPEED * m_deltaTime;
+    view.move(delta);
+
+    if (zoomDelta > 0)
+        view.zoom(1.1f);
+    else if (zoomDelta < 0)
+        view.zoom(0.9f);
+
+    m_window->setView(view);
+}
