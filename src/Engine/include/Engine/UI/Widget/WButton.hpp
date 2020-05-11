@@ -34,7 +34,7 @@ namespace Engine {
         virtual ~WButton() = default;
 
         /**
-         * @brief Bind an action when to button is trigger
+         * @brief Bind an action to the button
          * 
          * @param func The function action to bind
          */
