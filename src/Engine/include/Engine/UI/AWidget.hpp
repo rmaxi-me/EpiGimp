@@ -36,7 +36,7 @@ public:
      * @brief Construct a new AWidget object
      * 
      * @param name The name of the widget, the name will be rendered
-     * @param size The szie of the widget
+     * @param size The size of the widget
      */
     AWidget(const std::string_view &name, ImVec2 size = {}) : m_name(name), m_size(size) {}
     
