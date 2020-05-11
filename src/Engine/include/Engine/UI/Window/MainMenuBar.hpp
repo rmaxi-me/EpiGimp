@@ -10,7 +10,7 @@ namespace Engine {
     /**
      * @class MainMenuBar
      * 
-     * @brief Main menu bar window class, create a main menu bar window int the top of the screen
+     * @brief Main menu bar window class, create a main menu bar window on top of the screen
      */
     class MainMenuBar : public UiWindow
     {
