@@ -28,8 +28,8 @@ private:
         sf::Texture texture;
         sf::Image image;
         sf::Sprite sprite;
-        float ratio{};
 
+        float ratio{};
         bool hidden{false};
 
         Layer(unsigned int width, unsigned int height, sf::Color color = sf::Color::White);
@@ -47,4 +47,7 @@ private:
 
     auto updateView(sf::Vector2f delta, float zoomDelta = 0.f) const -> void;
     auto swapLayers(decltype(m_layers)::reverse_iterator &current, int offset) -> void;
+
+    [[nodiscard]] auto squash() const -> sf::Image;
+    [[nodiscard]] auto getLargestImageSize() const -> sf::Vector2u;
 };

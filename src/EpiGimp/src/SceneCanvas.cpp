@@ -107,25 +107,27 @@ void SceneCanvas::onDraw()
     {
         std::size_t index = m_layers.size();
         for (auto layer = m_layers.rbegin(); layer != m_layers.rend(); ++layer) {
-            ImGui::PushID(std::addressof(layer) + index);
-            ImGui::Text("Layer %ld", index);
-            ImGui::BeginGroup();
+            ImGui::PushID(std::addressof(*layer));
             {
-                if (ImGui::Button("Up", {50, 0})) swapLayers(layer, -1);
-                if (ImGui::Button("Down", {50, 0})) swapLayers(layer, 1);
-                if (ImGui::Button(layer->hidden ? "Show" : "Hide", {50, 0})) layer->hidden = !layer->hidden;
-            }
-            ImGui::EndGroup();
-            ImGui::SameLine();
-            ImGui::Image(layer->texture, {66.7f, 66.7f / layer->ratio});
+                ImGui::Text("Layer %ld", index);
+                ImGui::BeginGroup();
+                {
+                    if (ImGui::Button("Up", {50, 0})) swapLayers(layer, -1);
+                    if (ImGui::Button("Down", {50, 0})) swapLayers(layer, 1);
+                    if (ImGui::Button(layer->hidden ? "Show" : "Hide", {50, 0})) layer->hidden = !layer->hidden;
+                }
+                ImGui::EndGroup();
+                ImGui::SameLine();
+                ImGui::Image(layer->texture, {66.7f, 66.7f / layer->ratio});
 
-            if (--index) {
                 ImGui::Spacing();
                 ImGui::Separator();
                 ImGui::Spacing();
+                ImGui::PopID();
             }
-            ImGui::PopID();
         }
+
+        if (ImGui::Button("Squash and export")) squash().saveToFile("export.png");
     }
     ImGui::End();
 }
@@ -134,14 +136,37 @@ auto SceneCanvas::swapLayers(decltype(m_layers)::reverse_iterator &current, int 
 {
     if (offset == -1) {
         // Move UP
-        if (current == m_layers.rbegin())
-            return;
+        if (current == m_layers.rbegin()) return;
     } else if (offset == 1) {
         // Move DOWN
-        if (current + 1 == m_layers.rend())
-            return;
+        if (current + 1 == m_layers.rend()) return;
     }
     std::iter_swap(current, current + offset);
+}
+
+auto SceneCanvas::getLargestImageSize() const -> sf::Vector2u
+{
+    sf::Vector2u max{};
+
+    for (const auto &layer : m_layers) {
+        max = std::max(max, layer.image.getSize(), [](const sf::Vector2u &a, const sf::Vector2u &b) {
+            return a.x * a.y < b.x * b.y;
+        });
+    }
+    return max;
+}
+
+auto SceneCanvas::squash() const -> sf::Image
+{
+    sf::Image image{};
+    const auto largest = getLargestImageSize();
+    image.create(largest.x, largest.y, sf::Color::Transparent);
+
+    for (const auto &layer : m_layers) {
+        const auto &pos = layer.sprite.getPosition();
+        image.copy(layer.image, static_cast<unsigned int>(pos.x), static_cast<unsigned int>(pos.y), sf::IntRect{}, true);
+    }
+    return image;
 }
 
 SceneCanvas::Layer::Layer(unsigned int width, unsigned int height, sf::Color color)
