@@ -8,7 +8,6 @@
 #include <imgui.h>
 #include <imgui-SFML.h>
 
-#include <iostream> // TODO: Remove
 #include <algorithm>
 
 #include "SceneCanvas.hpp"
@@ -102,10 +101,10 @@ void SceneCanvas::onDraw()
         if (!layer.hidden) m_window->draw(layer.sprite);
     }
 
-    drawLayers();
+    drawLayerWindow();
 }
 
-auto SceneCanvas::drawLayers() -> void
+auto SceneCanvas::drawLayerWindow() -> void
 {
     ImGui::SetNextWindowSize({0, 0});
     ImGui::Begin("Layers");
