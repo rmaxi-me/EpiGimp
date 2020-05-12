@@ -102,6 +102,11 @@ void SceneCanvas::onDraw()
         if (!layer.hidden) m_window->draw(layer.sprite);
     }
 
+    drawLayers();
+}
+
+auto SceneCanvas::drawLayers() -> void
+{
     ImGui::SetNextWindowSize({0, 0});
     ImGui::Begin("Layers");
     {
@@ -123,8 +128,8 @@ void SceneCanvas::onDraw()
                 ImGui::Spacing();
                 ImGui::Separator();
                 ImGui::Spacing();
-                ImGui::PopID();
             }
+            ImGui::PopID();
         }
 
         if (ImGui::Button("Squash and export")) squash().saveToFile("export.png");

@@ -45,6 +45,8 @@ private:
     sf::Vector2f m_grabPoint{};
     sf::Cursor m_cursor{};
 
+    auto drawLayers() -> void;
+
     auto updateView(sf::Vector2f delta, float zoomDelta = 0.f) const -> void;
     auto swapLayers(decltype(m_layers)::reverse_iterator &current, int offset) -> void;
 
