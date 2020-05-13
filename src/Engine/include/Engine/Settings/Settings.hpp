@@ -13,19 +13,19 @@
 
 namespace Engine {
 
-    struct Settings {
-        static constexpr auto CONFIG_PATH = "Resources/config.json";
+struct Settings {
+    static constexpr auto CONFIG_PATH = "Resources/config.json";
 
-        // Default values that can be overwritten in the config file
-        std::uint32_t width{1200};
-        std::uint32_t height{675};
-        std::uint32_t fps_limit{0};
-        bool fullscreen{false};
+    // Default values that can be overwritten in the config file
+    std::uint32_t width{1200};
+    std::uint32_t height{675};
+    std::uint32_t fps_limit{0};
+    bool fullscreen{false};
 
-        static auto fromFile(const std::string_view &path = CONFIG_PATH) -> Settings;
-        auto save(const std::string_view &path = CONFIG_PATH) const -> void;
-    };
+    static auto fromFile(const std::string_view &path = CONFIG_PATH) -> Settings;
+    auto save(const std::string_view &path = CONFIG_PATH) const -> void;
+};
 
-    void to_json(Json &json, const Settings &settings);
-    void from_json(const Json &json, Settings &settings);
+void to_json(Json &json, const Settings &settings);
+void from_json(const Json &json, Settings &settings);
 } // namespace Engine

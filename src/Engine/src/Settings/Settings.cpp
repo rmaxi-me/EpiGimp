@@ -13,10 +13,10 @@
 void Engine::to_json(Json &json, const Engine::Settings &settings)
 {
     json = Json{
-            {"width", settings.width},
-            {"height", settings.height},
-            {"fps_limit", settings.fps_limit},
-            {"fullscreen", settings.fullscreen},
+        {"width", settings.width},
+        {"height", settings.height},
+        {"fps_limit", settings.fps_limit},
+        {"fullscreen", settings.fullscreen},
     };
 }
 
