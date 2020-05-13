@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uiwindow_42',['UiWindow',['../classusa_1_1Engine_1_1UiWindow.html',1,'usa::Engine::UiWindow'],['../classusa_1_1Engine_1_1UiWindow.html#a091f78c5183a38e58419f7997b02f125',1,'usa::Engine::UiWindow::UiWindow()=default'],['../classusa_1_1Engine_1_1UiWindow.html#a0aaae646bc44c27c837a9215baea2e48',1,'usa::Engine::UiWindow::UiWindow(const std::string_view &amp;name, ImGuiWindowFlags flags=0)']]]
+  ['uiwindow_42',['UiWindow',['../classEngine_1_1UiWindow.html',1,'Engine::UiWindow'],['../classEngine_1_1UiWindow.html#a97ea28fefbf36ae0ce5b09e9fe8c3668',1,'Engine::UiWindow::UiWindow()=default'],['../classEngine_1_1UiWindow.html#a3d047e33bb2dfff8bb70803b1b45c7f7',1,'Engine::UiWindow::UiWindow(const std::string_view &amp;name, ImGuiWindowFlags flags=0)']]]
 ];

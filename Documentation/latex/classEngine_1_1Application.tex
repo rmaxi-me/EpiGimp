@@ -1,0 +1,71 @@
+\hypertarget{classEngine_1_1Application}{}\doxysection{Engine\+::Application Class Reference}
+\label{classEngine_1_1Application}\index{Engine::Application@{Engine::Application}}
+Inheritance diagram for Engine\+::Application\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classEngine_1_1Application}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_a3a809c0ade5ba068c3903efb7bc6ef59}\label{classEngine_1_1Application_a3a809c0ade5ba068c3903efb7bc6ef59}} 
+{\bfseries Application} (int ac, char $\ast$$\ast$av)
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_a9b39ff638087f1dbd02a1dace63b2bd0}\label{classEngine_1_1Application_a9b39ff638087f1dbd02a1dace63b2bd0}} 
+auto {\bfseries start} (const std\+::string\+\_\+view \&title) -\/$>$ void
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_a8d00249c9fcb071a0d3c9eb71e6261f5}\label{classEngine_1_1Application_a8d00249c9fcb071a0d3c9eb71e6261f5}} 
+virtual auto {\bfseries init} () -\/$>$ void=0
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_a98f594795aa2493f79031dad193f00a5}\label{classEngine_1_1Application_a98f594795aa2493f79031dad193f00a5}} 
+virtual auto {\bfseries deinit} () -\/$>$ void=0
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_a49f36b0309198eeee3f7bda09bb47dbb}\label{classEngine_1_1Application_a49f36b0309198eeee3f7bda09bb47dbb}} 
+virtual auto {\bfseries tick} (float delta\+Time) -\/$>$ void=0
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_a3f88b4643f5073297666a31ead82750f}\label{classEngine_1_1Application_a3f88b4643f5073297666a31ead82750f}} 
+virtual auto {\bfseries draw} () -\/$>$ void=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_af3c8ef5f8ce0c6d7f6795b6f253a2aa5}\label{classEngine_1_1Application_af3c8ef5f8ce0c6d7f6795b6f253a2aa5}} 
+{\footnotesize template$<$typename S , typename... Args$>$ }\\auto {\bfseries create\+Scene} (Args \&\&... args) -\/$>$ bool
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_a27fe7e75a07e3198d8e1e1c14f579297}\label{classEngine_1_1Application_a27fe7e75a07e3198d8e1e1c14f579297}} 
+virtual auto {\bfseries reload\+View} () -\/$>$ void final
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_ae3ef8c37fae7fde61e5470b03c10dbfd}\label{classEngine_1_1Application_ae3ef8c37fae7fde61e5470b03c10dbfd}} 
+virtual auto {\bfseries process\+Event} (const sf\+::\+Event \&event) -\/$>$ void
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_ad8a1525a3d84c2378fdf8bc93bbd258c}\label{classEngine_1_1Application_ad8a1525a3d84c2378fdf8bc93bbd258c}} 
+sf\+::\+Render\+Window {\bfseries m\+\_\+window}
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_a53d0fa57be840e79ac01364263086aa6}\label{classEngine_1_1Application_a53d0fa57be840e79ac01364263086aa6}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classEngine_1_1Scene}{Scene}} $>$ {\bfseries m\+\_\+scene} \{nullptr\}
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_a6d57a3ee07326fef934890b9850b7da5}\label{classEngine_1_1Application_a6d57a3ee07326fef934890b9850b7da5}} 
+std\+::string\+\_\+view {\bfseries m\+\_\+bin\+Name}
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_a2eec9c37962ac151630a8e14109b7626}\label{classEngine_1_1Application_a2eec9c37962ac151630a8e14109b7626}} 
+std\+::vector$<$ std\+::string\+\_\+view $>$ {\bfseries m\+\_\+arguments}
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_aa4091c614232aff3e1b3cbb6259de95b}\label{classEngine_1_1Application_aa4091c614232aff3e1b3cbb6259de95b}} 
+std\+::uint32\+\_\+t {\bfseries m\+\_\+fps} \{0\}
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_a6c552a11ec461afa916b245fda4a262e}\label{classEngine_1_1Application_a6c552a11ec461afa916b245fda4a262e}} 
+sf\+::\+Time {\bfseries m\+\_\+delta\+Time} \{\}
+\item 
+\mbox{\Hypertarget{classEngine_1_1Application_a919c028c5f22533d66a32bf7e733c612}\label{classEngine_1_1Application_a919c028c5f22533d66a32bf7e733c612}} 
+float {\bfseries m\+\_\+delta\+Time\+Seconds} \{0.f\}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Engine/include/\+Engine/Application.\+hpp\item 
+src/\+Engine/src/Application.\+cpp\end{DoxyCompactItemize}

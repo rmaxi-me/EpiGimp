@@ -78,38 +78,35 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string_view&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>usa</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">namespace </span>Engine</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classusa_1_1Engine_1_1WMenuItem.html">   19</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classusa_1_1Engine_1_1WMenuItem.html">WMenuItem</a> : <span class="keyword">public</span> <a class="code" href="classusa_1_1Engine_1_1AWidget.html">AWidget</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            std::string_view m_shortcut{};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            std::function&lt;void()&gt; f;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classusa_1_1Engine_1_1WMenuItem.html#ac92c7bff79bd27e7a18812576b749fe7">   31</a></span>&#160;            <a class="code" href="classusa_1_1Engine_1_1WMenuItem.html#ac92c7bff79bd27e7a18812576b749fe7">WMenuItem</a>(<span class="keyword">const</span> std::string_view &amp;name, <span class="keyword">const</span> std::string_view &amp;shortcut = <span class="stringliteral">&quot;&quot;</span>) : <a class="code" href="classusa_1_1Engine_1_1AWidget.html">AWidget</a>(name, ImVec2()), m_shortcut(shortcut) {}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classusa_1_1Engine_1_1WMenuItem.html#a45d64489dbcff56beb160193713a5e70">   37</a></span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classusa_1_1Engine_1_1WMenuItem.html#a45d64489dbcff56beb160193713a5e70">~WMenuItem</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keyword">auto</span> <a class="code" href="classusa_1_1Engine_1_1WMenuItem.html#a791b5cdfed69837e43ae83de4269bc64">bindAction</a>(std::function&lt;<span class="keywordtype">void</span>()&gt; func) -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keyword">auto</span> <a class="code" href="classusa_1_1Engine_1_1WMenuItem.html#a5d047cd84fbd6210216114d755fa51fa">render</a>() -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        };</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    } <span class="comment">// namespace Engine</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace usa</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>Engine {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classEngine_1_1WMenuItem.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEngine_1_1WMenuItem.html">WMenuItem</a> : <span class="keyword">public</span> <a class="code" href="classEngine_1_1AWidget.html">AWidget</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::string_view m_shortcut{};</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::function&lt;void()&gt; f;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classEngine_1_1WMenuItem.html#a73f0d65d7b53cd61e7caa248ed79d3d3">   27</a></span>&#160;    <a class="code" href="classEngine_1_1WMenuItem.html#a73f0d65d7b53cd61e7caa248ed79d3d3">WMenuItem</a>(<span class="keyword">const</span> std::string_view &amp;name, <span class="keyword">const</span> std::string_view &amp;shortcut = <span class="stringliteral">&quot;&quot;</span>) :</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="classEngine_1_1AWidget.html">AWidget</a>(name, ImVec2()), m_shortcut(shortcut)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classEngine_1_1WMenuItem.html#a6d6a59958c8d639c2e67241e4e90df24">   36</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classEngine_1_1WMenuItem.html#a6d6a59958c8d639c2e67241e4e90df24">~WMenuItem</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1WMenuItem.html#a3c64fa73dc396eed33a0289150815d67">bindAction</a>(std::function&lt;<span class="keywordtype">void</span>()&gt; func) -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1WMenuItem.html#afdbd3e0cd164b61d27dcc2f5df83cc39">render</a>() -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace Engine</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassusa_1_1Engine_1_1AWidget_html"><div class="ttname"><a href="classusa_1_1Engine_1_1AWidget.html">usa::Engine::AWidget</a></div><div class="ttdoc">abstract widget base class</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:30</div></div>
+<div class="ttc" id="aclassEngine_1_1WMenuItem_html_afdbd3e0cd164b61d27dcc2f5df83cc39"><div class="ttname"><a href="classEngine_1_1WMenuItem.html#afdbd3e0cd164b61d27dcc2f5df83cc39">Engine::WMenuItem::render</a></div><div class="ttdeci">auto render() -&gt; void override</div><div class="ttdoc">Render the menu item and check if it's triggered. If it is, call the bound function.</div><div class="ttdef"><b>Definition:</b> WMenuItem.cpp:7</div></div>
 <div class="ttc" id="aAWidget_8hpp_html"><div class="ttname"><a href="AWidget_8hpp.html">AWidget.hpp</a></div></div>
-<div class="ttc" id="aclassusa_1_1Engine_1_1WMenuItem_html_a791b5cdfed69837e43ae83de4269bc64"><div class="ttname"><a href="classusa_1_1Engine_1_1WMenuItem.html#a791b5cdfed69837e43ae83de4269bc64">usa::Engine::WMenuItem::bindAction</a></div><div class="ttdeci">auto bindAction(std::function&lt; void()&gt; func) -&gt; void override</div><div class="ttdoc">Bind an action to the menu item.</div><div class="ttdef"><b>Definition:</b> WMenuItem.cpp:9</div></div>
-<div class="ttc" id="aclassusa_1_1Engine_1_1WMenuItem_html"><div class="ttname"><a href="classusa_1_1Engine_1_1WMenuItem.html">usa::Engine::WMenuItem</a></div><div class="ttdoc">Widget class representing a Menu Item.</div><div class="ttdef"><b>Definition:</b> WMenuItem.hpp:20</div></div>
-<div class="ttc" id="aclassusa_1_1Engine_1_1WMenuItem_html_ac92c7bff79bd27e7a18812576b749fe7"><div class="ttname"><a href="classusa_1_1Engine_1_1WMenuItem.html#ac92c7bff79bd27e7a18812576b749fe7">usa::Engine::WMenuItem::WMenuItem</a></div><div class="ttdeci">WMenuItem(const std::string_view &amp;name, const std::string_view &amp;shortcut=&quot;&quot;)</div><div class="ttdoc">Construct a new WMenuItem object.</div><div class="ttdef"><b>Definition:</b> WMenuItem.hpp:31</div></div>
-<div class="ttc" id="aclassusa_1_1Engine_1_1WMenuItem_html_a45d64489dbcff56beb160193713a5e70"><div class="ttname"><a href="classusa_1_1Engine_1_1WMenuItem.html#a45d64489dbcff56beb160193713a5e70">usa::Engine::WMenuItem::~WMenuItem</a></div><div class="ttdeci">virtual ~WMenuItem()=default</div><div class="ttdoc">Destroy the WMenuItem object.</div></div>
-<div class="ttc" id="aclassusa_1_1Engine_1_1WMenuItem_html_a5d047cd84fbd6210216114d755fa51fa"><div class="ttname"><a href="classusa_1_1Engine_1_1WMenuItem.html#a5d047cd84fbd6210216114d755fa51fa">usa::Engine::WMenuItem::render</a></div><div class="ttdeci">auto render() -&gt; void override</div><div class="ttdoc">Render the menu item and check if it's triggered. If it is, call the bound function.</div><div class="ttdef"><b>Definition:</b> WMenuItem.cpp:14</div></div>
+<div class="ttc" id="aclassEngine_1_1WMenuItem_html_a3c64fa73dc396eed33a0289150815d67"><div class="ttname"><a href="classEngine_1_1WMenuItem.html#a3c64fa73dc396eed33a0289150815d67">Engine::WMenuItem::bindAction</a></div><div class="ttdeci">auto bindAction(std::function&lt; void()&gt; func) -&gt; void override</div><div class="ttdoc">Bind an action to the menu item.</div><div class="ttdef"><b>Definition:</b> WMenuItem.cpp:5</div></div>
+<div class="ttc" id="aclassEngine_1_1WMenuItem_html"><div class="ttname"><a href="classEngine_1_1WMenuItem.html">Engine::WMenuItem</a></div><div class="ttdoc">Widget class representing a Menu Item.</div><div class="ttdef"><b>Definition:</b> WMenuItem.hpp:15</div></div>
+<div class="ttc" id="aclassEngine_1_1WMenuItem_html_a6d6a59958c8d639c2e67241e4e90df24"><div class="ttname"><a href="classEngine_1_1WMenuItem.html#a6d6a59958c8d639c2e67241e4e90df24">Engine::WMenuItem::~WMenuItem</a></div><div class="ttdeci">virtual ~WMenuItem()=default</div><div class="ttdoc">Destroy the WMenuItem object.</div></div>
+<div class="ttc" id="aclassEngine_1_1AWidget_html"><div class="ttname"><a href="classEngine_1_1AWidget.html">Engine::AWidget</a></div><div class="ttdoc">abstract widget base class</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:27</div></div>
+<div class="ttc" id="aclassEngine_1_1WMenuItem_html_a73f0d65d7b53cd61e7caa248ed79d3d3"><div class="ttname"><a href="classEngine_1_1WMenuItem.html#a73f0d65d7b53cd61e7caa248ed79d3d3">Engine::WMenuItem::WMenuItem</a></div><div class="ttdeci">WMenuItem(const std::string_view &amp;name, const std::string_view &amp;shortcut=&quot;&quot;)</div><div class="ttdoc">Construct a new WMenuItem object.</div><div class="ttdef"><b>Definition:</b> WMenuItem.hpp:27</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

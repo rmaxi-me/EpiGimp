@@ -77,28 +77,22 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string_view&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Engine/UI/UiWindow.hpp&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>usa</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">namespace </span>Engine</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classusa_1_1Engine_1_1Menu.html">   17</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classusa_1_1Engine_1_1Menu.html">Menu</a> : <span class="keyword">public</span> <a class="code" href="classusa_1_1Engine_1_1UiWindow.html">UiWindow</a></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classusa_1_1Engine_1_1Menu.html#a99fa4ae2f2619dc6038e980742b98930">   25</a></span>&#160;            <a class="code" href="classusa_1_1Engine_1_1Menu.html#a99fa4ae2f2619dc6038e980742b98930">Menu</a>(<span class="keyword">const</span> std::string_view &amp;name) : <a class="code" href="classusa_1_1Engine_1_1UiWindow.html">UiWindow</a>(name) {}</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classusa_1_1Engine_1_1Menu.html#a46e9ac1a4e566e03a6a7550a02f4a1dc">   30</a></span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classusa_1_1Engine_1_1Menu.html#a46e9ac1a4e566e03a6a7550a02f4a1dc">~Menu</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keyword">auto</span> <a class="code" href="classusa_1_1Engine_1_1Menu.html#aced5d0ce51e1edd0d9b5abe12c3118d5">render</a>() -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        };</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    } <span class="comment">// namespace Engine</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;} <span class="comment">// namespace usa</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>Engine {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classEngine_1_1Menu.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEngine_1_1Menu.html">Menu</a> : <span class="keyword">public</span> <a class="code" href="classEngine_1_1UiWindow.html">UiWindow</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classEngine_1_1Menu.html#abb62bdbd45b8b5017ee905482a4ef255">   20</a></span>&#160;    <a class="code" href="classEngine_1_1Menu.html#abb62bdbd45b8b5017ee905482a4ef255">Menu</a>(<span class="keyword">const</span> std::string_view &amp;name) : <a class="code" href="classEngine_1_1UiWindow.html">UiWindow</a>(name) { }</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classEngine_1_1Menu.html#a80b899a4f1e7bd0639c259129cd50fe8">   25</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classEngine_1_1Menu.html#a80b899a4f1e7bd0639c259129cd50fe8">~Menu</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1Menu.html#ae8fff07b677c00010829e57435305c4e">render</a>() -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;} <span class="comment">// namespace Engine</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassusa_1_1Engine_1_1Menu_html_a46e9ac1a4e566e03a6a7550a02f4a1dc"><div class="ttname"><a href="classusa_1_1Engine_1_1Menu.html#a46e9ac1a4e566e03a6a7550a02f4a1dc">usa::Engine::Menu::~Menu</a></div><div class="ttdeci">virtual ~Menu()=default</div><div class="ttdoc">Destroy the Menu object.</div></div>
-<div class="ttc" id="aclassusa_1_1Engine_1_1Menu_html_a99fa4ae2f2619dc6038e980742b98930"><div class="ttname"><a href="classusa_1_1Engine_1_1Menu.html#a99fa4ae2f2619dc6038e980742b98930">usa::Engine::Menu::Menu</a></div><div class="ttdeci">Menu(const std::string_view &amp;name)</div><div class="ttdoc">Construct a new Menu object.</div><div class="ttdef"><b>Definition:</b> Menu.hpp:25</div></div>
-<div class="ttc" id="aclassusa_1_1Engine_1_1Menu_html"><div class="ttname"><a href="classusa_1_1Engine_1_1Menu.html">usa::Engine::Menu</a></div><div class="ttdoc">Menu window class, create a menu window which is to be filled by MenuItem.</div><div class="ttdef"><b>Definition:</b> Menu.hpp:18</div></div>
-<div class="ttc" id="aclassusa_1_1Engine_1_1Menu_html_aced5d0ce51e1edd0d9b5abe12c3118d5"><div class="ttname"><a href="classusa_1_1Engine_1_1Menu.html#aced5d0ce51e1edd0d9b5abe12c3118d5">usa::Engine::Menu::render</a></div><div class="ttdeci">auto render() -&gt; void override</div><div class="ttdoc">Render the window and everything it contains.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:9</div></div>
-<div class="ttc" id="aclassusa_1_1Engine_1_1UiWindow_html"><div class="ttname"><a href="classusa_1_1Engine_1_1UiWindow.html">usa::Engine::UiWindow</a></div><div class="ttdoc">Window base class.</div><div class="ttdef"><b>Definition:</b> UiWindow.hpp:22</div></div>
+<div class="ttc" id="aclassEngine_1_1Menu_html_a80b899a4f1e7bd0639c259129cd50fe8"><div class="ttname"><a href="classEngine_1_1Menu.html#a80b899a4f1e7bd0639c259129cd50fe8">Engine::Menu::~Menu</a></div><div class="ttdeci">virtual ~Menu()=default</div><div class="ttdoc">Destroy the Menu object.</div></div>
+<div class="ttc" id="aclassEngine_1_1Menu_html_ae8fff07b677c00010829e57435305c4e"><div class="ttname"><a href="classEngine_1_1Menu.html#ae8fff07b677c00010829e57435305c4e">Engine::Menu::render</a></div><div class="ttdeci">auto render() -&gt; void override</div><div class="ttdoc">Render the window and everything it contains.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:6</div></div>
+<div class="ttc" id="aclassEngine_1_1UiWindow_html"><div class="ttname"><a href="classEngine_1_1UiWindow.html">Engine::UiWindow</a></div><div class="ttdoc">Window base class.</div><div class="ttdef"><b>Definition:</b> UiWindow.hpp:19</div></div>
+<div class="ttc" id="aclassEngine_1_1Menu_html"><div class="ttname"><a href="classEngine_1_1Menu.html">Engine::Menu</a></div><div class="ttdoc">Menu window class, create a menu window which is to be filled by MenuItem.</div><div class="ttdef"><b>Definition:</b> Menu.hpp:13</div></div>
+<div class="ttc" id="aclassEngine_1_1Menu_html_abb62bdbd45b8b5017ee905482a4ef255"><div class="ttname"><a href="classEngine_1_1Menu.html#abb62bdbd45b8b5017ee905482a4ef255">Engine::Menu::Menu</a></div><div class="ttdeci">Menu(const std::string_view &amp;name)</div><div class="ttdoc">Construct a new Menu object.</div><div class="ttdef"><b>Definition:</b> Menu.hpp:20</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
