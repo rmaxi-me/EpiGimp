@@ -32,9 +32,7 @@ auto usa::EpiGimpApp::init() -> void
     if (m_arguments.empty()) {
         createScene<SceneCanvas>(800, 800);
     } else {
-        if (m_arguments.size() >= 2)
-            std::cerr << "warning: opening multiple files is not supported yet\n";
-        createScene<SceneCanvas>(m_arguments[0]);
+        createScene<SceneCanvas>(m_arguments);
     }
 }
 
