@@ -10,6 +10,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Engine/Scene.hpp"
+#include "CanvasMenus.hpp"
 
 class SceneCanvas final : public Engine::Scene {
 public:
@@ -44,6 +45,7 @@ private:
     bool m_mouseGrabbed{false};
     sf::Vector2f m_grabPoint{};
     sf::Cursor m_cursor{};
+    CanvasMenus menu;
 
     auto drawLayerWindow() -> void;
 

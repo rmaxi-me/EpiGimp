@@ -102,7 +102,7 @@ void SceneCanvas::onDraw()
         if (!layer.hidden) m_window->draw(layer.sprite);
     }
 
-    CanvasMenus::drawMainMenuBar();
+    menu.drawMainMenuBar();
     drawLayerWindow();
 }
 
