@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['coverage_2ehpp_26',['Coverage.hpp',['../Coverage_8hpp.html',1,'']]]
+  ['awidget_2ehpp_66',['AWidget.hpp',['../AWidget_8hpp.html',1,'']]]
 ];

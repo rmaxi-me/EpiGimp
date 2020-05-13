@@ -1,0 +1,175 @@
+\hypertarget{classEngine_1_1AWidget}{}\doxysection{Engine\+::A\+Widget Class Reference}
+\label{classEngine_1_1AWidget}\index{Engine::AWidget@{Engine::AWidget}}
+
+
+abstract widget base class  
+
+
+
+
+{\ttfamily \#include $<$A\+Widget.\+hpp$>$}
+
+Inheritance diagram for Engine\+::A\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classEngine_1_1AWidget}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEngine_1_1AWidget_a4dc5b34ab2cc9ce5aa4198cbdaa0d110}{A\+Widget}} (const std\+::string\+\_\+view \&name, Im\+Vec2 size=\{\})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEngine_1_1AWidget}{A\+Widget}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classEngine_1_1AWidget_a1ae0d89c8d3a7ac03c62dead82d41422}{$\sim$\+A\+Widget}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classEngine_1_1AWidget}{A\+Widget}} object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classEngine_1_1AWidget_ade002cfed3b8c188e6b140f1c495e1ea}{set\+Size}} (const Im\+Vec2 \&size) noexcept -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Set the size of the object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classEngine_1_1AWidget_a17fe85f3797da258a608ca2e8f3233ab}{set\+Name}} (const std\+::string\+\_\+view \&name) noexcept -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Set the name of the object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classEngine_1_1AWidget_a7e16bccb85c65cef6d0c64423c60a5a3}{get\+Size}} () -\/$>$ const Im\+Vec2 \&
+\begin{DoxyCompactList}\small\item\em Get the size of the object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classEngine_1_1AWidget_aa88abadafa85d0555e9c649c7d12d7c3}{get\+Name}} () -\/$>$ const std\+::string\+\_\+view \&
+\begin{DoxyCompactList}\small\item\em Get the name of the object. \end{DoxyCompactList}\item 
+virtual auto \mbox{\hyperlink{classEngine_1_1AWidget_ac946cd2f636cf6a1ee8255b38cf697e6}{render}} () -\/$>$ void=0
+\begin{DoxyCompactList}\small\item\em render the widget \end{DoxyCompactList}\item 
+virtual auto \mbox{\hyperlink{classEngine_1_1AWidget_a1312691d3ea6b0d7ae7af9ba65cc7df2}{bind\+Action}} (std\+::function$<$ void()$>$) -\/$>$ void=0
+\begin{DoxyCompactList}\small\item\em bind an action to the widget \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEngine_1_1AWidget_a25cf1616c7a2f6c753e5fe0afb45f6e8}\label{classEngine_1_1AWidget_a25cf1616c7a2f6c753e5fe0afb45f6e8}} 
+std\+::string\+\_\+view {\bfseries m\+\_\+name} \{\}
+\item 
+\mbox{\Hypertarget{classEngine_1_1AWidget_ab9340a955d79f0da0a8ed2ffd0cba4a5}\label{classEngine_1_1AWidget_ab9340a955d79f0da0a8ed2ffd0cba4a5}} 
+Im\+Vec2 {\bfseries m\+\_\+size} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+abstract widget base class 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEngine_1_1AWidget_a4dc5b34ab2cc9ce5aa4198cbdaa0d110}\label{classEngine_1_1AWidget_a4dc5b34ab2cc9ce5aa4198cbdaa0d110}} 
+\index{Engine::AWidget@{Engine::AWidget}!AWidget@{AWidget}}
+\index{AWidget@{AWidget}!Engine::AWidget@{Engine::AWidget}}
+\doxysubsubsection{\texorpdfstring{AWidget()}{AWidget()}}
+{\footnotesize\ttfamily Engine\+::\+A\+Widget\+::\+A\+Widget (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{name,  }\item[{Im\+Vec2}]{size = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classEngine_1_1AWidget}{A\+Widget}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the widget, the name will be rendered \\
+\hline
+{\em size} & The size of the widget \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1AWidget_a1ae0d89c8d3a7ac03c62dead82d41422}\label{classEngine_1_1AWidget_a1ae0d89c8d3a7ac03c62dead82d41422}} 
+\index{Engine::AWidget@{Engine::AWidget}!````~AWidget@{$\sim$AWidget}}
+\index{````~AWidget@{$\sim$AWidget}!Engine::AWidget@{Engine::AWidget}}
+\doxysubsubsection{\texorpdfstring{$\sim$AWidget()}{~AWidget()}}
+{\footnotesize\ttfamily virtual Engine\+::\+A\+Widget\+::$\sim$\+A\+Widget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classEngine_1_1AWidget}{A\+Widget}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEngine_1_1AWidget_a1312691d3ea6b0d7ae7af9ba65cc7df2}\label{classEngine_1_1AWidget_a1312691d3ea6b0d7ae7af9ba65cc7df2}} 
+\index{Engine::AWidget@{Engine::AWidget}!bindAction@{bindAction}}
+\index{bindAction@{bindAction}!Engine::AWidget@{Engine::AWidget}}
+\doxysubsubsection{\texorpdfstring{bindAction()}{bindAction()}}
+{\footnotesize\ttfamily virtual auto Engine\+::\+A\+Widget\+::bind\+Action (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{ }\end{DoxyParamCaption}) -\/$>$  void\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+bind an action to the widget 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::function$<$void()$>$} & std\+::function to bind \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classEngine_1_1WMenuItem_a3c64fa73dc396eed33a0289150815d67}{Engine\+::\+W\+Menu\+Item}}, \mbox{\hyperlink{classEngine_1_1WButton_addd670d1ae4ff9eb554cbc7878a77a7b}{Engine\+::\+W\+Button}}, and \mbox{\hyperlink{classEngine_1_1WSeparator_a27fda4fff39ccbd777af9511f88e61cb}{Engine\+::\+W\+Separator}}.
+
+\mbox{\Hypertarget{classEngine_1_1AWidget_aa88abadafa85d0555e9c649c7d12d7c3}\label{classEngine_1_1AWidget_aa88abadafa85d0555e9c649c7d12d7c3}} 
+\index{Engine::AWidget@{Engine::AWidget}!getName@{getName}}
+\index{getName@{getName}!Engine::AWidget@{Engine::AWidget}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily auto Engine\+::\+A\+Widget\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ const std\+::string\+\_\+view \& \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the name of the object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string\+\_\+view\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1AWidget_a7e16bccb85c65cef6d0c64423c60a5a3}\label{classEngine_1_1AWidget_a7e16bccb85c65cef6d0c64423c60a5a3}} 
+\index{Engine::AWidget@{Engine::AWidget}!getSize@{getSize}}
+\index{getSize@{getSize}!Engine::AWidget@{Engine::AWidget}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily auto Engine\+::\+A\+Widget\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ const Im\+Vec2 \& \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the size of the object. 
+
+\begin{DoxyReturn}{Returns}
+const Im\+Vec2\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1AWidget_ac946cd2f636cf6a1ee8255b38cf697e6}\label{classEngine_1_1AWidget_ac946cd2f636cf6a1ee8255b38cf697e6}} 
+\index{Engine::AWidget@{Engine::AWidget}!render@{render}}
+\index{render@{render}!Engine::AWidget@{Engine::AWidget}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily virtual auto Engine\+::\+A\+Widget\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$  void\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+render the widget 
+
+
+
+Implemented in \mbox{\hyperlink{classEngine_1_1WMenuItem_afdbd3e0cd164b61d27dcc2f5df83cc39}{Engine\+::\+W\+Menu\+Item}}, \mbox{\hyperlink{classEngine_1_1WButton_ad2207e03d778f527e9aa09f361dd46dc}{Engine\+::\+W\+Button}}, and \mbox{\hyperlink{classEngine_1_1WSeparator_a2efbbe33b16caa665fe0d15557652913}{Engine\+::\+W\+Separator}}.
+
+\mbox{\Hypertarget{classEngine_1_1AWidget_a17fe85f3797da258a608ca2e8f3233ab}\label{classEngine_1_1AWidget_a17fe85f3797da258a608ca2e8f3233ab}} 
+\index{Engine::AWidget@{Engine::AWidget}!setName@{setName}}
+\index{setName@{setName}!Engine::AWidget@{Engine::AWidget}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily auto Engine\+::\+A\+Widget\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{name }\end{DoxyParamCaption}) -\/$>$ void \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Set the name of the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1AWidget_ade002cfed3b8c188e6b140f1c495e1ea}\label{classEngine_1_1AWidget_ade002cfed3b8c188e6b140f1c495e1ea}} 
+\index{Engine::AWidget@{Engine::AWidget}!setSize@{setSize}}
+\index{setSize@{setSize}!Engine::AWidget@{Engine::AWidget}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily auto Engine\+::\+A\+Widget\+::set\+Size (\begin{DoxyParamCaption}\item[{const Im\+Vec2 \&}]{size }\end{DoxyParamCaption}) -\/$>$ void \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Set the size of the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & set the size of the widget \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Engine/include/\+Engine/\+U\+I/\mbox{\hyperlink{AWidget_8hpp}{A\+Widget.\+hpp}}\end{DoxyCompactItemize}

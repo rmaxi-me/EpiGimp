@@ -1,0 +1,104 @@
+\hypertarget{classEngine_1_1WMenuItem}{}\doxysection{Engine\+::W\+Menu\+Item Class Reference}
+\label{classEngine_1_1WMenuItem}\index{Engine::WMenuItem@{Engine::WMenuItem}}
+
+
+Widget class representing a \mbox{\hyperlink{classEngine_1_1Menu}{Menu}} Item.  
+
+
+
+
+{\ttfamily \#include $<$W\+Menu\+Item.\+hpp$>$}
+
+Inheritance diagram for Engine\+::W\+Menu\+Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classEngine_1_1WMenuItem}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEngine_1_1WMenuItem_a73f0d65d7b53cd61e7caa248ed79d3d3}{W\+Menu\+Item}} (const std\+::string\+\_\+view \&name, const std\+::string\+\_\+view \&shortcut=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEngine_1_1WMenuItem}{W\+Menu\+Item}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classEngine_1_1WMenuItem_a6d6a59958c8d639c2e67241e4e90df24}{$\sim$\+W\+Menu\+Item}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classEngine_1_1WMenuItem}{W\+Menu\+Item}} object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classEngine_1_1WMenuItem_a3c64fa73dc396eed33a0289150815d67}{bind\+Action}} (std\+::function$<$ void()$>$ func) -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Bind an action to the menu item. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classEngine_1_1WMenuItem_afdbd3e0cd164b61d27dcc2f5df83cc39}{render}} () -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Render the menu item and check if it\textquotesingle{}s triggered. If it is, call the bound function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Widget class representing a \mbox{\hyperlink{classEngine_1_1Menu}{Menu}} Item. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEngine_1_1WMenuItem_a73f0d65d7b53cd61e7caa248ed79d3d3}\label{classEngine_1_1WMenuItem_a73f0d65d7b53cd61e7caa248ed79d3d3}} 
+\index{Engine::WMenuItem@{Engine::WMenuItem}!WMenuItem@{WMenuItem}}
+\index{WMenuItem@{WMenuItem}!Engine::WMenuItem@{Engine::WMenuItem}}
+\doxysubsubsection{\texorpdfstring{WMenuItem()}{WMenuItem()}}
+{\footnotesize\ttfamily Engine\+::\+W\+Menu\+Item\+::\+W\+Menu\+Item (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{name,  }\item[{const std\+::string\+\_\+view \&}]{shortcut = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classEngine_1_1WMenuItem}{W\+Menu\+Item}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the menu item \\
+\hline
+{\em shortcut} & The sub name of the menu item \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1WMenuItem_a6d6a59958c8d639c2e67241e4e90df24}\label{classEngine_1_1WMenuItem_a6d6a59958c8d639c2e67241e4e90df24}} 
+\index{Engine::WMenuItem@{Engine::WMenuItem}!````~WMenuItem@{$\sim$WMenuItem}}
+\index{````~WMenuItem@{$\sim$WMenuItem}!Engine::WMenuItem@{Engine::WMenuItem}}
+\doxysubsubsection{\texorpdfstring{$\sim$WMenuItem()}{~WMenuItem()}}
+{\footnotesize\ttfamily virtual Engine\+::\+W\+Menu\+Item\+::$\sim$\+W\+Menu\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classEngine_1_1WMenuItem}{W\+Menu\+Item}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEngine_1_1WMenuItem_a3c64fa73dc396eed33a0289150815d67}\label{classEngine_1_1WMenuItem_a3c64fa73dc396eed33a0289150815d67}} 
+\index{Engine::WMenuItem@{Engine::WMenuItem}!bindAction@{bindAction}}
+\index{bindAction@{bindAction}!Engine::WMenuItem@{Engine::WMenuItem}}
+\doxysubsubsection{\texorpdfstring{bindAction()}{bindAction()}}
+{\footnotesize\ttfamily auto Engine\+::\+W\+Menu\+Item\+::bind\+Action (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{func }\end{DoxyParamCaption}) -\/$>$ void\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Bind an action to the menu item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em func} & The function action to bind \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classEngine_1_1AWidget_a1312691d3ea6b0d7ae7af9ba65cc7df2}{Engine\+::\+A\+Widget}}.
+
+\mbox{\Hypertarget{classEngine_1_1WMenuItem_afdbd3e0cd164b61d27dcc2f5df83cc39}\label{classEngine_1_1WMenuItem_afdbd3e0cd164b61d27dcc2f5df83cc39}} 
+\index{Engine::WMenuItem@{Engine::WMenuItem}!render@{render}}
+\index{render@{render}!Engine::WMenuItem@{Engine::WMenuItem}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily auto Engine\+::\+W\+Menu\+Item\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ void\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Render the menu item and check if it\textquotesingle{}s triggered. If it is, call the bound function. 
+
+
+
+Implements \mbox{\hyperlink{classEngine_1_1AWidget_ac946cd2f636cf6a1ee8255b38cf697e6}{Engine\+::\+A\+Widget}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Engine/include/\+Engine/\+U\+I/\+Widget/W\+Menu\+Item.\+hpp\item 
+src/\+Engine/src/\+U\+I/\+Widget/W\+Menu\+Item.\+cpp\end{DoxyCompactItemize}

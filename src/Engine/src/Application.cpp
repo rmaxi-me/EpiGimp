@@ -20,8 +20,7 @@
 
 using namespace std::chrono_literals;
 
-Engine::Application::Application(int ac, char **av) :
-    m_binName(av[0]), m_arguments{}, m_settings{Settings::fromFile()}
+Engine::Application::Application(int ac, char **av) : m_binName(av[0]), m_arguments{}, m_settings{Settings::fromFile()}
 
 {
     std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' << PROJECT_BUILD_TYPE_AS_STRING << '\n';
