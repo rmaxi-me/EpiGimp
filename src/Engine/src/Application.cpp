@@ -105,7 +105,7 @@ auto Engine::Application::start(const std::string_view &title) -> void
 
 auto Engine::Application::drawFps() const -> void
 {
-    ImGui::SetNextWindowPos(ImVec2{5, 5});
+    ImGui::SetNextWindowPos(ImVec2{5, 25});
     ImGui::SetNextWindowSize(ImVec2{0, 0});
     ImGui::Begin("Stats");
     {
