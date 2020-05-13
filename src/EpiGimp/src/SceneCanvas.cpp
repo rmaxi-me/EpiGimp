@@ -11,6 +11,7 @@
 #include <algorithm>
 
 #include "SceneCanvas.hpp"
+#include "CanvasMenus.hpp"
 
 SceneCanvas::SceneCanvas(unsigned int width, unsigned int height) { m_layers.emplace_back(width, height); }
 
@@ -101,6 +102,7 @@ void SceneCanvas::onDraw()
         if (!layer.hidden) m_window->draw(layer.sprite);
     }
 
+    CanvasMenus::drawMainMenuBar();
     drawLayerWindow();
 }
 

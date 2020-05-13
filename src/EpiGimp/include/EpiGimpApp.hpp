@@ -7,10 +7,12 @@
 
 #pragma once
 
+#include <memory>
+
+#include <Engine/UI/UiWindow.hpp>
 #include <Engine/Application.hpp>
 
 class EpiGimpApp final : public Engine::Application {
-
 public:
     EpiGimpApp(int ac, char **av);
     ~EpiGimpApp() override = default;
