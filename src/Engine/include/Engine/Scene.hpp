@@ -9,7 +9,6 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
-namespace usa {
 namespace Engine {
 
     class Application;
@@ -35,4 +34,3 @@ namespace Engine {
     };
 
 } // namespace Engine
-} // namespace usa

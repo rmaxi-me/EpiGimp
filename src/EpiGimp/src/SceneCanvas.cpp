@@ -19,7 +19,7 @@ SceneCanvas::SceneCanvas(const std::vector<std::string_view> &files)
     for (const auto &file : files) m_layers.emplace_back(file);
 }
 
-bool SceneCanvas::onCreate(usa::Engine::Application &) { return true; }
+bool SceneCanvas::onCreate(Engine::Application &) { return true; }
 
 void SceneCanvas::onEvent(const sf::Event &event)
 {

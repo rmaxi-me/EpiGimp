@@ -1,8 +1,6 @@
 #include "Engine/UI/Window/MainMenuBar.hpp"
 #include <iostream>
 
-namespace usa {
-
 namespace Engine {
     
     auto MainMenuBar::render() -> void
@@ -18,5 +16,3 @@ namespace Engine {
     }
 
 } // namespace Engine
-
-} // namespace usa

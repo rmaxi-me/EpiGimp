@@ -4,8 +4,6 @@
 #include <functional>
 #include <string_view>
 
-namespace usa {
-
 namespace Engine {
 
     /**
@@ -46,7 +44,5 @@ namespace Engine {
          */
         auto render() -> void override;
     };
-
-}
 
 }

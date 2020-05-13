@@ -20,14 +20,11 @@
 #include <functional>
 #include "SceneCanvas.hpp"
 
-usa::EpiGimpApp::EpiGimpApp(int ac, char **av) : Application{ac, av} { }
+EpiGimpApp::EpiGimpApp(int ac, char **av) : Application{ac, av} { }
 
-auto usa::EpiGimpApp::processEvent(const sf::Event &event) -> void
-{
-    Application::processEvent(event);
-}
+auto EpiGimpApp::processEvent(const sf::Event &event) -> void { Application::processEvent(event); }
 
-auto usa::EpiGimpApp::init() -> void
+auto EpiGimpApp::init() -> void
 {
     if (m_arguments.empty()) {
         createScene<SceneCanvas>(800, 800);
@@ -36,9 +33,8 @@ auto usa::EpiGimpApp::init() -> void
     }
 }
 
-auto usa::EpiGimpApp::deinit() -> void { }
+auto EpiGimpApp::deinit() -> void { }
 
-auto usa::EpiGimpApp::tick(float) -> void { }
-auto usa::EpiGimpApp::draw() -> void
-{
-}
+auto EpiGimpApp::tick(float) -> void { }
+
+auto EpiGimpApp::draw() -> void { }

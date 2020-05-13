@@ -17,7 +17,6 @@
 #include "Engine/Settings/Settings.hpp"
 #include "Scene.hpp"
 
-namespace usa {
 namespace Engine {
 
     class Application {
@@ -69,4 +68,3 @@ namespace Engine {
     };
 
 } // namespace Engine
-} // namespace usa

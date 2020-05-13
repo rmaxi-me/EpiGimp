@@ -2,9 +2,6 @@
 
 #include "Engine/UI/UiWindow.hpp"
 
-
-namespace usa {
-
 namespace Engine {
 
     /**
@@ -33,4 +30,3 @@ namespace Engine {
     };
 
 } // namespace Engine
-} // namespace usa

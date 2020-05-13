@@ -11,12 +11,12 @@
 
 #include "Engine/Scene.hpp"
 
-class SceneCanvas final : public usa::Engine::Scene {
+class SceneCanvas final : public Engine::Scene {
 public:
     SceneCanvas(unsigned int width, unsigned int height);
     explicit SceneCanvas(const std::vector<std::string_view> &files);
 
-    auto onCreate(usa::Engine::Application &app) -> bool override;
+    auto onCreate(Engine::Application &app) -> bool override;
     auto onEvent(const sf::Event &event) -> void override;
     auto onTick(float deltaTime) -> void override;
     auto onDraw() -> void override;

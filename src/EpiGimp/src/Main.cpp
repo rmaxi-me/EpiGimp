@@ -14,7 +14,7 @@
 auto main(int ac, char **av) -> int
 try {
 
-    usa::EpiGimpApp app{ac, av};
+    EpiGimpApp app{ac, av};
 
     app.start(PROJECT_NAME);
 

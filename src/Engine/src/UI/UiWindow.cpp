@@ -1,7 +1,5 @@
 #include "Engine/UI/UiWindow.hpp"
 
-namespace usa {
-
 namespace Engine {
 
     auto UiWindow::render() -> void
@@ -11,7 +9,7 @@ namespace Engine {
             for (auto &i : m_WindowList)
                 i->render();
             for (auto &i : m_WidgetList)
-                i->render();               
+                i->render();
             ImGui::End();
         }
     }
@@ -60,6 +58,4 @@ namespace Engine {
         }
         return nullptr;
     }
-}
-
 }

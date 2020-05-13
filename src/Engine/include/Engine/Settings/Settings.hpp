@@ -11,7 +11,6 @@
 
 #include "Engine/Json.hpp"
 
-namespace usa {
 namespace Engine {
 
     struct Settings {
@@ -30,4 +29,3 @@ namespace Engine {
     void to_json(Json &json, const Settings &settings);
     void from_json(const Json &json, Settings &settings);
 } // namespace Engine
-} // namespace usa
