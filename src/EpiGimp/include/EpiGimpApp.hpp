@@ -7,12 +7,25 @@
 
 #pragma once
 
+#include <memory>
+
+#include <Engine/UI/UiWindow.hpp>
 #include <Engine/Application.hpp>
 
 namespace usa {
 
 class EpiGimpApp final : public Engine::Application {
-
+private:
+    auto drawMainMenuBar() -> void;
+    auto drawFileMenu() -> void;
+    auto drawEditMenu() -> void;
+    auto drawSelectMenu() -> void;
+    auto drawViewMenu() -> void;
+    auto drawImageMenu() -> void;
+    auto drawLayerMenu() -> void;
+    auto drawColorMenu() -> void;
+    auto drawFiltersMenu() -> void;
+    auto drawWindowsMenu() -> void;
 public:
     EpiGimpApp(int ac, char **av);
     ~EpiGimpApp() override = default;

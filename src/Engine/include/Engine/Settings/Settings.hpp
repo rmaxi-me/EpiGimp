@@ -18,8 +18,8 @@ namespace Engine {
         static constexpr auto CONFIG_PATH = "Resources/config.json";
 
         // Default values that can be overwritten in the config file
-        std::uint32_t width{1200};
-        std::uint32_t height{675};
+        std::uint32_t width{1920};
+        std::uint32_t height{1080};
         std::uint32_t fps_limit{0};
         bool fullscreen{false};
 
