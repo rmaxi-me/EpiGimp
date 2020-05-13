@@ -21,7 +21,7 @@ private:
     auto drawColorMenu() -> void;
     auto drawFiltersMenu() -> void;
     auto drawWindowsMenu() -> void;
-    auto saveAsPopup() -> void;
+    auto saveAsPopup() -> bool;
 private:
     bool m_saveAsDialog = false;
     char buff[255]{};

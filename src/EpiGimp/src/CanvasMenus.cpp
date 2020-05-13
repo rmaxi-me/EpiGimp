@@ -143,8 +143,10 @@ auto CanvasMenus::drawWindowsMenu() -> void
     }
 }
 
-auto CanvasMenus::saveAsPopup() -> void
+auto CanvasMenus::saveAsPopup() -> bool
 {
+    bool asSave = false;
+
     if (m_saveAsDialog)
     {
         ImGui::OpenPopup("saveAsDialog");
@@ -156,11 +158,20 @@ auto CanvasMenus::saveAsPopup() -> void
 
         ImGui::InputTextWithHint("###SaveAsInput", "File location ...", buff, 255, 0);
         ImGui::Separator();
-        if (ImGui::Button("OK", ImVec2(120, 0))) { ImGui::CloseCurrentPopup(); m_saveAsDialog = false; }
+        if (ImGui::Button("OK", ImVec2(120, 0))) {
+            ImGui::CloseCurrentPopup();
+            m_saveAsDialog = false;
+            asSave = true;
+        }
         ImGui::SetItemDefaultFocus();
         ImGui::SameLine();
-        if (ImGui::Button("Cancel", ImVec2(120, 0))) { ImGui::CloseCurrentPopup(); m_saveAsDialog = false; }
+        if (ImGui::Button("Cancel", ImVec2(120, 0))) {
+            ImGui::CloseCurrentPopup();
+            m_saveAsDialog = false;
+            asSave = false;
+        }
     }
+    return asSave;
 }
 
 auto CanvasMenus::getSavePath() -> std::string
