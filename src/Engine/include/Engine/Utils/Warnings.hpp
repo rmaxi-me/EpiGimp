@@ -5,6 +5,8 @@
 ** under certain conditions; see LICENSE for details.
 */
 
+// @formatter:off
+
 #pragma once
 
 #include "Platform.hpp"
@@ -18,13 +20,13 @@
 #    define DISABLE_WARN_USELESS_CAST
 
 #elif defined(COMPILER_GCC)
-#    define DO_PRAGMA(X)          _Pragma(#    X)
+#    define DO_PRAGMA(X)          _Pragma(#X)
 #    define DISABLE_WARNING_PUSH  DO_PRAGMA(GCC diagnostic push)
 #    define DISABLE_WARNING_POP   DO_PRAGMA(GCC diagnostic pop)
-#    define DISABLE_WARNING(name) DO_PRAGMA(GCC diagnostic ignored #    name)
+#    define DISABLE_WARNING(name) DO_PRAGMA(GCC diagnostic ignored #name)
 
-#    define DISABLE_WARN_UNUSED       DISABLE_WARNING(-Wunused - parameter)
-#    define DISABLE_WARN_USELESS_CAST DISABLE_WARNING(-Wuseless - cast)
+#    define DISABLE_WARN_UNUSED       DISABLE_WARNING(-Wunused-parameter)
+#    define DISABLE_WARN_USELESS_CAST DISABLE_WARNING(-Wuseless-cast)
 #elif defined(COMPILER_CLANG)
 #    define DO_PRAGMA(X)          _Pragma(#    X)
 #    define DISABLE_WARNING_PUSH  DO_PRAGMA(clang diagnostic push)
@@ -34,3 +36,5 @@
 #    define DISABLE_WARN_UNUSED DISABLE_WARNING(-Wunused - parameter)
 #    define DISABLE_WARN_USELESS_CAST
 #endif
+
+// @formatter:on
