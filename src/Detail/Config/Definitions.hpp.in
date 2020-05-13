@@ -5,6 +5,8 @@
  *
  */
 
+// @formatter:off
+
 #pragma once
 
 #include "Config/Macro.hpp"
@@ -19,3 +21,5 @@
 
 #define PROJECT_BUILD_TYPE           @CMAKE_BUILD_TYPE@            /*!< @brief Build Type used */
 #define PROJECT_BUILD_TYPE_AS_STRING AS_STRING(PROJECT_BUILD_TYPE) /*!< @brief Build Type as string */
+
+// @formatter:on

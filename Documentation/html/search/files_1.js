@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['definitions_2ehpp_27',['Definitions.hpp',['../Definitions_8hpp.html',1,'']]]
+  ['coverage_2ehpp_67',['Coverage.hpp',['../Coverage_8hpp.html',1,'']]]
 ];

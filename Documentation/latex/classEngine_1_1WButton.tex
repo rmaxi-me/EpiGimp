@@ -1,0 +1,104 @@
+\hypertarget{classEngine_1_1WButton}{}\doxysection{Engine\+::W\+Button Class Reference}
+\label{classEngine_1_1WButton}\index{Engine::WButton@{Engine::WButton}}
+
+
+Widget class representing a button.  
+
+
+
+
+{\ttfamily \#include $<$W\+Button.\+hpp$>$}
+
+Inheritance diagram for Engine\+::W\+Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classEngine_1_1WButton}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEngine_1_1WButton_ad1e65f6d69a66976cf100a245cb46806}{W\+Button}} (std\+::string\+\_\+view name, Im\+Vec2 size=\{\})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEngine_1_1WButton}{W\+Button}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classEngine_1_1WButton_a8cfcb12e93036eca5d759886ccb3e18a}{$\sim$\+W\+Button}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classEngine_1_1WButton}{W\+Button}} object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classEngine_1_1WButton_addd670d1ae4ff9eb554cbc7878a77a7b}{bind\+Action}} (std\+::function$<$ void()$>$ func) -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Bind an action to the button. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classEngine_1_1WButton_ad2207e03d778f527e9aa09f361dd46dc}{render}} () -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Render the button and check if it\textquotesingle{}s triggered. If it is, call the bound function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Widget class representing a button. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEngine_1_1WButton_ad1e65f6d69a66976cf100a245cb46806}\label{classEngine_1_1WButton_ad1e65f6d69a66976cf100a245cb46806}} 
+\index{Engine::WButton@{Engine::WButton}!WButton@{WButton}}
+\index{WButton@{WButton}!Engine::WButton@{Engine::WButton}}
+\doxysubsubsection{\texorpdfstring{WButton()}{WButton()}}
+{\footnotesize\ttfamily Engine\+::\+W\+Button\+::\+W\+Button (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{name,  }\item[{Im\+Vec2}]{size = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classEngine_1_1WButton}{W\+Button}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the button \\
+\hline
+{\em size} & The size of the button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1WButton_a8cfcb12e93036eca5d759886ccb3e18a}\label{classEngine_1_1WButton_a8cfcb12e93036eca5d759886ccb3e18a}} 
+\index{Engine::WButton@{Engine::WButton}!````~WButton@{$\sim$WButton}}
+\index{````~WButton@{$\sim$WButton}!Engine::WButton@{Engine::WButton}}
+\doxysubsubsection{\texorpdfstring{$\sim$WButton()}{~WButton()}}
+{\footnotesize\ttfamily virtual Engine\+::\+W\+Button\+::$\sim$\+W\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classEngine_1_1WButton}{W\+Button}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEngine_1_1WButton_addd670d1ae4ff9eb554cbc7878a77a7b}\label{classEngine_1_1WButton_addd670d1ae4ff9eb554cbc7878a77a7b}} 
+\index{Engine::WButton@{Engine::WButton}!bindAction@{bindAction}}
+\index{bindAction@{bindAction}!Engine::WButton@{Engine::WButton}}
+\doxysubsubsection{\texorpdfstring{bindAction()}{bindAction()}}
+{\footnotesize\ttfamily auto Engine\+::\+W\+Button\+::bind\+Action (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{func }\end{DoxyParamCaption}) -\/$>$ void\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Bind an action to the button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em func} & The function action to bind \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classEngine_1_1AWidget_a1312691d3ea6b0d7ae7af9ba65cc7df2}{Engine\+::\+A\+Widget}}.
+
+\mbox{\Hypertarget{classEngine_1_1WButton_ad2207e03d778f527e9aa09f361dd46dc}\label{classEngine_1_1WButton_ad2207e03d778f527e9aa09f361dd46dc}} 
+\index{Engine::WButton@{Engine::WButton}!render@{render}}
+\index{render@{render}!Engine::WButton@{Engine::WButton}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily auto Engine\+::\+W\+Button\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ void\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Render the button and check if it\textquotesingle{}s triggered. If it is, call the bound function. 
+
+
+
+Implements \mbox{\hyperlink{classEngine_1_1AWidget_ac946cd2f636cf6a1ee8255b38cf697e6}{Engine\+::\+A\+Widget}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Engine/include/\+Engine/\+U\+I/\+Widget/W\+Button.\+hpp\item 
+src/\+Engine/src/\+U\+I/\+Widget/W\+Button.\+cpp\end{DoxyCompactItemize}

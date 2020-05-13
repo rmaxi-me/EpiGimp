@@ -20,12 +20,9 @@
 #include <functional>
 #include "SceneCanvas.hpp"
 
-usa::EpiGimpApp::EpiGimpApp(int ac, char **av) : Application{ac, av} { }
+EpiGimpApp::EpiGimpApp(int ac, char **av) : Application{ac, av} { }
 
-auto usa::EpiGimpApp::processEvent(const sf::Event &event) -> void
-{
-    Application::processEvent(event);
-}
+auto EpiGimpApp::processEvent(const sf::Event &event) -> void { Application::processEvent(event); }
 
 auto usa::EpiGimpApp::drawFileMenu() -> void
 {
@@ -182,21 +179,17 @@ auto usa::EpiGimpApp::drawMainMenuBar() -> void
     }
 }
 
-auto usa::EpiGimpApp::init() -> void
+auto EpiGimpApp::init() -> void
 {
-    // if (m_arguments.empty()) {
-    //     createScene<SceneCanvas>(800, 800);
-    // } else {
-    //     if (m_arguments.size() >= 2)
-    //         std::cerr << "warning: opening multiple files is not supported yet\n";
-    //     createScene<SceneCanvas>(m_arguments[0]);
-    // }
+    if (m_arguments.empty()) {
+        createScene<SceneCanvas>(800, 800);
+    } else {
+        createScene<SceneCanvas>(m_arguments);
+    }
 }
 
-auto usa::EpiGimpApp::deinit() -> void { }
+auto EpiGimpApp::deinit() -> void { }
 
-auto usa::EpiGimpApp::tick(float) -> void { }
-auto usa::EpiGimpApp::draw() -> void
-{
-    drawMainMenuBar();
-}
+auto EpiGimpApp::tick(float) -> void { }
+
+auto EpiGimpApp::draw() -> void { }

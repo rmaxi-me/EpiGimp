@@ -12,8 +12,6 @@
 #include <Engine/UI/UiWindow.hpp>
 #include <Engine/Application.hpp>
 
-namespace usa {
-
 class EpiGimpApp final : public Engine::Application {
 private:
     auto drawMainMenuBar() -> void;
@@ -36,5 +34,3 @@ public:
     auto tick(float deltaTime) -> void override;
     auto draw() -> void override;
 };
-
-} // namespace usa

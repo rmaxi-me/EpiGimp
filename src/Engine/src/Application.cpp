@@ -20,8 +20,7 @@
 
 using namespace std::chrono_literals;
 
-usa::Engine::Application::Application(int ac, char **av) :
-    m_binName(av[0]), m_arguments{}, m_settings{Settings::fromFile()}
+Engine::Application::Application(int ac, char **av) : m_binName(av[0]), m_arguments{}, m_settings{Settings::fromFile()}
 
 {
     std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' << PROJECT_BUILD_TYPE_AS_STRING << '\n';
@@ -31,9 +30,9 @@ usa::Engine::Application::Application(int ac, char **av) :
     m_defaultFont.loadFromFile("Resources/Font/JetBrainsMono-Regular.ttf");
 }
 
-usa::Engine::Application::~Application() { m_settings.save(); }
+Engine::Application::~Application() { m_settings.save(); }
 
-auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
+auto Engine::Application::processEvent(const sf::Event &event) -> void
 {
     ImGui::SFML::ProcessEvent(event);
 
@@ -48,7 +47,7 @@ auto usa::Engine::Application::processEvent(const sf::Event &event) -> void
     }
 }
 
-auto usa::Engine::Application::start(const std::string_view &title) -> void
+auto Engine::Application::start(const std::string_view &title) -> void
 {
     sf::Event event{};
     sf::Uint32 style = sf::Style::Close;
@@ -104,7 +103,7 @@ auto usa::Engine::Application::start(const std::string_view &title) -> void
     ImGui::SFML::Shutdown();
 }
 
-auto usa::Engine::Application::drawFps() const -> void
+auto Engine::Application::drawFps() const -> void
 {
     ImGui::SetNextWindowPos(ImVec2{5, 5});
     ImGui::SetNextWindowSize(ImVec2{0, 0});
@@ -117,7 +116,7 @@ auto usa::Engine::Application::drawFps() const -> void
 }
 
 // TODO: Preserve zoom and camera position on window resize
-void usa::Engine::Application::reloadView()
+void Engine::Application::reloadView()
 {
     sf::View view = m_window.getView();
     view.reset(sf::FloatRect(0.f, 0.f, static_cast<float>(m_settings.width), static_cast<float>(m_settings.height)));
