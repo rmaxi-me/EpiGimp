@@ -12,8 +12,8 @@ Inheritance diagram for Scene\+Canvas\+:\begin{figure}[H]
 \mbox{\Hypertarget{classSceneCanvas_a676d3db4ae3d48a9b2e3655bd4a75b93}\label{classSceneCanvas_a676d3db4ae3d48a9b2e3655bd4a75b93}} 
 {\bfseries Scene\+Canvas} (unsigned int width, unsigned int height)
 \item 
-\mbox{\Hypertarget{classSceneCanvas_a7862ddef367ccf09cb2d13d1a2afea39}\label{classSceneCanvas_a7862ddef367ccf09cb2d13d1a2afea39}} 
-{\bfseries Scene\+Canvas} (const std\+::string\+\_\+view \&file)
+\mbox{\Hypertarget{classSceneCanvas_a25ab60fab898afe5794192281773d9fc}\label{classSceneCanvas_a25ab60fab898afe5794192281773d9fc}} 
+{\bfseries Scene\+Canvas} (const std\+::vector$<$ std\+::string\+\_\+view $>$ \&files)
 \item 
 \mbox{\Hypertarget{classSceneCanvas_af995c82ae304a595057d9af6705a86be}\label{classSceneCanvas_af995c82ae304a595057d9af6705a86be}} 
 auto {\bfseries on\+Create} (\mbox{\hyperlink{classusa_1_1Engine_1_1Application}{usa\+::\+Engine\+::\+Application}} \&app) -\/$>$ bool override
@@ -21,12 +21,13 @@ auto {\bfseries on\+Create} (\mbox{\hyperlink{classusa_1_1Engine_1_1Application}
 \mbox{\Hypertarget{classSceneCanvas_a29c77aa1b833028dacf5e94f35a0df0d}\label{classSceneCanvas_a29c77aa1b833028dacf5e94f35a0df0d}} 
 auto {\bfseries on\+Event} (const sf\+::\+Event \&event) -\/$>$ void override
 \item 
-\mbox{\Hypertarget{classSceneCanvas_a69e25954f478176878525d4292769fc6}\label{classSceneCanvas_a69e25954f478176878525d4292769fc6}} 
-auto {\bfseries on\+Tick} (const sf\+::\+Render\+Window \&window, float) -\/$>$ void override
+\mbox{\Hypertarget{classSceneCanvas_a70bf38e48d70076b4c6bafabde7ff8e3}\label{classSceneCanvas_a70bf38e48d70076b4c6bafabde7ff8e3}} 
+auto {\bfseries on\+Tick} (float delta\+Time) -\/$>$ void override
 \item 
-\mbox{\Hypertarget{classSceneCanvas_ae145a02748a644254f7be7c8294767fe}\label{classSceneCanvas_ae145a02748a644254f7be7c8294767fe}} 
-auto {\bfseries on\+Draw} (sf\+::\+Render\+Window \&window) const -\/$>$ void override
+\mbox{\Hypertarget{classSceneCanvas_a6e6022883be8841bd4a9e491359ae426}\label{classSceneCanvas_a6e6022883be8841bd4a9e491359ae426}} 
+auto {\bfseries on\+Draw} () -\/$>$ void override
 \end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -1,0 +1,380 @@
+\hypertarget{classusa_1_1Engine_1_1UiWindow}{}\doxysection{usa\+::Engine\+::Ui\+Window Class Reference}
+\label{classusa_1_1Engine_1_1UiWindow}\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+
+
+Window base class.  
+
+
+
+
+{\ttfamily \#include $<$Ui\+Window.\+hpp$>$}
+
+Inheritance diagram for usa\+::Engine\+::Ui\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classusa_1_1Engine_1_1UiWindow}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a091f78c5183a38e58419f7997b02f125}{Ui\+Window}} ()=default
+\begin{DoxyCompactList}\small\item\em Construct a new Ui Window object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a0aaae646bc44c27c837a9215baea2e48}{Ui\+Window}} (const std\+::string\+\_\+view \&name, Im\+Gui\+Window\+Flags flags=0)
+\begin{DoxyCompactList}\small\item\em Construct a new Ui Window object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a6a2da0f6c88f2fd5148b28e782b9c2d3}{$\sim$\+Ui\+Window}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the Ui Window object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_ab297c24687ebc323cbf2651dd25c212e}{open}} () -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Open the window. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a12c15daba117ad8008d26ef7a4964ca5}{close}} () -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Close the window. \end{DoxyCompactList}\item 
+virtual auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_aa0cbc5d0b271bfcd62a583f320ade6c9}{render}} () -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Render the window and everything it contains. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_ae6c83b8d1c1e9ed36850f685d94562e0}{set\+Window\+Flags}} (Im\+Gui\+Window\+Flags flags) noexcept -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Set the Window Flags. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a365c9a66e1f95c4557cbcfa2f5b36ac0}{set\+Position}} (const Im\+Vec2 \&pos) noexcept -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Set the position of the object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a23bdb697266260a09e8209772aa91f2c}{set\+Size}} (const Im\+Vec2 \&size) noexcept -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Set the size of the object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a28dd8b2924f3e0ef27e2e8207c1a3c19}{set\+Name}} (const std\+::string\+\_\+view \&name) noexcept -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Set the name of the object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_ac29efdbf95218a95afa9200c33d564d8}{get\+Flags}} () -\/$>$ Im\+Gui\+Window\+Flags \&
+\begin{DoxyCompactList}\small\item\em Get the Flags object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_af0963bad6b3d4b6a624ca09386bbde60}{get\+Position}} () -\/$>$ const Im\+Vec2 \&
+\begin{DoxyCompactList}\small\item\em Get the position of the object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a1f0adc1c2728be9c2dc59ae9bda965dc}{get\+Size}} () -\/$>$ const Im\+Vec2 \&
+\begin{DoxyCompactList}\small\item\em Get the size of the object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a5b3756c0b38fddcc9d8a60c84f706fe4}{get\+Name}} () -\/$>$ const std\+::string\+\_\+view \&
+\begin{DoxyCompactList}\small\item\em Get the name of the object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a4cfa76310b819468bc0cbe84dd66ab00}{add\+Widget}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classusa_1_1Engine_1_1AWidget}{A\+Widget}} $>$ widget) -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Add a new widget to the window. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_ac24abaadd433c875595438db75771eeb}{delete\+Widget}} (const std\+::string\+\_\+view \&name) -\/$>$ bool
+\begin{DoxyCompactList}\small\item\em Delete a widget stored in the window. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a1f3f12c7eff47ee1c48ae3cd36ee309f}{get\+Widget}} (const std\+::string\+\_\+view \&name) -\/$>$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classusa_1_1Engine_1_1AWidget}{A\+Widget}} $>$
+\begin{DoxyCompactList}\small\item\em Get the Widget object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a3cc81f06196215b24ad3eca57fff32a5}{add\+Window}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow}{Ui\+Window}} $>$ win) -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Add a new sub Window in the current window. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_a188cc1269312094e2ee75b98bb6e6e80}{delete\+Window}} (const std\+::string\+\_\+view \&name) -\/$>$ bool
+\begin{DoxyCompactList}\small\item\em Delete a sub-\/window stored in the window. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow_af195c2a5c2c2ee846bc77d56ca298da3}{get\+Window}} (const std\+::string\+\_\+view \&name) -\/$>$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow}{Ui\+Window}} $>$
+\begin{DoxyCompactList}\small\item\em Get the Window object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a30dc7ab2137a60a474233ac7f6bd9f23}\label{classusa_1_1Engine_1_1UiWindow_a30dc7ab2137a60a474233ac7f6bd9f23}} 
+std\+::string\+\_\+view {\bfseries m\+\_\+name} \{\}
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a3dbe94996af9bd1b142f15e35017975e}\label{classusa_1_1Engine_1_1UiWindow_a3dbe94996af9bd1b142f15e35017975e}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classusa_1_1Engine_1_1AWidget}{A\+Widget}} $>$ $>$ {\bfseries m\+\_\+\+Widget\+List} \{\}
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_ab76727997cb814bbe6fe9e5560a8e04e}\label{classusa_1_1Engine_1_1UiWindow_ab76727997cb814bbe6fe9e5560a8e04e}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow}{Ui\+Window}} $>$ $>$ {\bfseries m\+\_\+\+Window\+List} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Window base class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a091f78c5183a38e58419f7997b02f125}\label{classusa_1_1Engine_1_1UiWindow_a091f78c5183a38e58419f7997b02f125}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!UiWindow@{UiWindow}}
+\index{UiWindow@{UiWindow}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{UiWindow()}{UiWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily usa\+::\+Engine\+::\+Ui\+Window\+::\+Ui\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Ui Window object. 
+
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a0aaae646bc44c27c837a9215baea2e48}\label{classusa_1_1Engine_1_1UiWindow_a0aaae646bc44c27c837a9215baea2e48}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!UiWindow@{UiWindow}}
+\index{UiWindow@{UiWindow}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{UiWindow()}{UiWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily usa\+::\+Engine\+::\+Ui\+Window\+::\+Ui\+Window (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{name,  }\item[{Im\+Gui\+Window\+Flags}]{flags = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Ui Window object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the window, the name may be rendered \\
+\hline
+{\em flags} & The flags parameters of the window \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a6a2da0f6c88f2fd5148b28e782b9c2d3}\label{classusa_1_1Engine_1_1UiWindow_a6a2da0f6c88f2fd5148b28e782b9c2d3}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!````~UiWindow@{$\sim$UiWindow}}
+\index{````~UiWindow@{$\sim$UiWindow}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{$\sim$UiWindow()}{~UiWindow()}}
+{\footnotesize\ttfamily virtual usa\+::\+Engine\+::\+Ui\+Window\+::$\sim$\+Ui\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destroy the Ui Window object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a4cfa76310b819468bc0cbe84dd66ab00}\label{classusa_1_1Engine_1_1UiWindow_a4cfa76310b819468bc0cbe84dd66ab00}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!addWidget@{addWidget}}
+\index{addWidget@{addWidget}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{addWidget()}{addWidget()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::add\+Widget (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classusa_1_1Engine_1_1AWidget}{A\+Widget}} $>$}]{widget }\end{DoxyParamCaption}) -\/$>$ void \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new widget to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em widget} & The new widget to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a3cc81f06196215b24ad3eca57fff32a5}\label{classusa_1_1Engine_1_1UiWindow_a3cc81f06196215b24ad3eca57fff32a5}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!addWindow@{addWindow}}
+\index{addWindow@{addWindow}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{addWindow()}{addWindow()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::add\+Window (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow}{Ui\+Window}} $>$}]{win }\end{DoxyParamCaption}) -\/$>$ void \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new sub Window in the current window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em win} & The new window to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a12c15daba117ad8008d26ef7a4964ca5}\label{classusa_1_1Engine_1_1UiWindow_a12c15daba117ad8008d26ef7a4964ca5}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!close@{close}}
+\index{close@{close}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ void \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Close the window. 
+
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_ac24abaadd433c875595438db75771eeb}\label{classusa_1_1Engine_1_1UiWindow_ac24abaadd433c875595438db75771eeb}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!deleteWidget@{deleteWidget}}
+\index{deleteWidget@{deleteWidget}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{deleteWidget()}{deleteWidget()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::delete\+Widget (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{name }\end{DoxyParamCaption}) -\/$>$ bool}
+
+
+
+Delete a widget stored in the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the widget to delete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Return true if a widget was delete 
+
+false Return false if no widget was found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a188cc1269312094e2ee75b98bb6e6e80}\label{classusa_1_1Engine_1_1UiWindow_a188cc1269312094e2ee75b98bb6e6e80}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!deleteWindow@{deleteWindow}}
+\index{deleteWindow@{deleteWindow}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{deleteWindow()}{deleteWindow()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::delete\+Window (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{name }\end{DoxyParamCaption}) -\/$>$ bool}
+
+
+
+Delete a sub-\/window stored in the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the sub-\/window to delete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true return true if a window was deleted 
+
+false return false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_ac29efdbf95218a95afa9200c33d564d8}\label{classusa_1_1Engine_1_1UiWindow_ac29efdbf95218a95afa9200c33d564d8}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!getFlags@{getFlags}}
+\index{getFlags@{getFlags}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{getFlags()}{getFlags()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::get\+Flags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ Im\+Gui\+Window\+Flags \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Flags object. 
+
+\begin{DoxyReturn}{Returns}
+Im\+Gui\+Window\+Flags\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a5b3756c0b38fddcc9d8a60c84f706fe4}\label{classusa_1_1Engine_1_1UiWindow_a5b3756c0b38fddcc9d8a60c84f706fe4}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!getName@{getName}}
+\index{getName@{getName}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ const std\+::string\+\_\+view \& \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the name of the object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string\+\_\+view\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_af0963bad6b3d4b6a624ca09386bbde60}\label{classusa_1_1Engine_1_1UiWindow_af0963bad6b3d4b6a624ca09386bbde60}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ const Im\+Vec2 \& \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the position of the object. 
+
+\begin{DoxyReturn}{Returns}
+const Im\+Vec2\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a1f0adc1c2728be9c2dc59ae9bda965dc}\label{classusa_1_1Engine_1_1UiWindow_a1f0adc1c2728be9c2dc59ae9bda965dc}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!getSize@{getSize}}
+\index{getSize@{getSize}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ const Im\+Vec2 \& \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the size of the object. 
+
+\begin{DoxyReturn}{Returns}
+const Im\+Vec2\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a1f3f12c7eff47ee1c48ae3cd36ee309f}\label{classusa_1_1Engine_1_1UiWindow_a1f3f12c7eff47ee1c48ae3cd36ee309f}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!getWidget@{getWidget}}
+\index{getWidget@{getWidget}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{getWidget()}{getWidget()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::get\+Widget (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{name }\end{DoxyParamCaption}) -\/$>$ std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classusa_1_1Engine_1_1AWidget}{A\+Widget}}$>$}
+
+
+
+Get the Widget object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the widget to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+A\+Widget$>$ Return a widget smart pointer if found 
+
+nullptr Return nullptr if the widget was not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_af195c2a5c2c2ee846bc77d56ca298da3}\label{classusa_1_1Engine_1_1UiWindow_af195c2a5c2c2ee846bc77d56ca298da3}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!getWindow@{getWindow}}
+\index{getWindow@{getWindow}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{getWindow()}{getWindow()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::get\+Window (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{name }\end{DoxyParamCaption}) -\/$>$ std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow}{Ui\+Window}}$>$}
+
+
+
+Get the Window object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the window object to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Ui\+Window$>$ return a \mbox{\hyperlink{classusa_1_1Engine_1_1UiWindow}{Ui\+Window}} smart pointer 
+
+nullptr return nullptr otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_ab297c24687ebc323cbf2651dd25c212e}\label{classusa_1_1Engine_1_1UiWindow_ab297c24687ebc323cbf2651dd25c212e}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!open@{open}}
+\index{open@{open}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ void \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Open the window. 
+
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_aa0cbc5d0b271bfcd62a583f320ade6c9}\label{classusa_1_1Engine_1_1UiWindow_aa0cbc5d0b271bfcd62a583f320ade6c9}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!render@{render}}
+\index{render@{render}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ void\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Render the window and everything it contains. 
+
+
+
+Reimplemented in \mbox{\hyperlink{classusa_1_1Engine_1_1Menu_aced5d0ce51e1edd0d9b5abe12c3118d5}{usa\+::\+Engine\+::\+Menu}}, and \mbox{\hyperlink{classusa_1_1Engine_1_1MainMenuBar_a2ce7a233218d6ab44c02fffd152d3eb1}{usa\+::\+Engine\+::\+Main\+Menu\+Bar}}.
+
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a28dd8b2924f3e0ef27e2e8207c1a3c19}\label{classusa_1_1Engine_1_1UiWindow_a28dd8b2924f3e0ef27e2e8207c1a3c19}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!setName@{setName}}
+\index{setName@{setName}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{name }\end{DoxyParamCaption}) -\/$>$ void \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Set the name of the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The new name of the object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a365c9a66e1f95c4557cbcfa2f5b36ac0}\label{classusa_1_1Engine_1_1UiWindow_a365c9a66e1f95c4557cbcfa2f5b36ac0}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::set\+Position (\begin{DoxyParamCaption}\item[{const Im\+Vec2 \&}]{pos }\end{DoxyParamCaption}) -\/$>$ void \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Set the position of the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The new postion of the object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_a23bdb697266260a09e8209772aa91f2c}\label{classusa_1_1Engine_1_1UiWindow_a23bdb697266260a09e8209772aa91f2c}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!setSize@{setSize}}
+\index{setSize@{setSize}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::set\+Size (\begin{DoxyParamCaption}\item[{const Im\+Vec2 \&}]{size }\end{DoxyParamCaption}) -\/$>$ void \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Set the size of the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The new size of the object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classusa_1_1Engine_1_1UiWindow_ae6c83b8d1c1e9ed36850f685d94562e0}\label{classusa_1_1Engine_1_1UiWindow_ae6c83b8d1c1e9ed36850f685d94562e0}} 
+\index{usa::Engine::UiWindow@{usa::Engine::UiWindow}!setWindowFlags@{setWindowFlags}}
+\index{setWindowFlags@{setWindowFlags}!usa::Engine::UiWindow@{usa::Engine::UiWindow}}
+\doxysubsubsection{\texorpdfstring{setWindowFlags()}{setWindowFlags()}}
+{\footnotesize\ttfamily auto usa\+::\+Engine\+::\+Ui\+Window\+::set\+Window\+Flags (\begin{DoxyParamCaption}\item[{Im\+Gui\+Window\+Flags}]{flags }\end{DoxyParamCaption}) -\/$>$ void \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Set the Window Flags. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flags} & The value of the flags, different value will trigger different options \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Engine/include/\+Engine/\+U\+I/Ui\+Window.\+hpp\item 
+src/\+Engine/src/\+U\+I/Ui\+Window.\+cpp\end{DoxyCompactItemize}

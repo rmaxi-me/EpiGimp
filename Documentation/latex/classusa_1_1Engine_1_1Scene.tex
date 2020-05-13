@@ -21,20 +21,30 @@ Inheritance diagram for usa\+::Engine\+::Scene\+:\begin{figure}[H]
 \mbox{\Hypertarget{classusa_1_1Engine_1_1Scene_a048a7dfc0411cbeb56b997bf9a0a46a3}\label{classusa_1_1Engine_1_1Scene_a048a7dfc0411cbeb56b997bf9a0a46a3}} 
 \mbox{\hyperlink{classusa_1_1Engine_1_1Scene}{Scene}} \& {\bfseries operator=} (\mbox{\hyperlink{classusa_1_1Engine_1_1Scene}{Scene}} \&\&)=default
 \item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Scene_a233a7a8afb2f9afcfc88a306afd33d82}\label{classusa_1_1Engine_1_1Scene_a233a7a8afb2f9afcfc88a306afd33d82}} 
+virtual auto {\bfseries register\+Window} (sf\+::\+Render\+Window \&window) -\/$>$ void
+\item 
 \mbox{\Hypertarget{classusa_1_1Engine_1_1Scene_a3b2d3ba8328f569c85e3483315f994bf}\label{classusa_1_1Engine_1_1Scene_a3b2d3ba8328f569c85e3483315f994bf}} 
 virtual auto {\bfseries on\+Create} (\mbox{\hyperlink{classusa_1_1Engine_1_1Application}{Application}} \&app) -\/$>$ bool=0
 \item 
 \mbox{\Hypertarget{classusa_1_1Engine_1_1Scene_ae896acce0cc4ab49390d991f994337ba}\label{classusa_1_1Engine_1_1Scene_ae896acce0cc4ab49390d991f994337ba}} 
 virtual auto {\bfseries on\+Event} (const sf\+::\+Event \&event) -\/$>$ void=0
 \item 
-\mbox{\Hypertarget{classusa_1_1Engine_1_1Scene_a82acc7b6206d97296640ae8e4e3aa3e6}\label{classusa_1_1Engine_1_1Scene_a82acc7b6206d97296640ae8e4e3aa3e6}} 
-virtual auto {\bfseries on\+Tick} (const sf\+::\+Render\+Window \&window, float delta\+Time) -\/$>$ void=0
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Scene_a5580fdb89a5dd9a772efa5362967b6ab}\label{classusa_1_1Engine_1_1Scene_a5580fdb89a5dd9a772efa5362967b6ab}} 
+virtual auto {\bfseries on\+Tick} (float delta\+Time) -\/$>$ void=0
 \item 
-\mbox{\Hypertarget{classusa_1_1Engine_1_1Scene_ad14059f6ff5b694c192b4ecd01d849b5}\label{classusa_1_1Engine_1_1Scene_ad14059f6ff5b694c192b4ecd01d849b5}} 
-virtual auto {\bfseries on\+Draw} (sf\+::\+Render\+Window \&window) const -\/$>$ void=0
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Scene_aa827f4de624f2d7dd2952aa306faf70c}\label{classusa_1_1Engine_1_1Scene_aa827f4de624f2d7dd2952aa306faf70c}} 
+virtual auto {\bfseries on\+Draw} () -\/$>$ void=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classusa_1_1Engine_1_1Scene_ae86c788dcb49c564bbc8c9623efefc4c}\label{classusa_1_1Engine_1_1Scene_ae86c788dcb49c564bbc8c9623efefc4c}} 
+sf\+::\+Render\+Window $\ast$ {\bfseries m\+\_\+window} \{nullptr\}
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Engine/include/\+Engine/Scene.\+hpp\end{DoxyCompactItemize}
+src/\+Engine/include/\+Engine/Scene.\+hpp\item 
+src/\+Engine/src/Scene.\+cpp\end{DoxyCompactItemize}
