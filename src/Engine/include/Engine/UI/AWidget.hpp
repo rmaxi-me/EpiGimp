@@ -16,8 +16,6 @@
 
 #include <functional>
 
-namespace usa {
-
 namespace Engine {
 
 /**
@@ -86,7 +84,5 @@ public:
      */
     virtual auto bindAction(std::function<void()>) -> void = 0;
 };
-
-}
 
 }

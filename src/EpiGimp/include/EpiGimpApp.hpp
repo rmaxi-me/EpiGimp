@@ -9,8 +9,6 @@
 
 #include <Engine/Application.hpp>
 
-namespace usa {
-
 class EpiGimpApp final : public Engine::Application {
 
 public:
@@ -23,5 +21,3 @@ public:
     auto tick(float deltaTime) -> void override;
     auto draw() -> void override;
 };
-
-} // namespace usa

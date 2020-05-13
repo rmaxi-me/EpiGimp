@@ -10,7 +10,7 @@
 
 #include "Engine/Settings/Settings.hpp"
 
-void usa::Engine::to_json(Json &json, const usa::Engine::Settings &settings)
+void Engine::to_json(Json &json, const Engine::Settings &settings)
 {
     json = Json{
             {"width", settings.width},
@@ -20,7 +20,7 @@ void usa::Engine::to_json(Json &json, const usa::Engine::Settings &settings)
     };
 }
 
-void usa::Engine::from_json(const Json &json, usa::Engine::Settings &settings)
+void Engine::from_json(const Json &json, Engine::Settings &settings)
 {
     json.at("width").get_to(settings.width);
     json.at("height").get_to(settings.height);
@@ -28,7 +28,7 @@ void usa::Engine::from_json(const Json &json, usa::Engine::Settings &settings)
     json.at("fullscreen").get_to(settings.fullscreen);
 }
 
-auto usa::Engine::Settings::fromFile(const std::string_view &path) -> Settings
+auto Engine::Settings::fromFile(const std::string_view &path) -> Settings
 {
     Settings s;
     std::ifstream file{path.data()};
@@ -41,7 +41,7 @@ auto usa::Engine::Settings::fromFile(const std::string_view &path) -> Settings
     return s;
 }
 
-auto usa::Engine::Settings::save(const std::string_view &path) const -> void
+auto Engine::Settings::save(const std::string_view &path) const -> void
 {
     std::ofstream file{path.data()};
 
