@@ -13,7 +13,7 @@ class Eraser final : public ABrush {
 public:
     ~Eraser() override = default;
 
-    ImColor getBrushColor() override;
+    sf::Color getBrushColor() override;
 
     inline const char *getName() override
     {

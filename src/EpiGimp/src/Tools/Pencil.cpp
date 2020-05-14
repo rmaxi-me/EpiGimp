@@ -15,7 +15,10 @@ void Pencil::toolGUI()
     ImGui::ColorPicker4("Color", m_color);
 }
 
-ImColor Pencil::getBrushColor()
+sf::Color Pencil::getBrushColor()
 {
-    return ImColor(m_color[0], m_color[1], m_color[2], m_color[3]);
+    return sf::Color(static_cast<unsigned char>(m_color[0] * 255),
+                     static_cast<unsigned char>(m_color[1] * 255),
+                     static_cast<unsigned char>(m_color[2] * 255),
+                     static_cast<unsigned char>(m_color[3] * 255));
 }

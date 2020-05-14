@@ -7,7 +7,7 @@
 
 #include "Tools/Eraser.hpp"
 
-ImColor Eraser::getBrushColor()
+sf::Color Eraser::getBrushColor()
 {
-    return ImColor(0x00000000);
+    return sf::Color(0x00000000);
 }

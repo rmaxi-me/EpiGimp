@@ -24,7 +24,7 @@ public:
     void onMouseMoved(const sf::Vector2i &pos) override;
     void toolGUI() override;
 
-    virtual ImColor getBrushColor() = 0;
+    virtual sf::Color getBrushColor() = 0;
 
     inline const char *getName() override = 0;
     inline const char *getDescription() override = 0;

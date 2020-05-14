@@ -16,7 +16,7 @@ public:
     ~Pencil() override = default;
 
     void toolGUI() override;
-    ImColor getBrushColor() override;
+    sf::Color getBrushColor() override;
 
     inline const char *getName() override
     {
