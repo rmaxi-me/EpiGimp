@@ -145,7 +145,7 @@ auto CanvasMenus::drawWindowsMenu() -> void
 
 auto CanvasMenus::saveAsPopup() -> bool
 {
-    bool asSave = false;
+    static bool asSave = false;
 
     if (m_saveAsDialog)
     {
@@ -162,6 +162,7 @@ auto CanvasMenus::saveAsPopup() -> bool
             ImGui::CloseCurrentPopup();
             m_saveAsDialog = false;
             asSave = true;
+            m_saved = true;
         }
         ImGui::SetItemDefaultFocus();
         ImGui::SameLine();
@@ -176,9 +177,11 @@ auto CanvasMenus::saveAsPopup() -> bool
 
 auto CanvasMenus::getSavePath() -> std::string
 {
+    if (!m_saved)
+        return "";
+    m_saved = false;
     std::string path(buff);
     std::memset(buff, 0, sizeof(buff));
-    std::cout << path << std::endl;
     return path;
 }
 

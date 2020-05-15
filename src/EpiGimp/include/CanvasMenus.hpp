@@ -24,5 +24,6 @@ private:
     auto saveAsPopup() -> bool;
 private:
     bool m_saveAsDialog = false;
+    bool m_saved = false;
     char buff[255]{};
 };

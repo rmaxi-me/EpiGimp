@@ -9,6 +9,7 @@
 #include <imgui-SFML.h>
 
 #include <algorithm>
+#include <iostream>
 
 #include "SceneCanvas.hpp"
 #include "CanvasMenus.hpp"
@@ -60,12 +61,30 @@ void SceneCanvas::onEvent(const sf::Event &event)
 void SceneCanvas::onTick(float deltaTime)
 {
     m_deltaTime = deltaTime;
+    std::string savePath{};
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) updateView({0.f, -1.f});
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) updateView({-1.f, 0.f});
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) updateView({0.f, 1.f});
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) updateView({1.f, 0.f});
 
+
+    /**
+     * save layers as an Image
+     */
+    savePath = menu.getSavePath();
+    if (!savePath.empty())
+    {
+        static const char *extList[4] = {"bmp", "png", "tga", "jpg"};
+        std::string extension = savePath.substr(savePath.find_last_of('.')+1);
+        for (auto i = 0; i < 4; ++i)
+        {
+            if (extList[i] == extension)
+            {
+                squash().saveToFile(savePath);
+            }
+        }
+    }
     /*
      * Insert image manipulations here
      */
