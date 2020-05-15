@@ -66,8 +66,15 @@ void SceneCanvas::onEvent(const sf::Event &event)
             m_window->setView(view);
         }
         break;
-    case sf::Event::MouseWheelScrolled: updateView({}, -event.mouseWheelScroll.delta); break;
+    case sf::Event::MouseWheelScrolled:
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LAlt))
+            updateView({}, -event.mouseWheelScroll.delta);
+        break;
     default: break;
+    }
+
+    if (m_activeTool) {
+        m_activeTool->handleEvent(event);
     }
 }
 
@@ -83,10 +90,6 @@ void SceneCanvas::onTick(float deltaTime)
         updateView({0.f, 1.f});
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         updateView({1.f, 0.f});
-
-    /*
-     * Insert image manipulations here
-     */
 
     for (auto &layer : m_layers) {
         layer.texture.update(layer.image);
@@ -224,4 +227,12 @@ auto SceneCanvas::squash() const -> sf::Image
         image.copy(layer.image, static_cast<unsigned int>(pos.x), static_cast<unsigned int>(pos.y), sf::IntRect{}, true);
     }
     return image;
+}
+
+void SceneCanvas::registerWindow(sf::RenderWindow &window)
+{
+    Scene::registerWindow(window);
+
+    for (auto &tool : m_tools)
+        tool->registerWindow(window);
 }

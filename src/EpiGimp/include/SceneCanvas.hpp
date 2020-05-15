@@ -26,6 +26,8 @@ public:
     auto onTick(float deltaTime) -> void override;
     auto onDraw() -> void override;
 
+    auto registerWindow(sf::RenderWindow &window) -> void override;
+
 private:
     constexpr static auto MOVE_SPEED = 500.f;
     constexpr static auto TOOLS_COUNT = 3;
