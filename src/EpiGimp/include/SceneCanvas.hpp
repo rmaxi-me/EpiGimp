@@ -35,6 +35,7 @@ private:
     std::vector<Layer> m_layers{};
     std::array<std::unique_ptr<ATool>, TOOLS_COUNT> m_tools;
     ATool *m_activeTool{nullptr};
+    Layer *m_activeLayer{nullptr};
 
     float m_deltaTime{};
     bool m_mouseGrabbed{false};

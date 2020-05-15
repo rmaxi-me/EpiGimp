@@ -156,6 +156,9 @@ auto SceneCanvas::drawToolbox() -> void
 
 auto SceneCanvas::drawLayerWindow() -> void
 {
+    static const ImVec2 SmallButtonSize = {75, 0};
+    static const ImVec2 LargeButtonSize = {SmallButtonSize.x * 2 + 10, 0};
+
     ImGui::SetNextWindowSize({0, 0});
     ImGui::Begin("Layers");
     {
@@ -163,28 +166,44 @@ auto SceneCanvas::drawLayerWindow() -> void
         for (auto layer = m_layers.rbegin(); layer != m_layers.rend(); ++layer) {
             ImGui::PushID(std::addressof(*layer));
             {
-                ImGui::Text("Layer %ld", index);
+                if (m_activeLayer == &*layer)
+                    ImGui::TextColored({255, 255, 0, 255}, "Layer %ld - Selected", index);
+                else
+                    ImGui::Text("Layer %ld", index);
                 ImGui::BeginGroup();
                 {
-                    if (ImGui::Button("Up", {50, 0}))
+                    if (ImGui::Button("Up", SmallButtonSize))
                         swapLayers(layer, -1);
-                    if (ImGui::Button("Down", {50, 0}))
+                    if (ImGui::Button("Down", SmallButtonSize))
                         swapLayers(layer, 1);
-                    if (ImGui::Button(layer->hidden ? "Show" : "Hide", {50, 0}))
+                    if (ImGui::Button(layer->hidden ? "Show" : "Hide", SmallButtonSize))
                         layer->hidden = !layer->hidden;
                 }
                 ImGui::EndGroup();
                 ImGui::SameLine();
-                ImGui::Image(layer->texture, {66.7f, 66.7f / layer->ratio});
+                ImGui::Image(layer->texture, {SmallButtonSize.x, SmallButtonSize.x / layer->ratio});
+
+                ImGui::Spacing();
+                if (ImGui::Button("Select layer", LargeButtonSize)) {
+                    for (auto &tool : m_tools)
+                        tool->setActiveLayer(&*layer);
+                    m_activeLayer = &*layer;
+                }
 
                 ImGui::Spacing();
                 ImGui::Separator();
                 ImGui::Spacing();
             }
             ImGui::PopID();
+            --index;
         }
 
-        if (ImGui::Button("Squash and export"))
+        if (ImGui::Button("Deselect layer", LargeButtonSize)) {
+            m_activeLayer = nullptr;
+            for (auto &tool : m_tools)
+                tool->setActiveLayer(nullptr);
+        }
+        if (ImGui::Button("Squash and export", LargeButtonSize))
             squash().saveToFile("export.png");
     }
     ImGui::End();

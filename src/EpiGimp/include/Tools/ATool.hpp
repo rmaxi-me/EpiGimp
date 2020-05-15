@@ -22,7 +22,7 @@ public:
 
     void handleEvent(const sf::Event &event);
     void registerWindow(sf::RenderWindow &window);
-    void setActiveLayer(Layer &layer);
+    void setActiveLayer(Layer *layer);
 
     virtual void onClickPressed(sf::Mouse::Button button, const sf::Vector2i &pos) = 0;
     virtual void onClickReleased(sf::Mouse::Button button, const sf::Vector2i &pos) = 0;

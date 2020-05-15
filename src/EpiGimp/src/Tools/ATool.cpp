@@ -16,9 +16,9 @@ void ATool::registerWindow(sf::RenderWindow &window)
     m_window = &window;
 }
 
-void ATool::setActiveLayer(Layer &layer)
+void ATool::setActiveLayer(Layer *layer)
 {
-    m_activeLayer = &layer;
+    m_activeLayer = layer;
 }
 
 void ATool::handleEvent(const sf::Event &event)
