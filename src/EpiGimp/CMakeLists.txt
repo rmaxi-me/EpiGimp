@@ -9,7 +9,16 @@ add_executable(
         ${CMAKE_CURRENT_SOURCE_DIR}/include/CanvasMenus.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Tools/ATool.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/Tools/ATool.hpp
-        src/Tools/MoveLayer.cpp include/Tools/MoveLayer.hpp src/Layer.cpp include/Layer.hpp src/Tools/ABrush.cpp include/Tools/ABrush.hpp src/Tools/Eraser.cpp include/Tools/Eraser.hpp src/Tools/Pencil.cpp include/Tools/Pencil.hpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Tools/MoveLayer.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Tools/MoveLayer.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Layer.cpp include/Layer.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Tools/ABrush.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Tools/ABrush.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Tools/Eraser.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Tools/Eraser.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Tools/Pencil.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Tools/Pencil.hpp
+)
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include
         ${CMAKE_CURRENT_SOURCE_DIR}/../Engine/include)
