@@ -18,7 +18,6 @@ auto CanvasMenus::drawFileMenu() -> void
         ImGui::MenuItem("Create");
         ImGui::MenuItem("Open", "CTRL+O");
         ImGui::MenuItem("Open as Layers", "CTRL+ALT+O");
-        ImGui::MenuItem("Open Location");
         ImGui::MenuItem("Open Recent");
         ImGui::Separator();
         ImGui::MenuItem("Save", "CTRL+S");

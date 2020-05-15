@@ -84,11 +84,12 @@ void SceneCanvas::onTick(float deltaTime)
             {
                 if (squash().saveToFile(savePath) == false) {
                     menu.enableErrorDialog();
-                    break;
                 }
+                break;
             }
-            if (i == 3)
+            if (i == 3) {
                 menu.enableErrorDialog();
+            }
         }
     }
     /*
