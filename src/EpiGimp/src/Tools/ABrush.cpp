@@ -9,12 +9,23 @@
 
 #include "Tools/ABrush.hpp"
 
-std::uint32_t ABrush::m_brushSize{5};
+std::uint32_t ABrush::m_brushSize{10};
 
-void ABrush::onClickPressed(sf::Mouse::Button button, const sf::Vector2i &)
+void ABrush::paint(const sf::Vector2i &pos)
 {
-    if (button == sf::Mouse::Button::Left)
+    const auto coords = m_window->mapPixelToCoords(pos);
+    if (m_activeLayer->sprite.getGlobalBounds().contains(coords)) {
+        const auto relative = coords - m_activeLayer->sprite.getPosition();
+        drawCircle(m_activeLayer->image, relative);
+    }
+}
+
+void ABrush::onClickPressed(sf::Mouse::Button button, const sf::Vector2i &pos)
+{
+    if (button == sf::Mouse::Button::Left) {
         m_mousePressed = true;
+        paint(pos);
+    }
 }
 
 void ABrush::onClickReleased(sf::Mouse::Button button, const sf::Vector2i &)
@@ -26,11 +37,7 @@ void ABrush::onClickReleased(sf::Mouse::Button button, const sf::Vector2i &)
 void ABrush::onMouseMoved(const sf::Vector2i &pos)
 {
     if (m_mousePressed && m_activeLayer) {
-        const auto coords = m_window->mapPixelToCoords(pos);
-        if (m_activeLayer->sprite.getGlobalBounds().contains(coords)) {
-            const auto relative = coords - m_activeLayer->sprite.getPosition();
-            drawCircle(m_activeLayer->image, relative);
-        }
+        paint(pos);
     }
 }
 
@@ -44,7 +51,7 @@ void ABrush::drawCircle(sf::Image &image, const sf::Vector2f &pos)
 
     for (auto x = start.x; x <= end.x; ++x) {
         for (auto y = start.y; y <= end.y; ++y) {
-            if (x < 0 | y < 0 | x >= static_cast<int>(size.x) || y >= static_cast<int>(size.y))
+            if (x < 0 || y < 0 || x >= static_cast<int>(size.x) || y >= static_cast<int>(size.y))
                 continue;
 
             if (std::pow(static_cast<float>(x) - pos.x, 2) + std::pow(static_cast<float>(y) - pos.y, 2) <= std::pow(radius, 2)) {
@@ -57,7 +64,7 @@ void ABrush::drawCircle(sf::Image &image, const sf::Vector2f &pos)
 void ABrush::toolGUI()
 {
     static constexpr decltype(m_brushSize) MIN_SIZE = 1;
-    static constexpr decltype(m_brushSize) MAX_SIZE = 500;
+    static constexpr decltype(m_brushSize) MAX_SIZE = 250;
 
     ImGui::Text("Brush");
     ImGui::SliderScalar("Size", ImGuiDataType_U32, &m_brushSize, &MIN_SIZE, &MAX_SIZE);
