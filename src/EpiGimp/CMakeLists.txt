@@ -11,7 +11,8 @@ add_executable(
         ${CMAKE_CURRENT_SOURCE_DIR}/include/Tools/ATool.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Tools/MoveLayer.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/Tools/MoveLayer.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/Layer.cpp include/Layer.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Layer.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Layer.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Tools/ABrush.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/Tools/ABrush.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Tools/Eraser.cpp
