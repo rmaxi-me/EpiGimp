@@ -77,12 +77,18 @@ void SceneCanvas::onTick(float deltaTime)
     {
         static const char *extList[4] = {"bmp", "png", "tga", "jpg"};
         std::string extension = savePath.substr(savePath.find_last_of('.')+1);
+        
         for (auto i = 0; i < 4; ++i)
         {
             if (extList[i] == extension)
             {
-                squash().saveToFile(savePath);
+                if (squash().saveToFile(savePath) == false) {
+                    menu.enableErrorDialog();
+                    break;
+                }
             }
+            if (i == 3)
+                menu.enableErrorDialog();
         }
     }
     /*

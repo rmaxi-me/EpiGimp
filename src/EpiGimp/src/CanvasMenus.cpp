@@ -185,6 +185,30 @@ auto CanvasMenus::getSavePath() -> std::string
     return path;
 }
 
+auto CanvasMenus::enableErrorDialog() -> void
+{
+    m_errorDialog = true;
+}
+
+auto CanvasMenus::drawErrorDialog() -> void
+{
+    if (m_errorDialog)
+    {
+        ImGui::OpenPopup("ErrorDialog");
+    }
+
+    if (ImGui::BeginPopupModal("ErrorDialog"))
+    {
+        ImGui::Text("Error Occured");
+
+        ImGui::Separator();
+        if (ImGui::Button("OK", ImVec2(120, 0))) {
+            ImGui::CloseCurrentPopup();
+            m_errorDialog = false;
+        }
+    }
+}
+
 auto CanvasMenus::drawMainMenuBar() -> void
 {
     if (ImGui::BeginMainMenuBar()) {
@@ -200,4 +224,5 @@ auto CanvasMenus::drawMainMenuBar() -> void
         ImGui::EndMainMenuBar();
     }
     saveAsPopup();
+    drawErrorDialog();
 }
