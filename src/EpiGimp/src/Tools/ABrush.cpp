@@ -24,7 +24,8 @@ void ABrush::onClickPressed(sf::Mouse::Button button, const sf::Vector2i &pos)
 {
     if (button == sf::Mouse::Button::Left) {
         m_mousePressed = true;
-        paint(pos);
+        if (m_activeLayer)
+            paint(pos);
     }
 }
 
@@ -54,7 +55,8 @@ void ABrush::drawCircle(sf::Image &image, const sf::Vector2f &pos)
             if (x < 0 || y < 0 || x >= static_cast<int>(size.x) || y >= static_cast<int>(size.y))
                 continue;
 
-            if (std::pow(static_cast<float>(x) - pos.x, 2) + std::pow(static_cast<float>(y) - pos.y, 2) <= std::pow(radius, 2)) {
+            if (std::pow(static_cast<float>(x) - pos.x, 2) + std::pow(static_cast<float>(y) - pos.y, 2)
+                <= std::pow(radius, 2)) {
                 image.setPixel(static_cast<unsigned int>(x), static_cast<unsigned int>(y), color);
             }
         }
