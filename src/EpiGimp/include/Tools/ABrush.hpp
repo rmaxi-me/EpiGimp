@@ -13,6 +13,7 @@ class ABrush : public ATool {
 private:
     bool m_mousePressed{false};
 
+    void drawCircle(sf::Image &image, const sf::Vector2f &pos);
 protected:
     static std::uint32_t m_brushSize;
 

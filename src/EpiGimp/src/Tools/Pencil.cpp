@@ -17,8 +17,8 @@ void Pencil::toolGUI()
 
 sf::Color Pencil::getBrushColor()
 {
-    return sf::Color(static_cast<unsigned char>(m_color[0] * 255),
-                     static_cast<unsigned char>(m_color[1] * 255),
-                     static_cast<unsigned char>(m_color[2] * 255),
-                     static_cast<unsigned char>(m_color[3] * 255));
+    return sf::Color(static_cast<unsigned char>(m_color[0] * 255.f),
+                     static_cast<unsigned char>(m_color[1] * 255.f),
+                     static_cast<unsigned char>(m_color[2] * 255.f),
+                     static_cast<unsigned char>(m_color[3] * 255.f));
 }

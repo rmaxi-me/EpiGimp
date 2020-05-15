@@ -7,7 +7,7 @@
 
 #include "Tools/MoveLayer.hpp"
 
-void MoveLayer::onClickPressed(sf::Mouse::Button button, const sf::Vector2i &pos)
+void MoveLayer::onClickPressed(sf::Mouse::Button button, const sf::Vector2i &)
 {
     if (button == sf::Mouse::Left && m_window) {
         m_mouseGrabbed = true;

@@ -67,7 +67,7 @@ void SceneCanvas::onEvent(const sf::Event &event)
         }
         break;
     case sf::Event::MouseWheelScrolled:
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LAlt))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl))
             updateView({}, -event.mouseWheelScroll.delta);
         break;
     default: break;

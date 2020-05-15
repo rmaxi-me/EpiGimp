@@ -19,7 +19,7 @@ struct Settings {
     // Default values that can be overwritten in the config file
     std::uint32_t width{1600};
     std::uint32_t height{900};
-    std::uint32_t fps_limit{0};
+    std::uint32_t fps_limit{60};
     bool fullscreen{false};
 
     static auto fromFile(const std::string_view &path = CONFIG_PATH) -> Settings;
