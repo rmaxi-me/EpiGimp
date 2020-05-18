@@ -80,7 +80,7 @@ void SceneCanvas::onTick(float deltaTime)
 {
     m_deltaTime = deltaTime;
     std::string savePath{};
-  
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         updateView({0.f, -1.f});
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
@@ -98,20 +98,17 @@ void SceneCanvas::onTick(float deltaTime)
         // TODO: One thing we could do is to only update the texture once a change has been made.
         layer.sprite.setTexture(layer.texture);
     }
-  
+
     /**
      * save layers as an Image
      */
     savePath = menu.getSavePath();
-    if (!savePath.empty())
-    {
-        static const char *extList[4] = {"bmp", "png", "tga", "jpg"};
-        std::string extension = savePath.substr(savePath.find_last_of('.')+1);
-        
-        for (auto i = 0; i < 4; ++i)
-        {
-            if (extList[i] == extension)
-            {
+    if (!savePath.empty()) {
+        static constexpr const char *extList[4] = {"bmp", "png", "tga", "jpg"};
+        std::string extension = savePath.substr(savePath.find_last_of('.') + 1);
+
+        for (auto i = 0; i < 4; ++i) {
+            if (extList[i] == extension) {
                 if (squash().saveToFile(savePath) == false) {
                     menu.enableErrorDialog();
                 }
@@ -185,6 +182,13 @@ auto SceneCanvas::drawLayerWindow() -> void
     ImGui::SetNextWindowSize({0, 0});
     ImGui::Begin("Layers");
     {
+        if (ImGui::Button("New layer", LargeButtonSize))
+            m_layers.emplace_back(800, 600);
+
+        ImGui::Spacing();
+        ImGui::Separator();
+        ImGui::Spacing();
+
         std::size_t index = m_layers.size();
         for (auto layer = m_layers.rbegin(); layer != m_layers.rend(); ++layer) {
             ImGui::PushID(std::addressof(*layer));
@@ -212,6 +216,9 @@ auto SceneCanvas::drawLayerWindow() -> void
                         tool->setActiveLayer(&*layer);
                     m_activeLayer = &*layer;
                 }
+
+                if (ImGui::Button("Delete layer", LargeButtonSize))
+                    m_layers.erase(std::next(layer).base());
 
                 ImGui::Spacing();
                 ImGui::Separator();
