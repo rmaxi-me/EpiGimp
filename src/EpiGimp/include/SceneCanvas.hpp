@@ -9,7 +9,12 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <array>
+
 #include "Engine/Scene.hpp"
+
+#include "Tools/ATool.hpp"
+#include "Layer.hpp"
 
 class SceneCanvas final : public Engine::Scene {
 public:
@@ -21,31 +26,26 @@ public:
     auto onTick(float deltaTime) -> void override;
     auto onDraw() -> void override;
 
+    auto registerWindow(sf::RenderWindow &window) -> void override;
+
 private:
     constexpr static auto MOVE_SPEED = 500.f;
-
-    struct Layer {
-        sf::Texture texture;
-        sf::Image image;
-        sf::Sprite sprite;
-
-        float ratio{};
-        bool hidden{false};
-
-        Layer(unsigned int width, unsigned int height, sf::Color color = sf::Color::White);
-        explicit Layer(const std::string_view &file);
-
-        auto init() -> void;
-    };
+    constexpr static auto TOOLS_COUNT = 3;
 
     std::vector<Layer> m_layers{};
+    std::array<std::unique_ptr<ATool>, TOOLS_COUNT> m_tools;
+    ATool *m_activeTool{nullptr};
+    Layer *m_activeLayer{nullptr};
 
     float m_deltaTime{};
     bool m_mouseGrabbed{false};
     sf::Vector2f m_grabPoint{};
     sf::Cursor m_cursor{};
 
+    SceneCanvas();
+
     auto drawLayerWindow() -> void;
+    auto drawToolbox() -> void;
 
     auto updateView(sf::Vector2f delta, float zoomDelta = 0.f) const -> void;
     auto swapLayers(decltype(m_layers)::reverse_iterator &current, int offset) -> void;

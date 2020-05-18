@@ -13,38 +13,52 @@
 #include "SceneCanvas.hpp"
 #include "CanvasMenus.hpp"
 
-SceneCanvas::SceneCanvas(unsigned int width, unsigned int height) { m_layers.emplace_back(width, height); }
+#include "Tools/Pencil.hpp"
+#include "Tools/Eraser.hpp"
+#include "Tools/MoveLayer.hpp"
 
-SceneCanvas::SceneCanvas(const std::vector<std::string_view> &files)
+SceneCanvas::SceneCanvas()
+        : m_tools{std::make_unique<Pencil>(), std::make_unique<Eraser>(), std::make_unique<MoveLayer>()}
 {
-    for (const auto &file : files) m_layers.emplace_back(file);
 }
 
-bool SceneCanvas::onCreate(Engine::Application &) { return true; }
+SceneCanvas::SceneCanvas(unsigned int width, unsigned int height) : SceneCanvas()
+{
+    m_layers.emplace_back(width, height);
+}
+
+SceneCanvas::SceneCanvas(const std::vector<std::string_view> &files) : SceneCanvas()
+{
+    for (const auto &file : files)
+        m_layers.emplace_back(file);
+}
+
+bool SceneCanvas::onCreate(Engine::Application &)
+{
+    return true;
+}
 
 void SceneCanvas::onEvent(const sf::Event &event)
 {
     switch (event.type) {
-    case sf::Event::EventType::MouseButtonPressed:
+    case sf::Event::MouseButtonPressed:
         if (event.mouseButton.button == sf::Mouse::Right) {
             m_mouseGrabbed = true;
             m_grabPoint = m_window->mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
 
             m_cursor.loadFromSystem(sf::Cursor::Hand);
             m_window->setMouseCursor(m_cursor);
-            m_window->setMouseCursorGrabbed(true);
         }
         break;
-    case sf::Event::EventType::MouseButtonReleased:
+    case sf::Event::MouseButtonReleased:
         if (event.mouseButton.button == sf::Mouse::Right) {
             m_mouseGrabbed = false;
 
             m_cursor.loadFromSystem(sf::Cursor::Arrow);
             m_window->setMouseCursor(m_cursor);
-            m_window->setMouseCursorGrabbed(false);
         }
         break;
-    case sf::Event::EventType::MouseMoved:
+    case sf::Event::MouseMoved:
         if (m_mouseGrabbed) {
             sf::View view = m_window->getView();
             const auto dropDelta = m_grabPoint - m_window->mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
@@ -52,8 +66,12 @@ void SceneCanvas::onEvent(const sf::Event &event)
             m_window->setView(view);
         }
         break;
-    case sf::Event::EventType::MouseWheelScrolled: updateView({}, -event.mouseWheelScroll.delta); break;
+    case sf::Event::MouseWheelScrolled: updateView({}, -event.mouseWheelScroll.delta); break;
     default: break;
+    }
+
+    if (m_activeTool) {
+        m_activeTool->handleEvent(event);
     }
 }
 
@@ -61,14 +79,14 @@ void SceneCanvas::onTick(float deltaTime)
 {
     m_deltaTime = deltaTime;
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) updateView({0.f, -1.f});
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) updateView({-1.f, 0.f});
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) updateView({0.f, 1.f});
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) updateView({1.f, 0.f});
-
-    /*
-     * Insert image manipulations here
-     */
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        updateView({0.f, -1.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        updateView({-1.f, 0.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        updateView({0.f, 1.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        updateView({1.f, 0.f});
 
     for (auto &layer : m_layers) {
         layer.texture.update(layer.image);
@@ -99,15 +117,45 @@ auto SceneCanvas::updateView(sf::Vector2f delta, const float zoomDelta) const ->
 void SceneCanvas::onDraw()
 {
     for (const auto &layer : m_layers) {
-        if (!layer.hidden) m_window->draw(layer.sprite);
+        if (!layer.hidden)
+            m_window->draw(layer.sprite);
     }
 
     CanvasMenus::drawMainMenuBar();
     drawLayerWindow();
+    drawToolbox();
+}
+
+auto SceneCanvas::drawToolbox() -> void
+{
+    ImGui::SetNextWindowSize({0, 0});
+    ImGui::Begin("Toolbox");
+    {
+        for (auto &tool : m_tools) {
+            if (ImGui::Button(tool->getName(), {100, 0}))
+                m_activeTool = tool.get();
+        }
+        ImGui::Spacing();
+        ImGui::Separator();
+        ImGui::Spacing();
+        ImGui::Text("Selected tool: %s", (m_activeTool ? m_activeTool->getName() : "None"));
+        if (ImGui::Button("Deselect tool"))
+            m_activeTool = nullptr;
+        if (m_activeTool) {
+            ImGui::Spacing();
+            ImGui::Separator();
+            ImGui::Spacing();
+            m_activeTool->toolGUI();
+        }
+    }
+    ImGui::End();
 }
 
 auto SceneCanvas::drawLayerWindow() -> void
 {
+    static const ImVec2 SmallButtonSize = {75, 0};
+    static const ImVec2 LargeButtonSize = {SmallButtonSize.x * 2 + 10, 0};
+
     ImGui::SetNextWindowSize({0, 0});
     ImGui::Begin("Layers");
     {
@@ -115,25 +163,45 @@ auto SceneCanvas::drawLayerWindow() -> void
         for (auto layer = m_layers.rbegin(); layer != m_layers.rend(); ++layer) {
             ImGui::PushID(std::addressof(*layer));
             {
-                ImGui::Text("Layer %ld", index);
+                if (m_activeLayer == &*layer)
+                    ImGui::TextColored({255, 255, 0, 255}, "Layer %ld - Selected", index);
+                else
+                    ImGui::Text("Layer %ld", index);
                 ImGui::BeginGroup();
                 {
-                    if (ImGui::Button("Up", {50, 0})) swapLayers(layer, -1);
-                    if (ImGui::Button("Down", {50, 0})) swapLayers(layer, 1);
-                    if (ImGui::Button(layer->hidden ? "Show" : "Hide", {50, 0})) layer->hidden = !layer->hidden;
+                    if (ImGui::Button("Up", SmallButtonSize))
+                        swapLayers(layer, -1);
+                    if (ImGui::Button("Down", SmallButtonSize))
+                        swapLayers(layer, 1);
+                    if (ImGui::Button(layer->hidden ? "Show" : "Hide", SmallButtonSize))
+                        layer->hidden = !layer->hidden;
                 }
                 ImGui::EndGroup();
                 ImGui::SameLine();
-                ImGui::Image(layer->texture, {66.7f, 66.7f / layer->ratio});
+                ImGui::Image(layer->texture, {SmallButtonSize.x, SmallButtonSize.x / layer->ratio});
+
+                ImGui::Spacing();
+                if (ImGui::Button("Select layer", LargeButtonSize)) {
+                    for (auto &tool : m_tools)
+                        tool->setActiveLayer(&*layer);
+                    m_activeLayer = &*layer;
+                }
 
                 ImGui::Spacing();
                 ImGui::Separator();
                 ImGui::Spacing();
             }
             ImGui::PopID();
+            --index;
         }
 
-        if (ImGui::Button("Squash and export")) squash().saveToFile("export.png");
+        if (ImGui::Button("Deselect layer", LargeButtonSize)) {
+            m_activeLayer = nullptr;
+            for (auto &tool : m_tools)
+                tool->setActiveLayer(nullptr);
+        }
+        if (ImGui::Button("Squash and export", LargeButtonSize))
+            squash().saveToFile("export.png");
     }
     ImGui::End();
 }
@@ -142,10 +210,12 @@ auto SceneCanvas::swapLayers(decltype(m_layers)::reverse_iterator &current, int 
 {
     if (offset == -1) {
         // Move UP
-        if (current == m_layers.rbegin()) return;
+        if (current == m_layers.rbegin())
+            return;
     } else if (offset == 1) {
         // Move DOWN
-        if (current + 1 == m_layers.rend()) return;
+        if (current + 1 == m_layers.rend())
+            return;
     }
     std::iter_swap(current, current + offset);
 }
@@ -175,23 +245,10 @@ auto SceneCanvas::squash() const -> sf::Image
     return image;
 }
 
-SceneCanvas::Layer::Layer(unsigned int width, unsigned int height, sf::Color color)
+void SceneCanvas::registerWindow(sf::RenderWindow &window)
 {
-    image.create(width, height, color);
-    init();
-}
+    Scene::registerWindow(window);
 
-SceneCanvas::Layer::Layer(const std::string_view &file)
-{
-    if (!image.loadFromFile(std::string(file))) throw std::runtime_error("Failed to load image");
-    init();
-}
-
-auto SceneCanvas::Layer::init() -> void
-{
-    ratio = static_cast<float>(image.getSize().x) / static_cast<float>(image.getSize().y);
-    texture.loadFromImage(image);
-
-    sprite.setPosition(0.f, 0.f);
-    sprite.setTexture(texture);
+    for (auto &tool : m_tools)
+        tool->registerWindow(window);
 }
