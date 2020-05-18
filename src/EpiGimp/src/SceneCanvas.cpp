@@ -9,6 +9,7 @@
 #include <imgui-SFML.h>
 
 #include <algorithm>
+#include <iostream>
 
 #include "SceneCanvas.hpp"
 #include "CanvasMenus.hpp"
@@ -78,7 +79,8 @@ void SceneCanvas::onEvent(const sf::Event &event)
 void SceneCanvas::onTick(float deltaTime)
 {
     m_deltaTime = deltaTime;
-
+    std::string savePath{};
+  
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         updateView({0.f, -1.f});
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
@@ -95,6 +97,30 @@ void SceneCanvas::onTick(float deltaTime)
         // Without this line, only the last texture is visible, the others appear blank.
         // TODO: One thing we could do is to only update the texture once a change has been made.
         layer.sprite.setTexture(layer.texture);
+    }
+  
+    /**
+     * save layers as an Image
+     */
+    savePath = menu.getSavePath();
+    if (!savePath.empty())
+    {
+        static const char *extList[4] = {"bmp", "png", "tga", "jpg"};
+        std::string extension = savePath.substr(savePath.find_last_of('.')+1);
+        
+        for (auto i = 0; i < 4; ++i)
+        {
+            if (extList[i] == extension)
+            {
+                if (squash().saveToFile(savePath) == false) {
+                    menu.enableErrorDialog();
+                }
+                break;
+            }
+            if (i == 3) {
+                menu.enableErrorDialog();
+            }
+        }
     }
 }
 
@@ -121,7 +147,7 @@ void SceneCanvas::onDraw()
             m_window->draw(layer.sprite);
     }
 
-    CanvasMenus::drawMainMenuBar();
+    menu.drawMainMenuBar();
     drawLayerWindow();
     drawToolbox();
 }

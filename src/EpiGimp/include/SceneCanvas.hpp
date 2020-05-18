@@ -12,6 +12,7 @@
 #include <array>
 
 #include "Engine/Scene.hpp"
+#include "CanvasMenus.hpp"
 
 #include "Tools/ATool.hpp"
 #include "Layer.hpp"
@@ -41,6 +42,7 @@ private:
     bool m_mouseGrabbed{false};
     sf::Vector2f m_grabPoint{};
     sf::Cursor m_cursor{};
+    CanvasMenus menu;
 
     SceneCanvas();
 

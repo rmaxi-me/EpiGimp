@@ -6,8 +6,10 @@
 */
 
 #include <imgui.h>
-
+#include <iostream>
+#include <cstring>
 #include "CanvasMenus.hpp"
+
 
 auto CanvasMenus::drawFileMenu() -> void
 {
@@ -16,11 +18,13 @@ auto CanvasMenus::drawFileMenu() -> void
         ImGui::MenuItem("Create");
         ImGui::MenuItem("Open", "CTRL+O");
         ImGui::MenuItem("Open as Layers", "CTRL+ALT+O");
-        ImGui::MenuItem("Open Location");
         ImGui::MenuItem("Open Recent");
         ImGui::Separator();
         ImGui::MenuItem("Save", "CTRL+S");
-        ImGui::MenuItem("Save As...", "Shift+CTRL+S");
+        if (ImGui::MenuItem("Save As...", "Shift+CTRL+S"))
+        {
+            m_saveAsDialog = true;
+        }
         ImGui::MenuItem("Save a Copy");
         ImGui::MenuItem("Revert");
         ImGui::Separator();
@@ -138,6 +142,72 @@ auto CanvasMenus::drawWindowsMenu() -> void
     }
 }
 
+auto CanvasMenus::saveAsPopup() -> bool
+{
+    static bool asSave = false;
+
+    if (m_saveAsDialog)
+    {
+        ImGui::OpenPopup("saveAsDialog");
+    }
+
+    if (ImGui::BeginPopupModal("saveAsDialog"))
+    {
+        ImGui::Text("Save As ...\n\n");
+
+        ImGui::InputTextWithHint("###SaveAsInput", "File location ...", buff, 255, 0);
+        ImGui::Separator();
+        if (ImGui::Button("OK", ImVec2(120, 0))) {
+            ImGui::CloseCurrentPopup();
+            m_saveAsDialog = false;
+            asSave = true;
+            m_saved = true;
+        }
+        ImGui::SetItemDefaultFocus();
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel", ImVec2(120, 0))) {
+            ImGui::CloseCurrentPopup();
+            m_saveAsDialog = false;
+            asSave = false;
+        }
+    }
+    return asSave;
+}
+
+auto CanvasMenus::getSavePath() -> std::string
+{
+    if (!m_saved)
+        return "";
+    m_saved = false;
+    std::string path(buff);
+    std::memset(buff, 0, sizeof(buff));
+    return path;
+}
+
+auto CanvasMenus::enableErrorDialog() -> void
+{
+    m_errorDialog = true;
+}
+
+auto CanvasMenus::drawErrorDialog() -> void
+{
+    if (m_errorDialog)
+    {
+        ImGui::OpenPopup("ErrorDialog");
+    }
+
+    if (ImGui::BeginPopupModal("ErrorDialog"))
+    {
+        ImGui::Text("Error Occured");
+
+        ImGui::Separator();
+        if (ImGui::Button("OK", ImVec2(120, 0))) {
+            ImGui::CloseCurrentPopup();
+            m_errorDialog = false;
+        }
+    }
+}
+
 auto CanvasMenus::drawMainMenuBar() -> void
 {
     if (ImGui::BeginMainMenuBar()) {
@@ -152,4 +222,6 @@ auto CanvasMenus::drawMainMenuBar() -> void
         drawWindowsMenu();
         ImGui::EndMainMenuBar();
     }
+    saveAsPopup();
+    drawErrorDialog();
 }

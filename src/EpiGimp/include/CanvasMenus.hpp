@@ -9,15 +9,25 @@
 
 class CanvasMenus {
 public:
-    static auto drawMainMenuBar() -> void;
+    auto drawMainMenuBar() -> void;
+    auto getSavePath() -> std::string;
+    auto enableErrorDialog() -> void;
 private:
-    static auto drawFileMenu() -> void;
-    static auto drawEditMenu() -> void;
-    static auto drawSelectMenu() -> void;
-    static auto drawViewMenu() -> void;
-    static auto drawImageMenu() -> void;
-    static auto drawLayerMenu() -> void;
-    static auto drawColorMenu() -> void;
-    static auto drawFiltersMenu() -> void;
-    static auto drawWindowsMenu() -> void;
+    auto drawFileMenu() -> void;
+    auto drawEditMenu() -> void;
+    auto drawSelectMenu() -> void;
+    auto drawViewMenu() -> void;
+    auto drawImageMenu() -> void;
+    auto drawLayerMenu() -> void;
+    auto drawColorMenu() -> void;
+    auto drawFiltersMenu() -> void;
+    auto drawWindowsMenu() -> void;
+    auto saveAsPopup() -> bool;
+    auto drawErrorDialog() -> void;
+private:
+    bool m_saveAsDialog = false;
+    bool m_saved = false;
+    char buff[255]{};
+
+    bool m_errorDialog = false;    
 };
