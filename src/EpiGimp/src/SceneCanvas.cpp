@@ -17,9 +17,10 @@
 #include "Tools/Pencil.hpp"
 #include "Tools/Eraser.hpp"
 #include "Tools/MoveLayer.hpp"
+#include "Tools/Fill.hpp"
 
 SceneCanvas::SceneCanvas()
-        : m_tools{std::make_unique<Pencil>(), std::make_unique<Eraser>(), std::make_unique<MoveLayer>()}
+        : m_tools{std::make_unique<Pencil>(), std::make_unique<Eraser>(), std::make_unique<MoveLayer>(), std::make_unique<Fill>()}
 {
 }
 
