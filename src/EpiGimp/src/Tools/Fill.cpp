@@ -14,43 +14,38 @@ std::ostream &operator<<(std::ostream &os, const sf::Color &color)
               << static_cast<int>(color.b) << ", " << static_cast<int>(color.a) << "]";
 }
 
-void Fill::fill(const sf::Vector2i &pos,
-                const sf::Color &color,
-                const sf::Color &toReplace,
-                const sf::Vector2u &size,
-                const std::size_t depth)
+void Fill::fill(const sf::Vector2u &pos, const sf::Color &toReplace, const sf::Vector2u &size, const std::size_t depth)
 {
-    if (depth > 25000 || pos.x < 0 || pos.y < 0 || pos.x >= static_cast<int>(size.x) || pos.y >= static_cast<int>(size.y))
+    if (depth > 25000 || pos.x >= size.x || pos.y >= size.y)
         return;
 
-    const auto thisColor =
-        m_activeLayer->image.getPixel(static_cast<unsigned int>(pos.x), static_cast<unsigned int>(pos.y));
+    const auto &thisColor = m_activeLayer->image.getPixel(pos.x, pos.y);
 
     if (colorSquaredDistance(toReplace, thisColor) <= static_cast<double>(DIST_MAX * m_tolerance)) {
-        m_activeLayer->image.setPixel(static_cast<unsigned int>(pos.x), static_cast<unsigned int>(pos.y), color);
+        m_activeLayer->image.setPixel(pos.x, pos.y, m_sfColor);
 
-        fill({pos.x - 1, pos.y}, color, toReplace, size, depth + 1);
-        fill({pos.x + 1, pos.y}, color, toReplace, size, depth + 1);
-        fill({pos.x, pos.y - 1}, color, toReplace, size, depth + 1);
-        fill({pos.x, pos.y + 1}, color, toReplace, size, depth + 1);
+        fill({pos.x - 1, pos.y}, toReplace, size, depth + 1);
+        fill({pos.x + 1, pos.y}, toReplace, size, depth + 1);
+        fill({pos.x, pos.y - 1}, toReplace, size, depth + 1);
+        fill({pos.x, pos.y + 1}, toReplace, size, depth + 1);
     }
 }
 
 void Fill::paint(const sf::Vector2i &pos)
 {
-    const auto color = sf::Color(static_cast<unsigned char>(m_color[0] * 255.f),
-                                 static_cast<unsigned char>(m_color[1] * 255.f),
-                                 static_cast<unsigned char>(m_color[2] * 255.f),
-                                 static_cast<unsigned char>(m_color[3] * 255.f));
     const auto coords = m_window->mapPixelToCoords(pos);
+
+    m_sfColor = sf::Color(static_cast<unsigned char>(m_color[0] * 255.f),
+                          static_cast<unsigned char>(m_color[1] * 255.f),
+                          static_cast<unsigned char>(m_color[2] * 255.f),
+                          static_cast<unsigned char>(m_color[3] * 255.f));
 
     if (m_activeLayer->sprite.getGlobalBounds().contains(coords)) {
         const auto relative = coords - m_activeLayer->sprite.getPosition();
-        const auto relativeI = sf::Vector2i{static_cast<int>(relative.x), static_cast<int>(relative.y)};
-        const auto toReplace =
-            m_activeLayer->image.getPixel(static_cast<unsigned int>(relativeI.x), static_cast<unsigned int>(relativeI.y));
+        const auto relativeU = sf::Vector2u{static_cast<unsigned int>(relative.x), static_cast<unsigned int>(relative.y)};
+        const auto toReplace = m_activeLayer->image.getPixel(relativeU.x, relativeU.y);
 
-        fill(relativeI, color, toReplace, m_activeLayer->image.getSize(), 0);
+        fill(relativeU, toReplace, m_activeLayer->image.getSize(), 0);
     }
 }
 
