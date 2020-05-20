@@ -271,3 +271,4 @@ auto CanvasMenus::drawMainMenuBar() -> void
     drawSaveDialog();
     drawErrorDialog();
 }
+

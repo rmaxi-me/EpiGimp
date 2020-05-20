@@ -12,6 +12,7 @@ public:
     auto drawMainMenuBar() -> void;
     auto getSavePath() -> std::string;
     auto getExportPath() -> std::string;
+
     auto enableErrorDialog() -> void;
 private:
     auto drawFileMenu() -> void;
