@@ -44,6 +44,7 @@ private:
     sf::Cursor m_cursor{};
     CanvasMenus menu;
 
+
     SceneCanvas();
 
     auto drawLayerWindow() -> void;
