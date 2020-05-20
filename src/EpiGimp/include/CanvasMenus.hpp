@@ -7,14 +7,29 @@
 
 #pragma once
 
+#include <vector>
+#include <cstdio>
+#include "Layer.hpp"
+
 class CanvasMenus {
+
 public:
     auto drawMainMenuBar() -> void;
     auto getSavePath() -> std::string;
     auto getExportPath() -> std::string;
-
+    auto getOpenPath() -> std::string;
+    auto save(std::vector<Layer> &layers, const std::string &path) -> bool;
+    auto open(std::vector<Layer> &layers, const std::string &path) -> bool;
     auto enableErrorDialog() -> void;
 private:
+
+    struct size
+    {
+        uint x{};
+        uint y{};
+    };
+
+    auto generateImage(FILE *infile, size sizeLayer) -> sf::Image;
     auto drawFileMenu() -> void;
     auto drawEditMenu() -> void;
     auto drawSelectMenu() -> void;
@@ -27,9 +42,11 @@ private:
     auto exportAsPopup() -> bool;
     auto drawErrorDialog() -> void;
     auto drawSaveDialog() -> bool;
+    auto drawOpenDialog() -> bool;
 
 private:
     char buffSave[255]{};
+    char buffOpen[255]{};
     char buffExp[255]{};
 
     bool m_errorDialog = false;
@@ -39,4 +56,7 @@ private:
     
     bool m_save = false;
     bool m_saveAsDialog = false;
+    
+    bool m_open = false;
+    bool m_openDialog = false;
 };

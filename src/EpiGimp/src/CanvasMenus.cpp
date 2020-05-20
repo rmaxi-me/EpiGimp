@@ -16,7 +16,10 @@ auto CanvasMenus::drawFileMenu() -> void
     if (ImGui::BeginMenu("Menu")) {
         ImGui::MenuItem("File", "CTRL+N");
         ImGui::MenuItem("Create");
-        ImGui::MenuItem("Open", "CTRL+O");
+        if (ImGui::MenuItem("Open", "CTRL+O"))
+        {
+            m_openDialog = true;
+        }
         ImGui::MenuItem("Open as Layers", "CTRL+ALT+O");
         ImGui::MenuItem("Open Recent");
         ImGui::Separator();
@@ -209,6 +212,48 @@ auto CanvasMenus::drawSaveDialog() -> bool
     return asSave;
 }
 
+auto CanvasMenus::drawOpenDialog() -> bool
+{
+    static bool asOpen = false;
+
+    if (m_openDialog)
+    {
+        ImGui::OpenPopup("OpenDialog");
+    }
+
+    if (ImGui::BeginPopupModal("OpenDialog"))
+    {
+        ImGui::Text("Open ...\n\n");
+
+        ImGui::InputTextWithHint("###OpenInput", "File location ...", buffOpen, 255, 0);
+        ImGui::Separator();
+        if (ImGui::Button("OK", ImVec2(120, 0))) {
+            ImGui::CloseCurrentPopup();
+            m_openDialog = false;
+            asOpen = true;
+            m_open = true;
+        }
+        ImGui::SetItemDefaultFocus();
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel", ImVec2(120, 0))) {
+            ImGui::CloseCurrentPopup();
+            m_openDialog = false;
+            m_open = false;
+        }
+    }
+    return asOpen;
+}
+
+auto CanvasMenus::getOpenPath() -> std::string
+{
+    if (!m_open)
+        return "";
+    m_open = false;
+    std::string path(buffOpen);
+    std::memset(buffOpen, 0, sizeof(buffOpen));
+    return path;
+}
+
 auto CanvasMenus::getSavePath() -> std::string
 {
     if (!m_save)
@@ -253,6 +298,83 @@ auto CanvasMenus::drawErrorDialog() -> void
     }
 }
 
+auto CanvasMenus::save(std::vector<Layer> &layers, const std::string &path) -> bool
+{
+    std::cout << "INFO : saving..." << std::endl;
+    std::cout << getSavePath() << std::endl;
+    std::FILE *outfile = std::fopen(path.c_str(), "w");
+    auto nbrLayer = layers.size();
+    size sizeLayer[nbrLayer];
+
+    if (outfile == nullptr)
+        return false;
+
+    for (long unsigned int i = 0; i < nbrLayer; ++i)
+        sizeLayer[i] = {layers[i].image.getSize().x, layers[i].image.getSize().y};
+    
+    std::fwrite(&nbrLayer, sizeof(nbrLayer), 1, outfile);
+    std::fwrite(&sizeLayer, sizeof(sizeLayer), 1, outfile);
+
+    for (auto &i : layers)
+    {
+        const sf::Uint8 *data = i.image.getPixelsPtr();
+        sf::Uint8 arrayDataPixel[i.image.getSize().x * i.image.getSize().y * 4];
+        for (size_t j = 0; j < i.image.getSize().x * i.image.getSize().y * 4; j++)
+            arrayDataPixel[j] = data[j];
+        std::fwrite(arrayDataPixel, sizeof(arrayDataPixel), 1, outfile);
+    }
+    return true;  
+}
+
+auto CanvasMenus::generateImage(FILE *infile, size sizeLayer) -> sf::Image
+{
+    sf::Image bckImage;
+
+    sf::Uint8 arrayDataPixel[sizeLayer.x * sizeLayer.y * 4]{};
+    std::fread(arrayDataPixel, sizeof(arrayDataPixel), 1, infile);
+
+    bckImage.create(sizeLayer.x, sizeLayer.y);
+
+    for (uint i = 0; i < sizeLayer.x; ++i)
+    {
+        for (uint j = 0; j < sizeLayer.x; j++)
+        {
+            sf::Uint8 r = arrayDataPixel[(i + j * sizeLayer.x) * 4 + 0];
+            sf::Uint8 g = arrayDataPixel[(i + j * sizeLayer.x) * 4 + 1];
+            sf::Uint8 b = arrayDataPixel[(i + j * sizeLayer.x) * 4 + 2];
+            sf::Uint8 a = arrayDataPixel[(i + j * sizeLayer.x) * 4 + 3];
+            bckImage.setPixel(i, j, sf::Color(r, g, b, a));
+        }
+    }
+    return bckImage;
+}
+
+auto CanvasMenus::open(std::vector<Layer> &layers, const std::string &path) -> bool
+{
+    std::cout << "INFO : opening..." << std::endl;
+    std::FILE *infile = std::fopen(path.c_str(), "r");
+    long unsigned int nbrLayer = 0;
+
+    if (infile == nullptr)
+        return false;
+
+    if (std::fread(&nbrLayer, sizeof(nbrLayer), 1, infile) == 0)
+        return false;
+
+    size sizeLayer[nbrLayer] = {};
+    if (std::fread(&sizeLayer, sizeof(sizeLayer), 1, infile) == 0)
+        return false;
+
+
+    layers.clear();
+    for (long unsigned int i = 0; i < nbrLayer; i++)
+        layers.push_back(generateImage(infile, sizeLayer[i]));
+
+    std::fclose(infile);
+    std::cout << "INFO : Done" << std::endl;
+    return true;
+}
+
 auto CanvasMenus::drawMainMenuBar() -> void
 {
     if (ImGui::BeginMainMenuBar()) {
@@ -269,6 +391,7 @@ auto CanvasMenus::drawMainMenuBar() -> void
     }
     exportAsPopup();
     drawSaveDialog();
+    drawOpenDialog();
     drawErrorDialog();
 }
 

@@ -27,3 +27,9 @@ auto Layer::init() -> void
     sprite.setPosition(0.f, 0.f);
     sprite.setTexture(texture);
 }
+
+Layer::Layer(sf::Image newImage)
+{
+    image = newImage;
+    init();
+}
