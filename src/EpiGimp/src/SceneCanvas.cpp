@@ -61,7 +61,7 @@ void SceneCanvas::onEvent(const sf::Event &event)
 void SceneCanvas::onTick(float deltaTime)
 {
     m_deltaTime = deltaTime;
-    std::string savePath{};
+    std::string exportPath{};
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) updateView({0.f, -1.f});
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) updateView({-1.f, 0.f});
@@ -70,19 +70,29 @@ void SceneCanvas::onTick(float deltaTime)
 
 
     /**
-     * save layers as an Image
+     * save layers in a backup file 
      */
-    savePath = menu.getSavePath();
-    if (!savePath.empty())
+    
+    exportPath = menu.getSavePath();
+    if (!exportPath.empty())
+    {
+        
+    }
+
+    /**
+     * export layers as an Image
+     */
+    exportPath = menu.getExportPath();
+    if (!exportPath.empty())
     {
         static const char *extList[4] = {"bmp", "png", "tga", "jpg"};
-        std::string extension = savePath.substr(savePath.find_last_of('.')+1);
+        std::string extension = exportPath.substr(exportPath.find_last_of('.')+1);
         
         for (auto i = 0; i < 4; ++i)
         {
             if (extList[i] == extension)
             {
-                if (squash().saveToFile(savePath) == false) {
+                if (squash().saveToFile(exportPath) == false) {
                     menu.enableErrorDialog();
                 }
                 break;

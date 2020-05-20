@@ -11,6 +11,7 @@ class CanvasMenus {
 public:
     auto drawMainMenuBar() -> void;
     auto getSavePath() -> std::string;
+    auto getExportPath() -> std::string;
     auto enableErrorDialog() -> void;
 private:
     auto drawFileMenu() -> void;
@@ -22,12 +23,19 @@ private:
     auto drawColorMenu() -> void;
     auto drawFiltersMenu() -> void;
     auto drawWindowsMenu() -> void;
-    auto saveAsPopup() -> bool;
+    auto exportAsPopup() -> bool;
     auto drawErrorDialog() -> void;
-private:
-    bool m_saveAsDialog = false;
-    bool m_saved = false;
-    char buff[255]{};
+    auto drawSaveDialog() -> bool;
 
-    bool m_errorDialog = false;    
+private:
+    char buffSave[255]{};
+    char buffExp[255]{};
+
+    bool m_errorDialog = false;
+    
+    bool m_exported = false;
+    bool m_exportAsDialog = false;
+    
+    bool m_save = false;
+    bool m_saveAsDialog = false;
 };

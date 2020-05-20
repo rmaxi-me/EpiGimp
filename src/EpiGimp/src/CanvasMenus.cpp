@@ -29,7 +29,10 @@ auto CanvasMenus::drawFileMenu() -> void
         ImGui::MenuItem("Revert");
         ImGui::Separator();
         ImGui::MenuItem("Export");
-        ImGui::MenuItem("Export As");
+        if (ImGui::MenuItem("Export As"))
+        {
+            m_exportAsDialog = true;
+        }
         ImGui::MenuItem("Properties");
         ImGui::Separator();
         ImGui::MenuItem("Close View", "CTRL+W");
@@ -142,7 +145,39 @@ auto CanvasMenus::drawWindowsMenu() -> void
     }
 }
 
-auto CanvasMenus::saveAsPopup() -> bool
+auto CanvasMenus::exportAsPopup() -> bool
+{
+    static bool asExport = false;
+
+    if (m_exportAsDialog)
+    {
+        ImGui::OpenPopup("ExportAsDialog");
+    }
+
+    if (ImGui::BeginPopupModal("ExportAsDialog"))
+    {
+        ImGui::Text("Export As ...\n\n");
+
+        ImGui::InputTextWithHint("###ExportAsInput", "File location ...", buffExp, 255, 0);
+        ImGui::Separator();
+        if (ImGui::Button("OK", ImVec2(120, 0))) {
+            ImGui::CloseCurrentPopup();
+            m_exportAsDialog = false;
+            asExport = true;
+            m_exported = true;
+        }
+        ImGui::SetItemDefaultFocus();
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel", ImVec2(120, 0))) {
+            ImGui::CloseCurrentPopup();
+            m_exportAsDialog = false;
+            asExport = false;
+        }
+    }
+    return asExport;
+}
+
+auto CanvasMenus::drawSaveDialog() -> bool
 {
     static bool asSave = false;
 
@@ -155,13 +190,13 @@ auto CanvasMenus::saveAsPopup() -> bool
     {
         ImGui::Text("Save As ...\n\n");
 
-        ImGui::InputTextWithHint("###SaveAsInput", "File location ...", buff, 255, 0);
+        ImGui::InputTextWithHint("###SaveAsInput", "File location ...", buffSave, 255, 0);
         ImGui::Separator();
         if (ImGui::Button("OK", ImVec2(120, 0))) {
             ImGui::CloseCurrentPopup();
             m_saveAsDialog = false;
             asSave = true;
-            m_saved = true;
+            m_save = true;
         }
         ImGui::SetItemDefaultFocus();
         ImGui::SameLine();
@@ -176,11 +211,21 @@ auto CanvasMenus::saveAsPopup() -> bool
 
 auto CanvasMenus::getSavePath() -> std::string
 {
-    if (!m_saved)
+    if (!m_save)
         return "";
-    m_saved = false;
-    std::string path(buff);
-    std::memset(buff, 0, sizeof(buff));
+    m_save = false;
+    std::string path(buffSave);
+    std::memset(buffSave, 0, sizeof(buffSave));
+    return path;
+}
+
+auto CanvasMenus::getExportPath() -> std::string
+{
+    if (!m_exported)
+        return "";
+    m_exported = false;
+    std::string path(buffExp);
+    std::memset(buffExp, 0, sizeof(buffExp));
     return path;
 }
 
@@ -222,6 +267,7 @@ auto CanvasMenus::drawMainMenuBar() -> void
         drawWindowsMenu();
         ImGui::EndMainMenuBar();
     }
-    saveAsPopup();
+    exportAsPopup();
+    drawSaveDialog();
     drawErrorDialog();
 }
