@@ -86,6 +86,19 @@ void SceneCanvas::onTick(float deltaTime)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) updateView({0.f, 1.f});
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) updateView({1.f, 0.f});
 
+    /*
+     * Insert image manipulations here
+     */
+
+    for (auto &layer : m_layers) {
+        layer.texture.update(layer.image);
+
+        // Performance cost: the texture ID stays the same but the cache ID changes.
+        // Without this line, only the last texture is visible, the others appear blank.
+        // TODO: One thing we could do is to only update the texture once a change has been made.
+        layer.sprite.setTexture(layer.texture);
+    }
+  
 
     /**
      * save layers in a backup file 
@@ -111,42 +124,6 @@ void SceneCanvas::onTick(float deltaTime)
             if (extList[i] == extension)
             {
                 if (squash().saveToFile(exportPath) == false) {
-                    menu.enableErrorDialog();
-                }
-                break;
-            }
-            if (i == 3) {
-                menu.enableErrorDialog();
-            }
-        }
-    }
-    /*
-     * Insert image manipulations here
-     */
-
-    for (auto &layer : m_layers) {
-        layer.texture.update(layer.image);
-
-        // Performance cost: the texture ID stays the same but the cache ID changes.
-        // Without this line, only the last texture is visible, the others appear blank.
-        // TODO: One thing we could do is to only update the texture once a change has been made.
-        layer.sprite.setTexture(layer.texture);
-    }
-  
-    /**
-     * save layers as an Image
-     */
-    savePath = menu.getSavePath();
-    if (!savePath.empty())
-    {
-        static const char *extList[4] = {"bmp", "png", "tga", "jpg"};
-        std::string extension = savePath.substr(savePath.find_last_of('.')+1);
-        
-        for (auto i = 0; i < 4; ++i)
-        {
-            if (extList[i] == extension)
-            {
-                if (squash().saveToFile(savePath) == false) {
                     menu.enableErrorDialog();
                 }
                 break;
