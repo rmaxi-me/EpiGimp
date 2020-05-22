@@ -10,8 +10,6 @@
 #include "ABrush.hpp"
 
 class Pencil final : public ABrush {
-private:
-    float m_color[4] = {0, 0, 0, 1};
 public:
     ~Pencil() override = default;
 

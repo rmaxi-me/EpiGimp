@@ -7,6 +7,8 @@
 
 #include "Tools/ATool.hpp"
 
+float ATool::m_color[4] = {0, 0, 0, 1};
+
 ATool::ATool() = default;
 
 ATool::~ATool() = default;

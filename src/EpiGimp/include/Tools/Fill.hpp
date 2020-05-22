@@ -13,7 +13,6 @@
 
 class Fill final : public ATool {
 private:
-    float m_color[4] = {0, 0, 0, 1};
     float m_tolerance = 0.f;
 
     sf::Color m_sfColor{};
