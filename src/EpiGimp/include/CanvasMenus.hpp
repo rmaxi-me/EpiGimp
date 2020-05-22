@@ -25,8 +25,8 @@ private:
 
     struct size
     {
-        uint x{};
-        uint y{};
+        unsigned int x{};
+        unsigned int y{};
     };
 
     auto generateImage(FILE *infile, size sizeLayer) -> sf::Image;
