@@ -331,7 +331,7 @@ auto CanvasMenus::generateImage(FILE *infile, size sizeLayer) -> sf::Image
     sf::Image bckImage;
 
     sf::Uint8 arrayDataPixel[sizeLayer.x * sizeLayer.y * 4]{};
-    std::fread(arrayDataPixel, sizeof(arrayDataPixel), 1, infile);
+    [[maybe_unused]]auto ret = std::fread(arrayDataPixel, sizeof(arrayDataPixel), 1, infile);
 
     bckImage.create(sizeLayer.x, sizeLayer.y);
 
