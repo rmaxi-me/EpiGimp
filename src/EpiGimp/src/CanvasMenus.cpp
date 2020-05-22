@@ -300,47 +300,47 @@ auto CanvasMenus::drawErrorDialog() -> void
 
 auto CanvasMenus::save(std::vector<Layer> &layers, const std::string &path) -> bool
 {
-    std::cout << "INFO : saving..." << std::endl;
     std::FILE *outfile = std::fopen(path.c_str(), "w");
     auto nbrLayer = layers.size();
-    size sizeLayer[nbrLayer];
-    std::memset(sizeLayer, 0, nbrLayer*sizeof(size));
 
     if (outfile == nullptr)
         return false;
 
-    for (long unsigned int i = 0; i < nbrLayer; ++i)
-        sizeLayer[i] = {layers[i].image.getSize().x, layers[i].image.getSize().y};
-    
     std::fwrite(&nbrLayer, sizeof(nbrLayer), 1, outfile);
-    std::fwrite(&sizeLayer, sizeof(sizeLayer), 1, outfile);
+
+    for (long unsigned int i = 0; i < nbrLayer; ++i)
+    {
+        Size sizeLayer{layers[i].image.getSize().x, layers[i].image.getSize().y}; 
+        std::fwrite(&sizeLayer, sizeof(sizeLayer), 1, outfile);
+    }
 
     for (auto &i : layers)
     {
         const sf::Uint8 *data = i.image.getPixelsPtr();
-        sf::Uint8 arrayDataPixel[i.image.getSize().x * i.image.getSize().y * 4];
-        std::memset(arrayDataPixel, 0, i.image.getSize().x * i.image.getSize().y * 4*sizeof(sf::Uint8));
         for (size_t j = 0; j < i.image.getSize().x * i.image.getSize().y * 4; j++)
-            arrayDataPixel[j] = data[j];
-        std::fwrite(arrayDataPixel, sizeof(arrayDataPixel), 1, outfile);
+            std::fwrite(&data[j], sizeof(data[j]), 1, outfile);
     }
-    return true;  
+    return true;
 }
 
-auto CanvasMenus::generateImage(FILE *infile, size sizeLayer) -> sf::Image
+auto CanvasMenus::generateImage(FILE *infile, Size sizeLayer) -> sf::Image
 {
     sf::Image bckImage;
+    std::vector<sf::Uint8> arrayDataPixel{};
+    arrayDataPixel.reserve(sizeLayer.x * sizeLayer.y * 4);
 
-    sf::Uint8 arrayDataPixel[sizeLayer.x * sizeLayer.y * 4];
-    std::memset( arrayDataPixel, 0, sizeLayer.x * sizeLayer.y * 4*sizeof(sf::Uint8) );
-
-    [[maybe_unused]]auto ret = std::fread(arrayDataPixel, sizeof(arrayDataPixel), 1, infile);
+    for (unsigned int i = 0; i < sizeLayer.x * sizeLayer.y * 4; ++i)
+    {
+        sf::Uint8 data;
+        [[maybe_unused]]auto ret = std::fread(&data, sizeof(data), 1, infile);
+        arrayDataPixel.emplace_back(data);
+    }
 
     bckImage.create(sizeLayer.x, sizeLayer.y);
 
-    for (uint i = 0; i < sizeLayer.x; ++i)
+    for (unsigned int i = 0; i < sizeLayer.x; ++i)
     {
-        for (uint j = 0; j < sizeLayer.x; j++)
+        for (unsigned int j = 0; j < sizeLayer.y; j++)
         {
             sf::Uint8 r = arrayDataPixel[(i + j * sizeLayer.x) * 4 + 0];
             sf::Uint8 g = arrayDataPixel[(i + j * sizeLayer.x) * 4 + 1];
@@ -354,9 +354,9 @@ auto CanvasMenus::generateImage(FILE *infile, size sizeLayer) -> sf::Image
 
 auto CanvasMenus::open(std::vector<Layer> &layers, const std::string &path) -> bool
 {
-    std::cout << "INFO : opening..." << std::endl;
     std::FILE *infile = std::fopen(path.c_str(), "r");
     long unsigned int nbrLayer = 0;
+    std::vector<Size> sizeLayer{}; 
 
     if (infile == nullptr)
         return false;
@@ -364,18 +364,20 @@ auto CanvasMenus::open(std::vector<Layer> &layers, const std::string &path) -> b
     if (std::fread(&nbrLayer, sizeof(nbrLayer), 1, infile) == 0)
         return false;
 
-    size sizeLayer[nbrLayer];
-    std::memset(sizeLayer, 0, nbrLayer*sizeof(size));
-    if (std::fread(&sizeLayer, sizeof(sizeLayer), 1, infile) == 0)
-        return false;
-
+    sizeLayer.reserve(nbrLayer);
+    for (long unsigned int i = 0; i < nbrLayer; ++i)
+    {
+        Size size{};
+        if (std::fread(&size, sizeof(size), 1, infile) == 0)
+            return false;
+        sizeLayer.emplace_back(size);
+    }
 
     layers.clear();
     for (long unsigned int i = 0; i < nbrLayer; i++)
         layers.push_back(generateImage(infile, sizeLayer[i]));
 
     std::fclose(infile);
-    std::cout << "INFO : Done" << std::endl;
     return true;
 }
 

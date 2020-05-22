@@ -23,13 +23,13 @@ public:
     auto enableErrorDialog() -> void;
 private:
 
-    struct size
+    struct Size
     {
         unsigned int x{};
         unsigned int y{};
     };
 
-    auto generateImage(FILE *infile, size sizeLayer) -> sf::Image;
+    auto generateImage(FILE *infile, Size sizeLayer) -> sf::Image;
     auto drawFileMenu() -> void;
     auto drawEditMenu() -> void;
     auto drawSelectMenu() -> void;
