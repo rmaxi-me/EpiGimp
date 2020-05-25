@@ -20,7 +20,10 @@ auto CanvasMenus::drawFileMenu() -> void
         {
             m_openDialog = true;
         }
-        ImGui::MenuItem("Open as Layers", "CTRL+ALT+O");
+        if (ImGui::MenuItem("Open as Layers", "CTRL+ALT+O"))
+        {
+            m_openDialogLayer = true;
+        }
         ImGui::MenuItem("Open Recent");
         ImGui::Separator();
         ImGui::MenuItem("Save", "CTRL+S");
@@ -212,6 +215,40 @@ auto CanvasMenus::drawSaveDialog() -> bool
     return asSave;
 }
 
+
+auto CanvasMenus::drawOpenLayerDialog() -> bool
+{
+    static bool asOpen = false;
+
+    if (m_openDialogLayer)
+    {
+        ImGui::OpenPopup("openAsLayer");
+    }
+
+    if (ImGui::BeginPopupModal("openAsLayer"))
+    {
+        ImGui::Text("Open As Layer ...\n\n");
+
+        ImGui::InputTextWithHint("###OpenasLayer", "File location ...", buffOpenLayer, 255, 0);
+        ImGui::Separator();
+        if (ImGui::Button("OK", ImVec2(120, 0))) {
+            ImGui::CloseCurrentPopup();
+            m_openDialogLayer = false;
+            asOpen = true;
+            m_openLayer = true;
+        }
+        ImGui::SetItemDefaultFocus();
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel", ImVec2(120, 0))) {
+            ImGui::CloseCurrentPopup();
+            m_openDialogLayer = false;
+            asOpen = false;
+        }
+    }
+    return asOpen;
+}
+
+
 auto CanvasMenus::drawOpenDialog() -> bool
 {
     static bool asOpen = false;
@@ -251,6 +288,16 @@ auto CanvasMenus::getOpenPath() -> std::string
     m_open = false;
     std::string path(buffOpen);
     std::memset(buffOpen, 0, sizeof(buffOpen));
+    return path;
+}
+
+auto CanvasMenus::getOpenAsLayerPath() -> std::string
+{
+    if (!m_openLayer)
+        return "";
+    m_openLayer = false;
+    std::string path(buffOpenLayer);
+    std::memset(buffOpenLayer, 0, sizeof(buffOpenLayer));
     return path;
 }
 
@@ -381,6 +428,19 @@ auto CanvasMenus::open(std::vector<Layer> &layers, const std::string &path) -> b
     return true;
 }
 
+auto CanvasMenus::openAsLayer(std::vector<Layer> &layers, const std::string &path) -> bool
+{
+    try
+    {
+        layers.push_back(Layer(path));
+    }
+    catch(const std::runtime_error &e)
+    {
+        return false;
+    }
+    return true;    
+}
+
 auto CanvasMenus::drawMainMenuBar() -> void
 {
     if (ImGui::BeginMainMenuBar()) {
@@ -399,5 +459,6 @@ auto CanvasMenus::drawMainMenuBar() -> void
     drawSaveDialog();
     drawOpenDialog();
     drawErrorDialog();
+    drawOpenLayerDialog();
 }
 
