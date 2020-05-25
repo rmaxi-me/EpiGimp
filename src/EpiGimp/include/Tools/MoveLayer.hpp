@@ -12,6 +12,7 @@
 class MoveLayer final : public ATool {
 private:
     bool m_mouseGrabbed{false};
+
 public:
     ~MoveLayer() override = default;
 

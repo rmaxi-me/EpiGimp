@@ -25,12 +25,17 @@ Engine::Application::Application(int ac, char **av) : m_binName(av[0]), m_argume
 {
     std::cout << PROJECT_NAME << "\\" << PROJECT_VERSION << '\n' << PROJECT_BUILD_TYPE_AS_STRING << '\n';
 
-    for (auto i = 1; i < ac; ++i) { m_arguments.emplace_back(av[i]); }
+    for (auto i = 1; i < ac; ++i) {
+        m_arguments.emplace_back(av[i]);
+    }
 
     m_defaultFont.loadFromFile("Resources/Font/JetBrainsMono-Regular.ttf");
 }
 
-Engine::Application::~Application() { m_settings.save(); }
+Engine::Application::~Application()
+{
+    m_settings.save();
+}
 
 auto Engine::Application::processEvent(const sf::Event &event) -> void
 {
@@ -71,7 +76,8 @@ auto Engine::Application::start(const std::string_view &title) -> void
 
         while (m_window.pollEvent(event)) {
             processEvent(event);
-            if (m_scene) m_scene->onEvent(event);
+            if (m_scene)
+                m_scene->onEvent(event);
         }
 
         ImGui::SFML::Update(m_window, m_deltaTime);

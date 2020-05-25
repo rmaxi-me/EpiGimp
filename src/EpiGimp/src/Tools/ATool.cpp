@@ -32,11 +32,8 @@ void ATool::handleEvent(const sf::Event &event)
     case sf::Event::EventType::MouseButtonReleased:
         onClickReleased(event.mouseButton.button, {event.mouseButton.x, event.mouseButton.y});
         break;
-    case sf::Event::EventType::MouseMoved:
-        onMouseMoved({event.mouseMove.x, event.mouseMove.y});
-        break;
-    default:
-        break;
+    case sf::Event::EventType::MouseMoved: onMouseMoved({event.mouseMove.x, event.mouseMove.y}); break;
+    default: break;
     }
 }
 

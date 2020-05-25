@@ -12,7 +12,6 @@
 #include "Layer.hpp"
 
 class CanvasMenus {
-
 public:
     auto drawMainMenuBar() -> void;
     auto getSavePath() -> std::string;
@@ -23,10 +22,9 @@ public:
     auto open(std::vector<Layer> &layers, const std::string &path) -> bool;
     auto openAsLayer(std::vector<Layer> &layers, const std::string &path) -> bool;
     auto enableErrorDialog() -> void;
-private:
 
-    struct Size
-    {
+private:
+    struct Size {
         unsigned int x{};
         unsigned int y{};
     };
@@ -54,16 +52,16 @@ private:
     char buffOpenLayer[255]{};
 
     bool m_errorDialog = false;
-    
+
     bool m_exported = false;
     bool m_exportAsDialog = false;
-    
+
     bool m_save = false;
     bool m_saveAsDialog = false;
-    
+
     bool m_open = false;
     bool m_openDialog = false;
-    
+
     bool m_openLayer = false;
     bool m_openDialogLayer = false;
 };

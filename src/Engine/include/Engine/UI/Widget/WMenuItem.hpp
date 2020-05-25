@@ -24,8 +24,8 @@ public:
      * @param name The name of the menu item
      * @param shortcut The sub name of the menu item
      */
-    WMenuItem(const std::string_view &name, const std::string_view &shortcut = "") :
-        AWidget(name, ImVec2()), m_shortcut(shortcut)
+    WMenuItem(const std::string_view &name, const std::string_view &shortcut = "")
+            : AWidget(name, ImVec2()), m_shortcut(shortcut)
     {
     }
 

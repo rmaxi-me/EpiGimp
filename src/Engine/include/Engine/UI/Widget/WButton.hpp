@@ -22,7 +22,9 @@ public:
      * @param name The name of the button
      * @param size The size of the button
      */
-    WButton(std::string_view name, ImVec2 size = {}) : AWidget(name, size) { }
+    WButton(std::string_view name, ImVec2 size = {}) : AWidget(name, size)
+    {
+    }
 
     /**
      * @brief Destroy the WButton object

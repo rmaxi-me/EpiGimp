@@ -36,7 +36,9 @@ public:
      * @param name The name of the widget, the name will be rendered
      * @param size The size of the widget
      */
-    AWidget(const std::string_view &name, ImVec2 size = {}) : m_name(name), m_size(size) { }
+    AWidget(const std::string_view &name, ImVec2 size = {}) : m_name(name), m_size(size)
+    {
+    }
 
     /**
      * @brief Destroy the AWidget object
@@ -49,27 +51,39 @@ public:
      *
      * @param size set the size of the widget
      */
-    auto setSize(const ImVec2 &size) noexcept -> void { m_size = size; }
+    auto setSize(const ImVec2 &size) noexcept -> void
+    {
+        m_size = size;
+    }
     /**
      * @brief Set the name of the object
      *
      * @param name
      */
-    auto setName(const std::string_view &name) noexcept -> void { m_name = name; }
+    auto setName(const std::string_view &name) noexcept -> void
+    {
+        m_name = name;
+    }
 
     /**
      * @brief Get the size of the object
      *
      * @return const ImVec2&
      */
-    auto getSize() -> const ImVec2 & { return m_size; }
+    auto getSize() -> const ImVec2 &
+    {
+        return m_size;
+    }
 
     /**
      * @brief Get the name of the object
      *
      * @return const std::string_view&
      */
-    auto getName() -> const std::string_view & { return m_name; }
+    auto getName() -> const std::string_view &
+    {
+        return m_name;
+    }
 
     /**
      * @brief render the widget

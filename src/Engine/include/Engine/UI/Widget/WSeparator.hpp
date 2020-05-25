@@ -20,7 +20,9 @@ public:
      * @brief Construct a new WSeparator object
      *
      */
-    WSeparator(const std::string_view &name = "", ImVec2 size = {}) : AWidget(name, size) { }
+    WSeparator(const std::string_view &name = "", ImVec2 size = {}) : AWidget(name, size)
+    {
+    }
     /**
      * @brief Destroy the WSeparator object
      *
@@ -32,7 +34,10 @@ public:
      * @brief Render the separator
      *
      */
-    auto render() -> void override { ImGui::Separator(); };
+    auto render() -> void override
+    {
+        ImGui::Separator();
+    };
 };
 
 } // namespace Engine

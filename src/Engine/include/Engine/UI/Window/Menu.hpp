@@ -17,7 +17,9 @@ public:
      *
      * @param name The name of the Menu
      */
-    Menu(const std::string_view &name) : UiWindow(name) { }
+    Menu(const std::string_view &name) : UiWindow(name)
+    {
+    }
     /**
      * @brief Destroy the Menu object
      *

@@ -15,7 +15,9 @@ public:
      * @brief Construct a new Main Menu Bar object
      *
      */
-    MainMenuBar() { }
+    MainMenuBar()
+    {
+    }
     /**
      * @brief Destroy the Main Menu Bar object
      *
