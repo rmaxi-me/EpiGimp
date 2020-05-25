@@ -10,9 +10,14 @@
 #include "EpiGimpApp.hpp"
 #include "SceneCanvas.hpp"
 
-EpiGimpApp::EpiGimpApp(int ac, char **av) : Application{ac, av} { }
+EpiGimpApp::EpiGimpApp(int ac, char **av) : Application{ac, av}
+{
+}
 
-auto EpiGimpApp::processEvent(const sf::Event &event) -> void { Application::processEvent(event); }
+auto EpiGimpApp::processEvent(const sf::Event &event) -> void
+{
+    Application::processEvent(event);
+}
 
 auto EpiGimpApp::init() -> void
 {
@@ -23,8 +28,14 @@ auto EpiGimpApp::init() -> void
     }
 }
 
-auto EpiGimpApp::deinit() -> void { }
+auto EpiGimpApp::deinit() -> void
+{
+}
 
-auto EpiGimpApp::tick(float) -> void { }
+auto EpiGimpApp::tick(float) -> void
+{
+}
 
-auto EpiGimpApp::draw() -> void { }
+auto EpiGimpApp::draw() -> void
+{
+}

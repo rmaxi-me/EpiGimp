@@ -15,6 +15,7 @@ private:
 
     void drawCircle(sf::Image &image, const sf::Vector2f &pos);
     void paint(const sf::Vector2i &pos);
+
 protected:
     static std::uint32_t m_brushSize;
 

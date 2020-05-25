@@ -10,30 +10,26 @@
 #include <cstring>
 #include "CanvasMenus.hpp"
 
-
 auto CanvasMenus::drawFileMenu() -> void
 {
     if (ImGui::BeginMenu("Menu")) {
         ImGui::MenuItem("File", "CTRL+N");
         ImGui::MenuItem("Create");
-        if (ImGui::MenuItem("Open", "CTRL+O"))
-        {
+        if (ImGui::MenuItem("Open", "CTRL+O")) {
             m_openDialog = true;
         }
         ImGui::MenuItem("Open as Layers", "CTRL+ALT+O");
         ImGui::MenuItem("Open Recent");
         ImGui::Separator();
         ImGui::MenuItem("Save", "CTRL+S");
-        if (ImGui::MenuItem("Save As...", "Shift+CTRL+S"))
-        {
+        if (ImGui::MenuItem("Save As...", "Shift+CTRL+S")) {
             m_saveAsDialog = true;
         }
         ImGui::MenuItem("Save a Copy");
         ImGui::MenuItem("Revert");
         ImGui::Separator();
         ImGui::MenuItem("Export");
-        if (ImGui::MenuItem("Export As"))
-        {
+        if (ImGui::MenuItem("Export As")) {
             m_exportAsDialog = true;
         }
         ImGui::MenuItem("Properties");
@@ -152,13 +148,11 @@ auto CanvasMenus::exportAsPopup() -> bool
 {
     static bool asExport = false;
 
-    if (m_exportAsDialog)
-    {
+    if (m_exportAsDialog) {
         ImGui::OpenPopup("ExportAsDialog");
     }
 
-    if (ImGui::BeginPopupModal("ExportAsDialog"))
-    {
+    if (ImGui::BeginPopupModal("ExportAsDialog")) {
         ImGui::Text("Export As ...\n\n");
 
         ImGui::InputTextWithHint("###ExportAsInput", "File location ...", buffExp, 255, 0);
@@ -184,13 +178,11 @@ auto CanvasMenus::drawSaveDialog() -> bool
 {
     static bool asSave = false;
 
-    if (m_saveAsDialog)
-    {
+    if (m_saveAsDialog) {
         ImGui::OpenPopup("saveAsDialog");
     }
 
-    if (ImGui::BeginPopupModal("saveAsDialog"))
-    {
+    if (ImGui::BeginPopupModal("saveAsDialog")) {
         ImGui::Text("Save As ...\n\n");
 
         ImGui::InputTextWithHint("###SaveAsInput", "File location ...", buffSave, 255, 0);
@@ -216,13 +208,11 @@ auto CanvasMenus::drawOpenDialog() -> bool
 {
     static bool asOpen = false;
 
-    if (m_openDialog)
-    {
+    if (m_openDialog) {
         ImGui::OpenPopup("OpenDialog");
     }
 
-    if (ImGui::BeginPopupModal("OpenDialog"))
-    {
+    if (ImGui::BeginPopupModal("OpenDialog")) {
         ImGui::Text("Open ...\n\n");
 
         ImGui::InputTextWithHint("###OpenInput", "File location ...", buffOpen, 255, 0);
@@ -281,14 +271,12 @@ auto CanvasMenus::enableErrorDialog() -> void
 
 auto CanvasMenus::drawErrorDialog() -> void
 {
-    if (m_errorDialog)
-    {
+    if (m_errorDialog) {
         ImGui::OpenPopup("ErrorDialog");
     }
 
-    if (ImGui::BeginPopupModal("ErrorDialog"))
-    {
-        ImGui::Text("Error Occured");
+    if (ImGui::BeginPopupModal("ErrorDialog")) {
+        ImGui::Text("Error Occurred");
 
         ImGui::Separator();
         if (ImGui::Button("OK", ImVec2(120, 0))) {
@@ -308,14 +296,12 @@ auto CanvasMenus::save(std::vector<Layer> &layers, const std::string &path) -> b
 
     std::fwrite(&nbrLayer, sizeof(nbrLayer), 1, outfile);
 
-    for (long unsigned int i = 0; i < nbrLayer; ++i)
-    {
-        Size sizeLayer{layers[i].image.getSize().x, layers[i].image.getSize().y}; 
+    for (long unsigned int i = 0; i < nbrLayer; ++i) {
+        Size sizeLayer{layers[i].image.getSize().x, layers[i].image.getSize().y};
         std::fwrite(&sizeLayer, sizeof(sizeLayer), 1, outfile);
     }
 
-    for (auto &i : layers)
-    {
+    for (auto &i : layers) {
         const sf::Uint8 *data = i.image.getPixelsPtr();
         for (size_t j = 0; j < i.image.getSize().x * i.image.getSize().y * 4; j++)
             std::fwrite(&data[j], sizeof(data[j]), 1, outfile);
@@ -329,19 +315,16 @@ auto CanvasMenus::generateImage(FILE *infile, Size sizeLayer) -> sf::Image
     std::vector<sf::Uint8> arrayDataPixel{};
     arrayDataPixel.reserve(sizeLayer.x * sizeLayer.y * 4);
 
-    for (unsigned int i = 0; i < sizeLayer.x * sizeLayer.y * 4; ++i)
-    {
+    for (unsigned int i = 0; i < sizeLayer.x * sizeLayer.y * 4; ++i) {
         sf::Uint8 data;
-        [[maybe_unused]]auto ret = std::fread(&data, sizeof(data), 1, infile);
+        [[maybe_unused]] auto ret = std::fread(&data, sizeof(data), 1, infile);
         arrayDataPixel.emplace_back(data);
     }
 
     bckImage.create(sizeLayer.x, sizeLayer.y);
 
-    for (unsigned int i = 0; i < sizeLayer.x; ++i)
-    {
-        for (unsigned int j = 0; j < sizeLayer.y; j++)
-        {
+    for (unsigned int i = 0; i < sizeLayer.x; ++i) {
+        for (unsigned int j = 0; j < sizeLayer.y; j++) {
             sf::Uint8 r = arrayDataPixel[(i + j * sizeLayer.x) * 4 + 0];
             sf::Uint8 g = arrayDataPixel[(i + j * sizeLayer.x) * 4 + 1];
             sf::Uint8 b = arrayDataPixel[(i + j * sizeLayer.x) * 4 + 2];
@@ -356,7 +339,7 @@ auto CanvasMenus::open(std::vector<Layer> &layers, const std::string &path) -> b
 {
     std::FILE *infile = std::fopen(path.c_str(), "r");
     long unsigned int nbrLayer = 0;
-    std::vector<Size> sizeLayer{}; 
+    std::vector<Size> sizeLayer{};
 
     if (infile == nullptr)
         return false;
@@ -365,8 +348,7 @@ auto CanvasMenus::open(std::vector<Layer> &layers, const std::string &path) -> b
         return false;
 
     sizeLayer.reserve(nbrLayer);
-    for (long unsigned int i = 0; i < nbrLayer; ++i)
-    {
+    for (long unsigned int i = 0; i < nbrLayer; ++i) {
         Size size{};
         if (std::fread(&size, sizeof(size), 1, infile) == 0)
             return false;
@@ -375,7 +357,7 @@ auto CanvasMenus::open(std::vector<Layer> &layers, const std::string &path) -> b
 
     layers.clear();
     for (long unsigned int i = 0; i < nbrLayer; i++)
-        layers.push_back(Layer(generateImage(infile, sizeLayer[i])));
+        layers.emplace_back(generateImage(infile, sizeLayer[i]));
 
     std::fclose(infile);
     return true;
@@ -400,4 +382,3 @@ auto CanvasMenus::drawMainMenuBar() -> void
     drawOpenDialog();
     drawErrorDialog();
 }
-

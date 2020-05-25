@@ -7,4 +7,7 @@
 
 #include "Engine/Scene.hpp"
 
-auto Engine::Scene::registerWindow(sf::RenderWindow &window) -> void { m_window = &window; }
+auto Engine::Scene::registerWindow(sf::RenderWindow &window) -> void
+{
+    m_window = &window;
+}

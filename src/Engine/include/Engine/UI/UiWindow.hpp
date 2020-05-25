@@ -42,7 +42,9 @@ public:
      * @param name The name of the window, the name may be rendered
      * @param flags The flags parameters of the window
      */
-    UiWindow(const std::string_view &name, ImGuiWindowFlags flags = 0) : m_window_flags(flags), m_name(name) { }
+    UiWindow(const std::string_view &name, ImGuiWindowFlags flags = 0) : m_window_flags(flags), m_name(name)
+    {
+    }
 
     /**
      * @brief Destroy the Ui Window object
@@ -54,13 +56,19 @@ public:
      * @brief Open the window
      *
      */
-    auto open() -> void { m_isOpen = true; }
+    auto open() -> void
+    {
+        m_isOpen = true;
+    }
 
     /**
      * @brief Close the window
      *
      */
-    auto close() -> void { m_isOpen = false; }
+    auto close() -> void
+    {
+        m_isOpen = false;
+    }
 
     /**
      * @brief Render the window and everything it contains
@@ -73,61 +81,88 @@ public:
      *
      * @param flags The value of the flags, different value will trigger different options
      */
-    auto setWindowFlags(ImGuiWindowFlags flags) noexcept -> void { m_window_flags = flags; }
+    auto setWindowFlags(ImGuiWindowFlags flags) noexcept -> void
+    {
+        m_window_flags = flags;
+    }
 
     /**
      * @brief Set the position of the object
      *
      * @param pos The new postion of the object
      */
-    auto setPosition(const ImVec2 &pos) noexcept -> void { m_position = pos; }
+    auto setPosition(const ImVec2 &pos) noexcept -> void
+    {
+        m_position = pos;
+    }
 
     /**
      * @brief Set the size of the object
      *
      * @param size The new size of the object
      */
-    auto setSize(const ImVec2 &size) noexcept -> void { m_size = size; }
+    auto setSize(const ImVec2 &size) noexcept -> void
+    {
+        m_size = size;
+    }
 
     /**
      * @brief Set the name of the object
      *
      * @param name The new name of the object
      */
-    auto setName(const std::string_view &name) noexcept -> void { m_name = name; }
+    auto setName(const std::string_view &name) noexcept -> void
+    {
+        m_name = name;
+    }
 
     /**
      * @brief Get the Flags object
      *
      * @return ImGuiWindowFlags&
      */
-    auto getFlags() -> ImGuiWindowFlags & { return m_window_flags; }
+    auto getFlags() -> ImGuiWindowFlags &
+    {
+        return m_window_flags;
+    }
 
     /**
      * @brief Get the position of the object
      *
      * @return const ImVec2&
      */
-    auto getPosition() -> const ImVec2 & { return m_position; }
+    auto getPosition() -> const ImVec2 &
+    {
+        return m_position;
+    }
     /**
      * @brief Get the size of the object
      *
      * @return const ImVec2&
      */
-    auto getSize() -> const ImVec2 & { return m_size; }
+    auto getSize() -> const ImVec2 &
+    {
+        return m_size;
+    }
     /**
      * @brief Get the name of the object
      *
      * @return const std::string_view&
      */
-    auto getName() -> const std::string_view & { return m_name; }
+    auto getName() -> const std::string_view &
+    {
+        return m_name;
+    }
 
     /**
      * @brief Add a new widget to the window
      *
      * @param widget The new widget to add
      */
-    auto addWidget(std::shared_ptr<AWidget> widget) -> void { m_WidgetList.emplace_back(widget); }
+    auto addWidget(std::shared_ptr<AWidget> widget) -> void
+    {
+        m_WidgetList.emplace_back(widget);
+    }
 
     /**
      * @brief Delete a widget stored in the window
@@ -152,7 +187,10 @@ public:
      *
      * @param win The new window to add
      */
-    auto addWindow(std::shared_ptr<UiWindow> win) -> void { m_WindowList.emplace_back(win); }
+    auto addWindow(std::shared_ptr<UiWindow> win) -> void
+    {
+        m_WindowList.emplace_back(win);
+    }
 
     /**
      * @brief Delete a sub-window stored in the window

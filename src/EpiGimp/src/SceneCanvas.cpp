@@ -103,35 +103,28 @@ void SceneCanvas::onTick(float deltaTime)
         layer.sprite.setTexture(layer.texture);
     }
 
-
     /**
-     * open layers from a backup file 
+     * open layers from a backup file
      */
     exportPath = menu.getOpenPath();
-    if (!exportPath.empty())
-    {
+    if (!exportPath.empty()) {
         menu.open(m_layers, exportPath);
     }
 
-
-
     /**
-     * open layers from a backup file 
+     * open layers from a backup file
      */
     exportPath = menu.getOpenPath();
-    if (!exportPath.empty())
-    {
+    if (!exportPath.empty()) {
         menu.open(m_layers, exportPath);
     }
 
-
     /**
-     * save layers in a backup file 
+     * save layers in a backup file
      */
-    
+
     exportPath = menu.getSavePath();
-    if (!exportPath.empty())
-    {
+    if (!exportPath.empty()) {
         menu.save(m_layers, exportPath);
     }
 
@@ -139,15 +132,12 @@ void SceneCanvas::onTick(float deltaTime)
      * export layers as an Image
      */
     exportPath = menu.getExportPath();
-    if (!exportPath.empty())
-    {
+    if (!exportPath.empty()) {
         static const char *extList[4] = {"bmp", "png", "tga", "jpg"};
-        std::string extension = exportPath.substr(exportPath.find_last_of('.')+1);
-        
-        for (auto i = 0; i < 4; ++i)
-        {
-            if (extList[i] == extension)
-            {
+        std::string extension = exportPath.substr(exportPath.find_last_of('.') + 1);
+
+        for (auto i = 0; i < 4; ++i) {
+            if (extList[i] == extension) {
                 if (squash().saveToFile(exportPath) == false) {
                     menu.enableErrorDialog();
                 }

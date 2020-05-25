@@ -15,7 +15,8 @@ Layer::Layer(unsigned int width, unsigned int height, sf::Color color)
 
 Layer::Layer(const std::string_view &file)
 {
-    if (!image.loadFromFile(std::string(file))) throw std::runtime_error("Failed to load image");
+    if (!image.loadFromFile(std::string(file)))
+        throw std::runtime_error("Failed to load image");
     init();
 }
 
@@ -28,7 +29,7 @@ auto Layer::init() -> void
     sprite.setTexture(texture);
 }
 
-Layer::Layer(sf::Image newImage)
+Layer::Layer(const sf::Image& newImage)
 {
     image = newImage;
     init();
