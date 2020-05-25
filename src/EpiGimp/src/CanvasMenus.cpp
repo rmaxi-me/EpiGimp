@@ -18,8 +18,7 @@ auto CanvasMenus::drawFileMenu() -> void
         if (ImGui::MenuItem("Open", "CTRL+O")) {
             m_openDialog = true;
         }
-        if (ImGui::MenuItem("Open as Layers", "CTRL+ALT+O"))
-        {
+        if (ImGui::MenuItem("Open as Layers", "CTRL+ALT+O")) {
             m_openDialogLayer = true;
         }
         ImGui::MenuItem("Open Recent");
@@ -207,18 +206,15 @@ auto CanvasMenus::drawSaveDialog() -> bool
     return asSave;
 }
 
-
 auto CanvasMenus::drawOpenLayerDialog() -> bool
 {
     static bool asOpen = false;
 
-    if (m_openDialogLayer)
-    {
+    if (m_openDialogLayer) {
         ImGui::OpenPopup("openAsLayer");
     }
 
-    if (ImGui::BeginPopupModal("openAsLayer"))
-    {
+    if (ImGui::BeginPopupModal("openAsLayer")) {
         ImGui::Text("Open As Layer ...\n\n");
 
         ImGui::InputTextWithHint("###OpenasLayer", "File location ...", buffOpenLayer, 255, 0);
@@ -239,7 +235,6 @@ auto CanvasMenus::drawOpenLayerDialog() -> bool
     }
     return asOpen;
 }
-
 
 auto CanvasMenus::drawOpenDialog() -> bool
 {
@@ -412,15 +407,12 @@ auto CanvasMenus::open(std::vector<Layer> &layers, const std::string &path) -> b
 
 auto CanvasMenus::openAsLayer(std::vector<Layer> &layers, const std::string &path) -> bool
 {
-    try
-    {
+    try {
         layers.push_back(Layer(path));
-    }
-    catch(const std::runtime_error &e)
-    {
+    } catch (const std::runtime_error &e) {
         return false;
     }
-    return true;    
+    return true;
 }
 
 auto CanvasMenus::drawMainMenuBar() -> void

@@ -61,7 +61,7 @@ private:
 
     bool m_open = false;
     bool m_openDialog = false;
-    
+
     bool m_openLayer = false;
     bool m_openDialogLayer = false;
 };

@@ -19,6 +19,6 @@ struct Layer {
 
     Layer(unsigned int width, unsigned int height, sf::Color color = sf::Color::White);
     explicit Layer(const std::string_view &file);
-    explicit Layer(const sf::Image&);
+    explicit Layer(const sf::Image &);
     auto init() -> void;
 };

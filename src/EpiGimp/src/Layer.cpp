@@ -29,7 +29,7 @@ auto Layer::init() -> void
     sprite.setTexture(texture);
 }
 
-Layer::Layer(const sf::Image& newImage)
+Layer::Layer(const sf::Image &newImage)
 {
     image = newImage;
     init();
