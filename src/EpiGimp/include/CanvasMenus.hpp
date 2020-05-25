@@ -18,8 +18,10 @@ public:
     auto getSavePath() -> std::string;
     auto getExportPath() -> std::string;
     auto getOpenPath() -> std::string;
+    auto getOpenAsLayerPath() -> std::string;
     auto save(std::vector<Layer> &layers, const std::string &path) -> bool;
     auto open(std::vector<Layer> &layers, const std::string &path) -> bool;
+    auto openAsLayer(std::vector<Layer> &layers, const std::string &path) -> bool;
     auto enableErrorDialog() -> void;
 private:
 
@@ -43,11 +45,13 @@ private:
     auto drawErrorDialog() -> void;
     auto drawSaveDialog() -> bool;
     auto drawOpenDialog() -> bool;
+    auto drawOpenLayerDialog() -> bool;
 
 private:
     char buffSave[255]{};
     char buffOpen[255]{};
     char buffExp[255]{};
+    char buffOpenLayer[255]{};
 
     bool m_errorDialog = false;
     
@@ -59,4 +63,7 @@ private:
     
     bool m_open = false;
     bool m_openDialog = false;
+    
+    bool m_openLayer = false;
+    bool m_openDialogLayer = false;
 };
