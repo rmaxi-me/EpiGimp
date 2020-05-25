@@ -107,16 +107,21 @@ void SceneCanvas::onTick(float deltaTime)
      * open layers from a backup file
      */
     exportPath = menu.getOpenPath();
-    if (!exportPath.empty()) {
-        menu.open(m_layers, exportPath);
+    if (!exportPath.empty())
+    {
+        if (!menu.open(m_layers, exportPath))
+            menu.enableErrorDialog();
+
     }
 
     /**
-     * open layers from a backup file
+     * open as layers from image 
      */
-    exportPath = menu.getOpenPath();
-    if (!exportPath.empty()) {
-        menu.open(m_layers, exportPath);
+    exportPath = menu.getOpenAsLayerPath();
+    if (!exportPath.empty())
+    {
+        if (!menu.openAsLayer(m_layers, exportPath))
+            menu.enableErrorDialog();
     }
 
     /**
@@ -124,8 +129,10 @@ void SceneCanvas::onTick(float deltaTime)
      */
 
     exportPath = menu.getSavePath();
-    if (!exportPath.empty()) {
-        menu.save(m_layers, exportPath);
+    if (!exportPath.empty())
+    {
+        if (!menu.save(m_layers, exportPath))
+            menu.enableErrorDialog();
     }
 
     /**
