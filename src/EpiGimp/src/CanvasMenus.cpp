@@ -375,7 +375,7 @@ auto CanvasMenus::open(std::vector<Layer> &layers, const std::string &path) -> b
 
     layers.clear();
     for (long unsigned int i = 0; i < nbrLayer; i++)
-        layers.push_back(generateImage(infile, sizeLayer[i]));
+        layers.push_back(Layer(generateImage(infile, sizeLayer[i])));
 
     std::fclose(infile);
     return true;
