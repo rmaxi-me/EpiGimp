@@ -16,6 +16,8 @@ class ATool {
 protected:
     sf::RenderWindow *m_window{nullptr};
     Layer *m_activeLayer{nullptr};
+
+    static float m_color[4];    // QoL: color is shared across instances to unify tools
 public:
     ATool();
     virtual ~ATool();

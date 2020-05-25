@@ -31,7 +31,7 @@ public:
 
 private:
     constexpr static auto MOVE_SPEED = 500.f;
-    constexpr static auto TOOLS_COUNT = 3;
+    constexpr static auto TOOLS_COUNT = 4;
 
     std::vector<Layer> m_layers{};
     std::array<std::unique_ptr<ATool>, TOOLS_COUNT> m_tools;

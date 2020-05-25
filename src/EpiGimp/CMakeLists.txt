@@ -19,6 +19,10 @@ add_executable(
         ${CMAKE_CURRENT_SOURCE_DIR}/include/Tools/Eraser.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Tools/Pencil.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/Tools/Pencil.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Tools/Fill.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Tools/Fill.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Tools/ColorPicker.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Tools/ColorPicker.hpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include

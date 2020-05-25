@@ -17,9 +17,13 @@
 #include "Tools/Pencil.hpp"
 #include "Tools/Eraser.hpp"
 #include "Tools/MoveLayer.hpp"
+#include "Tools/ColorPicker.hpp"
 
 SceneCanvas::SceneCanvas()
-        : m_tools{std::make_unique<Pencil>(), std::make_unique<Eraser>(), std::make_unique<MoveLayer>()}
+        : m_tools{std::make_unique<Pencil>(),
+                  std::make_unique<Eraser>(),
+                  std::make_unique<MoveLayer>(),
+                  std::make_unique<ColorPicker>()}
 {
 }
 
@@ -81,14 +85,14 @@ void SceneCanvas::onTick(float deltaTime)
     m_deltaTime = deltaTime;
     std::string exportPath{};
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) updateView({0.f, -1.f});
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) updateView({-1.f, 0.f});
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) updateView({0.f, 1.f});
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) updateView({1.f, 0.f});
-
-    /*
-     * Insert image manipulations here
-     */
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        updateView({0.f, -1.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        updateView({-1.f, 0.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        updateView({0.f, 1.f});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        updateView({1.f, 0.f});
 
     for (auto &layer : m_layers) {
         layer.texture.update(layer.image);
@@ -98,7 +102,6 @@ void SceneCanvas::onTick(float deltaTime)
         // TODO: One thing we could do is to only update the texture once a change has been made.
         layer.sprite.setTexture(layer.texture);
     }
-  
 
 
     /**
@@ -207,6 +210,13 @@ auto SceneCanvas::drawLayerWindow() -> void
     ImGui::SetNextWindowSize({0, 0});
     ImGui::Begin("Layers");
     {
+        if (ImGui::Button("New layer", LargeButtonSize))
+            m_layers.emplace_back(800, 600);
+
+        ImGui::Spacing();
+        ImGui::Separator();
+        ImGui::Spacing();
+
         std::size_t index = m_layers.size();
         for (auto layer = m_layers.rbegin(); layer != m_layers.rend(); ++layer) {
             ImGui::PushID(std::addressof(*layer));
@@ -234,6 +244,9 @@ auto SceneCanvas::drawLayerWindow() -> void
                         tool->setActiveLayer(&*layer);
                     m_activeLayer = &*layer;
                 }
+
+                if (ImGui::Button("Delete layer", LargeButtonSize))
+                    m_layers.erase(std::next(layer).base());
 
                 ImGui::Spacing();
                 ImGui::Separator();
