@@ -114,6 +114,17 @@ void SceneCanvas::onTick(float deltaTime)
     }
 
 
+
+    /**
+     * open layers from a backup file 
+     */
+    exportPath = menu.getOpenPath();
+    if (!exportPath.empty())
+    {
+        menu.open(m_layers, exportPath);
+    }
+
+
     /**
      * save layers in a backup file 
      */
