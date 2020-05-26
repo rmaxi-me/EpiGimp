@@ -22,7 +22,7 @@ public:
     auto open(std::vector<Layer> &layers, const std::string &path) -> bool;
     auto openAsLayer(std::vector<Layer> &layers, const std::string &path) -> bool;
     auto enableErrorDialog() -> void;
-
+    auto create(std::vector<Layer> &layers) -> void;
 private:
     struct Size {
         unsigned int x{};
@@ -64,4 +64,5 @@ private:
 
     bool m_openLayer = false;
     bool m_openDialogLayer = false;
+    bool m_create = false;
 };
