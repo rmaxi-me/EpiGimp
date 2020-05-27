@@ -104,6 +104,11 @@ void SceneCanvas::onTick(float deltaTime)
     }
 
     /**
+     * create new workspace
+     */
+    menu.create(m_layers);
+
+    /**
      * open layers from a backup file
      */
     exportPath = menu.getOpenPath();

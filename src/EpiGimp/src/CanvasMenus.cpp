@@ -14,7 +14,10 @@ auto CanvasMenus::drawFileMenu() -> void
 {
     if (ImGui::BeginMenu("Menu")) {
         ImGui::MenuItem("File", "CTRL+N");
-        ImGui::MenuItem("Create");
+        if (ImGui::MenuItem("Create"))
+        {
+            m_create = true;
+        }
         if (ImGui::MenuItem("Open", "CTRL+O")) {
             m_openDialog = true;
         }
@@ -325,6 +328,16 @@ auto CanvasMenus::drawErrorDialog() -> void
             ImGui::CloseCurrentPopup();
             m_errorDialog = false;
         }
+    }
+}
+
+auto CanvasMenus::create(std::vector<Layer> &layers) -> void
+{
+    if (m_create)
+    {
+        m_create = false;
+        layers.clear();
+        layers.push_back(Layer(400,400));
     }
 }
 
