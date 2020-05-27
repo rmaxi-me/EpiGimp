@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">EpiGimp
-   &#160;<span id="projectnumber">1.1.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
    <div id="projectbrief">An Image Processing Software</div>
   </td>
@@ -77,6 +77,11 @@ $(function() {
 <div class="title">Engine::Application Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="classEngine_1_1Application.html" title="The Application abstract class is the core of a C++ application with this engine.">Application</a> abstract class is the core of a C++ application with this engine.  
+ <a href="classEngine_1_1Application.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Application_8hpp_source.html">Application.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Engine::Application:</div>
 <div class="dyncontent">
@@ -89,36 +94,44 @@ Inheritance diagram for Engine::Application:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3a809c0ade5ba068c3903efb7bc6ef59"><td class="memItemLeft" align="right" valign="top"><a id="a3a809c0ade5ba068c3903efb7bc6ef59"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Application</b> (int ac, char **av)</td></tr>
+<tr class="memitem:a3a809c0ade5ba068c3903efb7bc6ef59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#a3a809c0ade5ba068c3903efb7bc6ef59">Application</a> (int ac, char **av)</td></tr>
+<tr class="memdesc:a3a809c0ade5ba068c3903efb7bc6ef59"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classEngine_1_1Application.html" title="The Application abstract class is the core of a C++ application with this engine.">Application</a> constructor.  <a href="classEngine_1_1Application.html#a3a809c0ade5ba068c3903efb7bc6ef59">More...</a><br /></td></tr>
 <tr class="separator:a3a809c0ade5ba068c3903efb7bc6ef59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b39ff638087f1dbd02a1dace63b2bd0"><td class="memItemLeft" align="right" valign="top"><a id="a9b39ff638087f1dbd02a1dace63b2bd0"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (const std::string_view &amp;title) -&gt; void</td></tr>
+<tr class="memitem:aa8a9745dbd56969a77cab6c81a16cdda"><td class="memItemLeft" align="right" valign="top"><a id="aa8a9745dbd56969a77cab6c81a16cdda"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#aa8a9745dbd56969a77cab6c81a16cdda">~Application</a> ()</td></tr>
+<tr class="memdesc:aa8a9745dbd56969a77cab6c81a16cdda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
+<tr class="separator:aa8a9745dbd56969a77cab6c81a16cdda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b39ff638087f1dbd02a1dace63b2bd0"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#a9b39ff638087f1dbd02a1dace63b2bd0">start</a> (const std::string_view &amp;title) -&gt; void</td></tr>
+<tr class="memdesc:a9b39ff638087f1dbd02a1dace63b2bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the application.  <a href="classEngine_1_1Application.html#a9b39ff638087f1dbd02a1dace63b2bd0">More...</a><br /></td></tr>
 <tr class="separator:a9b39ff638087f1dbd02a1dace63b2bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d00249c9fcb071a0d3c9eb71e6261f5"><td class="memItemLeft" align="right" valign="top"><a id="a8d00249c9fcb071a0d3c9eb71e6261f5"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> () -&gt; void=0</td></tr>
+virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#a8d00249c9fcb071a0d3c9eb71e6261f5">init</a> () -&gt; void=0</td></tr>
+<tr class="memdesc:a8d00249c9fcb071a0d3c9eb71e6261f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called after the window has been initialized and before the application loop. <br /></td></tr>
 <tr class="separator:a8d00249c9fcb071a0d3c9eb71e6261f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98f594795aa2493f79031dad193f00a5"><td class="memItemLeft" align="right" valign="top"><a id="a98f594795aa2493f79031dad193f00a5"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>deinit</b> () -&gt; void=0</td></tr>
+virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#a98f594795aa2493f79031dad193f00a5">deinit</a> () -&gt; void=0</td></tr>
+<tr class="memdesc:a98f594795aa2493f79031dad193f00a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on application closure. <br /></td></tr>
 <tr class="separator:a98f594795aa2493f79031dad193f00a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49f36b0309198eeee3f7bda09bb47dbb"><td class="memItemLeft" align="right" valign="top"><a id="a49f36b0309198eeee3f7bda09bb47dbb"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>tick</b> (float deltaTime) -&gt; void=0</td></tr>
+<tr class="memitem:a49f36b0309198eeee3f7bda09bb47dbb"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#a49f36b0309198eeee3f7bda09bb47dbb">tick</a> (float deltaTime) -&gt; void=0</td></tr>
+<tr class="memdesc:a49f36b0309198eeee3f7bda09bb47dbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called after events and before <a class="el" href="classEngine_1_1Application.html#a3f88b4643f5073297666a31ead82750f" title="Called after logic and events.">draw()</a>  <a href="classEngine_1_1Application.html#a49f36b0309198eeee3f7bda09bb47dbb">More...</a><br /></td></tr>
 <tr class="separator:a49f36b0309198eeee3f7bda09bb47dbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f88b4643f5073297666a31ead82750f"><td class="memItemLeft" align="right" valign="top"><a id="a3f88b4643f5073297666a31ead82750f"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> () -&gt; void=0</td></tr>
+virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#a3f88b4643f5073297666a31ead82750f">draw</a> () -&gt; void=0</td></tr>
+<tr class="memdesc:a3f88b4643f5073297666a31ead82750f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called after logic and events. <br /></td></tr>
 <tr class="separator:a3f88b4643f5073297666a31ead82750f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:af3c8ef5f8ce0c6d7f6795b6f253a2aa5"><td class="memTemplParams" colspan="2"><a id="af3c8ef5f8ce0c6d7f6795b6f253a2aa5"></a>
-template&lt;typename S , typename... Args&gt; </td></tr>
-<tr class="memitem:af3c8ef5f8ce0c6d7f6795b6f253a2aa5"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>createScene</b> (Args &amp;&amp;... args) -&gt; bool</td></tr>
+<tr class="memitem:af3c8ef5f8ce0c6d7f6795b6f253a2aa5"><td class="memTemplParams" colspan="2">template&lt;typename S , typename... Args&gt; </td></tr>
+<tr class="memitem:af3c8ef5f8ce0c6d7f6795b6f253a2aa5"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#af3c8ef5f8ce0c6d7f6795b6f253a2aa5">createScene</a> (Args &amp;&amp;... args) -&gt; bool</td></tr>
+<tr class="memdesc:af3c8ef5f8ce0c6d7f6795b6f253a2aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new scene and register it to the <a class="el" href="classEngine_1_1Application.html" title="The Application abstract class is the core of a C++ application with this engine.">Application</a>.  <a href="classEngine_1_1Application.html#af3c8ef5f8ce0c6d7f6795b6f253a2aa5">More...</a><br /></td></tr>
 <tr class="separator:af3c8ef5f8ce0c6d7f6795b6f253a2aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27fe7e75a07e3198d8e1e1c14f579297"><td class="memItemLeft" align="right" valign="top"><a id="a27fe7e75a07e3198d8e1e1c14f579297"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>reloadView</b> () -&gt; void final</td></tr>
+virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#a27fe7e75a07e3198d8e1e1c14f579297">reloadView</a> () -&gt; void final</td></tr>
+<tr class="memdesc:a27fe7e75a07e3198d8e1e1c14f579297"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reloads the view, usually after window resize. <br /></td></tr>
 <tr class="separator:a27fe7e75a07e3198d8e1e1c14f579297"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3ef8c37fae7fde61e5470b03c10dbfd"><td class="memItemLeft" align="right" valign="top"><a id="ae3ef8c37fae7fde61e5470b03c10dbfd"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>processEvent</b> (const sf::Event &amp;event) -&gt; void</td></tr>
+<tr class="memitem:ae3ef8c37fae7fde61e5470b03c10dbfd"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#ae3ef8c37fae7fde61e5470b03c10dbfd">processEvent</a> (const sf::Event &amp;event) -&gt; void</td></tr>
+<tr class="memdesc:ae3ef8c37fae7fde61e5470b03c10dbfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process the events. Don't forget to call the parent function if overridden.  <a href="classEngine_1_1Application.html#ae3ef8c37fae7fde61e5470b03c10dbfd">More...</a><br /></td></tr>
 <tr class="separator:ae3ef8c37fae7fde61e5470b03c10dbfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -145,6 +158,191 @@ sf::Time&#160;</td><td class="memItemRight" valign="bottom"><b>m_deltaTime</b> {
 float&#160;</td><td class="memItemRight" valign="bottom"><b>m_deltaTimeSeconds</b> {0.f}</td></tr>
 <tr class="separator:a919c028c5f22533d66a32bf7e733c612"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="classEngine_1_1Application.html" title="The Application abstract class is the core of a C++ application with this engine.">Application</a> abstract class is the core of a C++ application with this engine. </p>
+<p>Inherit this class and call the <a class="el" href="classEngine_1_1Application.html#a9b39ff638087f1dbd02a1dace63b2bd0" title="Starts the application.">start()</a> function in your main. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3a809c0ade5ba068c3903efb7bc6ef59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a809c0ade5ba068c3903efb7bc6ef59">&#9670;&nbsp;</a></span>Application()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Engine::Application::Application </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ac</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>av</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classEngine_1_1Application.html" title="The Application abstract class is the core of a C++ application with this engine.">Application</a> constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ac</td><td>Program argument count </td></tr>
+    <tr><td class="paramname">av</td><td>Program arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af3c8ef5f8ce0c6d7f6795b6f253a2aa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3c8ef5f8ce0c6d7f6795b6f253a2aa5">&#9670;&nbsp;</a></span>createScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename S , typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Engine::Application::createScene </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td> -&gt; bool
+    </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new scene and register it to the <a class="el" href="classEngine_1_1Application.html" title="The Application abstract class is the core of a C++ application with this engine.">Application</a>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">S</td><td>Your <a class="el" href="classEngine_1_1Scene.html" title="The Scene abstract class represent a scene in your application.">Scene</a> class, inherited from the <a class="el" href="classEngine_1_1Scene.html" title="The Scene abstract class represent a scene in your application.">Scene</a> class. </td></tr>
+    <tr><td class="paramname">Args</td><td>Argument types to be forwarded to your <a class="el" href="classEngine_1_1Scene.html" title="The Scene abstract class represent a scene in your application.">Scene</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>Arguments to forward to the <a class="el" href="classEngine_1_1Scene.html" title="The Scene abstract class represent a scene in your application.">Scene</a> constructor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ae3ef8c37fae7fde61e5470b03c10dbfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3ef8c37fae7fde61e5470b03c10dbfd">&#9670;&nbsp;</a></span>processEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Engine::Application::processEvent </td>
+          <td>(</td>
+          <td class="paramtype">const sf::Event &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td> -&gt; void</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Process the events. Don't forget to call the parent function if overridden. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>Event to process </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classEpiGimpApp.html#a1d9b19a74b01ba4335d18ce20cf4c831">EpiGimpApp</a>.</p>
+
+</div>
+</div>
+<a id="a9b39ff638087f1dbd02a1dace63b2bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b39ff638087f1dbd02a1dace63b2bd0">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Engine::Application::start </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>title</em></td><td>)</td>
+          <td> -&gt; void</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts the application. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>Title of your window </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a49f36b0309198eeee3f7bda09bb47dbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49f36b0309198eeee3f7bda09bb47dbb">&#9670;&nbsp;</a></span>tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual auto Engine::Application::tick </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td> -&gt;  void</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called after events and before <a class="el" href="classEngine_1_1Application.html#a3f88b4643f5073297666a31ead82750f" title="Called after logic and events.">draw()</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">deltaTime</td><td>Frame time </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEpiGimpApp.html#ab5e8ca821f88c424361e339b19a68882">EpiGimpApp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/Engine/include/Engine/<a class="el" href="Application_8hpp_source.html">Application.hpp</a></li>
 <li>src/Engine/src/Application.cpp</li>

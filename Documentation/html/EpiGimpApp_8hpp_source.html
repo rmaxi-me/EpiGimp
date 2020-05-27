@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">EpiGimp
-   &#160;<span id="projectnumber">1.1.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
    <div id="projectbrief">An Image Processing Software</div>
   </td>
@@ -81,23 +81,30 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;Engine/Application.hpp&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classEpiGimpApp.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEpiGimpApp.html">EpiGimpApp</a> final : <span class="keyword">public</span> <a class="code" href="classEngine_1_1Application.html">Engine::Application</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classEpiGimpApp.html">EpiGimpApp</a>(<span class="keywordtype">int</span> ac, <span class="keywordtype">char</span> **av);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    ~<a class="code" href="classEpiGimpApp.html">EpiGimpApp</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">auto</span> processEvent(<span class="keyword">const</span> sf::Event &amp;event) -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">auto</span> init() -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">auto</span> deinit() -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">auto</span> tick(<span class="keywordtype">float</span> deltaTime) -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">auto</span> draw() -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;Engine/UI/UiWindow.hpp&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;Engine/Application.hpp&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classEpiGimpApp.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEpiGimpApp.html">EpiGimpApp</a> final : <span class="keyword">public</span> <a class="code" href="classEngine_1_1Application.html">Engine::Application</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classEpiGimpApp.html">EpiGimpApp</a>(<span class="keywordtype">int</span> ac, <span class="keywordtype">char</span> **av);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    ~<a class="code" href="classEpiGimpApp.html">EpiGimpApp</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEpiGimpApp.html#a1d9b19a74b01ba4335d18ce20cf4c831">processEvent</a>(<span class="keyword">const</span> sf::Event &amp;event) -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEpiGimpApp.html#a1bb3c2db746cf6301955d95bd3395e74">init</a>() -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEpiGimpApp.html#aec2aa03f2790035edb1b5501b32fdcf7">deinit</a>() -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEpiGimpApp.html#ab5e8ca821f88c424361e339b19a68882">tick</a>(<span class="keywordtype">float</span> deltaTime) -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEpiGimpApp.html#aad3847963190f632cbb86c635f2bce85">draw</a>() -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassEngine_1_1Application_html"><div class="ttname"><a href="classEngine_1_1Application.html">Engine::Application</a></div><div class="ttdef"><b>Definition:</b> Application.hpp:22</div></div>
-<div class="ttc" id="aclassEpiGimpApp_html"><div class="ttname"><a href="classEpiGimpApp.html">EpiGimpApp</a></div><div class="ttdef"><b>Definition:</b> EpiGimpApp.hpp:12</div></div>
+<div class="ttc" id="aclassEpiGimpApp_html_ab5e8ca821f88c424361e339b19a68882"><div class="ttname"><a href="classEpiGimpApp.html#ab5e8ca821f88c424361e339b19a68882">EpiGimpApp::tick</a></div><div class="ttdeci">auto tick(float deltaTime) -&gt; void override</div><div class="ttdoc">Called after events and before draw()</div><div class="ttdef"><b>Definition:</b> EpiGimpApp.cpp:35</div></div>
+<div class="ttc" id="aclassEngine_1_1Application_html"><div class="ttname"><a href="classEngine_1_1Application.html">Engine::Application</a></div><div class="ttdoc">The Application abstract class is the core of a C++ application with this engine.</div><div class="ttdef"><b>Definition:</b> Application.hpp:27</div></div>
+<div class="ttc" id="aclassEpiGimpApp_html"><div class="ttname"><a href="classEpiGimpApp.html">EpiGimpApp</a></div><div class="ttdef"><b>Definition:</b> EpiGimpApp.hpp:15</div></div>
+<div class="ttc" id="aclassEpiGimpApp_html_a1d9b19a74b01ba4335d18ce20cf4c831"><div class="ttname"><a href="classEpiGimpApp.html#a1d9b19a74b01ba4335d18ce20cf4c831">EpiGimpApp::processEvent</a></div><div class="ttdeci">auto processEvent(const sf::Event &amp;event) -&gt; void override</div><div class="ttdoc">Process the events. Don't forget to call the parent function if overridden.</div><div class="ttdef"><b>Definition:</b> EpiGimpApp.cpp:17</div></div>
+<div class="ttc" id="aclassEpiGimpApp_html_a1bb3c2db746cf6301955d95bd3395e74"><div class="ttname"><a href="classEpiGimpApp.html#a1bb3c2db746cf6301955d95bd3395e74">EpiGimpApp::init</a></div><div class="ttdeci">auto init() -&gt; void override</div><div class="ttdoc">Called after the window has been initialized and before the application loop.</div><div class="ttdef"><b>Definition:</b> EpiGimpApp.cpp:22</div></div>
+<div class="ttc" id="aclassEpiGimpApp_html_aec2aa03f2790035edb1b5501b32fdcf7"><div class="ttname"><a href="classEpiGimpApp.html#aec2aa03f2790035edb1b5501b32fdcf7">EpiGimpApp::deinit</a></div><div class="ttdeci">auto deinit() -&gt; void override</div><div class="ttdoc">Called on application closure.</div><div class="ttdef"><b>Definition:</b> EpiGimpApp.cpp:31</div></div>
+<div class="ttc" id="aclassEpiGimpApp_html_aad3847963190f632cbb86c635f2bce85"><div class="ttname"><a href="classEpiGimpApp.html#aad3847963190f632cbb86c635f2bce85">EpiGimpApp::draw</a></div><div class="ttdeci">auto draw() -&gt; void override</div><div class="ttdoc">Called after logic and events.</div><div class="ttdef"><b>Definition:</b> EpiGimpApp.cpp:39</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

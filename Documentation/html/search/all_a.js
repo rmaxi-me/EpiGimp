@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['render_34',['render',['../classEngine_1_1AWidget.html#ac946cd2f636cf6a1ee8255b38cf697e6',1,'Engine::AWidget::render()'],['../classEngine_1_1UiWindow.html#ac2f76eb28b8d8cf5f5da5b793746b8bd',1,'Engine::UiWindow::render()'],['../classEngine_1_1WButton.html#ad2207e03d778f527e9aa09f361dd46dc',1,'Engine::WButton::render()'],['../classEngine_1_1WMenuItem.html#afdbd3e0cd164b61d27dcc2f5df83cc39',1,'Engine::WMenuItem::render()'],['../classEngine_1_1WSeparator.html#a2efbbe33b16caa665fe0d15557652913',1,'Engine::WSeparator::render()'],['../classEngine_1_1MainMenuBar.html#a313c2adf5fd536d43c456c132a5d888a',1,'Engine::MainMenuBar::render()'],['../classEngine_1_1Menu.html#ae8fff07b677c00010829e57435305c4e',1,'Engine::Menu::render()']]]
+  ['oncreate_38',['onCreate',['../classEngine_1_1Scene.html#a87e26d235f7c833e3686c00d999048ad',1,'Engine::Scene::onCreate()'],['../classSceneCanvas.html#a5722c90943ef4e8ad71329c0a3855470',1,'SceneCanvas::onCreate()']]],
+  ['ondraw_39',['onDraw',['../classEngine_1_1Scene.html#acf44f72fe921b02c4ca38b8210657c37',1,'Engine::Scene::onDraw()'],['../classSceneCanvas.html#a6e6022883be8841bd4a9e491359ae426',1,'SceneCanvas::onDraw()']]],
+  ['onevent_40',['onEvent',['../classEngine_1_1Scene.html#aeacc03d6b3ebf6898e2630cbb09263d2',1,'Engine::Scene::onEvent()'],['../classSceneCanvas.html#a29c77aa1b833028dacf5e94f35a0df0d',1,'SceneCanvas::onEvent()']]],
+  ['ontick_41',['onTick',['../classEngine_1_1Scene.html#ad300d7370a40901c16933eca2f4f9445',1,'Engine::Scene::onTick()'],['../classSceneCanvas.html#a70bf38e48d70076b4c6bafabde7ff8e3',1,'SceneCanvas::onTick()']]],
+  ['open_42',['open',['../classEngine_1_1UiWindow.html#a90219bd29ad351515e29ae660ab2e82d',1,'Engine::UiWindow']]]
 ];

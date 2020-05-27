@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">EpiGimp
-   &#160;<span id="projectnumber">1.1.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
    <div id="projectbrief">An Image Processing Software</div>
   </td>
@@ -78,26 +78,31 @@ $(function() {
 <div class="title">Engine::Settings Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="structEngine_1_1Settings.html" title="The Settings class represents the application&#39;s settings. It is serializable/deserializable in JSON f...">Settings</a> class represents the application's settings. It is serializable/deserializable in JSON format.  
+ <a href="structEngine_1_1Settings.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Settings_8hpp_source.html">Settings.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a461235a035a3c858c0cda8104e9a8c5a"><td class="memItemLeft" align="right" valign="top"><a id="a461235a035a3c858c0cda8104e9a8c5a"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const std::string_view &amp;path=CONFIG_PATH) const -&gt; void</td></tr>
+<tr class="memitem:a461235a035a3c858c0cda8104e9a8c5a"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEngine_1_1Settings.html#a461235a035a3c858c0cda8104e9a8c5a">save</a> (const std::string_view &amp;path=<a class="el" href="structEngine_1_1Settings.html#a23a6c95d740c48d5cafbb053cb96a424">CONFIG_PATH</a>) const -&gt; void</td></tr>
+<tr class="memdesc:a461235a035a3c858c0cda8104e9a8c5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves current application settings.  <a href="structEngine_1_1Settings.html#a461235a035a3c858c0cda8104e9a8c5a">More...</a><br /></td></tr>
 <tr class="separator:a461235a035a3c858c0cda8104e9a8c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a4f392de4911c1b5fef5d32080d5cfe86"><td class="memItemLeft" align="right" valign="top"><a id="a4f392de4911c1b5fef5d32080d5cfe86"></a>
-static auto&#160;</td><td class="memItemRight" valign="bottom"><b>fromFile</b> (const std::string_view &amp;path=CONFIG_PATH) -&gt; <a class="el" href="structEngine_1_1Settings.html">Settings</a></td></tr>
+<tr class="memitem:a4f392de4911c1b5fef5d32080d5cfe86"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEngine_1_1Settings.html#a4f392de4911c1b5fef5d32080d5cfe86">fromFile</a> (const std::string_view &amp;path=<a class="el" href="structEngine_1_1Settings.html#a23a6c95d740c48d5cafbb053cb96a424">CONFIG_PATH</a>) -&gt; <a class="el" href="structEngine_1_1Settings.html">Settings</a></td></tr>
+<tr class="memdesc:a4f392de4911c1b5fef5d32080d5cfe86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads settings from a JSON file.  <a href="structEngine_1_1Settings.html#a4f392de4911c1b5fef5d32080d5cfe86">More...</a><br /></td></tr>
 <tr class="separator:a4f392de4911c1b5fef5d32080d5cfe86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a80b037a3e9f3c182260b34ad450248c9"><td class="memItemLeft" align="right" valign="top"><a id="a80b037a3e9f3c182260b34ad450248c9"></a>
-std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>width</b> {1200}</td></tr>
+std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>width</b> {1600}</td></tr>
 <tr class="separator:a80b037a3e9f3c182260b34ad450248c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3ec5d9adcf2531c0a12f36ea0163faa"><td class="memItemLeft" align="right" valign="top"><a id="ac3ec5d9adcf2531c0a12f36ea0163faa"></a>
-std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>height</b> {675}</td></tr>
+std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>height</b> {900}</td></tr>
 <tr class="separator:ac3ec5d9adcf2531c0a12f36ea0163faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a629a703a662e20c709857580ee248c06"><td class="memItemLeft" align="right" valign="top"><a id="a629a703a662e20c709857580ee248c06"></a>
 std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>fps_limit</b> {0}</td></tr>
@@ -109,9 +114,74 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>fullscreen</b> {false
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a23a6c95d740c48d5cafbb053cb96a424"><td class="memItemLeft" align="right" valign="top"><a id="a23a6c95d740c48d5cafbb053cb96a424"></a>
-static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>CONFIG_PATH</b> = &quot;Resources/config.json&quot;</td></tr>
+static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEngine_1_1Settings.html#a23a6c95d740c48d5cafbb053cb96a424">CONFIG_PATH</a> = &quot;Resources/config.json&quot;</td></tr>
+<tr class="memdesc:a23a6c95d740c48d5cafbb053cb96a424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Where the config file is located. <br /></td></tr>
 <tr class="separator:a23a6c95d740c48d5cafbb053cb96a424"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="structEngine_1_1Settings.html" title="The Settings class represents the application&#39;s settings. It is serializable/deserializable in JSON f...">Settings</a> class represents the application's settings. It is serializable/deserializable in JSON format. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4f392de4911c1b5fef5d32080d5cfe86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f392de4911c1b5fef5d32080d5cfe86">&#9670;&nbsp;</a></span>fromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Engine::Settings::fromFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>path</em> = <code><a class="el" href="structEngine_1_1Settings.html#a23a6c95d740c48d5cafbb053cb96a424">CONFIG_PATH</a></code></td><td>)</td>
+          <td> -&gt; <a class="el" href="structEngine_1_1Settings.html">Settings</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Loads settings from a JSON file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Where to load the config from. Defaults to CONFIG_PATH. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structEngine_1_1Settings.html" title="The Settings class represents the application&#39;s settings. It is serializable/deserializable in JSON f...">Settings</a> class. </dd></dl>
+
+</div>
+</div>
+<a id="a461235a035a3c858c0cda8104e9a8c5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a461235a035a3c858c0cda8104e9a8c5a">&#9670;&nbsp;</a></span>save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Engine::Settings::save </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>path</em> = <code><a class="el" href="structEngine_1_1Settings.html#a23a6c95d740c48d5cafbb053cb96a424">CONFIG_PATH</a></code></td><td>)</td>
+          <td> const -&gt; void</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves current application settings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Where to save the config to. Defaults to CONFIG_PATH. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
 <li>src/Engine/include/Engine/Settings/<a class="el" href="Settings_8hpp_source.html">Settings.hpp</a></li>
 <li>src/Engine/src/Settings/Settings.cpp</li>

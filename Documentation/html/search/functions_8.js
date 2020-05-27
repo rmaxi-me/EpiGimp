@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['setname_88',['setName',['../classEngine_1_1AWidget.html#a17fe85f3797da258a608ca2e8f3233ab',1,'Engine::AWidget::setName()'],['../classEngine_1_1UiWindow.html#a16d0376d6572285bc3f797326762dc29',1,'Engine::UiWindow::setName()']]],
-  ['setposition_89',['setPosition',['../classEngine_1_1UiWindow.html#a77c206721e0cc320e87173225595d0f0',1,'Engine::UiWindow']]],
-  ['setsize_90',['setSize',['../classEngine_1_1AWidget.html#ade002cfed3b8c188e6b140f1c495e1ea',1,'Engine::AWidget::setSize()'],['../classEngine_1_1UiWindow.html#afad2807cb5abb07999e5af244973ff32',1,'Engine::UiWindow::setSize()']]],
-  ['setwindowflags_91',['setWindowFlags',['../classEngine_1_1UiWindow.html#a9714bbcb921ac3cbccfb6e667527abb7',1,'Engine::UiWindow']]]
+  ['oncreate_127',['onCreate',['../classEngine_1_1Scene.html#a87e26d235f7c833e3686c00d999048ad',1,'Engine::Scene::onCreate()'],['../classSceneCanvas.html#a5722c90943ef4e8ad71329c0a3855470',1,'SceneCanvas::onCreate()']]],
+  ['ondraw_128',['onDraw',['../classEngine_1_1Scene.html#acf44f72fe921b02c4ca38b8210657c37',1,'Engine::Scene::onDraw()'],['../classSceneCanvas.html#a6e6022883be8841bd4a9e491359ae426',1,'SceneCanvas::onDraw()']]],
+  ['onevent_129',['onEvent',['../classEngine_1_1Scene.html#aeacc03d6b3ebf6898e2630cbb09263d2',1,'Engine::Scene::onEvent()'],['../classSceneCanvas.html#a29c77aa1b833028dacf5e94f35a0df0d',1,'SceneCanvas::onEvent()']]],
+  ['ontick_130',['onTick',['../classEngine_1_1Scene.html#ad300d7370a40901c16933eca2f4f9445',1,'Engine::Scene::onTick()'],['../classSceneCanvas.html#a70bf38e48d70076b4c6bafabde7ff8e3',1,'SceneCanvas::onTick()']]],
+  ['open_131',['open',['../classEngine_1_1UiWindow.html#a90219bd29ad351515e29ae660ab2e82d',1,'Engine::UiWindow']]]
 ];

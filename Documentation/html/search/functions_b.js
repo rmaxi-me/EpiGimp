@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['_7eawidget_96',['~AWidget',['../classEngine_1_1AWidget.html#a1ae0d89c8d3a7ac03c62dead82d41422',1,'Engine::AWidget']]],
-  ['_7emainmenubar_97',['~MainMenuBar',['../classEngine_1_1MainMenuBar.html#a746cb8f1557880346d7a84e423513354',1,'Engine::MainMenuBar']]],
-  ['_7emenu_98',['~Menu',['../classEngine_1_1Menu.html#a80b899a4f1e7bd0639c259129cd50fe8',1,'Engine::Menu']]],
-  ['_7euiwindow_99',['~UiWindow',['../classEngine_1_1UiWindow.html#a8a4b1bbacbb1bdb2efc8f1443d9eafa1',1,'Engine::UiWindow']]],
-  ['_7ewbutton_100',['~WButton',['../classEngine_1_1WButton.html#a8cfcb12e93036eca5d759886ccb3e18a',1,'Engine::WButton']]],
-  ['_7ewmenuitem_101',['~WMenuItem',['../classEngine_1_1WMenuItem.html#a6d6a59958c8d639c2e67241e4e90df24',1,'Engine::WMenuItem']]],
-  ['_7ewseparator_102',['~WSeparator',['../classEngine_1_1WSeparator.html#a2ade60096efc217c0a23cfedf07e58a4',1,'Engine::WSeparator']]]
+  ['save_136',['save',['../structEngine_1_1Settings.html#a461235a035a3c858c0cda8104e9a8c5a',1,'Engine::Settings']]],
+  ['setname_137',['setName',['../classEngine_1_1AWidget.html#a17fe85f3797da258a608ca2e8f3233ab',1,'Engine::AWidget::setName()'],['../classEngine_1_1UiWindow.html#a16d0376d6572285bc3f797326762dc29',1,'Engine::UiWindow::setName()']]],
+  ['setposition_138',['setPosition',['../classEngine_1_1UiWindow.html#a77c206721e0cc320e87173225595d0f0',1,'Engine::UiWindow']]],
+  ['setsize_139',['setSize',['../classEngine_1_1AWidget.html#ade002cfed3b8c188e6b140f1c495e1ea',1,'Engine::AWidget::setSize()'],['../classEngine_1_1UiWindow.html#afad2807cb5abb07999e5af244973ff32',1,'Engine::UiWindow::setSize()']]],
+  ['setwindowflags_140',['setWindowFlags',['../classEngine_1_1UiWindow.html#a9714bbcb921ac3cbccfb6e667527abb7',1,'Engine::UiWindow']]],
+  ['start_141',['start',['../classEngine_1_1Application.html#a9b39ff638087f1dbd02a1dace63b2bd0',1,'Engine::Application']]]
 ];

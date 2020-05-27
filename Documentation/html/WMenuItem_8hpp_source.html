@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">EpiGimp
-   &#160;<span id="projectnumber">1.1.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
    <div id="projectbrief">An Image Processing Software</div>
   </td>
@@ -86,8 +86,8 @@ $(function() {
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::function&lt;void()&gt; f;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classEngine_1_1WMenuItem.html#a73f0d65d7b53cd61e7caa248ed79d3d3">   27</a></span>&#160;    <a class="code" href="classEngine_1_1WMenuItem.html#a73f0d65d7b53cd61e7caa248ed79d3d3">WMenuItem</a>(<span class="keyword">const</span> std::string_view &amp;name, <span class="keyword">const</span> std::string_view &amp;shortcut = <span class="stringliteral">&quot;&quot;</span>) :</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="classEngine_1_1AWidget.html">AWidget</a>(name, ImVec2()), m_shortcut(shortcut)</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classEngine_1_1WMenuItem.html#a73f0d65d7b53cd61e7caa248ed79d3d3">   27</a></span>&#160;    <a class="code" href="classEngine_1_1WMenuItem.html#a73f0d65d7b53cd61e7caa248ed79d3d3">WMenuItem</a>(<span class="keyword">const</span> std::string_view &amp;name, <span class="keyword">const</span> std::string_view &amp;shortcut = <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            : <a class="code" href="classEngine_1_1AWidget.html">AWidget</a>(name, ImVec2()), m_shortcut(shortcut)</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
@@ -100,7 +100,7 @@ $(function() {
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace Engine</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassEngine_1_1WMenuItem_html_afdbd3e0cd164b61d27dcc2f5df83cc39"><div class="ttname"><a href="classEngine_1_1WMenuItem.html#afdbd3e0cd164b61d27dcc2f5df83cc39">Engine::WMenuItem::render</a></div><div class="ttdeci">auto render() -&gt; void override</div><div class="ttdoc">Render the menu item and check if it's triggered. If it is, call the bound function.</div><div class="ttdef"><b>Definition:</b> WMenuItem.cpp:7</div></div>
+<div class="ttc" id="aclassEngine_1_1WMenuItem_html_afdbd3e0cd164b61d27dcc2f5df83cc39"><div class="ttname"><a href="classEngine_1_1WMenuItem.html#afdbd3e0cd164b61d27dcc2f5df83cc39">Engine::WMenuItem::render</a></div><div class="ttdeci">auto render() -&gt; void override</div><div class="ttdoc">Render the menu item and check if it's triggered. If it is, call the bound function.</div><div class="ttdef"><b>Definition:</b> WMenuItem.cpp:10</div></div>
 <div class="ttc" id="aAWidget_8hpp_html"><div class="ttname"><a href="AWidget_8hpp.html">AWidget.hpp</a></div></div>
 <div class="ttc" id="aclassEngine_1_1WMenuItem_html_a3c64fa73dc396eed33a0289150815d67"><div class="ttname"><a href="classEngine_1_1WMenuItem.html#a3c64fa73dc396eed33a0289150815d67">Engine::WMenuItem::bindAction</a></div><div class="ttdeci">auto bindAction(std::function&lt; void()&gt; func) -&gt; void override</div><div class="ttdoc">Bind an action to the menu item.</div><div class="ttdef"><b>Definition:</b> WMenuItem.cpp:5</div></div>
 <div class="ttc" id="aclassEngine_1_1WMenuItem_html"><div class="ttname"><a href="classEngine_1_1WMenuItem.html">Engine::WMenuItem</a></div><div class="ttdoc">Widget class representing a Menu Item.</div><div class="ttdef"><b>Definition:</b> WMenuItem.hpp:15</div></div>

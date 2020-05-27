@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">EpiGimp
-   &#160;<span id="projectnumber">1.1.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
    <div id="projectbrief">An Image Processing Software</div>
   </td>
@@ -76,6 +76,11 @@ $(function() {
 <div class="title">Engine::Scene Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="classEngine_1_1Scene.html" title="The Scene abstract class represent a scene in your application.">Scene</a> abstract class represent a scene in your application.  
+ <a href="classEngine_1_1Scene.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Scene_8hpp_source.html">Scene.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Engine::Scene:</div>
 <div class="dyncontent">
@@ -100,20 +105,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a61a27b3bafdaed2534da1acd40b539cb"><td class="memItemLeft" align="right" valign="top"><a id="a61a27b3bafdaed2534da1acd40b539cb"></a>
 <a class="el" href="classEngine_1_1Scene.html">Scene</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classEngine_1_1Scene.html">Scene</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:a61a27b3bafdaed2534da1acd40b539cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5df17b5f314b94572dd56361888a4eb"><td class="memItemLeft" align="right" valign="top"><a id="af5df17b5f314b94572dd56361888a4eb"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>registerWindow</b> (sf::RenderWindow &amp;window) -&gt; void</td></tr>
+<tr class="memitem:af5df17b5f314b94572dd56361888a4eb"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Scene.html#af5df17b5f314b94572dd56361888a4eb">registerWindow</a> (sf::RenderWindow &amp;window) -&gt; void</td></tr>
+<tr class="memdesc:af5df17b5f314b94572dd56361888a4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers the window.  <a href="classEngine_1_1Scene.html#af5df17b5f314b94572dd56361888a4eb">More...</a><br /></td></tr>
 <tr class="separator:af5df17b5f314b94572dd56361888a4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87e26d235f7c833e3686c00d999048ad"><td class="memItemLeft" align="right" valign="top"><a id="a87e26d235f7c833e3686c00d999048ad"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>onCreate</b> (<a class="el" href="classEngine_1_1Application.html">Application</a> &amp;app) -&gt; bool=0</td></tr>
+<tr class="memitem:a87e26d235f7c833e3686c00d999048ad"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Scene.html#a87e26d235f7c833e3686c00d999048ad">onCreate</a> (<a class="el" href="classEngine_1_1Application.html">Application</a> &amp;app) -&gt; bool=0</td></tr>
+<tr class="memdesc:a87e26d235f7c833e3686c00d999048ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">On scene creation. Called once the scene is ready to be used.  <a href="classEngine_1_1Scene.html#a87e26d235f7c833e3686c00d999048ad">More...</a><br /></td></tr>
 <tr class="separator:a87e26d235f7c833e3686c00d999048ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeacc03d6b3ebf6898e2630cbb09263d2"><td class="memItemLeft" align="right" valign="top"><a id="aeacc03d6b3ebf6898e2630cbb09263d2"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>onEvent</b> (const sf::Event &amp;event) -&gt; void=0</td></tr>
+<tr class="memitem:aeacc03d6b3ebf6898e2630cbb09263d2"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Scene.html#aeacc03d6b3ebf6898e2630cbb09263d2">onEvent</a> (const sf::Event &amp;event) -&gt; void=0</td></tr>
+<tr class="memdesc:aeacc03d6b3ebf6898e2630cbb09263d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle scene events. Called after <a class="el" href="classEngine_1_1Application.html" title="The Application abstract class is the core of a C++ application with this engine.">Application</a> events.  <a href="classEngine_1_1Scene.html#aeacc03d6b3ebf6898e2630cbb09263d2">More...</a><br /></td></tr>
 <tr class="separator:aeacc03d6b3ebf6898e2630cbb09263d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad300d7370a40901c16933eca2f4f9445"><td class="memItemLeft" align="right" valign="top"><a id="ad300d7370a40901c16933eca2f4f9445"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>onTick</b> (float deltaTime) -&gt; void=0</td></tr>
+<tr class="memitem:ad300d7370a40901c16933eca2f4f9445"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Scene.html#ad300d7370a40901c16933eca2f4f9445">onTick</a> (float deltaTime) -&gt; void=0</td></tr>
+<tr class="memdesc:ad300d7370a40901c16933eca2f4f9445"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classEngine_1_1Scene.html" title="The Scene abstract class represent a scene in your application.">Scene</a> logic.  <a href="classEngine_1_1Scene.html#ad300d7370a40901c16933eca2f4f9445">More...</a><br /></td></tr>
 <tr class="separator:ad300d7370a40901c16933eca2f4f9445"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf44f72fe921b02c4ca38b8210657c37"><td class="memItemLeft" align="right" valign="top"><a id="acf44f72fe921b02c4ca38b8210657c37"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>onDraw</b> () -&gt; void=0</td></tr>
+virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Scene.html#acf44f72fe921b02c4ca38b8210657c37">onDraw</a> () -&gt; void=0</td></tr>
+<tr class="memdesc:acf44f72fe921b02c4ca38b8210657c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the scene. <br /></td></tr>
 <tr class="separator:acf44f72fe921b02c4ca38b8210657c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -122,6 +128,154 @@ Protected Attributes</h2></td></tr>
 sf::RenderWindow *&#160;</td><td class="memItemRight" valign="bottom"><b>m_window</b> {nullptr}</td></tr>
 <tr class="separator:aedb8e90dde0b2a847b3f205193611230"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="classEngine_1_1Scene.html" title="The Scene abstract class represent a scene in your application.">Scene</a> abstract class represent a scene in your application. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a87e26d235f7c833e3686c00d999048ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87e26d235f7c833e3686c00d999048ad">&#9670;&nbsp;</a></span>onCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual auto Engine::Scene::onCreate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEngine_1_1Application.html">Application</a> &amp;&#160;</td>
+          <td class="paramname"><em>app</em></td><td>)</td>
+          <td> -&gt;  bool</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>On scene creation. Called once the scene is ready to be used. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">app</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implemented in <a class="el" href="classSceneCanvas.html#a5722c90943ef4e8ad71329c0a3855470">SceneCanvas</a>.</p>
+
+</div>
+</div>
+<a id="aeacc03d6b3ebf6898e2630cbb09263d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeacc03d6b3ebf6898e2630cbb09263d2">&#9670;&nbsp;</a></span>onEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual auto Engine::Scene::onEvent </td>
+          <td>(</td>
+          <td class="paramtype">const sf::Event &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td> -&gt;  void</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle scene events. Called after <a class="el" href="classEngine_1_1Application.html" title="The Application abstract class is the core of a C++ application with this engine.">Application</a> events. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>Event to be processed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classSceneCanvas.html#a29c77aa1b833028dacf5e94f35a0df0d">SceneCanvas</a>.</p>
+
+</div>
+</div>
+<a id="ad300d7370a40901c16933eca2f4f9445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad300d7370a40901c16933eca2f4f9445">&#9670;&nbsp;</a></span>onTick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual auto Engine::Scene::onTick </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td> -&gt;  void</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classEngine_1_1Scene.html" title="The Scene abstract class represent a scene in your application.">Scene</a> logic. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">deltaTime</td><td>Frame time. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classSceneCanvas.html#a70bf38e48d70076b4c6bafabde7ff8e3">SceneCanvas</a>.</p>
+
+</div>
+</div>
+<a id="af5df17b5f314b94572dd56361888a4eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5df17b5f314b94572dd56361888a4eb">&#9670;&nbsp;</a></span>registerWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Engine::Scene::registerWindow </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td> -&gt; void</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registers the window. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td><a class="el" href="classEngine_1_1Application.html" title="The Application abstract class is the core of a C++ application with this engine.">Application</a> window. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classSceneCanvas.html#aacf8061d21903bde2b1d875be2285a59">SceneCanvas</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/Engine/include/Engine/<a class="el" href="Scene_8hpp_source.html">Scene.hpp</a></li>
 <li>src/Engine/src/Scene.cpp</li>

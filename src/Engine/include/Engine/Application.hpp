@@ -19,16 +19,50 @@
 
 namespace Engine {
 
+/**
+ * @brief The Application abstract class is the core of a C++ application with this engine.
+ *
+ * Inherit this class and call the start() function in your main.
+ */
 class Application {
 public:
+    /**
+     * @brief Application constructor
+     * @param ac Program argument count
+     * @param av Program arguments
+     */
     Application(int ac, char **av);
+
+    /**
+     * @brief Default destructor
+     */
     virtual ~Application();
 
+    /**
+     * @brief Starts the application.
+     * @param title Title of your window
+     */
     auto start(const std::string_view &title) -> void;
 
+    /**
+     * @brief Called after the window has been initialized and before the application loop.
+     */
     virtual auto init() -> void = 0;
+
+    /**
+     * @brief Called on application closure.
+     */
     virtual auto deinit() -> void = 0;
+
+    /**
+     * @brief Called after events and before draw()
+     * @param deltaTime Frame time
+     */
     virtual auto tick(float deltaTime) -> void = 0;
+
+    /**
+     * @brief Called after logic and events
+     */
     virtual auto draw() -> void = 0;
 
 protected:
@@ -43,6 +77,13 @@ protected:
 
     float m_deltaTimeSeconds{0.f};
 
+    /**
+     * @brief Creates a new scene and register it to the Application.
+     * @tparam S Your Scene class, inherited from the Scene class.
+     * @tparam Args Argument types to be forwarded to your Scene.
+     * @param args Arguments to forward to the Scene constructor.
+     * @return true on success, false otherwise.
+     */
     template<typename S, typename... Args>
     auto createScene(Args &&... args) -> bool
     {
@@ -57,13 +98,24 @@ protected:
         return true;
     }
 
+    /**
+     * @brief Reloads the view, usually after window resize.
+     */
     virtual auto reloadView() -> void final;
+
+    /**
+     * @brief Process the events. Don't forget to call the parent function if overridden.
+     * @param event Event to process
+     */
     virtual auto processEvent(const sf::Event &event) -> void;
 
 private:
     sf::Font m_defaultFont{};
     Settings m_settings;
 
+    /**
+     * @brief Draws the fps counter and delta time.
+     */
     auto drawFps() const -> void;
 };
 

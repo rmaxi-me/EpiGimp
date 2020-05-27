@@ -1,5 +1,14 @@
 \hypertarget{classEngine_1_1Scene}{}\doxysection{Engine\+::Scene Class Reference}
 \label{classEngine_1_1Scene}\index{Engine::Scene@{Engine::Scene}}
+
+
+The \mbox{\hyperlink{classEngine_1_1Scene}{Scene}} abstract class represent a scene in your application.  
+
+
+
+
+{\ttfamily \#include $<$Scene.\+hpp$>$}
+
 Inheritance diagram for Engine\+::Scene\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,27 +30,108 @@ Inheritance diagram for Engine\+::Scene\+:\begin{figure}[H]
 \mbox{\Hypertarget{classEngine_1_1Scene_a61a27b3bafdaed2534da1acd40b539cb}\label{classEngine_1_1Scene_a61a27b3bafdaed2534da1acd40b539cb}} 
 \mbox{\hyperlink{classEngine_1_1Scene}{Scene}} \& {\bfseries operator=} (\mbox{\hyperlink{classEngine_1_1Scene}{Scene}} \&\&)=default
 \item 
-\mbox{\Hypertarget{classEngine_1_1Scene_af5df17b5f314b94572dd56361888a4eb}\label{classEngine_1_1Scene_af5df17b5f314b94572dd56361888a4eb}} 
-virtual auto {\bfseries register\+Window} (sf\+::\+Render\+Window \&window) -\/$>$ void
-\item 
-\mbox{\Hypertarget{classEngine_1_1Scene_a87e26d235f7c833e3686c00d999048ad}\label{classEngine_1_1Scene_a87e26d235f7c833e3686c00d999048ad}} 
-virtual auto {\bfseries on\+Create} (\mbox{\hyperlink{classEngine_1_1Application}{Application}} \&app) -\/$>$ bool=0
-\item 
-\mbox{\Hypertarget{classEngine_1_1Scene_aeacc03d6b3ebf6898e2630cbb09263d2}\label{classEngine_1_1Scene_aeacc03d6b3ebf6898e2630cbb09263d2}} 
-virtual auto {\bfseries on\+Event} (const sf\+::\+Event \&event) -\/$>$ void=0
-\item 
-\mbox{\Hypertarget{classEngine_1_1Scene_ad300d7370a40901c16933eca2f4f9445}\label{classEngine_1_1Scene_ad300d7370a40901c16933eca2f4f9445}} 
-virtual auto {\bfseries on\+Tick} (float delta\+Time) -\/$>$ void=0
-\item 
+virtual auto \mbox{\hyperlink{classEngine_1_1Scene_af5df17b5f314b94572dd56361888a4eb}{register\+Window}} (sf\+::\+Render\+Window \&window) -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Registers the window. \end{DoxyCompactList}\item 
+virtual auto \mbox{\hyperlink{classEngine_1_1Scene_a87e26d235f7c833e3686c00d999048ad}{on\+Create}} (\mbox{\hyperlink{classEngine_1_1Application}{Application}} \&app) -\/$>$ bool=0
+\begin{DoxyCompactList}\small\item\em On scene creation. Called once the scene is ready to be used. \end{DoxyCompactList}\item 
+virtual auto \mbox{\hyperlink{classEngine_1_1Scene_aeacc03d6b3ebf6898e2630cbb09263d2}{on\+Event}} (const sf\+::\+Event \&event) -\/$>$ void=0
+\begin{DoxyCompactList}\small\item\em Handle scene events. Called after \mbox{\hyperlink{classEngine_1_1Application}{Application}} events. \end{DoxyCompactList}\item 
+virtual auto \mbox{\hyperlink{classEngine_1_1Scene_ad300d7370a40901c16933eca2f4f9445}{on\+Tick}} (float delta\+Time) -\/$>$ void=0
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classEngine_1_1Scene}{Scene}} logic. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classEngine_1_1Scene_acf44f72fe921b02c4ca38b8210657c37}\label{classEngine_1_1Scene_acf44f72fe921b02c4ca38b8210657c37}} 
-virtual auto {\bfseries on\+Draw} () -\/$>$ void=0
-\end{DoxyCompactItemize}
+virtual auto \mbox{\hyperlink{classEngine_1_1Scene_acf44f72fe921b02c4ca38b8210657c37}{on\+Draw}} () -\/$>$ void=0
+\begin{DoxyCompactList}\small\item\em Draws the scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classEngine_1_1Scene_aedb8e90dde0b2a847b3f205193611230}\label{classEngine_1_1Scene_aedb8e90dde0b2a847b3f205193611230}} 
 sf\+::\+Render\+Window $\ast$ {\bfseries m\+\_\+window} \{nullptr\}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classEngine_1_1Scene}{Scene}} abstract class represent a scene in your application. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEngine_1_1Scene_a87e26d235f7c833e3686c00d999048ad}\label{classEngine_1_1Scene_a87e26d235f7c833e3686c00d999048ad}} 
+\index{Engine::Scene@{Engine::Scene}!onCreate@{onCreate}}
+\index{onCreate@{onCreate}!Engine::Scene@{Engine::Scene}}
+\doxysubsubsection{\texorpdfstring{onCreate()}{onCreate()}}
+{\footnotesize\ttfamily virtual auto Engine\+::\+Scene\+::on\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEngine_1_1Application}{Application}} \&}]{app }\end{DoxyParamCaption}) -\/$>$  bool\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+On scene creation. Called once the scene is ready to be used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSceneCanvas_a5722c90943ef4e8ad71329c0a3855470}{Scene\+Canvas}}.
+
+\mbox{\Hypertarget{classEngine_1_1Scene_aeacc03d6b3ebf6898e2630cbb09263d2}\label{classEngine_1_1Scene_aeacc03d6b3ebf6898e2630cbb09263d2}} 
+\index{Engine::Scene@{Engine::Scene}!onEvent@{onEvent}}
+\index{onEvent@{onEvent}!Engine::Scene@{Engine::Scene}}
+\doxysubsubsection{\texorpdfstring{onEvent()}{onEvent()}}
+{\footnotesize\ttfamily virtual auto Engine\+::\+Scene\+::on\+Event (\begin{DoxyParamCaption}\item[{const sf\+::\+Event \&}]{event }\end{DoxyParamCaption}) -\/$>$  void\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Handle scene events. Called after \mbox{\hyperlink{classEngine_1_1Application}{Application}} events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Event to be processed. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classSceneCanvas_a29c77aa1b833028dacf5e94f35a0df0d}{Scene\+Canvas}}.
+
+\mbox{\Hypertarget{classEngine_1_1Scene_ad300d7370a40901c16933eca2f4f9445}\label{classEngine_1_1Scene_ad300d7370a40901c16933eca2f4f9445}} 
+\index{Engine::Scene@{Engine::Scene}!onTick@{onTick}}
+\index{onTick@{onTick}!Engine::Scene@{Engine::Scene}}
+\doxysubsubsection{\texorpdfstring{onTick()}{onTick()}}
+{\footnotesize\ttfamily virtual auto Engine\+::\+Scene\+::on\+Tick (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption}) -\/$>$  void\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{\hyperlink{classEngine_1_1Scene}{Scene}} logic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Frame time. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classSceneCanvas_a70bf38e48d70076b4c6bafabde7ff8e3}{Scene\+Canvas}}.
+
+\mbox{\Hypertarget{classEngine_1_1Scene_af5df17b5f314b94572dd56361888a4eb}\label{classEngine_1_1Scene_af5df17b5f314b94572dd56361888a4eb}} 
+\index{Engine::Scene@{Engine::Scene}!registerWindow@{registerWindow}}
+\index{registerWindow@{registerWindow}!Engine::Scene@{Engine::Scene}}
+\doxysubsubsection{\texorpdfstring{registerWindow()}{registerWindow()}}
+{\footnotesize\ttfamily auto Engine\+::\+Scene\+::register\+Window (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption}) -\/$>$ void\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Registers the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \mbox{\hyperlink{classEngine_1_1Application}{Application}} window. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classSceneCanvas_aacf8061d21903bde2b1d875be2285a59}{Scene\+Canvas}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

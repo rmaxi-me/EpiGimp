@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">EpiGimp
-   &#160;<span id="projectnumber">1.1.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
    <div id="projectbrief">An Image Processing Software</div>
   </td>
@@ -87,24 +87,29 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>Engine {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structEngine_1_1Settings.html">   16</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structEngine_1_1Settings.html">Settings</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> CONFIG_PATH = <span class="stringliteral">&quot;Resources/config.json&quot;</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// Default values that can be overwritten in the config file</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    std::uint32_t width{1200};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::uint32_t height{675};</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::uint32_t fps_limit{0};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">bool</span> fullscreen{<span class="keyword">false</span>};</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structEngine_1_1Settings.html">   19</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structEngine_1_1Settings.html">Settings</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structEngine_1_1Settings.html#a23a6c95d740c48d5cafbb053cb96a424">   23</a></span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> <a class="code" href="structEngine_1_1Settings.html#a23a6c95d740c48d5cafbb053cb96a424">CONFIG_PATH</a> = <span class="stringliteral">&quot;Resources/config.json&quot;</span>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> fromFile(<span class="keyword">const</span> std::string_view &amp;path = CONFIG_PATH) -&gt; <a class="code" href="structEngine_1_1Settings.html">Settings</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">auto</span> save(<span class="keyword">const</span> std::string_view &amp;path = CONFIG_PATH) <span class="keyword">const</span> -&gt; void;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> to_json(Json &amp;json, <span class="keyword">const</span> <a class="code" href="structEngine_1_1Settings.html">Settings</a> &amp;settings);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> from_json(<span class="keyword">const</span> Json &amp;json, <a class="code" href="structEngine_1_1Settings.html">Settings</a> &amp;settings);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;} <span class="comment">// namespace Engine</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// Default values that can be overwritten in the config file</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::uint32_t width{1600};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::uint32_t height{900};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::uint32_t fps_limit{0};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">bool</span> fullscreen{<span class="keyword">false</span>};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code" href="structEngine_1_1Settings.html#a4f392de4911c1b5fef5d32080d5cfe86">fromFile</a>(<span class="keyword">const</span> std::string_view &amp;path = <a class="code" href="structEngine_1_1Settings.html#a23a6c95d740c48d5cafbb053cb96a424">CONFIG_PATH</a>) -&gt; Settings;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">auto</span> <a class="code" href="structEngine_1_1Settings.html#a461235a035a3c858c0cda8104e9a8c5a">save</a>(<span class="keyword">const</span> std::string_view &amp;path = <a class="code" href="structEngine_1_1Settings.html#a23a6c95d740c48d5cafbb053cb96a424">CONFIG_PATH</a>) <span class="keyword">const</span> -&gt; void;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> to_json(Json &amp;json, <span class="keyword">const</span> Settings &amp;settings);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span> from_json(<span class="keyword">const</span> Json &amp;json, Settings &amp;settings);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;} <span class="comment">// namespace Engine</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructEngine_1_1Settings_html"><div class="ttname"><a href="structEngine_1_1Settings.html">Engine::Settings</a></div><div class="ttdef"><b>Definition:</b> Settings.hpp:16</div></div>
+<div class="ttc" id="astructEngine_1_1Settings_html_a4f392de4911c1b5fef5d32080d5cfe86"><div class="ttname"><a href="structEngine_1_1Settings.html#a4f392de4911c1b5fef5d32080d5cfe86">Engine::Settings::fromFile</a></div><div class="ttdeci">static auto fromFile(const std::string_view &amp;path=CONFIG_PATH) -&gt; Settings</div><div class="ttdoc">Loads settings from a JSON file.</div><div class="ttdef"><b>Definition:</b> Settings.cpp:31</div></div>
+<div class="ttc" id="astructEngine_1_1Settings_html_a461235a035a3c858c0cda8104e9a8c5a"><div class="ttname"><a href="structEngine_1_1Settings.html#a461235a035a3c858c0cda8104e9a8c5a">Engine::Settings::save</a></div><div class="ttdeci">auto save(const std::string_view &amp;path=CONFIG_PATH) const -&gt; void</div><div class="ttdoc">Saves current application settings.</div><div class="ttdef"><b>Definition:</b> Settings.cpp:44</div></div>
+<div class="ttc" id="astructEngine_1_1Settings_html_a23a6c95d740c48d5cafbb053cb96a424"><div class="ttname"><a href="structEngine_1_1Settings.html#a23a6c95d740c48d5cafbb053cb96a424">Engine::Settings::CONFIG_PATH</a></div><div class="ttdeci">static constexpr auto CONFIG_PATH</div><div class="ttdoc">Where the config file is located.</div><div class="ttdef"><b>Definition:</b> Settings.hpp:23</div></div>
+<div class="ttc" id="astructEngine_1_1Settings_html"><div class="ttname"><a href="structEngine_1_1Settings.html">Engine::Settings</a></div><div class="ttdoc">The Settings class represents the application's settings. It is serializable/deserializable in JSON f...</div><div class="ttdef"><b>Definition:</b> Settings.hpp:19</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

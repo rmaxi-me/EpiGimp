@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">EpiGimp
-   &#160;<span id="projectnumber">1.1.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
    <div id="projectbrief">An Image Processing Software</div>
   </td>
@@ -88,33 +88,47 @@ $(function() {
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    ImVec2 m_size{};</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#a4dc5b34ab2cc9ce5aa4198cbdaa0d110">   39</a></span>&#160;    <a class="code" href="classEngine_1_1AWidget.html#a4dc5b34ab2cc9ce5aa4198cbdaa0d110">AWidget</a>(<span class="keyword">const</span> std::string_view &amp;name, ImVec2 size = {}) : m_name(name), m_size(size) { }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#a1ae0d89c8d3a7ac03c62dead82d41422">   45</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classEngine_1_1AWidget.html#a1ae0d89c8d3a7ac03c62dead82d41422">~AWidget</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#ade002cfed3b8c188e6b140f1c495e1ea">   52</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1AWidget.html#ade002cfed3b8c188e6b140f1c495e1ea">setSize</a>(<span class="keyword">const</span> ImVec2 &amp;size) noexcept -&gt; <span class="keywordtype">void</span> { m_size = size; }</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#a17fe85f3797da258a608ca2e8f3233ab">   58</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1AWidget.html#a17fe85f3797da258a608ca2e8f3233ab">setName</a>(<span class="keyword">const</span> std::string_view &amp;name) noexcept -&gt; <span class="keywordtype">void</span> { m_name = name; }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#a7e16bccb85c65cef6d0c64423c60a5a3">   65</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1AWidget.html#a7e16bccb85c65cef6d0c64423c60a5a3">getSize</a>() -&gt; <span class="keyword">const</span> ImVec2 &amp; { <span class="keywordflow">return</span> m_size; }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#aa88abadafa85d0555e9c649c7d12d7c3">   72</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1AWidget.html#aa88abadafa85d0555e9c649c7d12d7c3">getName</a>() -&gt; <span class="keyword">const</span> std::string_view &amp; { <span class="keywordflow">return</span> m_name; }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#ac946cd2f636cf6a1ee8255b38cf697e6">   78</a></span>&#160;    <span class="keyword">virtual</span> <span class="keyword">auto</span> <a class="code" href="classEngine_1_1AWidget.html#ac946cd2f636cf6a1ee8255b38cf697e6">render</a>() -&gt; <span class="keywordtype">void</span> = 0;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#a1312691d3ea6b0d7ae7af9ba65cc7df2">   85</a></span>&#160;    <span class="keyword">virtual</span> <span class="keyword">auto</span> <a class="code" href="classEngine_1_1AWidget.html#a1312691d3ea6b0d7ae7af9ba65cc7df2">bindAction</a>(std::function&lt;<span class="keywordtype">void</span>()&gt;) -&gt; <span class="keywordtype">void</span> = 0;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#a4dc5b34ab2cc9ce5aa4198cbdaa0d110">   39</a></span>&#160;    <a class="code" href="classEngine_1_1AWidget.html#a4dc5b34ab2cc9ce5aa4198cbdaa0d110">AWidget</a>(<span class="keyword">const</span> std::string_view &amp;name, ImVec2 size = {}) : m_name(name), m_size(size)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#a1ae0d89c8d3a7ac03c62dead82d41422">   47</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classEngine_1_1AWidget.html#a1ae0d89c8d3a7ac03c62dead82d41422">~AWidget</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#ade002cfed3b8c188e6b140f1c495e1ea">   54</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1AWidget.html#ade002cfed3b8c188e6b140f1c495e1ea">setSize</a>(<span class="keyword">const</span> ImVec2 &amp;size) noexcept -&gt; <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        m_size = size;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#a17fe85f3797da258a608ca2e8f3233ab">   63</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1AWidget.html#a17fe85f3797da258a608ca2e8f3233ab">setName</a>(<span class="keyword">const</span> std::string_view &amp;name) noexcept -&gt; <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        m_name = name;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#a7e16bccb85c65cef6d0c64423c60a5a3">   73</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1AWidget.html#a7e16bccb85c65cef6d0c64423c60a5a3">getSize</a>() -&gt; <span class="keyword">const</span> ImVec2 &amp;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> m_size;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#aa88abadafa85d0555e9c649c7d12d7c3">   83</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1AWidget.html#aa88abadafa85d0555e9c649c7d12d7c3">getName</a>() -&gt; <span class="keyword">const</span> std::string_view &amp;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">return</span> m_name;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;} <span class="comment">// namespace Engine</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#ac946cd2f636cf6a1ee8255b38cf697e6">   92</a></span>&#160;    <span class="keyword">virtual</span> <span class="keyword">auto</span> <a class="code" href="classEngine_1_1AWidget.html#ac946cd2f636cf6a1ee8255b38cf697e6">render</a>() -&gt; <span class="keywordtype">void</span> = 0;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classEngine_1_1AWidget.html#a1312691d3ea6b0d7ae7af9ba65cc7df2">   99</a></span>&#160;    <span class="keyword">virtual</span> <span class="keyword">auto</span> <a class="code" href="classEngine_1_1AWidget.html#a1312691d3ea6b0d7ae7af9ba65cc7df2">bindAction</a>(std::function&lt;<span class="keywordtype">void</span>()&gt;) -&gt; <span class="keywordtype">void</span> = 0;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;} <span class="comment">// namespace Engine</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassEngine_1_1AWidget_html_a1312691d3ea6b0d7ae7af9ba65cc7df2"><div class="ttname"><a href="classEngine_1_1AWidget.html#a1312691d3ea6b0d7ae7af9ba65cc7df2">Engine::AWidget::bindAction</a></div><div class="ttdeci">virtual auto bindAction(std::function&lt; void()&gt;) -&gt; void=0</div><div class="ttdoc">bind an action to the widget</div></div>
 <div class="ttc" id="aclassEngine_1_1AWidget_html_ac946cd2f636cf6a1ee8255b38cf697e6"><div class="ttname"><a href="classEngine_1_1AWidget.html#ac946cd2f636cf6a1ee8255b38cf697e6">Engine::AWidget::render</a></div><div class="ttdeci">virtual auto render() -&gt; void=0</div><div class="ttdoc">render the widget</div></div>
-<div class="ttc" id="aclassEngine_1_1AWidget_html_a7e16bccb85c65cef6d0c64423c60a5a3"><div class="ttname"><a href="classEngine_1_1AWidget.html#a7e16bccb85c65cef6d0c64423c60a5a3">Engine::AWidget::getSize</a></div><div class="ttdeci">auto getSize() -&gt; const ImVec2 &amp;</div><div class="ttdoc">Get the size of the object.</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:65</div></div>
+<div class="ttc" id="aclassEngine_1_1AWidget_html_a7e16bccb85c65cef6d0c64423c60a5a3"><div class="ttname"><a href="classEngine_1_1AWidget.html#a7e16bccb85c65cef6d0c64423c60a5a3">Engine::AWidget::getSize</a></div><div class="ttdeci">auto getSize() -&gt; const ImVec2 &amp;</div><div class="ttdoc">Get the size of the object.</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:73</div></div>
 <div class="ttc" id="aclassEngine_1_1AWidget_html_a4dc5b34ab2cc9ce5aa4198cbdaa0d110"><div class="ttname"><a href="classEngine_1_1AWidget.html#a4dc5b34ab2cc9ce5aa4198cbdaa0d110">Engine::AWidget::AWidget</a></div><div class="ttdeci">AWidget(const std::string_view &amp;name, ImVec2 size={})</div><div class="ttdoc">Construct a new AWidget object.</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:39</div></div>
 <div class="ttc" id="aclassEngine_1_1AWidget_html_a1ae0d89c8d3a7ac03c62dead82d41422"><div class="ttname"><a href="classEngine_1_1AWidget.html#a1ae0d89c8d3a7ac03c62dead82d41422">Engine::AWidget::~AWidget</a></div><div class="ttdeci">virtual ~AWidget()=default</div><div class="ttdoc">Destroy the AWidget object.</div></div>
-<div class="ttc" id="aclassEngine_1_1AWidget_html_aa88abadafa85d0555e9c649c7d12d7c3"><div class="ttname"><a href="classEngine_1_1AWidget.html#aa88abadafa85d0555e9c649c7d12d7c3">Engine::AWidget::getName</a></div><div class="ttdeci">auto getName() -&gt; const std::string_view &amp;</div><div class="ttdoc">Get the name of the object.</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:72</div></div>
-<div class="ttc" id="aclassEngine_1_1AWidget_html_ade002cfed3b8c188e6b140f1c495e1ea"><div class="ttname"><a href="classEngine_1_1AWidget.html#ade002cfed3b8c188e6b140f1c495e1ea">Engine::AWidget::setSize</a></div><div class="ttdeci">auto setSize(const ImVec2 &amp;size) noexcept -&gt; void</div><div class="ttdoc">Set the size of the object.</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:52</div></div>
+<div class="ttc" id="aclassEngine_1_1AWidget_html_aa88abadafa85d0555e9c649c7d12d7c3"><div class="ttname"><a href="classEngine_1_1AWidget.html#aa88abadafa85d0555e9c649c7d12d7c3">Engine::AWidget::getName</a></div><div class="ttdeci">auto getName() -&gt; const std::string_view &amp;</div><div class="ttdoc">Get the name of the object.</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:83</div></div>
+<div class="ttc" id="aclassEngine_1_1AWidget_html_ade002cfed3b8c188e6b140f1c495e1ea"><div class="ttname"><a href="classEngine_1_1AWidget.html#ade002cfed3b8c188e6b140f1c495e1ea">Engine::AWidget::setSize</a></div><div class="ttdeci">auto setSize(const ImVec2 &amp;size) noexcept -&gt; void</div><div class="ttdoc">Set the size of the object.</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:54</div></div>
 <div class="ttc" id="aclassEngine_1_1AWidget_html"><div class="ttname"><a href="classEngine_1_1AWidget.html">Engine::AWidget</a></div><div class="ttdoc">abstract widget base class</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:27</div></div>
-<div class="ttc" id="aclassEngine_1_1AWidget_html_a17fe85f3797da258a608ca2e8f3233ab"><div class="ttname"><a href="classEngine_1_1AWidget.html#a17fe85f3797da258a608ca2e8f3233ab">Engine::AWidget::setName</a></div><div class="ttdeci">auto setName(const std::string_view &amp;name) noexcept -&gt; void</div><div class="ttdoc">Set the name of the object.</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:58</div></div>
+<div class="ttc" id="aclassEngine_1_1AWidget_html_a17fe85f3797da258a608ca2e8f3233ab"><div class="ttname"><a href="classEngine_1_1AWidget.html#a17fe85f3797da258a608ca2e8f3233ab">Engine::AWidget::setName</a></div><div class="ttdeci">auto setName(const std::string_view &amp;name) noexcept -&gt; void</div><div class="ttdoc">Set the name of the object.</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:63</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,5 +1,14 @@
 \hypertarget{classEngine_1_1Application}{}\doxysection{Engine\+::Application Class Reference}
 \label{classEngine_1_1Application}\index{Engine::Application@{Engine::Application}}
+
+
+The \mbox{\hyperlink{classEngine_1_1Application}{Application}} abstract class is the core of a C++ application with this engine.  
+
+
+
+
+{\ttfamily \#include $<$Application.\+hpp$>$}
+
 Inheritance diagram for Engine\+::Application\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,36 +18,34 @@ Inheritance diagram for Engine\+::Application\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classEngine_1_1Application_a3a809c0ade5ba068c3903efb7bc6ef59}\label{classEngine_1_1Application_a3a809c0ade5ba068c3903efb7bc6ef59}} 
-{\bfseries Application} (int ac, char $\ast$$\ast$av)
-\item 
-\mbox{\Hypertarget{classEngine_1_1Application_a9b39ff638087f1dbd02a1dace63b2bd0}\label{classEngine_1_1Application_a9b39ff638087f1dbd02a1dace63b2bd0}} 
-auto {\bfseries start} (const std\+::string\+\_\+view \&title) -\/$>$ void
-\item 
+\mbox{\hyperlink{classEngine_1_1Application_a3a809c0ade5ba068c3903efb7bc6ef59}{Application}} (int ac, char $\ast$$\ast$av)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classEngine_1_1Application}{Application}} constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEngine_1_1Application_aa8a9745dbd56969a77cab6c81a16cdda}\label{classEngine_1_1Application_aa8a9745dbd56969a77cab6c81a16cdda}} 
+virtual \mbox{\hyperlink{classEngine_1_1Application_aa8a9745dbd56969a77cab6c81a16cdda}{$\sim$\+Application}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classEngine_1_1Application_a9b39ff638087f1dbd02a1dace63b2bd0}{start}} (const std\+::string\+\_\+view \&title) -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Starts the application. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classEngine_1_1Application_a8d00249c9fcb071a0d3c9eb71e6261f5}\label{classEngine_1_1Application_a8d00249c9fcb071a0d3c9eb71e6261f5}} 
-virtual auto {\bfseries init} () -\/$>$ void=0
-\item 
+virtual auto \mbox{\hyperlink{classEngine_1_1Application_a8d00249c9fcb071a0d3c9eb71e6261f5}{init}} () -\/$>$ void=0
+\begin{DoxyCompactList}\small\item\em Called after the window has been initialized and before the application loop. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classEngine_1_1Application_a98f594795aa2493f79031dad193f00a5}\label{classEngine_1_1Application_a98f594795aa2493f79031dad193f00a5}} 
-virtual auto {\bfseries deinit} () -\/$>$ void=0
-\item 
-\mbox{\Hypertarget{classEngine_1_1Application_a49f36b0309198eeee3f7bda09bb47dbb}\label{classEngine_1_1Application_a49f36b0309198eeee3f7bda09bb47dbb}} 
-virtual auto {\bfseries tick} (float delta\+Time) -\/$>$ void=0
-\item 
+virtual auto \mbox{\hyperlink{classEngine_1_1Application_a98f594795aa2493f79031dad193f00a5}{deinit}} () -\/$>$ void=0
+\begin{DoxyCompactList}\small\item\em Called on application closure. \end{DoxyCompactList}\item 
+virtual auto \mbox{\hyperlink{classEngine_1_1Application_a49f36b0309198eeee3f7bda09bb47dbb}{tick}} (float delta\+Time) -\/$>$ void=0
+\begin{DoxyCompactList}\small\item\em Called after events and before \mbox{\hyperlink{classEngine_1_1Application_a3f88b4643f5073297666a31ead82750f}{draw()}} \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classEngine_1_1Application_a3f88b4643f5073297666a31ead82750f}\label{classEngine_1_1Application_a3f88b4643f5073297666a31ead82750f}} 
-virtual auto {\bfseries draw} () -\/$>$ void=0
-\end{DoxyCompactItemize}
+virtual auto \mbox{\hyperlink{classEngine_1_1Application_a3f88b4643f5073297666a31ead82750f}{draw}} () -\/$>$ void=0
+\begin{DoxyCompactList}\small\item\em Called after logic and events. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classEngine_1_1Application_af3c8ef5f8ce0c6d7f6795b6f253a2aa5}\label{classEngine_1_1Application_af3c8ef5f8ce0c6d7f6795b6f253a2aa5}} 
-{\footnotesize template$<$typename S , typename... Args$>$ }\\auto {\bfseries create\+Scene} (Args \&\&... args) -\/$>$ bool
-\item 
+{\footnotesize template$<$typename S , typename... Args$>$ }\\auto \mbox{\hyperlink{classEngine_1_1Application_af3c8ef5f8ce0c6d7f6795b6f253a2aa5}{create\+Scene}} (Args \&\&... args) -\/$>$ bool
+\begin{DoxyCompactList}\small\item\em Creates a new scene and register it to the \mbox{\hyperlink{classEngine_1_1Application}{Application}}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classEngine_1_1Application_a27fe7e75a07e3198d8e1e1c14f579297}\label{classEngine_1_1Application_a27fe7e75a07e3198d8e1e1c14f579297}} 
-virtual auto {\bfseries reload\+View} () -\/$>$ void final
-\item 
-\mbox{\Hypertarget{classEngine_1_1Application_ae3ef8c37fae7fde61e5470b03c10dbfd}\label{classEngine_1_1Application_ae3ef8c37fae7fde61e5470b03c10dbfd}} 
-virtual auto {\bfseries process\+Event} (const sf\+::\+Event \&event) -\/$>$ void
-\end{DoxyCompactItemize}
+virtual auto \mbox{\hyperlink{classEngine_1_1Application_a27fe7e75a07e3198d8e1e1c14f579297}{reload\+View}} () -\/$>$ void final
+\begin{DoxyCompactList}\small\item\em Reloads the view, usually after window resize. \end{DoxyCompactList}\item 
+virtual auto \mbox{\hyperlink{classEngine_1_1Application_ae3ef8c37fae7fde61e5470b03c10dbfd}{process\+Event}} (const sf\+::\+Event \&event) -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Process the events. Don\textquotesingle{}t forget to call the parent function if overridden. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,6 +70,114 @@ sf\+::\+Time {\bfseries m\+\_\+delta\+Time} \{\}
 \mbox{\Hypertarget{classEngine_1_1Application_a919c028c5f22533d66a32bf7e733c612}\label{classEngine_1_1Application_a919c028c5f22533d66a32bf7e733c612}} 
 float {\bfseries m\+\_\+delta\+Time\+Seconds} \{0.f\}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classEngine_1_1Application}{Application}} abstract class is the core of a C++ application with this engine. 
+
+Inherit this class and call the \mbox{\hyperlink{classEngine_1_1Application_a9b39ff638087f1dbd02a1dace63b2bd0}{start()}} function in your main. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEngine_1_1Application_a3a809c0ade5ba068c3903efb7bc6ef59}\label{classEngine_1_1Application_a3a809c0ade5ba068c3903efb7bc6ef59}} 
+\index{Engine::Application@{Engine::Application}!Application@{Application}}
+\index{Application@{Application}!Engine::Application@{Engine::Application}}
+\doxysubsubsection{\texorpdfstring{Application()}{Application()}}
+{\footnotesize\ttfamily Engine\+::\+Application\+::\+Application (\begin{DoxyParamCaption}\item[{int}]{ac,  }\item[{char $\ast$$\ast$}]{av }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classEngine_1_1Application}{Application}} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ac} & Program argument count \\
+\hline
+{\em av} & Program arguments \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEngine_1_1Application_af3c8ef5f8ce0c6d7f6795b6f253a2aa5}\label{classEngine_1_1Application_af3c8ef5f8ce0c6d7f6795b6f253a2aa5}} 
+\index{Engine::Application@{Engine::Application}!createScene@{createScene}}
+\index{createScene@{createScene}!Engine::Application@{Engine::Application}}
+\doxysubsubsection{\texorpdfstring{createScene()}{createScene()}}
+{\footnotesize\ttfamily template$<$typename S , typename... Args$>$ \\
+auto Engine\+::\+Application\+::create\+Scene (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption}) -\/$>$ bool
+    \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Creates a new scene and register it to the \mbox{\hyperlink{classEngine_1_1Application}{Application}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S} & Your \mbox{\hyperlink{classEngine_1_1Scene}{Scene}} class, inherited from the \mbox{\hyperlink{classEngine_1_1Scene}{Scene}} class. \\
+\hline
+{\em Args} & Argument types to be forwarded to your \mbox{\hyperlink{classEngine_1_1Scene}{Scene}}. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Arguments to forward to the \mbox{\hyperlink{classEngine_1_1Scene}{Scene}} constructor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1Application_ae3ef8c37fae7fde61e5470b03c10dbfd}\label{classEngine_1_1Application_ae3ef8c37fae7fde61e5470b03c10dbfd}} 
+\index{Engine::Application@{Engine::Application}!processEvent@{processEvent}}
+\index{processEvent@{processEvent}!Engine::Application@{Engine::Application}}
+\doxysubsubsection{\texorpdfstring{processEvent()}{processEvent()}}
+{\footnotesize\ttfamily auto Engine\+::\+Application\+::process\+Event (\begin{DoxyParamCaption}\item[{const sf\+::\+Event \&}]{event }\end{DoxyParamCaption}) -\/$>$ void\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Process the events. Don\textquotesingle{}t forget to call the parent function if overridden. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Event to process \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classEpiGimpApp_a1d9b19a74b01ba4335d18ce20cf4c831}{Epi\+Gimp\+App}}.
+
+\mbox{\Hypertarget{classEngine_1_1Application_a9b39ff638087f1dbd02a1dace63b2bd0}\label{classEngine_1_1Application_a9b39ff638087f1dbd02a1dace63b2bd0}} 
+\index{Engine::Application@{Engine::Application}!start@{start}}
+\index{start@{start}!Engine::Application@{Engine::Application}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily auto Engine\+::\+Application\+::start (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{title }\end{DoxyParamCaption}) -\/$>$ void}
+
+
+
+Starts the application. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & Title of your window \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1Application_a49f36b0309198eeee3f7bda09bb47dbb}\label{classEngine_1_1Application_a49f36b0309198eeee3f7bda09bb47dbb}} 
+\index{Engine::Application@{Engine::Application}!tick@{tick}}
+\index{tick@{tick}!Engine::Application@{Engine::Application}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily virtual auto Engine\+::\+Application\+::tick (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption}) -\/$>$  void\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called after events and before \mbox{\hyperlink{classEngine_1_1Application_a3f88b4643f5073297666a31ead82750f}{draw()}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Frame time \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classEpiGimpApp_ab5e8ca821f88c424361e339b19a68882}{Epi\+Gimp\+App}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

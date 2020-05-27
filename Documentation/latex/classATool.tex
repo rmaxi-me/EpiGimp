@@ -1,0 +1,59 @@
+\hypertarget{classATool}{}\doxysection{A\+Tool Class Reference}
+\label{classATool}\index{ATool@{ATool}}
+Inheritance diagram for A\+Tool\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classATool}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classATool_acca679a569f79d0bae6e8ab19d1d313c}\label{classATool_acca679a569f79d0bae6e8ab19d1d313c}} 
+void {\bfseries handle\+Event} (const sf\+::\+Event \&event)
+\item 
+\mbox{\Hypertarget{classATool_a5e5332b50abb27340d752895dd9c238a}\label{classATool_a5e5332b50abb27340d752895dd9c238a}} 
+void {\bfseries register\+Window} (sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\Hypertarget{classATool_aa2a8c47e806362f4cffb045fbd52a85b}\label{classATool_aa2a8c47e806362f4cffb045fbd52a85b}} 
+void {\bfseries set\+Active\+Layer} (\mbox{\hyperlink{structLayer}{Layer}} $\ast$layer)
+\item 
+\mbox{\Hypertarget{classATool_aafe7cd8ac73651f3ac3c5ee869417a94}\label{classATool_aafe7cd8ac73651f3ac3c5ee869417a94}} 
+virtual void {\bfseries on\+Click\+Pressed} (sf\+::\+Mouse\+::\+Button button, const sf\+::\+Vector2i \&pos)=0
+\item 
+\mbox{\Hypertarget{classATool_a5d33789779b2a133b4e82ede81ce1ca6}\label{classATool_a5d33789779b2a133b4e82ede81ce1ca6}} 
+virtual void {\bfseries on\+Click\+Released} (sf\+::\+Mouse\+::\+Button button, const sf\+::\+Vector2i \&pos)=0
+\item 
+\mbox{\Hypertarget{classATool_a825c5239897600dbb0da36c9c48eb45b}\label{classATool_a825c5239897600dbb0da36c9c48eb45b}} 
+virtual void {\bfseries on\+Mouse\+Moved} (const sf\+::\+Vector2i \&pos)=0
+\item 
+\mbox{\Hypertarget{classATool_ab21036e54278b83261cd228a25f20157}\label{classATool_ab21036e54278b83261cd228a25f20157}} 
+virtual void {\bfseries tool\+G\+UI} ()
+\item 
+\mbox{\Hypertarget{classATool_aa846eac5e583ff9d1edc981f7f9c0aeb}\label{classATool_aa846eac5e583ff9d1edc981f7f9c0aeb}} 
+virtual const char $\ast$ {\bfseries get\+Name} ()=0
+\item 
+\mbox{\Hypertarget{classATool_ab8ecd7350c7f4ea245d919840249dbb2}\label{classATool_ab8ecd7350c7f4ea245d919840249dbb2}} 
+virtual const char $\ast$ {\bfseries get\+Description} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classATool_a83e47660c7e3eb129bb5f7533f60b589}\label{classATool_a83e47660c7e3eb129bb5f7533f60b589}} 
+sf\+::\+Render\+Window $\ast$ {\bfseries m\+\_\+window} \{nullptr\}
+\item 
+\mbox{\Hypertarget{classATool_ade88442bb37636cc07ef553dc8903b01}\label{classATool_ade88442bb37636cc07ef553dc8903b01}} 
+\mbox{\hyperlink{structLayer}{Layer}} $\ast$ {\bfseries m\+\_\+active\+Layer} \{nullptr\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classATool_aa887b15f160e683359460a928dfe1ee4}\label{classATool_aa887b15f160e683359460a928dfe1ee4}} 
+static float {\bfseries m\+\_\+color} \mbox{[}4\mbox{]} = \{0, 0, 0, 1\}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Epi\+Gimp/include/\+Tools/A\+Tool.\+hpp\item 
+src/\+Epi\+Gimp/src/\+Tools/A\+Tool.\+cpp\end{DoxyCompactItemize}

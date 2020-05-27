@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['epigimpapp_12',['EpiGimpApp',['../classEpiGimpApp.html',1,'']]]
+  ['epigimpapp_20',['EpiGimpApp',['../classEpiGimpApp.html',1,'']]],
+  ['eraser_21',['Eraser',['../classEraser.html',1,'']]],
+  ['epigimp_22',['EpiGimp',['../index.html',1,'']]]
 ];

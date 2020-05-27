@@ -12,22 +12,61 @@ Inheritance diagram for Epi\+Gimp\+App\+:\begin{figure}[H]
 \mbox{\Hypertarget{classEpiGimpApp_a2a6c8a5aa49eadb6c18b134317e33df7}\label{classEpiGimpApp_a2a6c8a5aa49eadb6c18b134317e33df7}} 
 {\bfseries Epi\+Gimp\+App} (int ac, char $\ast$$\ast$av)
 \item 
-\mbox{\Hypertarget{classEpiGimpApp_a1d9b19a74b01ba4335d18ce20cf4c831}\label{classEpiGimpApp_a1d9b19a74b01ba4335d18ce20cf4c831}} 
-auto {\bfseries process\+Event} (const sf\+::\+Event \&event) -\/$>$ void override
-\item 
+auto \mbox{\hyperlink{classEpiGimpApp_a1d9b19a74b01ba4335d18ce20cf4c831}{process\+Event}} (const sf\+::\+Event \&event) -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Process the events. Don\textquotesingle{}t forget to call the parent function if overridden. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classEpiGimpApp_a1bb3c2db746cf6301955d95bd3395e74}\label{classEpiGimpApp_a1bb3c2db746cf6301955d95bd3395e74}} 
-auto {\bfseries init} () -\/$>$ void override
-\item 
+auto \mbox{\hyperlink{classEpiGimpApp_a1bb3c2db746cf6301955d95bd3395e74}{init}} () -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Called after the window has been initialized and before the application loop. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classEpiGimpApp_aec2aa03f2790035edb1b5501b32fdcf7}\label{classEpiGimpApp_aec2aa03f2790035edb1b5501b32fdcf7}} 
-auto {\bfseries deinit} () -\/$>$ void override
-\item 
-\mbox{\Hypertarget{classEpiGimpApp_ab5e8ca821f88c424361e339b19a68882}\label{classEpiGimpApp_ab5e8ca821f88c424361e339b19a68882}} 
-auto {\bfseries tick} (float delta\+Time) -\/$>$ void override
-\item 
+auto \mbox{\hyperlink{classEpiGimpApp_aec2aa03f2790035edb1b5501b32fdcf7}{deinit}} () -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Called on application closure. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classEpiGimpApp_ab5e8ca821f88c424361e339b19a68882}{tick}} (float delta\+Time) -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Called after events and before \mbox{\hyperlink{classEpiGimpApp_aad3847963190f632cbb86c635f2bce85}{draw()}} \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classEpiGimpApp_aad3847963190f632cbb86c635f2bce85}\label{classEpiGimpApp_aad3847963190f632cbb86c635f2bce85}} 
-auto {\bfseries draw} () -\/$>$ void override
-\end{DoxyCompactItemize}
+auto \mbox{\hyperlink{classEpiGimpApp_aad3847963190f632cbb86c635f2bce85}{draw}} () -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Called after logic and events. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEpiGimpApp_a1d9b19a74b01ba4335d18ce20cf4c831}\label{classEpiGimpApp_a1d9b19a74b01ba4335d18ce20cf4c831}} 
+\index{EpiGimpApp@{EpiGimpApp}!processEvent@{processEvent}}
+\index{processEvent@{processEvent}!EpiGimpApp@{EpiGimpApp}}
+\doxysubsubsection{\texorpdfstring{processEvent()}{processEvent()}}
+{\footnotesize\ttfamily auto Epi\+Gimp\+App\+::process\+Event (\begin{DoxyParamCaption}\item[{const sf\+::\+Event \&}]{event }\end{DoxyParamCaption}) -\/$>$ void\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Process the events. Don\textquotesingle{}t forget to call the parent function if overridden. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Event to process \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classEngine_1_1Application_ae3ef8c37fae7fde61e5470b03c10dbfd}{Engine\+::\+Application}}.
+
+\mbox{\Hypertarget{classEpiGimpApp_ab5e8ca821f88c424361e339b19a68882}\label{classEpiGimpApp_ab5e8ca821f88c424361e339b19a68882}} 
+\index{EpiGimpApp@{EpiGimpApp}!tick@{tick}}
+\index{tick@{tick}!EpiGimpApp@{EpiGimpApp}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily auto Epi\+Gimp\+App\+::tick (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption}) -\/$>$  void\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called after events and before \mbox{\hyperlink{classEpiGimpApp_aad3847963190f632cbb86c635f2bce85}{draw()}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Frame time \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classEngine_1_1Application_a49f36b0309198eeee3f7bda09bb47dbb}{Engine\+::\+Application}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
