@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">EpiGimp
-   &#160;<span id="projectnumber">1.1.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
    <div id="projectbrief">An Image Processing Software</div>
   </td>
@@ -77,7 +77,7 @@ Inheritance diagram for EpiGimpApp:</div>
  <div class="center">
   <img src="classEpiGimpApp.png" usemap="#EpiGimpApp_map" alt=""/>
   <map id="EpiGimpApp_map" name="EpiGimpApp_map">
-<area href="classEngine_1_1Application.html" alt="Engine::Application" shape="rect" coords="0,0,120,24"/>
+<area href="classEngine_1_1Application.html" title="The Application abstract class is the core of a C++ application with this engine." alt="Engine::Application" shape="rect" coords="0,0,120,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -86,38 +86,46 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2a6c8a5aa49eadb6c18b134317e33df7"><td class="memItemLeft" align="right" valign="top"><a id="a2a6c8a5aa49eadb6c18b134317e33df7"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>EpiGimpApp</b> (int ac, char **av)</td></tr>
 <tr class="separator:a2a6c8a5aa49eadb6c18b134317e33df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d9b19a74b01ba4335d18ce20cf4c831"><td class="memItemLeft" align="right" valign="top"><a id="a1d9b19a74b01ba4335d18ce20cf4c831"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>processEvent</b> (const sf::Event &amp;event) -&gt; void override</td></tr>
+<tr class="memitem:a1d9b19a74b01ba4335d18ce20cf4c831"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEpiGimpApp.html#a1d9b19a74b01ba4335d18ce20cf4c831">processEvent</a> (const sf::Event &amp;event) -&gt; void override</td></tr>
+<tr class="memdesc:a1d9b19a74b01ba4335d18ce20cf4c831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process the events. Don't forget to call the parent function if overridden.  <a href="classEpiGimpApp.html#a1d9b19a74b01ba4335d18ce20cf4c831">More...</a><br /></td></tr>
 <tr class="separator:a1d9b19a74b01ba4335d18ce20cf4c831"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bb3c2db746cf6301955d95bd3395e74"><td class="memItemLeft" align="right" valign="top"><a id="a1bb3c2db746cf6301955d95bd3395e74"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> () -&gt; void override</td></tr>
+auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEpiGimpApp.html#a1bb3c2db746cf6301955d95bd3395e74">init</a> () -&gt; void override</td></tr>
+<tr class="memdesc:a1bb3c2db746cf6301955d95bd3395e74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called after the window has been initialized and before the application loop. <br /></td></tr>
 <tr class="separator:a1bb3c2db746cf6301955d95bd3395e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec2aa03f2790035edb1b5501b32fdcf7"><td class="memItemLeft" align="right" valign="top"><a id="aec2aa03f2790035edb1b5501b32fdcf7"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>deinit</b> () -&gt; void override</td></tr>
+auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEpiGimpApp.html#aec2aa03f2790035edb1b5501b32fdcf7">deinit</a> () -&gt; void override</td></tr>
+<tr class="memdesc:aec2aa03f2790035edb1b5501b32fdcf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on application closure. <br /></td></tr>
 <tr class="separator:aec2aa03f2790035edb1b5501b32fdcf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5e8ca821f88c424361e339b19a68882"><td class="memItemLeft" align="right" valign="top"><a id="ab5e8ca821f88c424361e339b19a68882"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>tick</b> (float deltaTime) -&gt; void override</td></tr>
+<tr class="memitem:ab5e8ca821f88c424361e339b19a68882"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEpiGimpApp.html#ab5e8ca821f88c424361e339b19a68882">tick</a> (float deltaTime) -&gt; void override</td></tr>
+<tr class="memdesc:ab5e8ca821f88c424361e339b19a68882"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called after events and before <a class="el" href="classEpiGimpApp.html#aad3847963190f632cbb86c635f2bce85" title="Called after logic and events.">draw()</a>  <a href="classEpiGimpApp.html#ab5e8ca821f88c424361e339b19a68882">More...</a><br /></td></tr>
 <tr class="separator:ab5e8ca821f88c424361e339b19a68882"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad3847963190f632cbb86c635f2bce85"><td class="memItemLeft" align="right" valign="top"><a id="aad3847963190f632cbb86c635f2bce85"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> () -&gt; void override</td></tr>
+auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEpiGimpApp.html#aad3847963190f632cbb86c635f2bce85">draw</a> () -&gt; void override</td></tr>
+<tr class="memdesc:aad3847963190f632cbb86c635f2bce85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called after logic and events. <br /></td></tr>
 <tr class="separator:aad3847963190f632cbb86c635f2bce85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classEngine_1_1Application"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classEngine_1_1Application')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classEngine_1_1Application.html">Engine::Application</a></td></tr>
-<tr class="memitem:a3a809c0ade5ba068c3903efb7bc6ef59 inherit pub_methods_classEngine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="a3a809c0ade5ba068c3903efb7bc6ef59"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Application</b> (int ac, char **av)</td></tr>
+<tr class="memitem:a3a809c0ade5ba068c3903efb7bc6ef59 inherit pub_methods_classEngine_1_1Application"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#a3a809c0ade5ba068c3903efb7bc6ef59">Application</a> (int ac, char **av)</td></tr>
+<tr class="memdesc:a3a809c0ade5ba068c3903efb7bc6ef59 inherit pub_methods_classEngine_1_1Application"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classEngine_1_1Application.html" title="The Application abstract class is the core of a C++ application with this engine.">Application</a> constructor.  <a href="classEngine_1_1Application.html#a3a809c0ade5ba068c3903efb7bc6ef59">More...</a><br /></td></tr>
 <tr class="separator:a3a809c0ade5ba068c3903efb7bc6ef59 inherit pub_methods_classEngine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b39ff638087f1dbd02a1dace63b2bd0 inherit pub_methods_classEngine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="a9b39ff638087f1dbd02a1dace63b2bd0"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (const std::string_view &amp;title) -&gt; void</td></tr>
+<tr class="memitem:aa8a9745dbd56969a77cab6c81a16cdda inherit pub_methods_classEngine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="aa8a9745dbd56969a77cab6c81a16cdda"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#aa8a9745dbd56969a77cab6c81a16cdda">~Application</a> ()</td></tr>
+<tr class="memdesc:aa8a9745dbd56969a77cab6c81a16cdda inherit pub_methods_classEngine_1_1Application"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
+<tr class="separator:aa8a9745dbd56969a77cab6c81a16cdda inherit pub_methods_classEngine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b39ff638087f1dbd02a1dace63b2bd0 inherit pub_methods_classEngine_1_1Application"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#a9b39ff638087f1dbd02a1dace63b2bd0">start</a> (const std::string_view &amp;title) -&gt; void</td></tr>
+<tr class="memdesc:a9b39ff638087f1dbd02a1dace63b2bd0 inherit pub_methods_classEngine_1_1Application"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the application.  <a href="classEngine_1_1Application.html#a9b39ff638087f1dbd02a1dace63b2bd0">More...</a><br /></td></tr>
 <tr class="separator:a9b39ff638087f1dbd02a1dace63b2bd0 inherit pub_methods_classEngine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classEngine_1_1Application"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classEngine_1_1Application')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classEngine_1_1Application.html">Engine::Application</a></td></tr>
-<tr class="memitem:af3c8ef5f8ce0c6d7f6795b6f253a2aa5 inherit pro_methods_classEngine_1_1Application"><td class="memTemplParams" colspan="2"><a id="af3c8ef5f8ce0c6d7f6795b6f253a2aa5"></a>
-template&lt;typename S , typename... Args&gt; </td></tr>
-<tr class="memitem:af3c8ef5f8ce0c6d7f6795b6f253a2aa5 inherit pro_methods_classEngine_1_1Application"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>createScene</b> (Args &amp;&amp;... args) -&gt; bool</td></tr>
+<tr class="memitem:af3c8ef5f8ce0c6d7f6795b6f253a2aa5 inherit pro_methods_classEngine_1_1Application"><td class="memTemplParams" colspan="2">template&lt;typename S , typename... Args&gt; </td></tr>
+<tr class="memitem:af3c8ef5f8ce0c6d7f6795b6f253a2aa5 inherit pro_methods_classEngine_1_1Application"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#af3c8ef5f8ce0c6d7f6795b6f253a2aa5">createScene</a> (Args &amp;&amp;... args) -&gt; bool</td></tr>
+<tr class="memdesc:af3c8ef5f8ce0c6d7f6795b6f253a2aa5 inherit pro_methods_classEngine_1_1Application"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new scene and register it to the <a class="el" href="classEngine_1_1Application.html" title="The Application abstract class is the core of a C++ application with this engine.">Application</a>.  <a href="classEngine_1_1Application.html#af3c8ef5f8ce0c6d7f6795b6f253a2aa5">More...</a><br /></td></tr>
 <tr class="separator:af3c8ef5f8ce0c6d7f6795b6f253a2aa5 inherit pro_methods_classEngine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27fe7e75a07e3198d8e1e1c14f579297 inherit pro_methods_classEngine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="a27fe7e75a07e3198d8e1e1c14f579297"></a>
-virtual auto&#160;</td><td class="memItemRight" valign="bottom"><b>reloadView</b> () -&gt; void final</td></tr>
+virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine_1_1Application.html#a27fe7e75a07e3198d8e1e1c14f579297">reloadView</a> () -&gt; void final</td></tr>
+<tr class="memdesc:a27fe7e75a07e3198d8e1e1c14f579297 inherit pro_methods_classEngine_1_1Application"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reloads the view, usually after window resize. <br /></td></tr>
 <tr class="separator:a27fe7e75a07e3198d8e1e1c14f579297 inherit pro_methods_classEngine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classEngine_1_1Application"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classEngine_1_1Application')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classEngine_1_1Application.html">Engine::Application</a></td></tr>
 <tr class="memitem:ad8a1525a3d84c2378fdf8bc93bbd258c inherit pro_attribs_classEngine_1_1Application"><td class="memItemLeft" align="right" valign="top"><a id="ad8a1525a3d84c2378fdf8bc93bbd258c"></a>
@@ -142,6 +150,79 @@ sf::Time&#160;</td><td class="memItemRight" valign="bottom"><b>m_deltaTime</b> {
 float&#160;</td><td class="memItemRight" valign="bottom"><b>m_deltaTimeSeconds</b> {0.f}</td></tr>
 <tr class="separator:a919c028c5f22533d66a32bf7e733c612 inherit pro_attribs_classEngine_1_1Application"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1d9b19a74b01ba4335d18ce20cf4c831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d9b19a74b01ba4335d18ce20cf4c831">&#9670;&nbsp;</a></span>processEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto EpiGimpApp::processEvent </td>
+          <td>(</td>
+          <td class="paramtype">const sf::Event &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td> -&gt; void</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Process the events. Don't forget to call the parent function if overridden. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>Event to process </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="classEngine_1_1Application.html#ae3ef8c37fae7fde61e5470b03c10dbfd">Engine::Application</a>.</p>
+
+</div>
+</div>
+<a id="ab5e8ca821f88c424361e339b19a68882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5e8ca821f88c424361e339b19a68882">&#9670;&nbsp;</a></span>tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto EpiGimpApp::tick </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td> -&gt;  void</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called after events and before <a class="el" href="classEpiGimpApp.html#aad3847963190f632cbb86c635f2bce85" title="Called after logic and events.">draw()</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">deltaTime</td><td>Frame time </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classEngine_1_1Application.html#a49f36b0309198eeee3f7bda09bb47dbb">Engine::Application</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/EpiGimp/include/<a class="el" href="EpiGimpApp_8hpp_source.html">EpiGimpApp.hpp</a></li>
 <li>src/EpiGimp/src/EpiGimpApp.cpp</li>

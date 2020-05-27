@@ -39,7 +39,7 @@ public:
     virtual ~Application();
 
     /**
-     * Starts the application.
+     * @brief Starts the application.
      * @param title Title of your window
      */
     auto start(const std::string_view &title) -> void;

@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">EpiGimp
-   &#160;<span id="projectnumber">1.1.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
    <div id="projectbrief">An Image Processing Software</div>
   </td>
@@ -85,16 +85,18 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::function&lt;void()&gt; f;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classEngine_1_1WButton.html#ad1e65f6d69a66976cf100a245cb46806">   25</a></span>&#160;    <a class="code" href="classEngine_1_1WButton.html#ad1e65f6d69a66976cf100a245cb46806">WButton</a>(std::string_view name, ImVec2 size = {}) : <a class="code" href="classEngine_1_1AWidget.html#a4dc5b34ab2cc9ce5aa4198cbdaa0d110">AWidget</a>(name, size) { }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classEngine_1_1WButton.html#a8cfcb12e93036eca5d759886ccb3e18a">   31</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classEngine_1_1WButton.html#a8cfcb12e93036eca5d759886ccb3e18a">~WButton</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1WButton.html#addd670d1ae4ff9eb554cbc7878a77a7b">bindAction</a>(std::function&lt;<span class="keywordtype">void</span>()&gt; func) -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1WButton.html#ad2207e03d778f527e9aa09f361dd46dc">render</a>() -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;} <span class="comment">// namespace Engine</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classEngine_1_1WButton.html#ad1e65f6d69a66976cf100a245cb46806">   25</a></span>&#160;    <a class="code" href="classEngine_1_1WButton.html#ad1e65f6d69a66976cf100a245cb46806">WButton</a>(std::string_view name, ImVec2 size = {}) : <a class="code" href="classEngine_1_1AWidget.html#a4dc5b34ab2cc9ce5aa4198cbdaa0d110">AWidget</a>(name, size)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classEngine_1_1WButton.html#a8cfcb12e93036eca5d759886ccb3e18a">   33</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classEngine_1_1WButton.html#a8cfcb12e93036eca5d759886ccb3e18a">~WButton</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1WButton.html#addd670d1ae4ff9eb554cbc7878a77a7b">bindAction</a>(std::function&lt;<span class="keywordtype">void</span>()&gt; func) -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">auto</span> <a class="code" href="classEngine_1_1WButton.html#ad2207e03d778f527e9aa09f361dd46dc">render</a>() -&gt; <span class="keywordtype">void</span> <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">// namespace Engine</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassEngine_1_1WButton_html_addd670d1ae4ff9eb554cbc7878a77a7b"><div class="ttname"><a href="classEngine_1_1WButton.html#addd670d1ae4ff9eb554cbc7878a77a7b">Engine::WButton::bindAction</a></div><div class="ttdeci">auto bindAction(std::function&lt; void()&gt; func) -&gt; void override</div><div class="ttdoc">Bind an action to the button.</div><div class="ttdef"><b>Definition:</b> WButton.cpp:5</div></div>
 <div class="ttc" id="aAWidget_8hpp_html"><div class="ttname"><a href="AWidget_8hpp.html">AWidget.hpp</a></div></div>
@@ -102,7 +104,7 @@ $(function() {
 <div class="ttc" id="aclassEngine_1_1WButton_html"><div class="ttname"><a href="classEngine_1_1WButton.html">Engine::WButton</a></div><div class="ttdoc">Widget class representing a button.</div><div class="ttdef"><b>Definition:</b> WButton.hpp:14</div></div>
 <div class="ttc" id="aclassEngine_1_1WButton_html_a8cfcb12e93036eca5d759886ccb3e18a"><div class="ttname"><a href="classEngine_1_1WButton.html#a8cfcb12e93036eca5d759886ccb3e18a">Engine::WButton::~WButton</a></div><div class="ttdeci">virtual ~WButton()=default</div><div class="ttdoc">Destroy the WButton object.</div></div>
 <div class="ttc" id="aclassEngine_1_1WButton_html_ad1e65f6d69a66976cf100a245cb46806"><div class="ttname"><a href="classEngine_1_1WButton.html#ad1e65f6d69a66976cf100a245cb46806">Engine::WButton::WButton</a></div><div class="ttdeci">WButton(std::string_view name, ImVec2 size={})</div><div class="ttdoc">Construct a new WButton object.</div><div class="ttdef"><b>Definition:</b> WButton.hpp:25</div></div>
-<div class="ttc" id="aclassEngine_1_1WButton_html_ad2207e03d778f527e9aa09f361dd46dc"><div class="ttname"><a href="classEngine_1_1WButton.html#ad2207e03d778f527e9aa09f361dd46dc">Engine::WButton::render</a></div><div class="ttdeci">auto render() -&gt; void override</div><div class="ttdoc">Render the button and check if it's triggered. If it is, call the bound function.</div><div class="ttdef"><b>Definition:</b> WButton.cpp:7</div></div>
+<div class="ttc" id="aclassEngine_1_1WButton_html_ad2207e03d778f527e9aa09f361dd46dc"><div class="ttname"><a href="classEngine_1_1WButton.html#ad2207e03d778f527e9aa09f361dd46dc">Engine::WButton::render</a></div><div class="ttdeci">auto render() -&gt; void override</div><div class="ttdoc">Render the button and check if it's triggered. If it is, call the bound function.</div><div class="ttdef"><b>Definition:</b> WButton.cpp:10</div></div>
 <div class="ttc" id="aclassEngine_1_1AWidget_html"><div class="ttname"><a href="classEngine_1_1AWidget.html">Engine::AWidget</a></div><div class="ttdoc">abstract widget base class</div><div class="ttdef"><b>Definition:</b> AWidget.hpp:27</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

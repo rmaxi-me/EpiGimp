@@ -15,19 +15,106 @@ Inheritance diagram for Scene\+Canvas\+:\begin{figure}[H]
 \mbox{\Hypertarget{classSceneCanvas_a25ab60fab898afe5794192281773d9fc}\label{classSceneCanvas_a25ab60fab898afe5794192281773d9fc}} 
 {\bfseries Scene\+Canvas} (const std\+::vector$<$ std\+::string\+\_\+view $>$ \&files)
 \item 
-\mbox{\Hypertarget{classSceneCanvas_a5722c90943ef4e8ad71329c0a3855470}\label{classSceneCanvas_a5722c90943ef4e8ad71329c0a3855470}} 
-auto {\bfseries on\+Create} (\mbox{\hyperlink{classEngine_1_1Application}{Engine\+::\+Application}} \&app) -\/$>$ bool override
-\item 
-\mbox{\Hypertarget{classSceneCanvas_a29c77aa1b833028dacf5e94f35a0df0d}\label{classSceneCanvas_a29c77aa1b833028dacf5e94f35a0df0d}} 
-auto {\bfseries on\+Event} (const sf\+::\+Event \&event) -\/$>$ void override
-\item 
-\mbox{\Hypertarget{classSceneCanvas_a70bf38e48d70076b4c6bafabde7ff8e3}\label{classSceneCanvas_a70bf38e48d70076b4c6bafabde7ff8e3}} 
-auto {\bfseries on\+Tick} (float delta\+Time) -\/$>$ void override
-\item 
+auto \mbox{\hyperlink{classSceneCanvas_a5722c90943ef4e8ad71329c0a3855470}{on\+Create}} (\mbox{\hyperlink{classEngine_1_1Application}{Engine\+::\+Application}} \&app) -\/$>$ bool override
+\begin{DoxyCompactList}\small\item\em On scene creation. Called once the scene is ready to be used. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classSceneCanvas_a29c77aa1b833028dacf5e94f35a0df0d}{on\+Event}} (const sf\+::\+Event \&event) -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Handle scene events. Called after Application events. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classSceneCanvas_a70bf38e48d70076b4c6bafabde7ff8e3}{on\+Tick}} (float delta\+Time) -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Scene logic. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classSceneCanvas_a6e6022883be8841bd4a9e491359ae426}\label{classSceneCanvas_a6e6022883be8841bd4a9e491359ae426}} 
-auto {\bfseries on\+Draw} () -\/$>$ void override
-\end{DoxyCompactItemize}
+auto \mbox{\hyperlink{classSceneCanvas_a6e6022883be8841bd4a9e491359ae426}{on\+Draw}} () -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Draws the scene. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classSceneCanvas_aacf8061d21903bde2b1d875be2285a59}{register\+Window}} (sf\+::\+Render\+Window \&window) -\/$>$ void override
+\begin{DoxyCompactList}\small\item\em Registers the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSceneCanvas_a5722c90943ef4e8ad71329c0a3855470}\label{classSceneCanvas_a5722c90943ef4e8ad71329c0a3855470}} 
+\index{SceneCanvas@{SceneCanvas}!onCreate@{onCreate}}
+\index{onCreate@{onCreate}!SceneCanvas@{SceneCanvas}}
+\doxysubsubsection{\texorpdfstring{onCreate()}{onCreate()}}
+{\footnotesize\ttfamily bool Scene\+Canvas\+::on\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEngine_1_1Application}{Engine\+::\+Application}} \&}]{app }\end{DoxyParamCaption}) -\/$>$  bool\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+On scene creation. Called once the scene is ready to be used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classEngine_1_1Scene_a87e26d235f7c833e3686c00d999048ad}{Engine\+::\+Scene}}.
+
+\mbox{\Hypertarget{classSceneCanvas_a29c77aa1b833028dacf5e94f35a0df0d}\label{classSceneCanvas_a29c77aa1b833028dacf5e94f35a0df0d}} 
+\index{SceneCanvas@{SceneCanvas}!onEvent@{onEvent}}
+\index{onEvent@{onEvent}!SceneCanvas@{SceneCanvas}}
+\doxysubsubsection{\texorpdfstring{onEvent()}{onEvent()}}
+{\footnotesize\ttfamily void Scene\+Canvas\+::on\+Event (\begin{DoxyParamCaption}\item[{const sf\+::\+Event \&}]{event }\end{DoxyParamCaption}) -\/$>$  void\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handle scene events. Called after Application events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Event to be processed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classEngine_1_1Scene_aeacc03d6b3ebf6898e2630cbb09263d2}{Engine\+::\+Scene}}.
+
+\mbox{\Hypertarget{classSceneCanvas_a70bf38e48d70076b4c6bafabde7ff8e3}\label{classSceneCanvas_a70bf38e48d70076b4c6bafabde7ff8e3}} 
+\index{SceneCanvas@{SceneCanvas}!onTick@{onTick}}
+\index{onTick@{onTick}!SceneCanvas@{SceneCanvas}}
+\doxysubsubsection{\texorpdfstring{onTick()}{onTick()}}
+{\footnotesize\ttfamily void Scene\+Canvas\+::on\+Tick (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption}) -\/$>$  void\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Scene logic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Frame time. \\
+\hline
+\end{DoxyParams}
+open layers from a backup file
+
+open as layers from image
+
+save layers in a backup file
+
+export layers as an Image
+
+Implements \mbox{\hyperlink{classEngine_1_1Scene_ad300d7370a40901c16933eca2f4f9445}{Engine\+::\+Scene}}.
+
+\mbox{\Hypertarget{classSceneCanvas_aacf8061d21903bde2b1d875be2285a59}\label{classSceneCanvas_aacf8061d21903bde2b1d875be2285a59}} 
+\index{SceneCanvas@{SceneCanvas}!registerWindow@{registerWindow}}
+\index{registerWindow@{registerWindow}!SceneCanvas@{SceneCanvas}}
+\doxysubsubsection{\texorpdfstring{registerWindow()}{registerWindow()}}
+{\footnotesize\ttfamily void Scene\+Canvas\+::register\+Window (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption}) -\/$>$ void\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Registers the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Application window. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classEngine_1_1Scene_af5df17b5f314b94572dd56361888a4eb}{Engine\+::\+Scene}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

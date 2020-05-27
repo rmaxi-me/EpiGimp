@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['open_86',['open',['../classEngine_1_1UiWindow.html#a90219bd29ad351515e29ae660ab2e82d',1,'Engine::UiWindow']]]
+  ['init_124',['init',['../classEngine_1_1Application.html#a8d00249c9fcb071a0d3c9eb71e6261f5',1,'Engine::Application::init()'],['../classEpiGimpApp.html#a1bb3c2db746cf6301955d95bd3395e74',1,'EpiGimpApp::init()']]]
 ];
